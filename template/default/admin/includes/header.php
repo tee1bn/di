@@ -339,17 +339,7 @@
             <!-- Container fluid  -->
             <!-- ============================================================== -->
             <div class="container-fluid">
-              <!--   <div class="alert alert-info">
-                    <?php 
-                        $latest_broadcast = BroadCast::latest_broadcast();?>
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
-                    <h3 class="text-info"><i class="fa fa-exclamation-circle"></i> Information
-                        <small class="badge badge-success pull-right">
-                            <?=$latest_broadcast->created_at->toFormattedDateString();?>
-                        </small>
-                    </h3> 
-                    <?=$latest_broadcast->broadcast_message;?>
-                </div> -->
+              
 
                  <style>
                    

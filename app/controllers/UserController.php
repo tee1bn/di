@@ -23,6 +23,8 @@ class UserController extends controller
 	}
 
 
+
+
 	public function create_gh_request()
 	{
 
@@ -34,6 +36,7 @@ class UserController extends controller
 	public function create_ph_request()
 	{
 			Input::exists();
+
  			$ph_request =	PH::create_ph( $this->auth()->id,  Input::get('amount')); 
  			Redirect::back();
 	}

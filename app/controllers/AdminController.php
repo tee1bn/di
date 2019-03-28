@@ -485,9 +485,32 @@ class AdminController extends controller
 		}
 
 
-	Redirect::to("admin/users/$user_id");
+		Redirect::back();
+	}
 
 
+
+
+
+	public function toogle_pioneership($user_id){
+
+		$user = User::find($user_id);
+
+		if ($user->isnot_demo_user()) {
+
+		$update = User::find($user_id)->update(['account_plan' => 'pioneer' ]);
+		Session::putFlash('success', "{$user->username} is now a pioneer");
+
+
+		}else{
+
+		$update = $user->update(['account_plan' => null]);
+
+		Session::putFlash('success', "{$user->username} is no longer a pioneer");
+
+		}
+
+		Redirect::back();
 	}
 
 

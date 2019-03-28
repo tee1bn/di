@@ -45,6 +45,7 @@ class GH extends Eloquent
 	public function valid_unfufilled_ghs()
 	{
 
+
 		$blocked_users_ids = User::BlockedUsers()->pluck('id')->toArray();
 		$pioneers_ids  =  User::Pioneers()->where('blocked_on',null)->pluck('id')->toArray();
 		
@@ -78,7 +79,9 @@ class GH extends Eloquent
 	public static function find_ghs_for_downpayment()
 	{
 
-		$ghs =  $this->valid_unfufilled_ghs();
+
+		$ghs =  self::valid_unfufilled_ghs();
+
 
 		$settings = SiteSettings::site_settings();
 

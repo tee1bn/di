@@ -70,16 +70,30 @@ $page_title = "Users";
                           <td><span class="badge badge-secondary"><?=$date;?></span></td>
                           <td><?=$user->activeStatus;?> <?=$user->demo_status();?></td>
                           <td>
-                      <a target="_blank" href="<?=$user->AdminViewUrl;?>">
-                        <span type='span' class='label label-xs label-primary'>View</span>
-                      </a>
-                      <?php if ($user->account_plan != 'demo') :?>
-                      <a href="javascript:void;"  onclick="$confirm_dialog = 
-                new ConfirmationDialog('<?=domain;?>/admin/suspending_user/<?=$user->id;?>')">
-                        <span type='span' class='label label-xs label-primary'>Toggle Ban</span>
-                      </a>
-                    <?php endif;?>
 
+                      <div class="dropdown">
+                        <button type="button" class="btn btn-secondary btn-xs dropdown-toggle" data-toggle="dropdown">
+                          
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" target="_blank" href="<?=$user->AdminViewUrl;?>">
+                              <span type='span' class='label label-xs label-primary'>View</span>
+                            </a>
+
+                              <a  class="dropdown-item"  href="javascript:void;"  onclick="$confirm_dialog = 
+                                new ConfirmationDialog('<?=domain;?>/admin/suspending_user/<?=$user->id;?>')">
+                                        <span type='span' class='label label-xs label-primary'>Toggle Ban</span>
+                                      </a>
+
+
+
+                      <a  class="dropdown-item" href="javascript:void;"  onclick="$confirm_dialog = 
+                new ConfirmationDialog('<?=domain;?>/admin/toogle_pioneership/<?=$user->id;?>')">
+                        <span type='span' class='label label-xs label-primary'>Toggle Pioneer</span>
+                      </a>
+
+                        </div>
+                      </div>
 
                           </td>
                           </tr>
