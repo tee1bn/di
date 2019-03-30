@@ -227,11 +227,22 @@ return $value ;
 
 
 
-	public function index()
+	public function index($page = null)
 	{
 		
-		// $this->view('auth/dashboard');
-		Redirect::to('login');
+
+		switch ($page) {
+			case 'value':
+				# code...
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+
+		$this->view('guest/index');
 	}
 
 
