@@ -1,0 +1,309 @@
+/* ==== Iphone Ratina ==== */
+
+@media only screen and (min-width:320px) {
+    .main-menu {
+        display: none;
+    }
+    header,
+    header div,
+    body,
+    html {
+        height: auto;
+    }
+    .hero-text {
+        padding: 200px 0;
+    }
+    .hero-text h1 {
+        font-size: 33px;
+    }
+    .hero-text p {
+        width: 100%;
+    }
+    .hero-btn .theme-btn {
+        margin-right: 0;
+    }
+    .theme-btn {
+        padding: 10px 30px;
+    }
+    .section-title h2 {
+        font-size: 40px;
+    }
+    .section-title p {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    .about-image {
+        display: none;
+    }
+    .single-review {
+        margin-bottom: 100px;
+    }
+    #review-area .col-lg-3:nth-child(1n+4) .single-review {
+        margin-bottom: 0;
+    }
+    .client-thum,
+    .client-say-content {
+        display: block;
+        text-align: center;
+    }
+    .client-thum img {
+        margin: 0 auto 50px;
+    }
+    .single-blog-item,
+    .single-pricing-item,
+    .contact-info {
+        margin-bottom: 50px;
+    }
+    #our-pricing-area .col-lg-4:last-child .single-pricing-item,
+    #our-blog-area .col-lg-4:last-child .single-blog-item {
+        margin-bottom: 0;
+    }
+    .single-hire-item h2 {
+        font-size: 25px;
+    }
+    .single-hire-item p {
+        font-size: 20px;
+    }
+    .single-hire-item h2,
+    .blog-full-content h2 {
+        font-size: 25px;
+    }
+    #sidebar-area {
+        margin-top: 50px;
+    }
+    .pagi span a {
+        margin-bottom: 15px;
+    }
+    .single-blog-wrap .single-blog-content {
+        padding: 15px;
+    }
+    .comment-thum {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+    .reply-commnet {
+        padding-left: 0;
+    }
+    .comment-meta {
+        margin-bottom: 5px;
+    }
+    .single-widget-wrap {
+        margin-bottom: 50px;
+    }
+    .footer-widget .col-lg-3 .single-widget-wrap {
+        margin-bottom: 0;
+    }
+}
+
+
+/* ==== Wide Small Device, Mobile ==== */
+
+@media only screen and (min-width:480px) {
+    header,
+    header div,
+    body,
+    html {
+        height: auto;
+    }
+    .hero-text h1 {
+        font-size: 35px;
+    }
+    .hero-text p {
+        width: 100%;
+    }
+    .hero-btn .theme-btn {
+        margin-right: 0;
+    }
+    .theme-btn {
+        padding: 10px 30px;
+    }
+    .section-title h2 {
+        font-size: 40px;
+    }
+    .section-title p {
+        font-size: 15px;
+        line-height: 1.5;
+        margin-top: 5px;
+    }
+    .single-hire-item h2 {
+        font-size: 25px;
+    }
+    .pagi span a {
+        margin-bottom: 15px;
+    }
+    .hero-text {
+        padding: 200px 0;
+    }
+}
+
+@media only screen and (min-width:576px) {
+    header,
+    header div,
+    body,
+    html {
+        height: auto;
+    }
+    .hero-text {
+        padding: 200px 0;
+    }
+    #review-area .col-lg-3:nth-child(1n+3) .single-review {
+        margin-bottom: 0;
+    }
+    .single-widget-wrap {
+        margin-bottom: 50px;
+    }
+    .footer-widget .col-lg-3 .single-widget-wrap {
+        margin-bottom: 0;
+    }
+}
+
+/* ==== Medium Device, Tablet ==== */
+
+@media only screen and (min-width:768px) {
+    header,
+    header div,
+    body,
+    html {
+        height: 100%;
+    }
+    .hero-text {
+        padding: 0;
+    }
+    .hero-text h1 {
+        font-size: 40px;
+    }
+    .hero-text p {
+        width: 100%;
+    }
+    .hero-btn .theme-btn {
+        margin-right: 10px;
+    }
+    .theme-btn {
+        padding: 10px 30px;
+    }
+    .section-title h2 {
+        font-size: 45px;
+    }
+    .section-title p {
+        font-size: 18x;
+        line-height: 1.5;
+    }
+    #review-area .col-lg-3:nth-child(3) .single-review {
+        margin-bottom: 0;
+    }
+    .single-hire-item h2 {
+        font-size: 35px;
+    }
+    .pagi span a {
+        margin-bottom: 0;
+    }
+    .single-blog-wrap .single-blog-content {
+        padding: 0 15px 0 0;
+    }
+    .comment-thum img {
+        height: 135px;
+    }
+    .reply-commnet .comment-thum img {
+        height: 116px;
+    }
+    .comment-thum {
+        margin-bottom: 0;
+        text-align: left;
+    }
+    .reply-commnet {
+        padding-left: 75px;
+    }
+    .comment-meta {
+        margin-bottom: 0;
+    }
+}
+
+
+/* ==== Large Device, Desktop ==== */
+
+@media only screen and (min-width:992px) {
+    header,
+    header div,
+    body,
+    html {
+        height: 100%;
+    }
+    .main-menu {
+        display: block;
+    }
+    .slicknav_menu {
+        display: none;
+    }
+    .hero-text {
+        padding: 0;
+    }
+    .hero-text h1 {
+        font-size: 71px;
+    }
+    .hero-text p {
+        width: 60%;
+    }
+    .hero-btn .theme-btn {
+        margin-right: 50px;
+    }
+    .theme-btn {
+        font-size: 20px;
+        padding: 10px 35px;
+    }
+    .section-title h2 {
+        font-size: 48px;
+    }
+    .section-title p {
+        font-size: 17px;
+    }
+    .about-image {
+        display: block;
+    }
+    .single-review {
+        margin-bottom: 0;
+    }
+    .client-thum,
+    .client-say-content {
+        display: table-cell;
+        text-align: inherit;
+    }
+    .client-thum img {
+        margin: 0;
+    }
+    .single-blog-item,
+    .single-pricing-item {
+        margin-bottom: 0;
+    }
+    .single-hire-item h2 {
+        font-size: 45px;
+    }
+    .single-hire-item p {
+        font-size: 24px;
+    }
+    .contact-info {
+        margin-bottom: 0px;
+    }
+    .client-say-content {
+        padding-left: 15px;
+    }
+    .blog-full-content h2 {
+        font-size: 30px;
+    }
+    #sidebar-area {
+        margin-top: 0;
+    }
+    .pagi span a,
+    .single-widget-wrap {
+        margin-bottom: 0;
+    }
+    .single-blog-wrap .single-blog-content {
+        padding: 0 15px 0 0;
+    }
+    .comment-thum img {
+        height: 145px;
+    }
+    .reply-commnet .comment-thum img {
+        height: 145px;
+    }
+
+}
