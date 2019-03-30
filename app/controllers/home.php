@@ -227,6 +227,19 @@ return $value ;
 
 
 
+	public function faqs()
+	{
+		
+		$this->view('guest/faqs');
+	}
+
+
+	public function contact()
+	{
+		
+		$this->view('guest/contact');
+	}
+
 	public function who_we_are()
 	{
 		

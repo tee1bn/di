@@ -1,9 +1,12 @@
 
 <?php
     
+    
     $page_title = "Welcome ";
+    include 'includes/header.php';?>
 
- include 'includes/header.php';?>
+
+
     <!--== Header Area Start ==-->
     <header id="slideslow-header">
         <div class="container">
