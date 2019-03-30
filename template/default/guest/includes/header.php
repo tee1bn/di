@@ -77,11 +77,11 @@
                         <ul>
                             <li class="active"><a href="<?=domain;?>">Home</a>
                             </li>
-                            <li><a href="<?=domain;?>/who-we-are">Who we are</a></li>
-                            <li><a href="<?=domain;?>/ideology">Ideology</a></li>
-                            <li><a href="<?=domain;?>/how-it-works">How to Works</a></li>
-                            <li><a href="<?=domain;?>/faqs">Faqs</a></li>
-                            <li><a href="<?=domain;?>/contact">Contact</a></li>
+                            <li><a href="<?=domain;?>/w/who-we-are">Who we are</a></li>
+                            <li><a href="<?=domain;?>/w/ideology">Ideology</a></li>
+                            <li><a href="<?=domain;?>/w/how-it-works">How to Works</a></li>
+                            <li><a href="<?=domain;?>/w/faqs">Faqs</a></li>
+                            <li><a href="<?=domain;?>/w/contact">Contact</a></li>
 
                              <li class="active"><a href="<?=domain;?>/register">Sign Up</a></li>
                              <li class="active"><a href="<?=domain;?>/login">Sign in</a></li>
