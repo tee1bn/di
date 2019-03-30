@@ -140,14 +140,19 @@ $page_title = "Dashboard";
                         </div>
                     </div>
  -->                    <!-- Column -->
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card card-inverse card-info">
                             <div class="box bg-secondary text-center">
-                                <h1 class="font-light text-white">Telegram</h1>
+                                <h1 class="font-light text-white"></h1>
                                 <h6 class="text-white">
-                                    <a target="_blank" href="<?=$settings['telegram_group_link'];?>"
-                                 class="btn btn-primary">Join</a></h6>
-                                <small class="text-white">Join the <?=project_name;?> Official Telegram Group</small>
+                                   </h6>
+                                <small class="text-white">Join the <?=project_name;?> Official Telegram Group
+                                
+                                 <a target="_blank" href="<?=$settings['telegram_group_link'];?>"
+                                 class="btn btn-primary">Join</a>
+                                </small>
+
+
                             </div>
                         </div>
                     </div>
@@ -163,11 +168,11 @@ $page_title = "Dashboard";
                         </div>
                     </div> -->
                     <!-- Column -->
-                    <div class="col-md-6">
+                    <div class="col-md-12">
                         <div class="card card-secondary card-inverse">
                             <div class="box text-center">
-                                <h1 class="font-light text-danger"><i class="fa fa-exclamation-triangle"></i></h1>
-                                <small class="text-danger">WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
+                                <h1 class="font-light text-danger"></h1>
+                                <small class="text-danger"><i class="fa fa-exclamation-triangle"></i> WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
                             </div>
                         </div>
                     </div>
@@ -176,21 +181,35 @@ $page_title = "Dashboard";
 
                 <div class="row">
                     <!-- Column -->
+
                     <div class="col-md-6 ">
                         <div class="card card-inverse card-info">
+                      <a href="<?=domain;?>/user/ph" class="">
                             <div class="box bg-info text-center">
                                 <h1 class="font-light text-white"><i class="fa fa-heart"></i></h1>
                                 <h6 class="text-white"><a href="<?=domain;?>/user/ph" class="btn btn-primary">Provide Help</a></h6>
                             </div>
+                      </a>
                         </div>
                     </div>
                     <!-- Column -->
                     <div class="col-md-6 ">
                         <div class="card card-success card-inverse">
-                            <div class="box text-center">
-                                <h1 class="font-light text-white"><i class="fa fa-gift"></i></h1>
-                                <h6 class="text-white"><a href="<?=domain;?>/user/gh" class="btn btn-danger">Get Help</a></h6>
+                          <a href="<?=domain;?>/user/gh" class="">
+                            <div class="box text">
+                                <h1 class="font-light text-white"><i class="fa fa-gift"></i>
+                                  <span class="float-right">Get Help</span>
+                                </h1>
+
+                                 <small>
+                                   
+                                 </small>
+                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Help</a>
+
+                                <h6 class="text-white">
+                                </h6>
                             </div>
+                          </a>
                         </div>
                     </div>
                 </div>
