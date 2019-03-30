@@ -518,7 +518,7 @@
 }
 
 .about-bg {
-    background-image: url("assets/img/about-bg.png");
+    background-image: url("http://localhost/di/template/default/guest/assets/img/about-bg.png");
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 90% 80%;
@@ -576,7 +576,7 @@
 /*== Review Area CSS Start ==*/
 
 #review-area {
-    background-image: url(assets/img/reviews-bg.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/reviews-bg.jpg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -745,39 +745,39 @@
 /*Porfolio Hover Function*/
 
 .portfolio-img-1 {
-    background-image: url(assets/img/portfolio/portfolio-1.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-1.jpg);
 }
 
 .portfolio-img-2 {
-    background-image: url(assets/img/portfolio/portfolio-2.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-2.jpg);
 }
 
 .portfolio-img-3 {
-    background-image: url(assets/img/portfolio/portfolio-3.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-3.jpg);
 }
 
 .portfolio-img-4 {
-    background-image: url(assets/img/portfolio/portfolio-4.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-4.jpg);
 }
 
 .portfolio-img-5 {
-    background-image: url(assets/img/portfolio/portfolio-5.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-5.jpg);
 }
 
 .portfolio-img-6 {
-    background-image: url(assets/img/portfolio/portfolio-6.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-6.jpg);
 }
 
 .portfolio-img-7 {
-    background-image: url(assets/img/portfolio/portfolio-7.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-7.jpg);
 }
 
 .portfolio-img-8 {
-    background-image: url(assets/img/portfolio/portfolio-8.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-8.jpg);
 }
 
 .portfolio-img-9 {
-    background-image: url(assets/img/portfolio/portfolio-9.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/portfolio/portfolio-9.jpg);
 }
 
 /*== Portfolio CSS End ==*/
@@ -785,7 +785,7 @@
 /*== Video Area CSS Start ==*/
 
 #video-area {
-    background-image: url("assets/img/video-area-bg.jpg");
+    background-image: url("http://localhost/di/template/default/guest/assets/img/video-area-bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -960,7 +960,7 @@
 /*== Testimonial CSS Start ==*/
 
 #testimonial-area {
-    background-image: url(assets/img/client-bg.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/client-bg.jpg);
     background-attachment: fixed;
     background-size: cover;
     background-position: left top;
@@ -1146,15 +1146,15 @@
 }
 
 .blog-thumb-bg-1 {
-    background-image: url(assets/img/blog/blog-thum-1.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/blog/blog-thum-1.jpg);
 }
 
 .blog-thumb-bg-2 {
-    background-image: url(assets/img/blog/blog-thum-2.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/blog/blog-thum-2.jpg);
 }
 
 .blog-thumb-bg-3 {
-    background-image: url(assets/img/blog/blog-thum-3.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/blog/blog-thum-3.jpg);
 }
 
 /*== Blog CSS End ==*/
@@ -1162,7 +1162,7 @@
 /*== Partner Area CSS Start ==*/
 
 #partner-area {
-    background-image: url(assets/img/partner/partner-bg.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/partner/partner-bg.jpg);
     background-attachment: fixed;
     background-color: #ddd;
     background-size: cover;
@@ -1275,7 +1275,7 @@
 #hire-area {
     background-attachment: fixed;
     background-color: #ddd;
-    background-image: url("assets/img/hire-area-bg.jpg");
+    background-image: url("http://localhost/di/template/default/guest/assets/img/hire-area-bg.jpg");
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1664,15 +1664,15 @@ body.preloader-active {
 }
 
 .slider-bg-1 {
-    background-image: url(assets/img/slider-img/slider-img-1.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/slider-img/slider-img-1.jpg);
 }
 
 .slider-bg-2 {
-    background-image: url(assets/img/slider-img/slider-img-2.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/slider-img/slider-img-2.jpg);
 }
 
 .slider-bg-3 {
-    background-image: url(assets/img/hero-area-bg.jpg);
+    background-image: url(ahttp://localhost/di/template/default/guest/ssets/img/hero-area-bg.jpg);
 }
 
 header#home-slider .owl-controls,
@@ -1711,7 +1711,7 @@ header#home-slider:hover .owl-nav div.owl-next {
 ==========================================*/
 
 #header-area {
-    background-image: url('assets/img/hero-area-bg.jpg');
+    background-image: url('http://localhost/di/template/default/guest/assets/img/hero-area-bg.jpg');
     background-position: center center;
     background-size: cover;
 }
