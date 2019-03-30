@@ -10,7 +10,8 @@
                                 <h5>About Company</h5>
                             </div>
                             <div class="widget-body">
-                                <img src="<?=$this_folder;?>/assets/img/footer-logo.png" alt="Logo">
+                                <!-- <img src="<?=$this_folder;?>/assets/img/footer-logo.png" alt="Logo"> -->
+                                <h2 class="text-white"><?=project_name;?></h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur to act the adipisicing elit, sed do eiusmod tempor sos what incididunt ut labore et denim.the to in the adipisicing elit.</p>
                                 <div class="footer-icons">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
@@ -75,7 +76,7 @@
                 <div class="row">
                     <div class="col-lg-12 text-center">
                         <div class="copyright-text">
-                            <p>&copy; Copyright 2018 By AgencyPoint. All Rights Reserved.</p>
+                            <p>&copy; Copyright <?=date("Y");?> <?=project_name;?>. All Rights Reserved.</p>
                         </div>
                     </div>
                 </div>
@@ -120,6 +121,4 @@
 
 </body>
 
-
-<!-- Mirrored from tf.rajuahammad.com/html/agencypoint/demo/green/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Mar 2019 16:54:59 GMT -->
 </html>

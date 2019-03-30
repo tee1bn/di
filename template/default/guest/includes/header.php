@@ -60,8 +60,9 @@
                 <div class="col-lg-3">
                     <!-- Logo Area Start -->
                     <a href="<?=domain;?>" class="logo-area">
-                        <img src="assets/img/logo.png" alt="ThemeMarshal" class="img-responsive">
+                        <img style="height: 41px;" src="<?=logo;?>" alt="<?=project_name;?>" class="img-responsive">
                     </a>
+                        <span style="font-size: 21px; font-weight: 900;"><?=project_name;?></span>
                     <!-- Logo Area End -->
                 </div>
 
@@ -71,14 +72,14 @@
                         <ul>
                             <li class="active"><a href="<?=domain;?>">Home</a>
                             </li>
-                            <li><a href="<?=domain;?>/about">Who we are</a></li>
-                            <li><a href="<?=domain;?>/about">Ideology</a></li>
-                            <li><a href="<?=domain;?>/about">How to Works</a></li>
-                            <li><a href="<?=domain;?>/about">Faqs</a></li>
-                            <li><a href="<?=domain;?>/about">Contact</a></li>
+                            <li><a href="<?=domain;?>/who-we-are">Who we are</a></li>
+                            <li><a href="<?=domain;?>/ideology">Ideology</a></li>
+                            <li><a href="<?=domain;?>/how-it-works">How to Works</a></li>
+                            <li><a href="<?=domain;?>/faqs">Faqs</a></li>
+                            <li><a href="<?=domain;?>/contact">Contact</a></li>
 
-                             <li class=" btn-default"><a href="<?=domain;?>">Home</a></li>
-                             <li class="active"><a href="<?=domain;?>">Home</a></li>
+                             <li class="active"><a href="<?=domain;?>/register">Sign Up</a></li>
+                             <li class="active"><a href="<?=domain;?>/login">Sign in</a></li>
 
 
                         </ul>
