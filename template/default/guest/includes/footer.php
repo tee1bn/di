@@ -33,14 +33,17 @@
                             </div>
                             <div class="widget-body">
                                 <ul class="footer-list">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="#">Who we are</a></li>
-                                    <li><a href="#">Ideology</a></li>
-                                    <li><a href="#">How it works</a></li>
-                                    <li><a href="#">Faqs</a></li>
-                                    <li><a href="#">Contact </a></li>
-                                    <li><a href="#">Sign Up </a></li>
-                                    <li><a href="#">Sign In </a></li>
+                                     <li class="active"><a href="<?=domain;?>">Home</a>
+                            </li>
+                            <li><a href="<?=domain;?>/w/who-we-are">Who we are</a></li>
+                            <li><a href="<?=domain;?>/w/ideology">Ideology</a></li>
+                            <li><a href="<?=domain;?>/w/how-it-works">How to Works</a></li>
+                            <li><a href="<?=domain;?>/w/faqs">Faqs</a></li>
+                            <li><a href="<?=domain;?>/w/contact">Contact</a></li>
+
+                             <li class="active"><a href="<?=domain;?>/register">Sign Up</a></li>
+                             <li class="active"><a href="<?=domain;?>/login">Sign in</a></li>
+
                                 
                                 </ul>
                             </div>
