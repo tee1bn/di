@@ -4,7 +4,7 @@
             <div class="container">
                 <div class="row">
                     <!-- Single Widget Start -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="single-widget-wrap">
                             <div class="widget-title">
                                 <h5>About Company</h5>
@@ -26,23 +26,22 @@
                     <!-- Single Widget End -->
 
                     <!-- Single Widget Start -->
-                    <div class="col-lg-5 col-md-6">
+                    <div class="col-lg-6 col-md-6">
                         <div class="single-widget-wrap">
                             <div class="widget-title">
                                 <h5>Important Links</h5>
                             </div>
                             <div class="widget-body">
                                 <ul class="footer-list">
-                                    <li><a href="#">Seo Services</a></li>
-                                    <li><a href="#">Pay per click</a></li>
-                                    <li><a href="#">Virtual Marketing</a></li>
-                                    <li><a href="#">Email Marketing</a></li>
-                                    <li><a href="#">Content Manage</a></li>
-                                    <li><a href="#">Web Analysis</a></li>
-                                    <li><a href="#">Social Media</a></li>
-                                    <li><a href="#">Blog Management</a></li>
-                                    <li><a href="#">Black hat Seo</a></li>
-                                    <li><a href="#">Link Building</a></li>
+                                    <li><a href="#">Home</a></li>
+                                    <li><a href="#">Who we are</a></li>
+                                    <li><a href="#">Ideology</a></li>
+                                    <li><a href="#">How it works</a></li>
+                                    <li><a href="#">Faqs</a></li>
+                                    <li><a href="#">Contact </a></li>
+                                    <li><a href="#">Sign Up </a></li>
+                                    <li><a href="#">Sign In </a></li>
+                                
                                 </ul>
                             </div>
                         </div>
@@ -50,7 +49,7 @@
                     <!-- Single Widget End -->
 
                     <!-- Single Widget Start -->
-                    <div class="col-lg-3 col-md-6">
+                    <!-- <div class="col-lg-3 col-md-6">
                         <div class="single-widget-wrap">
                             <div class="widget-title">
                                 <h5>Newsletter</h5>
@@ -65,7 +64,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- Single Widget End -->
                 </div>
             </div>

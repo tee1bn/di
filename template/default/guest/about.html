@@ -1,37 +1,36 @@
 <!DOCTYPE html>
 <html class="no-js" lang="zxx">
 
-
-<!-- Mirrored from tf.rajuahammad.com/html/agencypoint/demo/green/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Mar 2019 16:55:10 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="<?=$page_description;?>">
     <!--=== Favicon ===-->
-    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?=fav_icon;?>" type="image/x-icon" />
 
-    <title>AGENCYPOINT - RESPONSIVE AGENCY BUSINESS TEMPLATE</title>
+    <title><?=$page_title;?> | <?=project_name;?></title>
 
     <!--=== Bootstrap CSS ===-->
-    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/bootstrap.min.css" rel="stylesheet">
     <!--=== Font-Awesome CSS ===-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/font-awesome.css" rel="stylesheet">
     <!--=== Slicknav CSS ===-->
-    <link href="assets/css/plugins/slicknav.min.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/plugins/slicknav.min.css" rel="stylesheet">
+    <!--=== Vegas CSS ===-->
+    <link href="<?=$this_folder;?>/assets/css/plugins/vegas.css" rel="stylesheet">
     <!--=== Magnific Popup CSS ===-->
-    <link href="assets/css/plugins/magnific-popup.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/plugins/magnific-popup.css" rel="stylesheet">
     <!--=== Owl-Carousel CSS ===-->
-    <link href="assets/css/plugins/owl.carousel.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/plugins/owl.carousel.css" rel="stylesheet">
     <!--=== Theme Animation CSS ===-->
-    <link href="assets/css/animation.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/animation.css" rel="stylesheet">
     <!--=== Theme Reset CSS ===-->
-    <link href="assets/css/reset.css" rel="stylesheet">
-    <!--=== Page CSS ===-->
-    <link href="assets/css/page.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/reset.css" rel="stylesheet">
     <!--=== Main Style CSS ===-->
-    <link href="style.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/style.css" rel="stylesheet">
     <!--=== Responsive CSS ===-->
-    <link href="assets/css/responsive.css" rel="stylesheet">
+    <link href="<?=$this_folder;?>/assets/css/responsive.css" rel="stylesheet">
 
 
     <!--[if lt IE 9]>
@@ -60,9 +59,10 @@
             <div class="row">
                 <div class="col-lg-3">
                     <!-- Logo Area Start -->
-                    <a href="index.html" class="logo-area">
-                        <img src="assets/img/logo.png" alt="" class="img-responsive">
+                    <a href="<?=domain;?>" class="logo-area">
+                        <img style="height: 41px;" src="<?=logo;?>" alt="<?=project_name;?>" class="img-responsive">
                     </a>
+                        <span style="font-size: 21px; font-weight: 900;"><?=project_name;?></span>
                     <!-- Logo Area End -->
                 </div>
 
@@ -70,33 +70,18 @@
                     <!-- MainMenu Area -->
                     <nav class="main-menu alignright">
                         <ul>
-                            <li><a href="index.html">Home<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown">
-                                    <li class="active"><a href="index.html">Home V1</a></li>
-                                    <li><a href="index_v2.html">Home V2</a></li>
-                                    <li><a href="index_v3.html">Home V3</a></li>
-                                </ul>
+                            <li class="active"><a href="<?=domain;?>">Home</a>
                             </li>
-                            <li class="active"><a href="about.html">About</a></li>
-                            <li><a href="#service-area">Services<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown">
-                                    <li><a href="service-open.html">Single Service</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="portfolio.html">portfolio<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown">
-                                    <li><a href="portfolio.html">portfolio</a></li>
-                                    <li><a href="portfolio-open.html">Single portfolio</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="testimonial.html">testimonial</a></li>
-                            <li><a href="blog.html">Blog<i class="fa fa-angle-down"></i></a>
-                                <ul class="dropdown">
-                                    <li><a href="blog.html">blog</a></li>
-                                    <li><a href="blog-open.html">Single blog</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
+                            <li><a href="<?=domain;?>/who-we-are">Who we are</a></li>
+                            <li><a href="<?=domain;?>/ideology">Ideology</a></li>
+                            <li><a href="<?=domain;?>/how-it-works">How to Works</a></li>
+                            <li><a href="<?=domain;?>/faqs">Faqs</a></li>
+                            <li><a href="<?=domain;?>/contact">Contact</a></li>
+
+                             <li class="active"><a href="<?=domain;?>/register">Sign Up</a></li>
+                             <li class="active"><a href="<?=domain;?>/login">Sign in</a></li>
+
+
                         </ul>
                     </nav>
                     <!-- MainMenu Area -->

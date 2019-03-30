@@ -227,21 +227,16 @@ return $value ;
 
 
 
-	public function index($page = null)
+	public function who_we_are()
 	{
 		
-
-		switch ($page) {
-			case 'value':
-				# code...
-				break;
-			
-			default:
-				# code...
-				break;
-		}
+		$this->view('guest/about');
+	}
 
 
+	public function index()
+	{
+		
 		$this->view('guest/index');
 	}
 
