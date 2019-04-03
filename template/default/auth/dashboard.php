@@ -169,7 +169,7 @@ $page_title = "Dashboard";
                     </div> -->
                     <!-- Column -->
                     <div class="col-md-12">
-                        <div class="card card-secondary card-inverse">
+                        <div class="card card-warning card-inverse">
                             <div class="box text-center">
                                 <h1 class="font-light text-danger"></h1>
                                 <small class="text-danger"><i class="fa fa-exclamation-triangle"></i> WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
@@ -180,21 +180,28 @@ $page_title = "Dashboard";
                 </div>
 
                 <div class="row">
-                    <!-- Column -->
 
                     <div class="col-md-6 ">
-                        <div class="card card-inverse card-info">
-                      <a href="<?=domain;?>/user/ph" class="">
-                            <div class="box bg-info text-center">
-                                <h1 class="font-light text-white"><i class="fa fa-heart"></i></h1>
-                                <h6 class="text-white"><a href="<?=domain;?>/user/ph" class="btn btn-primary">Provide Help</a></h6>
+                        <div class="card card-success card-inverse">
+                          <a href="<?=domain;?>/user/ph" class="">
+                            <div class="box text">
+                                <h1 class="font-light text-white "><i class="fa fa-heart"></i>
+                                  <span class="float-right">Provide Help</span>
+                                </h1>
+
+                                 <small>
+                                   
+                                 </small>
+                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Help</a>
+
+                                <h6 class="text-white">
+                                </h6>
                             </div>
-                      </a>
+                          </a>
                         </div>
                     </div>
-                    <!-- Column -->
                     <div class="col-md-6 ">
-                        <div class="card card-success card-inverse">
+                        <div class="card card-warning card-inverse">
                           <a href="<?=domain;?>/user/gh" class="">
                             <div class="box text">
                                 <h1 class="font-light text-white"><i class="fa fa-gift"></i>
