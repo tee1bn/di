@@ -60,6 +60,25 @@ class Match extends Eloquent
 
 				 $gh_payin = $GH->payin_left;
 				 $ph_payout = $PH->payout_left;
+
+
+
+					//ensure user is not paired to himself
+					if ($PH->user->id == $GH->user->id) {
+						continue;
+					}
+
+					//ensure gh is not matched more than payinleft
+			 		if($GH->payin_left <= 0 ){
+						continue;
+			 		}
+
+					//ensure ph is not matched more than payoutleft
+			 		if($PH->payout_left <= 0 ){
+						continue;
+			 		}
+
+
 				if ( $gh_payin == $ph_payout) { // create match
 				 		$new_match =	Match::create_match($PH->id, $ph_payout,$gh_payin, $GH->id);
 				 		if ($new_match) {$i++;}
@@ -94,12 +113,12 @@ class Match extends Eloquent
 					}
 
 					//ensure gh is not matched more than payinleft
-			 		if($attached_gh->payin_left == 0 ){
+			 		if($attached_gh->payin_left <= 0 ){
 			 			return false;
 			 		}
 
 					//ensure ph is not matched more than payoutleft
-			 		if($attached_ph->payout_left == 0 ){
+			 		if($attached_ph->payout_left <= 0 ){
 			 			return false;
 			 		}
 

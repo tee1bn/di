@@ -15,9 +15,14 @@ class AutoMatchingController extends controller
 
 	public function __construct(){
 
-		
+		$settings = SiteSettings::site_settings();
+
+		if ($settings['put_on_automatic_matching'] == 1) {
+
 			$this->match_ghs_and_phs();
-			$this->resolve_all_expired_match();
+		}
+
+		$this->resolve_all_expired_match();
 	}
 
 
