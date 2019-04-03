@@ -29,11 +29,11 @@
   <script>
 
 
-    give_bonuses_due = function() {
+    perform_automatching = function() {
 
     $.ajax({
               type: "POST",
-              url: '<?=domain;?>'+"/routine/give_bonuses_due/",
+              url: '<?=domain;?>'+"/auto-match/",
               cache: false,
               success: function(data) {
 
@@ -44,8 +44,12 @@
           });
       }
 
-      give_bonuses_due();
+<?php 
+  $settings = SiteSettings::site_settings();
 
+    if ($settings['put_on_automatic_matching'] == 1):?>
+      perform_automatching();
+<?php endif;?>
 
 
     notify = function () {
