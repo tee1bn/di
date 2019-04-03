@@ -13,17 +13,17 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Contact\ Us.</h2>
-                        <p>Hare is some informaton on our company and teme member information to yoiu know</p>
+                        <h2>Contact Us.</h2>
+                        <!-- <p>Hare is some informaton on our company and teme member information to yoiu know</p> -->
                     </div>
                 </div>
             </div>
          <div class="col-lg-12">
                     <div class="contact-area-form">
-                        <h2>Send Me Messages </h2>
-                        <p>Lorem ipsum dolor sit amet adipisi to add in the mirred in.</p>
+                        <h2>Send Us Message </h2>
+                        <!-- <p>Lorem ipsum dolor sit amet adipisi to add in the mirred in.</p> -->
 
-                        <form id="contactForm" name="sentMessage">
+                        <form action="<?=domain;?>/home/send_message" id="contactForm" name="sentMessage">
                             <div class="form-group">
                                 <input class="form-control" name="name" type="text" placeholder="NAME">
                             </div>

@@ -31,12 +31,12 @@
              <div class="card">
                         <div class="card-header">
                           <a class="collapsed card-link" data-toggle="collapse" href="#collapse25">
-                                  Who Can Join Green Mavro?
+                                  Who Can Join <?=project_name;?>?
                           </a>
                         </div>
                         <div id="collapse25" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                               <p>Any person of legal age {as your country permit} can join the Green Mavro Community. <br>
+                               <p>Any person of legal age {as your country permit} can join the <?=project_name;?> Community. <br>
                                 The Community doesn’t contrast people one against another and doesn’t act on the principle of "divide and conquer".<br>
                                 Everyone contributes to the common goal. The participants are asked only to follow the recommendations and avoid otherwise.
                                 </p>
@@ -50,13 +50,13 @@
                     <div class="card">
                         <div class="card-header">
                           <a class="collapsed card-link" data-toggle="collapse" href="#collapse24">
-                              How To Register In Green Mavro
+                              How To Register In <?=project_name;?>
                           </a>
                         </div>
                         <div id="collapse24" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                           <p>If you want to be a part of the Community, you should register on the official GREEN MAVRO website or by one of its Guider’s.<br><br>
-                          To register in GREEN MAVRO, go to GreenMavro.com website [greenmavro.com] and click on “Register” button in the upper right corner.<br><br>
+                           <p>If you want to be a part of the Community, you should register on the official <?=project_name;?> website or by one of its Guider’s.<br><br>
+                          To register in <?=project_name;?>, go to GreenMavro.com website [greenmavro.com] and click on “Register” button in the upper right corner.<br><br>
                           Fill the registration form as shown on screenshot:<br>
                           (Fields marked with * are required)<br>
                           1. Enter your name (or a nickname).<br>
@@ -136,7 +136,7 @@
                           <div class="card-body"> 
                               <p>If you forget your password or want to change it, follow "Forgot password" link.<br>
                                                                 </p><ul class="”ordered-list”" style="line-height: 30px">
-                            <li>Enter your E-mail address which you specified during the registration on green mavro.
+                            <li>Enter your E-mail address which you specified during the registration on <?=project_name;?>.
                             </li><li>Click on "Password Reset" button.</li>
                             <li>A message with a link to recover your password will be sent to your E-mail.</li>
                             <li>Following that link in the “Password Recovery” email you will be redirected to the “Change Password” page, where you can insert a new password.</li>
@@ -317,8 +317,8 @@
                           </a>
                         </div>
                         <div id="collapse14" class="collapse" data-parent="#accordion">
-                          <div class="card-body"> <p>A referral link enables GREEN MAVRO system to identificate who has invited a person to GreenMavro.<br>
-                          If a person comes to the Green Mavro website through your referral link, after registration he automatically becomes your referral. Afterwards, you will receive Referral bonuses from all contributions your participant makes(new money rule applies).<br>
+                          <div class="card-body"> <p>A referral link enables <?=project_name;?> system to identificate who has invited a person to GreenMavro.<br>
+                          If a person comes to the <?=project_name;?> website through your referral link, after registration he automatically becomes your referral. Afterwards, you will receive Referral bonuses from all contributions your participant makes(new money rule applies).<br>
 
                           You will get a referral bonus 10% on the new money that your referrals helped with in the Community. [For more information check (Referral Bonus)]<br>
                           A referrer can’t be changed, however in case you registered without referral link you can state your referrer manually in 7 days from the moment of the registration.
