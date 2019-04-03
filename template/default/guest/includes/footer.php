@@ -7,12 +7,13 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="single-widget-wrap">
                             <div class="widget-title">
-                                <h5>About Company</h5>
+                                <h5><?=project_name;?></h5>
                             </div>
                             <div class="widget-body">
                                 <!-- <img src="<?=$this_folder;?>/assets/img/footer-logo.png" alt="Logo"> -->
-                                <h2 class="text-white"><?=project_name;?></h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur to act the adipisicing elit, sed do eiusmod tempor sos what incididunt ut labore et denim.the to in the adipisicing elit.</p>
+                                <!-- <h2 class="text-white"><?=project_name;?></h2> -->
+                                <p>WARNING! There are no guarantees and promises! Neither explicit nor implicit. There are neither investments nor business! Participants help each other, sending each other money directly and without intermediaries. That’s all! There's nothing more. There are no securities transactions, no relationship with the professional participants of the securities market; you do not acquire any securities. 
+                                </p>
                                 <div class="footer-icons">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
