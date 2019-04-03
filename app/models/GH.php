@@ -13,6 +13,20 @@ class GH extends Eloquent
 
 
 
+	public static function delete_ghs($ghs_ids)
+	{
+		try {
+			
+			$numbers_deleted = self::whereIn('id',$ghs_ids)->delete();
+		} catch (Exception $e) {
+			
+		}
+
+		return (int)$numbers_deleted;
+
+	}
+
+
 	public static function last_gh($user_id)
 	{
 		$last_gh =	GH::where('user_id', $user_id)

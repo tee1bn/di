@@ -127,6 +127,47 @@ $page_title = "Dashboard";
 
             <?php include 'includes/earnings_tab.php';?>
 
+ <div class="row">
+
+                    <div class="col-md-6 ">
+                        <div class="card card-success card-inverse">
+                          <a href="<?=domain;?>/user/ph" class="">
+                            <div class="box text">
+                                <h1 class="font-light text-white "><i class="fa fa-heart"></i>
+                                  <span class="float-right">Provide Help</span>
+                                </h1>
+
+                                 <small>
+                                   
+                                 </small>
+                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Help</a>
+
+                                <h6 class="text-white">
+                                </h6>
+                            </div>
+                          </a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="card card-warning card-inverse">
+                          <a href="<?=domain;?>/user/gh" class="">
+                            <div class="box text">
+                                <h1 class="font-light text-white"><i class="fa fa-gift"></i>
+                                  <span class="float-right">Get Help</span>
+                                </h1>
+
+                                 <small>
+                                   
+                                 </small>
+                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Help</a>
+
+                                <h6 class="text-white">
+                                </h6>
+                            </div>
+                          </a>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="row">
                     <!-- Column -->
@@ -179,46 +220,6 @@ $page_title = "Dashboard";
                    
                 </div>
 
-                <div class="row">
-
-                    <div class="col-md-6 ">
-                        <div class="card card-success card-inverse">
-                          <a href="<?=domain;?>/user/ph" class="">
-                            <div class="box text">
-                                <h1 class="font-light text-white "><i class="fa fa-heart"></i>
-                                  <span class="float-right">Provide Help</span>
-                                </h1>
-
-                                 <small>
-                                   
-                                 </small>
-                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Help</a>
-
-                                <h6 class="text-white">
-                                </h6>
-                            </div>
-                          </a>
-                        </div>
-                    </div>
-                    <div class="col-md-6 ">
-                        <div class="card card-warning card-inverse">
-                          <a href="<?=domain;?>/user/gh" class="">
-                            <div class="box text">
-                                <h1 class="font-light text-white"><i class="fa fa-gift"></i>
-                                  <span class="float-right">Get Help</span>
-                                </h1>
-
-                                 <small>
-                                   
-                                 </small>
-                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Help</a>
-
-                                <h6 class="text-white">
-                                </h6>
-                            </div>
-                          </a>
-                        </div>
-                    </div>
-                </div>
+               
 
 <?php include 'includes/footer.php';?>

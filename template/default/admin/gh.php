@@ -125,11 +125,25 @@ $page_title = "Get Help";
                                                     </span>                                              
                                                 </td>
                                                 <td>
-                                                    <?php if($gh_request->matched->isNotEmpty()) :?>
-                                                        <a href="<?=domain;?>/admin/gh_matches/<?=$gh_request->id;?>">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-secondary btn-xs dropdown-toggle" data-toggle="dropdown">
+                                      
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <?php if($gh_request->matched->isNotEmpty()) :?>
+                                                        <a  class="dropdown-item"  href="<?=domain;?>/admin/gh_matches/<?=$gh_request->id;?>">
                                                             <span class="label label-sm label-warning">Open</span>
                                                         </a>
-                                                    <?php endif;?>
+                                        <?php endif;?>
+
+                                        <a  class="dropdown-item"  href="javascript:void;"  onclick="$confirm_dialog = 
+                                            new ConfirmationDialog('<?=domain;?>/admin/delete_gh/<?=$gh_request->id;?>')">
+                                            <span type='span' class='label label-xs label-danger'>Delete</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+
                                             </td>
                                             </tr>
                                             <?php $i++; endforeach ;?>

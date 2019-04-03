@@ -21,6 +21,23 @@ class PH extends Eloquent
 
 
 
+
+
+
+	public static function delete_phs($phs_ids)
+	{
+		try {
+			
+			$numbers_deleted = self::whereIn('id',$phs_ids)->delete();
+		} catch (Exception $e) {
+			
+		}
+
+		return (int)$numbers_deleted;
+
+	}
+
+
 	public function fetch_all_valid_unfufilled_phs()
 	{
 

@@ -16,6 +16,41 @@ class AdminController extends controller
 
 
 
+	public function delete_ph($ph_id)
+	{
+		if (isset($_POST['to_be_deleted_ids'])) {
+
+			$to_be_deleted_ids = $_POST['to_be_deleted_ids'];
+		}else{
+
+			$to_be_deleted_ids = [$ph_id];
+		}
+
+		$numbers_deleted =  PH::delete_phs($to_be_deleted_ids);
+		Session::putFlash('success', "$numbers_deleted rows deleted");
+
+		Redirect::back();
+	}
+
+
+	public function delete_gh($gh_id)
+	{
+		if (isset($_POST['to_be_deleted_ids'])) {
+
+			$to_be_deleted_ids = $_POST['to_be_deleted_ids'];
+		}else{
+
+			$to_be_deleted_ids = [$gh_id];
+		}
+
+		$numbers_deleted =  GH::delete_ghs($to_be_deleted_ids);
+		Session::putFlash('success', "$numbers_deleted rows deleted");
+
+		Redirect::back();
+	}
+
+
+
 	public function suspending_admin($admin_id=null)
 	{
 
