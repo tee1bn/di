@@ -23,12 +23,12 @@
                     <div class="hero-text text-center">
                         <div class="display-table">
                             <div class="display-table-cell">
-                                <h2>Hello !</h2>
-                                <h1>Grow Your Business With Us</h1>
-                                <p>These are the sounds encountered by NASA’s Cassini spacecraft as it dove through the gap before it will plungeto.</p>
+                                <h2>Welcome!</h2>
+                                <h1>Grow Your Finance With Us</h1>
+                                <p>is a community of people helping people. Designed and managed by members of the community.</p>
                                 <div class="hero-btn">
-                                    <a href="#" class="theme-btn">Getting Start</a>
-                                    <a href="#" class="theme-btn">View More</a>
+                                    <a href="<?=domain;?>/register" class="theme-btn">Sign Up</a>
+                                    <a href="<?=domain;?>/login" class="theme-btn">Sign In </a>
                                 </div>
                                 <a href="#about-area" class="scroll-bottom">
                                     <i class="fa fa-angle-down"></i>
