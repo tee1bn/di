@@ -23,16 +23,16 @@
                         <h2>Send Us Message </h2>
                         <!-- <p>Lorem ipsum dolor sit amet adipisi to add in the mirred in.</p> -->
 
-                        <form action="<?=domain;?>/home/send_message" id="contactForm" name="sentMessage">
+                        <form action="<?=domain;?>/home/send_message" method="post" id="contactForm" name="sentMessage">
                             <div class="form-group">
                                 <input class="form-control" name="name" type="text" placeholder="NAME">
                             </div>
                             <div class="form-group">
                                 <input class="form-control" name="email" type="email" placeholder="EMAIL">
                             </div>
-                            <div class="form-group">
+                         <!--    <div class="form-group">
                                 <input class="form-control" name="subject" type="text" placeholder="SUBJECT">
-                            </div>
+                            </div> -->
                             <div class="form-group">
                                 <textarea class="form-control" name="message" placeholder="MESSAGE"></textarea>
                             </div>

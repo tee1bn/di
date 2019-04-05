@@ -34,11 +34,15 @@ $page_title = "Letter of Happiness";
 
                             <div class="card-body collapse" id="demo1">
 
-                                <form action="<?=domain;?>/user/create_testimonial" method="post" >
+                                <form action="<?=domain;?>/admin/create_testimonial" method="post" >
                                   <div class="form-group">
                                     
                                     <div class="">
-                                      <textarea class="form-control textarea" name="testimony" placeholder="" style="height: 150px"></textarea>
+                                      <input required="" class="form-control textarea" name="attester" placeholder="Enter Name">
+                                    </div>
+                                    <br>
+                                    <div class="">
+                                      <textarea class="form-control textarea" name="testimony" placeholder="Enter Testimony" style="height: 150px"></textarea>
                                     </div>
                                   </div>
 
@@ -65,20 +69,28 @@ $page_title = "Letter of Happiness";
                                     <table id="myTable" class="table table-hover">
                                         <thead>
                                             <th>Sn</th>
+                                            <th>Attester</th>
                                             <th style="width: 60%;">Letter</th>
                                             <th>Status</th>
                                             <th>Date</th>
                                             <th></th>
                                         </thead>
                                         <tbody>
-                                            <?php $i=1; foreach ($this->auth()->testimonies as $testimony) :?>
+                                            <?php $i=1; foreach (Testimonials::all() as $testimony) :?>
                                             <tr>
                                                 <td><?=$i;?></td>
+                                                <td><?=$testimony->attester;?></td>
                                                 <td><?=$testimony->content;?></td>
                                                 <td><?=$testimony->status();?></td>
-                                                <td><?=$testimony->created_at->toFormattedDateString();?></td>
+                                                <td><span class="badge badge-primary">
+                                                    <?=$testimony->created_at;?></span></td>
                                                 <td>
-                                                    <a href="<?=domain;?>/user/edit-testimony/<?=$testimony->id;?>" class="btn btn-secondary btn-xs">Edit
+                                                    <a href="<?=domain;?>/admin/edit-testimony/<?=$testimony->id;?>" class="btn btn-secondary btn-xs">Edit
+                                                    </a>
+
+                                                      <a href="<?=domain;?>/admin/approve_testimonial/<?=$testimony->id;?>" class="btn btn-secondary btn-xs">Toogle Approval
+                                                    </a>
+                                                    <a href="<?=domain;?>/admin/delete_testimonial/<?=$testimony->id;?>" class="btn btn-danger btn-xs">Delete
                                                     </a>
                                             </td>
                                             </tr>

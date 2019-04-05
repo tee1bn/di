@@ -5,7 +5,15 @@
     $page_title = "Welcome ";
     include 'includes/header.php';?>
 
+<style type="text/css">
+    .about-bg {
+    background-image: url("<?=$this_folder;?>/assets/img/custom_img/aboutus.jpg") !important;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 
+</style>
 
     <!--== Header Area Start ==-->
     <header id="slideslow-header">
@@ -218,7 +226,7 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Our Testimonials.</h2>
-                        <p>Hare is some informaton on our company and teme member information to yoiu know</p>
+                        <p>Lives are being transformed on our platform</p>
                     </div>
                 </div>
             </div>
@@ -226,41 +234,23 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="clients-content-wrapper">
-                        <!-- Single Client Start -->
-                        <div class="single-client-testimonial">
-                            <div class="client-thum">
-                                <img src="<?=$this_folder;?>/assets/img/team/team-member-1.jpg" alt="ThemeMarshal">
-                            </div>
-                            <div class="client-say-content">
-                                <p>Lorem ipsum tempor incet dolore minim vloremeniam, quis nostrud exercitation ullamco laboris nisiut aliquip exea commodo consequaa.</p>
-                                <h2>John Doe <span>Founder, Resummme.com</span></h2>
-                            </div>
-                        </div>
-                        <!-- Single Client End -->
+
+                        <?php foreach (Testimonials::approved()->get()->take(6) as $testimonial) :?>
 
                         <!-- Single Client Start -->
                         <div class="single-client-testimonial">
                             <div class="client-thum">
-                                <img src="<?=$this_folder;?>/assets/img/team/team-member-5.jpg" alt="ThemeMarshal">
+                                <!-- <img src="<?=$this_folder;?>/assets/img/team/team-member-1.jpg" alt="ThemeMarshal"> -->
                             </div>
                             <div class="client-say-content">
-                                <p>Lorem ipsum tempor incet dolore minim vloremeniam, quis nostrud exercitation ullamco laboris nisiut aliquip exea commodo consequaa.</p>
-                                <h2>MAIKEL CINA <span>Founder, Divergentstudio.com</span></h2>
+                                <p><?=$testimonial->content;?></p>
+                                <h2><?=$testimonial->attester;?> <span>Participant</span></h2>
                             </div>
                         </div>
                         <!-- Single Client End -->
 
-                        <!-- Single Client Start -->
-                        <div class="single-client-testimonial">
-                            <div class="client-thum">
-                                <img src="<?=$this_folder;?>/assets/img/team/team-member-4.jpg" alt="ThemeMarshal">
-                            </div>
-                            <div class="client-say-content">
-                                <p>Lorem ipsum tempor incet dolore minim vloremeniam, quis nostrud exercitation ullamco laboris nisiut aliquip exea commodo consequaa.</p>
-                                <h2>Voa Singh <span>CEO, Voasingh.com</span></h2>
-                            </div>
-                        </div>
-                        <!-- Single Client End -->
+                        <?php endforeach;?>
+                  
                     </div>
                 </div>
             </div>

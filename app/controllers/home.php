@@ -14,13 +14,82 @@ class home extends controller
 	}
 
 
-	public function test11($value='')
+	public function send_message()
 	{
-		echo "<pre>";
 
-		print_r(GH::valid_unfufilled_ghs()[2]);
+		if (Input::exists() || true) {
+			$this->validator()->check(Input::all() , array(
 
+		
+			'name' =>[
+
+				'required'=> true,
+				'min'=> 3,
+				'max'=> 42,
+					],
+			'email' =>[
+
+						'required'=> true,
+						'email'=> true,
+						'max'=> 52,
+							],
+
+			'subject' =>[
+						'min'=> 7,
+							],
+
+
+			'message' =>[
+
+						'required'=> true,
+						'min'=> 5,
+							],
+		));
+		
+		if($this->validator->passed()){
+
+					$settings = SiteSettings::site_settings();
+
+					$to = $settings['contact_email'];
+
+
+					$to = 'dove@gmail.com';
+					$phone = $_POST['subject'];
+					$from = "$name, $email ";
+					$message = "$from - $phone ".$_POST['message'];
+
+
+					/*// Always set content-type when sending HTML email
+					$headers = "MIME-Version: 1.0" . "\r\n";
+					$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+					
+					// More headers
+					$headers .= 'From: <'.$_POST["email"].'>' . "\r\n";
+					// $headers .= 'Cc: myboss@example.com' . "\r\n";*/
+					$mailer = new Mailer();
+					$mailer->sendMail ($to,'New Message',$message);
+
+
+
+
+				 	Session::putFlash('success', '<div id="sendmessage" style="display: block;">Your message has been sent. Thank you!</div>');
+
+
+
+
+					 }else{
+
+					print_r($this->validator->errors());
+					 	Session::putFlash('danger', '<div id="errormessage" style="display: block;">Could not send message. Please try again </div> ');
+
+
+					 }
 	}
+
+
+		// Redirect::back();
+	}
+
 
 	public function test()
 	{
@@ -61,16 +130,12 @@ class home extends controller
 			'downpayments_ghs_preference' => 0, //
 			'support_link' => 'http://googleforms.com', //
 			'put_on_automatic_matching' => 0, //
+			'contact_email' => 'dove@gmail.com', //
 		];
 
 
 		print_r(json_encode($site_settings));
-		// print_r(SiteSettings::site_settings());
-
-
-		 // print_r($uncompleted_ghs->get()->toArray());
-
-		// print_r($this->auth()->available_balance());
+	
 	}
 
 	/**

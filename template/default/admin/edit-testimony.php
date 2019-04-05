@@ -33,10 +33,18 @@ $page_title = "Eidt Letter of Happiness";
                             </div>
 
                             <div class="card-body collapse show" id="demo1">
-                                <form action="<?=domain;?>/user/update_testimonial" method="post" >
+                                <form action="<?=domain;?>/admin/update_testimonial" method="post" >
                                     <input type="hidden" name="testimony_id" value="<?=$testimony->id;?>">
 
                                   <div class="form-group">
+
+
+                                    <div class="">
+                                      <input required="" class="form-control textarea" value="<?=$testimony->attester;?>" name="attester" placeholder="Enter Name">
+                                    </div>
+                                    <br>
+
+
                                     
                                     <div class="">
                                       <textarea class="form-control textarea" name="testimony" placeholder="" style="height: 150px"><?=$testimony->content;?></textarea>

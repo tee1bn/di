@@ -15,6 +15,27 @@ class AdminController extends controller
 	}
 
 
+	public function write_testimony()
+	{
+
+		$this->view('admin/write-testimony');
+	}
+
+	public function edit_testimony($testimony_id =null)
+	{
+		if (($testimony_id != null)  ) {
+		$testimony = Testimonials::find($testimony_id);
+			if (($testimony != null) ) {
+
+						$this->view('admin/edit-testimony', ['testimony'=>$testimony ]);
+						return;
+			}else{
+				Redirect::to();
+			}
+
+		}
+
+	}
 
 	public function delete_ph($ph_id)
 	{
@@ -402,11 +423,11 @@ class AdminController extends controller
 
 	 public function create_testimonial()
     {
+
     	if (Input::exists() || true) {
 
 	    	Testimonials::create([
 	    						'attester' => Input::get('attester'),
-								  'user_id'	 => $this->auth()->id, 
 								  'content'  =>Input::get('testimony')]);
 
 	    	Session::putFlash('success','Testimony created successfully. Awaiting approval');
@@ -444,10 +465,46 @@ class AdminController extends controller
 		}
 
 
-	Redirect::to("admin/testimonials");
+	Redirect::back();
 
 
 	}
+
+	public function delete_testimonial($testimonial_id)
+	{
+
+		$testimony = Testimonials::find($testimonial_id);
+		if ($testimony != null) {
+
+		 $testimony->delete();
+			Session::putFlash('success', 'Testimonial deleted succesfully');
+
+
+		}
+
+
+		Redirect::back();
+	}
+
+
+ 	public function update_testimonial()
+    {
+
+    	echo "<pre>";
+    	$testimony_id = Input::get('testimony_id');
+     	$testimony = Testimonials::find($testimony_id);
+
+    	$testimony->update([
+    						 'attester' =>Input::get('attester'),
+							  'content'  =>Input::get('testimony'),
+							  'approval_status' => 0 
+							]);
+
+
+    	Session::putFlash('success','Letter of Happiness updated successfully. Awaiting approval');
+
+    	Redirect::back();
+    }
 
 
 

@@ -46,8 +46,10 @@
 
 <body class="preloader-active">
 
+
+
     <!--== Preloader Area Start ==-->
-    <div class="preloader">
+   <!--  <div class="preloader">
         <div class="preloader-spinner">
             <div class="waves-block">
                 <div class="waves wave-1"></div>
@@ -55,7 +57,7 @@
                 <div class="waves wave-3"></div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--== Preloader Area End ==-->
 
     <!--== HeaderTop Area Start ==-->
@@ -72,16 +74,31 @@
                 </div>
 
                 <div class="col-lg-9">
+
+<?php 
+    $menu = explode("/", $_GET['url'])[1];
+;?>                    
+
                     <!-- MainMenu Area -->
                     <nav class="main-menu alignright">
                         <ul>
-                            <li class="active"><a href="<?=domain;?>">Home</a>
+                            <li <?=($menu == '')? 'class="active"': '';?>><a href="<?=domain;?>">Home</a>
                             </li>
-                            <li><a href="<?=domain;?>/w/who-we-are">Who we are</a></li>
-                            <li><a href="<?=domain;?>/w/ideology">Ideology</a></li>
-                            <li><a href="<?=domain;?>/w/how-it-works">How to Works</a></li>
-                            <li><a href="<?=domain;?>/w/faqs">Faqs</a></li>
-                            <li><a href="<?=domain;?>/w/contact">Contact</a></li>
+                            <li <?=($menu == 'who-we-are')? 'class="active"': '';?>>
+                                <a href="<?=domain;?>/w/who-we-are">Who we are</a>
+                            </li>
+                            <li <?=($menu == 'ideology')? 'class="active"': '';?>>
+                                <a href="<?=domain;?>/w/ideology">Ideology</a>
+                            </li>
+                            <li <?=($menu == 'how-it-works')? 'class="active"': '';?>>
+                                <a href="<?=domain;?>/w/how-it-works">How to Works</a>
+                            </li>
+                            <li <?=($menu == 'faqs')? 'class="active"': '';?>>
+                                <a href="<?=domain;?>/w/faqs">Faqs</a>
+                            </li>
+                            <li <?=($menu == 'contact')? 'class="active"': '';?>>
+                                <a href="<?=domain;?>/w/contact">Contact</a>
+                            </li>
 
                              <li class="active"><a href="<?=domain;?>/register">Sign Up</a></li>
                              <li class="active"><a href="<?=domain;?>/login">Sign in</a></li>
