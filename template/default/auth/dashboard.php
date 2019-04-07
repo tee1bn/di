@@ -42,7 +42,7 @@ $page_title = "Dashboard";
                   ?>
                  <div class="row">
                     <div class="col-12">
-
+                        <a href="<?=domain;?>/user/ph_matches/<?=$urgent_match->ph->id;?>">
                                <div class="alert alert-danger text-danger">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                                     <h3 class="text-danger"><i class="fa fa-exclamation-circle"></i> Information
@@ -51,7 +51,7 @@ $page_title = "Dashboard";
                                         </small>
                                     </h3> 
 
- <div class="row">
+                            <div class="row">
                                      <div class="col-md-6">
                                     
 
@@ -120,6 +120,7 @@ $page_title = "Dashboard";
 
 
                                 </div>
+                              </a>
                          
                     </div>
                 </div>

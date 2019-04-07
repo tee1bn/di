@@ -14,6 +14,16 @@ class home extends controller
 	}
 
 
+
+	public function test2()
+	{
+		$match = Match::first();
+		// echo $this->buildView('emails/gh_notification', compact('match'));
+		echo User::find(1)->has_letter_of_happiness_to_write();
+
+	}
+
+
 	public function send_message()
 	{
 

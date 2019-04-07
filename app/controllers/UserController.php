@@ -16,7 +16,8 @@ class UserController extends controller
 			$this->middleware('current_user')
 				->mustbe_loggedin()
 				->must_have_verified_phone()
-				->must_have_verified_email();
+				->must_have_verified_email()
+				->must_have_no_letter_of_happiness_to_write();
 		}
 
 		

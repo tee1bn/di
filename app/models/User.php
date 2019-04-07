@@ -164,7 +164,23 @@ public static function generate_phone_code_for($user_id)
 
 
 
-    
+	public function has_letter_of_happiness_to_write()
+	{
+		$written_letter = Testimonials::approved()->where('user_id', $this->id)->count();
+		$letters_to_write = GH::where('user_id', $this->id)
+								->where('fufilled_at','!=', null)
+								->where('payin_left', 0)
+								->count() ;
+
+		$remaining = $letters_to_write - $written_letter;
+
+		if ($remaining > 0) {
+
+			return $remaining;
+		}
+
+		return false;
+	}    
 
 	public function testimonies()
 	{
