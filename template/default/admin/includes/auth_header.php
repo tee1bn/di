@@ -2,6 +2,7 @@
 <!-- this header is for all login, registration, email verification and all -->
 <html lang="en">
 
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +20,7 @@
     <!-- You can change the theme colors from here -->
     <link href="<?=$this_folder;?>/css/colors/green.css" id="theme" rel="stylesheet">
    
+    
 </head>
 
 <body>

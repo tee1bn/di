@@ -19,6 +19,8 @@
     <!-- You can change the theme colors from here -->
     <link href="<?=$this_folder;?>/css/colors/green.css" id="theme" rel="stylesheet">
    
+     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
 </head>
 
 <body>

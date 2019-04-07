@@ -141,6 +141,8 @@ class home extends controller
 			'support_link' => 'http://googleforms.com', //
 			'put_on_automatic_matching' => 0, //
 			'contact_email' => 'dove@gmail.com', //
+			'google_re_captcha_site_key' => '6LeJqJwUAAAAAPADFRZZUG79bMw8O_4kdEr6dJ6t', //
+			'google_re_captcha_secret_key' => '6LeJqJwUAAAAADgkLuF_W3etxOJItrkTWaCRGIH-', //
 		];
 
 

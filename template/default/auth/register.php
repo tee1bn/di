@@ -99,9 +99,13 @@ $introduced_by = Input::old('introduced_by');
                         </div>
                     </div>
 
+
+                          <div class="g-recaptcha form-group" data-sitekey="<?=SiteSettings::site_settings()['google_re_captcha_site_key'];?>"></div>
+
+
                     <div class="form-group text-center mt-3">
                         <div class="col-xs-12">
-                            <button class="btn btn-success btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
+                            <button class="btn btn-success btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Sign Up</button>
                         </div>
                     </div>
 

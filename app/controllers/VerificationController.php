@@ -34,6 +34,15 @@ class VerificationController extends controller
 
 
 
+	public function write_letter_of_happiness()
+	{
+
+		$this->view('auth/write-testimony');
+
+	}
+
+
+
 	public function phone()
 	{
 

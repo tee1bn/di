@@ -47,7 +47,7 @@ class current_user extends controller
 		if (($letter_of_happiness_to_write) && ($this->setting['is_letter_of_hapiness_compulsory'] == 1)) {
 
 			Session::putFlash("warning", "You have $letter_of_happiness_to_write letters of happiness to write");
-			Redirect::to('user/write-testimony');
+			Redirect::to('verify/write_letter_of_happiness');
 		}
 
 		return $this;
