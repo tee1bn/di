@@ -55,12 +55,12 @@
                         </div>
                         <div id="collapse24" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                           <p>If you want to be a part of the Community, you should register on the official <?=project_name;?> website or by one of its Guider’s.<br><br>
-                          To register in <?=project_name;?>, go to GreenMavro.com website [greenmavro.com] and click on “Register” button in the upper right corner.<br><br>
+                           <p>If you want to be a part of the Community, you should register on the official <?=host;?> website or by one of its Guider’s.<br><br>
+                          To register in <?=project_name;?>, go to <?=project_name;?> website [<?=project_name;?>] and click on “Register” button in the upper right corner.<br><br>
                           Fill the registration form as shown on screenshot:<br>
                           (Fields marked with * are required)<br>
                           1. Enter your name (or a nickname).<br>
-                          2. Enter your E-mail (preferable mailbox is gmail.com).<br>
+                          2. Enter your E-mail (preferable mailbox is gmail).<br>
                           3. Enter your mobile phone number<br>
                           4. Create your password<br>
                           5. Retype created password<br>
@@ -72,7 +72,7 @@
                           11. Click on “Register button.<br><br>
                           Once you have completed all required fields there will be an activation page to activate your account. And also instructions what to do next:<br>
                           1. Go to Personal Office’s website.<br>
-                          2. Read about how to successfully participate in GreenMavro.com<br>
+                          2. Read about how to successfully participate in <?=project_name;?><br>
 
                           </p>              
                         </div>
@@ -159,7 +159,7 @@
                         </div>
                         <div id="collapse21" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                           <p>In order to Provide or Get Help in the GreenMavro Community (“buy” or “sell” Mavros), first you need to add a personal Bitcoin or bank account in your Personal Office.<br>
+                           <p>In order to Provide or Get Help in the <?=project_name;?> Community (“buy” or “sell” Mavros), first you need to add a personal Bitcoin or bank account in your Personal Office.<br>
                                                               </p><ul class="”ordered-list”" style="line-height: 30px">
                           <li>Click «Accounts».</li>
                           <li>Click «Add».</li>
@@ -181,7 +181,7 @@
                         </div>
                         <div id="collapse20" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                             <p>Mavro is a conventional unit for measurement of provided help to other participants in GreenMavro.<br><br>
+                             <p>Mavro is a conventional unit for measurement of provided help to other participants in <?=project_name;?>.<br><br>
                             For example, if a participant has contributed 10,000 USD, he receives 10,000 Mavro-USD. The amount of Mavros in a participant’s Personal Office shows a maximum amount of help he can get.<br><br>
                             For example, if a participant has 50,000 Mavro-USD, he can get 50,000 USD. The amount of growing Mavros and progressive calculation of help amount can be seen in “Mavro” section of your Personal Office.
 
@@ -263,7 +263,7 @@
                         </div>
                         <div id="collapse17" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                             <p>As soon as Help was received (money for "sold' Mavros), every participant has to write a "Letter of happiness". A form for creating such letter will appear automatically when you confirm your receipt of funds. Later it will be published in “Testimonials” section on GreenMavro Website.<br>
+                             <p>As soon as Help was received (money for "sold' Mavros), every participant has to write a "Letter of happiness". A form for creating such letter will appear automatically when you confirm your receipt of funds. Later it will be published in “Testimonials” section on <?=project_name;?> Website.<br>
                               How to create a “letter of happiness”:<br>
                               Write your text with:<br>
                               — your status (ordinary participant, Guider, Guider-100, etc.)<br>
@@ -296,7 +296,7 @@
                         </div>
                         <div id="collapse16" class="collapse" data-parent="#accordion">
                           <div class="card-body"> 
-                           <p>A “Referrer” is a participant of the GreenMavro Community who invited another participant by using “Referral Link”, “Invite” or directly registered in Personal Office.<br>
+                           <p>A “Referrer” is a participant of the <?=project_name;?> Community who invited another participant by using “Referral Link”, “Invite” or directly registered in Personal Office.<br>
                           A “Referral” is a person who was invited by “Referrer”.<br>
                           If you registered a new participant in Personal Office or he registered by himself using your “Invite” or “Referral Link”, then you’re his/her “Referrer”, and he/she is your “Referral”.<br>
                           You can see a list of your referrals in “Participants” section of your Personal Office.
@@ -317,7 +317,7 @@
                           </a>
                         </div>
                         <div id="collapse14" class="collapse" data-parent="#accordion">
-                          <div class="card-body"> <p>A referral link enables <?=project_name;?> system to identificate who has invited a person to GreenMavro.<br>
+                          <div class="card-body"> <p>A referral link enables <?=project_name;?> system to identificate who has invited a person to <?=project_name;?>.<br>
                           If a person comes to the <?=project_name;?> website through your referral link, after registration he automatically becomes your referral. Afterwards, you will receive Referral bonuses from all contributions your participant makes(new money rule applies).<br>
 
                           You will get a referral bonus 10% on the new money that your referrals helped with in the Community. [For more information check (Referral Bonus)]<br>
@@ -375,9 +375,9 @@
                         </div>
                         <div id="collapse2" class="collapse" data-parent="#accordion">
                           <div class="card-body">
-                            <p>A Guider is a rank. He has a right to get a Guider’s bonus when he builds his team. Such person can answer any question about participation based on his experience and knowledge of the GreenMavro Community. A participant choose his Guider by himself. The Guider has NO access to the participant’s Personal Office.<br>
+                            <p>A Guider is a rank. He has a right to get a Guider’s bonus when he builds his team. Such person can answer any question about participation based on his experience and knowledge of the <?=project_name;?> Community. A participant choose his Guider by himself. The Guider has NO access to the participant’s Personal Office.<br>
                             If the participant does know how to make operations in Personal Office (create requests, process orders), he can appoint his Guider do it on behalf of him. The participant who appoints is called a Trustor. Appointed Guider is called a Confidant.<br>
-                            If you are Guider and Referrer of one participant at the same time, you will get only referral bonus 10% (the maximum bonus in GreenMavro).<br>
+                            If you are Guider and Referrer of one participant at the same time, you will get only referral bonus 10% (the maximum bonus in <?=project_name;?>).<br>
                             There are two ways to establish Trustor-Confidant relationship:<br>
                             The Guider registers the participant through Personal Office and during registration process <br>states that he is the Confidant of this newcomer.<br><br>
                             The participant appoints his Guider as his Confidant in Personal Office:<br>

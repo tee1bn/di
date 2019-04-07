@@ -62,8 +62,6 @@ class home extends controller
 
 					$to = $settings['contact_email'];
 
-
-					$to = 'dove@gmail.com';
 					$phone = $_POST['subject'];
 					$from = "$name, $email ";
 					$message = "$from - $phone ".$_POST['message'];
@@ -77,27 +75,30 @@ class home extends controller
 					$headers .= 'From: <'.$_POST["email"].'>' . "\r\n";
 					// $headers .= 'Cc: myboss@example.com' . "\r\n";*/
 					$mailer = new Mailer();
-					$mailer->sendMail ($to,'New Message',$message);
+					$response = $mailer->sendMail ($to,'New Message',$message);
 
 
+					if ($response == true) {
+					 	Session::putFlash('success', '<div id="sendmessage" style="display: block;">Your message has been sent. Thank you!</div>');
+					}else{
+					 	Session::putFlash('danger', '<div id="errormessage" style="display: block;">Could not send message. Please try again </div> ');
 
 
-				 	Session::putFlash('success', '<div id="sendmessage" style="display: block;">Your message has been sent. Thank you!</div>');
-
-
+					}
 
 
 					 }else{
 
-					print_r($this->validator->errors());
+					 	
 					 	Session::putFlash('danger', '<div id="errormessage" style="display: block;">Could not send message. Please try again </div> ');
+						print_r($this->validator->errors());
 
 
 					 }
 	}
 
 
-		// Redirect::back();
+		Redirect::back();
 	}
 
 

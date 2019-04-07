@@ -228,8 +228,6 @@ if (Input::exists('user_registration') || true) {
 		print_r(Input::all());
 
 
-
-
 		 	$settings = SiteSettings::site_settings();
 		 	
 		 	

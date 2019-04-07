@@ -91,7 +91,7 @@
                                 <a href="<?=domain;?>/w/ideology">Ideology</a>
                             </li>
                             <li <?=($menu == 'how-it-works')? 'class="active"': '';?>>
-                                <a href="<?=domain;?>/w/how-it-works">How to Works</a>
+                                <a href="<?=domain;?>/w/how-it-works">How it Works</a>
                             </li>
                             <li <?=($menu == 'faqs')? 'class="active"': '';?>>
                                 <a href="<?=domain;?>/w/faqs">Faqs</a>

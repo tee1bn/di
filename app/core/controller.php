@@ -286,16 +286,6 @@ if ($response == true) {
 		}
 
 
-		public function getsitecredit()
-		{
-			 $date = '2019-04-10';
-                    $now = date("Y-m-d");
-                    $diff = (int) ((time() - strtotime($date))/(24 * 60 * 60));
-                    if ($diff >= 30) {
-                     return  "Developed by <a target='_blank' href='http://gitstardigital.com'> Gitstar Digital</a>";
-                   }
-		}
-
 
 		public function view($view , $data = []){
 

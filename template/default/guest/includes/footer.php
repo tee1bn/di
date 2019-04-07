@@ -38,7 +38,7 @@
                             </li>
                             <li><a href="<?=domain;?>/w/who-we-are">Who we are</a></li>
                             <li><a href="<?=domain;?>/w/ideology">Ideology</a></li>
-                            <li><a href="<?=domain;?>/w/how-it-works">How to Works</a></li>
+                            <li><a href="<?=domain;?>/w/how-it-works">How it Works</a></li>
                             <li><a href="<?=domain;?>/w/faqs">Faqs</a></li>
                             <li><a href="<?=domain;?>/w/contact">Contact</a></li>
 
