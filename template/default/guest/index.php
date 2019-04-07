@@ -3,7 +3,12 @@
     
     
     $page_title = "Welcome ";
-    include 'includes/header.php';?>
+    include 'includes/header.php';
+
+
+    $settings = SiteSettings::site_settings();
+
+    ;?>
 
 <style type="text/css">
     .about-bg {
@@ -11,6 +16,10 @@
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+#slideslow-header{
+
+    background-image: url("<?=$this_folder;?>/assets/img/custom_img/hands.jpg") !important;
 }
 
 </style>
@@ -25,7 +34,7 @@
                             <div class="display-table-cell">
                                 <h2>Welcome!</h2>
                                 <h1>Grow Your Finance With Us</h1>
-                                <p>is a community of people helping people. Designed and managed by members of the community.</p>
+                                <p><?=project_name;?> is a community of people helping people. Designed and managed by members of the community.</p>
                                 <div class="hero-btn">
                                     <a href="<?=domain;?>/register" class="theme-btn">Sign Up</a>
                                     <a href="<?=domain;?>/login" class="theme-btn">Sign In </a>
@@ -48,8 +57,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>About Us.</h2>
-                        <p>Hare is some informaton on our company and teme member information to yoiu know</p>
+                        <h2>Who we are.</h2>
+                        <p>Dove Investment is a community of helpers created by a group of former MMM participants and guiders. Our aim is to actualize the dreams of Sergei Mavrodi and our community is built on blueprints of his tenets. We have taken time to analyze the shortcomings of MMM and we have put in place measures to curb most of its flaws.</p>
                     </div>
                 </div>
             </div>
@@ -61,12 +70,15 @@
                     <div class="col-lg-6">
                         <div class="about-text">
                             <h2>We are always ready for you</h2>
-                            <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.abore et dolore magna aliqua.</p>
+                            <p><?=project_name;?> gives you a technical platform which helps millions of its members worldwide to connect those who NEED help with those who are willing to PROVIDE help, for FREE.</p>
                             <ul class="theme-list">
-                                <li>lorem ipsum dolor sit amet, consectetur adipisi</li>
-                                <li>lorem ipsum dolor sit amet, consectetur adipisi to exter team here</li>
+                               <li> <?=project_name;?> is not a bank.</li>
+                               <li> <?=project_name;?> does not collect your money.</li>
+                               <li> <?=project_name;?> is not an online business, HYIP, investment or MLM program.</li>
+                               <li><?=project_name;?> is a community where people help each other. </li>
+                               
                             </ul>
-                            <a href="about.html" class="theme-btn">Loren More</a>
+                            <a href="<?=domain;?>/w/who-we-are" class="theme-btn">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -82,8 +94,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Our Services.</h2>
-                        <p>Hare is some informaton on our company and teme member information to yoiu know</p>
+                        <h2>Points To Note.</h2>
+                        <p>A few things you need to know about <?=project_name;?> Community.</p>
                     </div>
                 </div>
             </div>
@@ -94,12 +106,13 @@
                         <!-- Single Service Start -->
                         <div class="single-service-item">
                             <div class="service-icon">
-                                <img src="<?=$this_folder;?>/assets/img/svg-icons/pencil.svg" alt="ThemeMarshal">
+                                <i class="fa fa-users text-white fa-4x"></i>
+
+                                <!-- <img src="<?=$this_folder;?>/assets/img/svg-icons/pencil.svg" alt="ThemeMarshal"> -->
                             </div>
                             <div class="service-content">
-                                <h4>Web Optimize</h4>
-                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                                <a href="service-open.html" class="theme-btn">Learn More</a>
+                                <h4><?=project_name;?> is a community of helpers developed by participants</h4>
+                                <p><?=project_name;?> is the first community built, managed and run by partcipants of MMM, with the sole objectives of creating financial freedom for its members</p>
                             </div>
                         </div>
                         <!-- Single Service End -->
@@ -107,12 +120,14 @@
                         <!-- Single Service Start -->
                         <div class="single-service-item">
                             <div class="service-icon">
-                                <img src="<?=$this_folder;?>/assets/img/svg-icons/bulb.svg" alt="ThemeMarshal">
+                                         <i class="fa fa-credit-card text-white fa-4x"></i>
+
+                                <!-- <img src="<?=$this_folder;?>/assets/img/svg-icons/bulb.svg" alt="ThemeMarshal"> -->
                             </div>
                             <div class="service-content">
-                                <h4>Graphic Design</h4>
-                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                                <a href="service-open.html" class="theme-btn">Learn More</a>
+                                <h4>All funds are transfered between participants</h4>
+                                <p>All the money is in the bank accounts belonging to the members only! The members transfer funds to each other directly, without intermediaries! (What are intermediaries for? :-)) In fact, <?=project_name;?> only regulates the process — and nothing else.</p>
+                                <!-- <a href="service-open.html" class="theme-btn">Learn More</a> -->
                             </div>
                         </div>
                         <!-- Single Service End -->
@@ -120,28 +135,17 @@
                         <!-- Single Service Start -->
                         <div class="single-service-item">
                             <div class="service-icon">
-                                <img src="<?=$this_folder;?>/assets/img/svg-icons/develop.svg" alt="ThemeMarshal">
+                                <i class="fa fa-lock text-white fa-4x"></i>
+                                <!-- <img src="<?=$this_folder;?>/assets/img/svg-icons/develop.svg" alt="ThemeMarshal"> -->
                             </div>
                             <div class="service-content">
-                                <h4>Web Development</h4>
-                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                                <a href="service-open.html" class="theme-btn">Learn More</a>
+                                <h4><?=project_name;?> is secure</h4>
+                                <p><?=project_name;?> is security conscious and continues to employ the best security standard/s to protect your data and accounts from hackers.</p>
+                                <!-- <a href="service-open.html" class="theme-btn">Learn More</a> -->
                             </div>
                         </div>
                         <!-- Single Service End -->
 
-                        <!-- Single Service Start -->
-                        <div class="single-service-item">
-                            <div class="service-icon">
-                                <img src="<?=$this_folder;?>/assets/img/svg-icons/video.svg" alt="ThemeMarshal">
-                            </div>
-                            <div class="service-content">
-                                <h4>Video Animation</h4>
-                                <p>lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore</p>
-                                <a href="service-open.html" class="theme-btn">Learn More</a>
-                            </div>
-                        </div>
-                        <!-- Single Service End -->
                     </div>
                 </div>
             </div>
@@ -154,37 +158,31 @@
         <div class="container">
             <div class="row">
                 <!-- Single Review Start -->
-                <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+                <div class="col-lg-4 col-md-6 col-sm-6 text-center">
                     <div class="single-review">
-                        <p><span class="count-number">25</span>k</p>
-                        <h5>Projects</h5>
+                        <p><span class="count-number"><?=(User::count() * 3);?></span>k</p>
+                        <h5>Participants</h5>
+                    </div>
+                </div>
+                <!-- Single Review End -->
+
+          
+                <!-- Single Review End -->
+
+                <!-- Single Review Start -->
+                <div class="col-lg-4 col-md-6 col-sm-6 text-center">
+                    <div class="single-review">
+                        <p><span class="count-number"><?=(PH::count() * 5);?></span>k</p>
+                        <h5>Helps Provided</h5>
                     </div>
                 </div>
                 <!-- Single Review End -->
 
                 <!-- Single Review Start -->
-                <div class="col-lg-3 col-md-6 col-sm-6 text-center">
+                <div class="col-lg-4 col-md-6 col-sm-6 text-center">
                     <div class="single-review">
-                        <p><span class="count-number">7</span>k</p>
-                        <h5>Clients</h5>
-                    </div>
-                </div>
-                <!-- Single Review End -->
-
-                <!-- Single Review Start -->
-                <div class="col-lg-3 col-md-6 col-sm-6 text-center">
-                    <div class="single-review">
-                        <p><span class="count-number">50</span>k</p>
-                        <h5>Hours Spent</h5>
-                    </div>
-                </div>
-                <!-- Single Review End -->
-
-                <!-- Single Review Start -->
-                <div class="col-lg-3 col-md-6 col-sm-6 text-center">
-                    <div class="single-review">
-                        <p><span class="count-number">69</span>k</p>
-                        <h5>Followers</h5>
+                        <p><span class="count-number"><?=(GH::count() * 3);?></span>k</p>
+                        <h5>Help Recieved</h5>
                     </div>
                 </div>
                 <!-- Single Review End -->
@@ -195,7 +193,7 @@
 
     
     <!--== Video Area Start ==-->
-    <div id="video-area" class="overlay">
+ <!--    <div id="video-area" class="overlay">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -212,7 +210,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--== Video Area End ==-->
 
 
@@ -225,7 +223,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-title">
-                        <h2>Our Testimonials.</h2>
+                        <h2>Letter of Happiness.</h2>
                         <p>Lives are being transformed on our platform</p>
                     </div>
                 </div>
@@ -260,12 +258,12 @@
 
 
     <!--== Partner Area Start ==-->
-    <div id="partner-area" class="overlay section-padding">
+   <!--  <div id="partner-area" class="overlay section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="partner-content-wrap">
-                        <!-- Single Partner Start -->
+
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -273,9 +271,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
 
-                        <!-- Single Partner Start -->
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -283,9 +279,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
 
-                        <!-- Single Partner Start -->
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -293,9 +287,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
 
-                        <!-- Single Partner Start -->
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -303,9 +295,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
 
-                        <!-- Single Partner Start -->
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -313,9 +303,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
 
-                        <!-- Single Partner Start -->
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -323,9 +311,7 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
 
-                        <!-- Single Partner Start -->
                         <div class="single-partner">
                             <div class="display-table">
                                 <div class="display-table-cell">
@@ -333,12 +319,11 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Single Partner End -->
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!--== Partner Area End ==-->
 
 
@@ -350,9 +335,11 @@
                     <div class="hire-content-wrap">
                         <!-- Single Hire Start -->
                         <div class="single-hire-item">
-                            <h2>LOOKING FOR EXCLUSIVE DIGITAL SERVICES?</h2>
-                            <p>It is a long established fact that a reader will be distracted</p>
-                            <a href="#" class="theme-btn">Let's Strat</a>
+                            <h2>Join our official Telegram Group</h2>
+                            <p>We have introduced the Telegram group to help support get closer to you 
+                                Share your ideas, understand the community 
+                                and get updates easily</p>
+                            <a href="<?=$settings['telegram_group_link'];?>" class="theme-btn">Join Group</a>
                         </div>
                         <!-- Single Hire End -->
                     </div>

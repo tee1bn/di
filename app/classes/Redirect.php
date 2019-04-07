@@ -10,7 +10,18 @@ class Redirect
 
 	public static function to($location = null)
 	{
-	 $location = Config::domain()."/$location";
+
+
+		if(substr($location, 0 , 7) == "http://"){
+
+			 $location = "$location";
+
+		}else{
+			 $location = Config::domain()."/$location";
+		}
+
+
+
 
 		if ($location) {
 				if (is_numeric($location)) {
