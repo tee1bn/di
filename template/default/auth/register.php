@@ -85,7 +85,7 @@ $introduced_by = Input::old('introduced_by');
 
 
                     <div class="form-group">
-                        <input type="text" required="" name="introduced_by" value="<?=$introduced_by;?>" class="form-control" placeholder="Your Referral" />
+                        <input type="text"  name="introduced_by" value="<?=$introduced_by;?>" class="form-control" placeholder="Your Referral" />
                          <span class="text-danger"><?=$this->inputError('introduced_by');?></span>
                     </div>
 
