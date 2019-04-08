@@ -211,7 +211,13 @@ class home extends controller
 
 	public function index()
 	{
-		
+
+		/*$domain = Config::domain();
+		echo <<<EOL
+
+
+		<img style="width:100%; height:100%;" src="$domain/template/default/assets/images/background/coming-soon.jpg">;
+EOL;*/
 		$this->view('guest/index');
 	}
 
