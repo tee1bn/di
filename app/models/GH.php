@@ -13,6 +13,14 @@ class GH extends Eloquent
 
 
 
+	public static function recent_ghs()
+	{
+		return self::latest()->take(30)->get();
+
+	}
+
+
+
 	public static function delete_ghs($ghs_ids)
 	{
 		try {

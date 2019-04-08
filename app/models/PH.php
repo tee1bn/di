@@ -20,6 +20,11 @@ class PH extends Eloquent
 	protected $table = 'ph';
 
 
+	public static function recent_phs()
+	{
+		return self::latest()->take(30)->get();
+
+	}
 
 
 

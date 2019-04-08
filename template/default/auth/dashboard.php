@@ -35,6 +35,9 @@ $page_title = "Dashboard";
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-md-9">
+
                 <?php
                     $urgent_match = $this->auth()->urgent_match();
                     if ($urgent_match != null):
@@ -128,7 +131,7 @@ $page_title = "Dashboard";
 
             <?php include 'includes/earnings_tab.php';?>
 
- <div class="row">
+                <div class="row">
 
                     <div class="col-md-6 ">
                         <div class="card card-success card-inverse">
@@ -220,6 +223,38 @@ $page_title = "Dashboard";
                     </div>
                    
                 </div>
+              </div>
+              <div  class="col-md-3">
+                <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
+                  <li class="list-group-item  list-group-item-success">Recent PHs</li>
+                  <?php foreach (PH::recent_phs()->take(10) as $ph):?>
+                  <li class="list-group-item">
+                    <?=$currency;?><?=$ph->amount;?> 
+                    <small>
+                      <span class="badge badge-success float-right"><?=$ph->created_at->diffForHumans();?>
+                      </span>
+                    </small>
+                    <p><small><?=$ph->user->fullname;?></small></p>
+                  </li>
+                    <?php endforeach;?>
+                </ul>
+
+                <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
+                  <li class="list-group-item  list-group-item-success">Recent PHs</li>
+                  <?php foreach (GH::recent_ghs()->take(10) as $gh):?>
+                  <li class="list-group-item">
+                    <?=$currency;?><?=$gh->amount;?> 
+                    <small>
+                      <span class="badge badge-success float-right"><?=$gh->created_at->diffForHumans();?>
+                      </span>
+                    </small>
+                    <p><small><?=$gh->user->fullname;?></small></p>
+                  </li>
+                    <?php endforeach;?>
+                </ul>
+
+              </div>
+            </div>
 
                
 
