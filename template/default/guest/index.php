@@ -20,6 +20,7 @@
 #slideslow-header{
 
     background-image: url("<?=$this_folder;?>/assets/img/custom_img/hands.jpg") !important;
+    background-size: 100%;
 }
 
 </style>
