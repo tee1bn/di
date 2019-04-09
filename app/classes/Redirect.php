@@ -53,7 +53,7 @@ ob_end_clean();
 
 
 	
-	public function back()
+	public static function back()
 	{
 
 		 $location = $_SERVER['HTTP_REFERER'];

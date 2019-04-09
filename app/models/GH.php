@@ -48,7 +48,7 @@ class GH extends Eloquent
 
 
 
-	public function fetch_all_valid_unfufilled_ghs()
+	public static function fetch_all_valid_unfufilled_ghs()
 	{
 
 		return   $ghs =  GH::whereNotIn('user_id', User::BlockedUsers()->pluck('id'))

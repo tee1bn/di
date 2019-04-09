@@ -19,7 +19,7 @@ class AutoMatchingController extends controller
 
 		if ($settings['put_on_automatic_matching'] == 1) {
 
-			$this->match_ghs_and_phs();
+			// $this->match_ghs_and_phs();
 		}
 
 		$this->resolve_all_expired_match();

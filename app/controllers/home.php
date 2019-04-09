@@ -18,6 +18,8 @@ class home extends controller
 	public function test2()
 	{
 		$match = Match::first();
+		$ph = $match->ph;
+		echo $ph->matched->sum('gh_amount');
 		// echo $this->buildView('emails/gh_notification', compact('match'));
 		echo User::find(1)->has_letter_of_happiness_to_write();
 

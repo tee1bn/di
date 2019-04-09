@@ -43,7 +43,7 @@ class PH extends Eloquent
 	}
 
 
-	public function fetch_all_valid_unfufilled_phs()
+	public static function fetch_all_valid_unfufilled_phs()
 	{
 
 		return $phs= PH::whereNotIn('user_id', User::BlockedUsers()->pluck('id'))

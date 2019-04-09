@@ -11,7 +11,7 @@ class Testimonials extends Eloquent
 	protected $table = 'testimonials';
 
 
-public function approved()
+public  static function approved()
 {
 	return self::where('approval_status', 1);
 }

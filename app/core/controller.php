@@ -292,7 +292,7 @@ if ($response == true) {
 			foreach ($data as $key => $value) { $$key = $value ;}
 			$view_path = explode('/', $view);
 			array_pop($view_path);
-
+			$view_folder = '';
 			foreach ($view_path as $key => $folder) {
 
 				$view_folder .= $folder.'/' ;
@@ -318,7 +318,6 @@ if ($response == true) {
 			define("project_name", 	$project_name, 	true);
 			define("$this_folder", 	$this_folder, 	true);
 			define("$includes_dir", 	$includes_dir, 	true);
-			define("accessor",	$accessor, 	true);
 			define("asset", 	$asset, 	true);
 			define("logo", 	$logo, 	true);
 			define("fav_icon", 	$fav_icon, 	true);
