@@ -113,6 +113,8 @@ class home extends controller
 
 		print_r($ghs);
 
+		
+
 		$site_settings = [
 			'percent_roi' => 50, //
 			'ph_maturity_in_days' => 14,//

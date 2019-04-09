@@ -47,7 +47,7 @@ $settings = SiteSettings::site_settings();
                                                     <label>Amount (<?=$currency;?>)</label>
                                                 <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
                                                     <span class="input-group-btn input-group-prepend"></span>
-                                                    <input id="tch3" required="" value="<?=Input::old('amount');?>" name="amount" 
+                                                    <input id="tch3" type="number" min="<?=$settings['minimum_ph'];?>" required="" value="<?=Input::old('amount');?>" name="amount" 
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
                                                     <span class="input-group-btn input-group-append">
                                                         <button class="btn btn-success " type="submit">Provide Help</button>
