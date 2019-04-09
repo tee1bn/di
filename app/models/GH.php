@@ -64,7 +64,7 @@ class GH extends Eloquent
 
 
 
-	public function valid_unfufilled_ghs()
+	public function valid_unfufilled_ghs($downpayment)
 	{
 
 
@@ -74,6 +74,7 @@ class GH extends Eloquent
 
 		$pioneers_unfifilled_ghs =  GH::where('fufilled_at', null)
 									->whereIn('user_id', $pioneers_ids)
+									->where('payin_left', '>=', $downpayment)
 									->get()
 									->toArray();
 
@@ -81,6 +82,7 @@ class GH extends Eloquent
 		$regular_users_unfifilled_ghs_only =  GH::where('fufilled_at', null)
 											->whereNotIn('user_id', $blocked_users_ids)
 											->whereNotIn('user_id', $pioneers_ids)
+											->where('payin_left', '>=', $downpayment)
 											->get()
 											->toArray();
 
@@ -98,11 +100,11 @@ class GH extends Eloquent
 
 
 
-	public static function find_ghs_for_downpayment()
+	public static function find_ghs_for_downpayment($downpayment)
 	{
 
 
-		$ghs =  self::valid_unfufilled_ghs();
+		$ghs =  self::valid_unfufilled_ghs($downpayment);
 
 
 		$settings = SiteSettings::site_settings();

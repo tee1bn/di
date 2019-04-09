@@ -61,7 +61,7 @@ class PH extends Eloquent
 		$settings = SiteSettings::site_settings();
 		$downpayment =  $settings['percent_down_payment'] * 0.01 * $this->amount ;
 
-		$available_ghs = GH::find_ghs_for_downpayment();
+		$available_ghs = GH::find_ghs_for_downpayment($downpayment);
 
 		$gh  = $available_ghs[0];
 

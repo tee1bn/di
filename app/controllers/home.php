@@ -108,6 +108,11 @@ class home extends controller
 	{
 		echo "<pre>";
 
+		$ghs = GH::find_ghs_for_downpayment(20000);
+
+
+		print_r($ghs);
+
 		$site_settings = [
 			'percent_roi' => 50, //
 			'ph_maturity_in_days' => 14,//

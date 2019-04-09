@@ -1,5 +1,6 @@
 <?php
 $page_title = "Provide Help";
+$settings = SiteSettings::site_settings();
  include 'includes/header.php';?>
 
 
@@ -55,7 +56,10 @@ $page_title = "Provide Help";
 
                                                 <small class="text-danger"><?=Input::inputError('amount');?></small><br>
 
-                                                <small class="text-danger">* Minimum Amount is <?=$currency;?> and Maximum Amount is <?=$currency;?></small>
+                                                <small class="text-danger">* Minimum Amount is 
+                                                    <?=$currency;?><?=$this->money_format($settings['minimum_ph']);?> and Maximum Amount is 
+                                                    <?=$currency;?><?=$this->money_format($settings['maximum_ph']);?>
+                                                </small>
                                             </div>
 
                                         

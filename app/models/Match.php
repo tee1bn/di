@@ -1,7 +1,7 @@
 <?php
 
-
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Capsule\Manager as DB;
 
 class Match extends Eloquent 
 {
@@ -53,47 +53,59 @@ class Match extends Eloquent
 		$valid_phs = PH::whereIn('id', $phs_ids)->get();
 
 
-		$i = 0;
-		foreach ($valid_ghs as $GH) {
 
-			foreach ($valid_phs as $PH ) {
+			DB::beginTransaction();
 
-				 $gh_payin = $GH->payin_left;
-				 $ph_payout = $PH->payout_left;
+				try {
 
+						$i = 0;
+						foreach ($valid_ghs as $GH) {
 
+							foreach ($valid_phs as $PH ) {
 
-					//ensure user is not paired to himself
-					if ($PH->user->id == $GH->user->id) {
-						continue;
-					}
-
-					//ensure gh is not matched more than payinleft
-			 		if($GH->payin_left <= 0 ){
-						continue;
-			 		}
-
-					//ensure ph is not matched more than payoutleft
-			 		if($PH->payout_left <= 0 ){
-						continue;
-			 		}
+								 $gh_payin = $GH->payin_left;
+								 $ph_payout = $PH->payout_left;
 
 
-				if ( $gh_payin == $ph_payout) { // create match
-				 		$new_match =	Match::create_match($PH->id, $ph_payout,$gh_payin, $GH->id);
-				 		if ($new_match) {$i++;}
-				}elseif ($gh_payin > $ph_payout) {
 
-				  $new_match=Match::create_match($PH->id, $ph_payout, $ph_payout, $GH->id);
-				 		if ($new_match) {$i++;}
-				}elseif($gh_payin < $ph_payout){
+									//ensure user is not paired to himself
+									if ($PH->user->id == $GH->user->id) {
+										continue;
+									}
 
-				 	$new_match = Match::create_match($PH->id, $gh_payin,$gh_payin, $GH->id);
-				 		if ($new_match) {$i++;}
+									//ensure gh is not matched more than payinleft
+							 		if($GH->payin_left <= 0 ){
+										continue;
+							 		}
+
+									//ensure ph is not matched more than payoutleft
+							 		if($PH->payout_left <= 0 ){
+										continue;
+							 		}
+
+
+								if ( $gh_payin == $ph_payout) { // create match
+								 		$new_match =	Match::create_match($PH->id, $ph_payout,$gh_payin, $GH->id);
+								 		if ($new_match) {$i++;}
+								}elseif ($gh_payin > $ph_payout) {
+
+								  $new_match=Match::create_match($PH->id, $ph_payout, $ph_payout, $GH->id);
+								 		if ($new_match) {$i++;}
+								}elseif($gh_payin < $ph_payout){
+
+								 	$new_match = Match::create_match($PH->id, $gh_payin,$gh_payin, $GH->id);
+								 		if ($new_match) {$i++;}
+								}
+						 		// echo "string";
+							}
+						}
+
+
+					DB::commit();
+				} catch (\Exception $e) {
+				    DB::rollback();
+				    // something went wrong
 				}
-		 		// echo "string";
-			}
-		}
 
 		return $i ;
 
@@ -103,7 +115,10 @@ class Match extends Eloquent
 
 	public function create_match($ph_id, $ph_amount, $gh_amount, $gh_id)
 	{
-		$expiry_hour = self::next_x_hours();
+
+
+
+					$expiry_hour = self::next_x_hours();
 			 		$attached_ph = PH::find($ph_id);
 					$attached_gh = GH::find($gh_id);
 
@@ -113,41 +128,35 @@ class Match extends Eloquent
 					}
 
 					//ensure gh is not matched more than payinleft
-			 		if($attached_gh->payin_left <= 0 ){
+			 		if($attached_gh->payin_left < $gh_amount ){
 			 			return false;
 			 		}
 
 					//ensure ph is not matched more than payoutleft
-			 		if($attached_ph->payout_left <= 0 ){
+			 		if($attached_ph->payout_left < $ph_amount ){
 			 			return false;
 			 		}
 
 
+		 	$match  = 	Match::create([
+				 				'ph_id' 	=> $ph_id,
+				 				'ph_amount' => $ph_amount,
+				 				'gh_amount' => $gh_amount,
+				 				'gh_id' 	=> $gh_id,
+				 				'expires' 	=> $expiry_hour,
+				 			]);
 
+				 if ($match){ // update respective ph and gh
 
+				 		$payout_left = $attached_ph->payout_left - $match->ph_amount;
+				 		$attached_ph->update(['payout_left' => $payout_left]);
 
+				 		$payin_left = $attached_gh->payin_left - $match->gh_amount;
+				 		$attached_gh->update(['payin_left' => $payin_left]);
 
-
-	 	$match  = 	Match::create([
-			 				'ph_id' 	=> $ph_id,
-			 				'ph_amount' => $ph_amount,
-			 				'gh_amount' => $gh_amount,
-			 				'gh_id' 	=> $gh_id,
-			 				'expires' 	=> $expiry_hour,
-			 			]);
-
-			 if ($match){ // update respective ph and gh
-
-			 		$payout_left = $attached_ph->payout_left - $match->ph_amount;
-			 		$attached_ph->update(['payout_left' => $payout_left]);
-
-			 		$payin_left = $attached_gh->payin_left - $match->gh_amount;
-			 		$attached_gh->update(['payin_left' => $payin_left]);
-
-			 		return true;
-			 	}
-
-	}
+				 		return true;
+				 	}
+			}
 
 
 	public function delete_match()
