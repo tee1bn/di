@@ -15,8 +15,7 @@ class current_user extends controller
 	
 	public function must_have_verified_email()
 	{
-
-		if (($this->setting['email_verification'] == 1) && ($this->auth()->email_verification != 1)) {
+		if (($this->setting['email_verification'] == 1) && (strlen($this->auth()->email_verification) > 1)) {
 
 			Redirect::to('verify/email');
 		}

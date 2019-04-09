@@ -306,7 +306,7 @@ if (Input::exists('user_registration') || true) {
 		'username' => [
 						'required'=> true,
 						'min'=> 3,
-						// 'one_word'=> true,
+						'one_word'=> true,
 						'no_special_character'=> true,
 						'unique'=> 'User',
 					],

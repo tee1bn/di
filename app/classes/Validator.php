@@ -85,8 +85,7 @@ class Validator
 
 						case 'one_word':
 
-							if (str_word_count($value) > 1)
-							{
+							if (stripos($value, ' ') !== false) { 
 								$this->addError($item, "$item must be one word.");
 							}
 
