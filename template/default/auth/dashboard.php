@@ -226,7 +226,7 @@ $page_title = "Dashboard";
               </div>
               <div  class="col-md-3">
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent PHs</li>
+                  <li class="list-group-item  list-group-item-success">Recent PH</li>
                   <?php foreach (PH::recent_phs()->take(10) as $ph):?>
                   <li class="list-group-item">
                     <?=$currency;?><?=$ph->amount;?> 
@@ -240,7 +240,7 @@ $page_title = "Dashboard";
                 </ul>
 
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent PHs</li>
+                  <li class="list-group-item  list-group-item-success">Recent PH</li>
                   <?php foreach (GH::recent_ghs()->take(10) as $gh):?>
                   <li class="list-group-item">
                     <?=$currency;?><?=$gh->amount;?> 

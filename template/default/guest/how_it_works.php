@@ -45,12 +45,20 @@ Please note that the use of the words <?=$settings['percent_roi'];?>% in <?=$set
 </ul> <br>
 
 
+REFERRAL BONUS
+
+
 <h4>REFERRAL BONUS</h4>
  
-<p style="text-align: justify">Participants are credited with a Referral Bonus of 
-    <?=$settings['percent_referral_bonus_on_ph'];?>% from the amount of the contribution made by each new member (referral) you invited to the System. Bonuses are credited in Mavro which may be taken out as soon as the referral has provided help and got his Mavro confirmed. You can invite a participant through a referral link or <?=project_name;?>  username. You will get the bonus from each referral’s new contribution, but only for "new" money.<br><br>
+<p style="text-align: justify">
+Participants will not be credited with a Referral Bonus from the amount of the contribution made by each new member (referral) you invited to the System. Referral bonuses are considered to be excesses on the system and contributes a massive debt to the sustainability of the system. You can invite a participant through a referral link or <?=project_name;?> username.
+<br><br>
 
-<b>ATTENTION!</b> You don't have to invite new people to the system! Should you invite anyone? That's good, you will get even a referral bonus for that. If you do not? It is OK. You are free to participate without attracting new members.</p><br><br>
+<b>ATTENTION!</b> 
+You don't have to invite new people to the system! Should you invite anyone? That's good for the smooth running and health of the system, if you do not? It is OK. You are free to participate without attracting new members.
+
+
+</p><br><br>
 
 
 

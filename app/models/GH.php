@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class GH extends Eloquent 
 {
 	
-	protected $fillable = [	'user_id',	'matured_ph_id','amount', 'fufilled_at', 'payin_left'];
+	protected $fillable = [	'user_id',	'pioneered','amount', 'fufilled_at', 'payin_left'];
 		
 	protected $table = 'gh';
 
@@ -15,7 +15,7 @@ class GH extends Eloquent
 
 	public static function recent_ghs()
 	{
-		return self::latest()->take(30)->get();
+		return self::latest()->where('pioneered', null)->take(30)->get();
 
 	}
 
@@ -207,6 +207,7 @@ class GH extends Eloquent
 								'user_id'		=> $user_id,
 								'amount'		=> $amount,
 								'payin_left'	=> $amount,
+								'pioneered'	=> 1,
 							]); 
 
  		 		Session::putFlash('success', "GH Request Simulated Successfully. ");
