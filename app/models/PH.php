@@ -20,9 +20,9 @@ class PH extends Eloquent
 	protected $table = 'ph';
 
 
-	public static function recent_phs()
+	public static function recent_phs($user_id)
 	{
-		return self::latest()->take(30)->get();
+		return self::where('user_id', $user_id)->latest()->take(30)->get();
 
 	}
 

@@ -185,7 +185,119 @@ $page_title = "Dashboard";
                         </div>
                     </div>
  -->                    <!-- Column -->
-                    <div class="col-md-12">
+               
+
+
+
+
+                <ul class="list-group col-md-12">
+                  <!-- <li class="list-group-item ">Recent PH</li> -->
+                  <?php foreach ($this->auth()->ph_matches() as $ph_match):
+                  $ph = $ph_match->ph;
+                  $gh_user  =$ph_match->gh->user ;
+                  ?>
+                  <li class="list-group-item list-group-item-success">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
+                      <?=$currency;?><?=$ph->amount;?> 
+                      <small>
+                        <span class="badge badge-success float-ripht"><?=$ph->created_at->toFormattedDateString();?>
+                        </span>
+                      </small>
+                      <p><small>#<?=$ph->id;?> <?=$ph->status();?>
+                      </small>
+                        <small class="float-ripht">bal: <?=$currency;?><?=$ph->payout_left;?></small></p>
+                      </a>
+                    </div>
+
+                    <div class="col-md-6">
+                      <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
+                      <i class="fa fa-user"></i> <?=$gh_user->fullname;?> 
+                      <small>
+                        <span class="badge badge-success float-ripht"><?=$ph_match->created_at->toFormattedDateString();?>
+                        </span>
+                      </small>
+                      <p>
+                        <a href="tel:<?=$gh_user->phone;?>">
+                         <i class="fa fa-phone"></i>
+                         <?=$gh_user->phone;?></a>
+                         <br>
+                        <small>#<?=$ph_match->id;?> <?=$ph_match->status();?>
+                      </small>
+                        <small class="float-right">PayOut: <?=$currency;?>
+                        <?=$ph_match->ph_amount;?></small>
+                      </p>
+                      <p>
+                         <i class="fa fa-bank"></i>
+                         Acc Name: <?=$gh_user->bank_account_name;?>
+                         <br>
+                         Account: <?=$gh_user->bank_account_number;?>
+                       
+                        <small class="float-right">Bank:<?=$gh_user->bank_name;?></small>
+                      </p>
+                      </a>
+                    </div>
+                  </div>
+                    
+                  </li>
+                    <?php endforeach;?>
+                </ul>
+
+
+                <div class="col-md-12"></div>
+
+                <ul class="list-group col-md-12">
+                  <!-- <li class="list-group-item ">Recent GH</li> -->
+                  <?php foreach ($this->auth()->gh_matches() as $gh_match):
+                  $gh = $gh_match->gh;
+                  $ph_user  =$gh_match->ph->user ;
+                  ?>
+                  <li class="list-group-item list-group-item-warning">
+                    <div class="row">
+                    <div class="col-md-6">
+                      <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
+                      <?=$currency;?><?=$gh->amount;?> 
+                      <small>
+                        <span class="badge badge-success float-right"><?=$gh->created_at->toFormattedDateString();?>
+                        </span>
+                      </small>
+                      <p><small>#<?=$gh->id;?> <?=$gh->status();?>
+                      </small>
+                        <small class="float-right">bal: <?=$currency;?><?=$gh->payin_left;?></small></p>
+                      </a>
+                    </div>
+
+                    <div class="col-md-6">
+                      <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
+                      <i class="fa fa-user"></i> <?=$ph_user->fullname;?> 
+                      <small>
+                        <span class="badge badge-success float-right"><?=$gh_match->created_at->toFormattedDateString();?>
+                        </span>
+                      </small>
+                      <p>
+                        <a href="tel:<?=$ph_user->phone;?>">
+                         <i class="fa fa-phone"></i>
+                         <?=$ph_user->phone;?></a>
+                         <br>
+                        <small>#<?=$gh_match->id;?> <?=$gh_match->status();?>
+                      </small>
+                        <small class="float-right">Payin: <?=$currency;?>
+                        <?=$gh_match->gh_amount;?></small></p>
+                      </a>
+                    </div>
+                  </div>
+                    
+                  </li>
+                    <?php endforeach;?>
+                </ul>
+                
+                <div class="col-md-12">
+                        <div class="card">
+                        </div>
+                    </div>
+
+                <div class="col-md-12">
                         <div class="card card-inverse card-info">
                             <div class="box bg-secondary text-center">
                                 <h1 class="font-light text-white"></h1>
@@ -201,18 +313,9 @@ $page_title = "Dashboard";
                             </div>
                         </div>
                     </div>
-                    <!-- Column -->
-                     <!-- Column -->
-                    <!-- <div class="col-md-6">
-                        <div class="card card-inverse card-info">
-                            <div class="box bg-success text-center">
-                                <h1 class="font-light text-white">Whatsapp</h1>
-                                <h6 class="text-white"><a href="<?=domain;?>/verify/phone" class="btn btn-primary">Join</a></h6>
-                                <small class="text-white">Join the <?=project_name;?> Official Whatsapp Group</small>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- Column -->
+
+
+                   
                     <div class="col-md-12">
                         <div class="card card-warning card-inverse">
                             <div class="box text-center">
@@ -220,35 +323,42 @@ $page_title = "Dashboard";
                                 <small class="text-danger"><i class="fa fa-exclamation-triangle"></i> WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
                             </div>
                         </div>
-                    </div>
-                   
+                    </div>                   
                 </div>
               </div>
               <div  class="col-md-3">
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
                   <li class="list-group-item  list-group-item-success">Recent PH</li>
-                  <?php foreach (PH::recent_phs()->take(10) as $ph):?>
+                  <?php foreach (PH::recent_phs($this->auth()->id) as $ph):?>
                   <li class="list-group-item">
+                    <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
                     <?=$currency;?><?=$ph->amount;?> 
                     <small>
-                      <span class="badge badge-success float-right"><?=$ph->created_at->diffForHumans();?>
+                      <span class="badge badge-success float-right"><?=$ph->created_at->toFormattedDateString();?>
                       </span>
                     </small>
-                    <p><small><?=$ph->user->fullname;?></small></p>
+                    <p><small>#<?=$ph->id;?> <?=$ph->status();?></small>
+                      <small class="float-right">bal: <?=$currency;?><?=$ph->payout_left;?></small></p>
+                    </p>
+
+                    </a>
                   </li>
                     <?php endforeach;?>
                 </ul>
 
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent PH</li>
-                  <?php foreach (GH::recent_ghs()->take(10) as $gh):?>
+                  <li class="list-group-item  list-group-item-success">Recent GH</li>
+                  <?php foreach (GH::recent_ghs($this->auth()->id) as $gh):?>
                   <li class="list-group-item">
+                    <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
                     <?=$currency;?><?=$gh->amount;?> 
                     <small>
-                      <span class="badge badge-success float-right"><?=$gh->created_at->diffForHumans();?>
+                      <span class="badge badge-success float-right"><?=$gh->created_at->toFormattedDateString();?>
                       </span>
                     </small>
-                    <p><small><?=$gh->user->fullname;?></small></p>
+                    <p><small>#<?=$gh->id;?> <?=$gh->status();?></small>
+                      <small class="float-right">bal: <?=$currency;?><?=$gh->payin_left;?></small></p>
+                    </a>
                   </li>
                     <?php endforeach;?>
                 </ul>

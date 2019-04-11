@@ -59,6 +59,29 @@ class User extends Eloquent
 
 
 
+
+    public function ph_matches()
+    {
+    	$phs_ids = PH::where('user_id', $this->id)->get()->pluck('id')->toArray();
+    	return 	Match::whereIn('ph_id', $phs_ids)
+    				// ->whereNotNull('status')
+    				->orWhere('status', '=', null)
+    				->get();
+    }
+
+
+    public function gh_matches()
+    {
+    	$ghs_ids = GH::where('user_id', $this->id)->get()->pluck('id')->toArray();
+    	return 	Match::whereIn('gh_id', $ghs_ids)
+    				// ->whereNotNull('status')
+    				->orWhere('status', '=', null)
+    				->get();
+    }
+
+
+
+
     public function urgent_match()
     {
 
@@ -401,7 +424,7 @@ public function generate_username_from_email($email)
 			$this->update([
 							'referred_by'	=> null,
 							'introduced_by'	=> null,
-							]);
+						]);
 	}
 
 	public function block_user()

@@ -13,9 +13,9 @@ class GH extends Eloquent
 
 
 
-	public static function recent_ghs()
+	public static function recent_ghs($user_id)
 	{
-		return self::latest()->where('pioneered', null)->take(30)->get();
+		return self::where('user_id', $user_id)->latest()->take(30)->get();
 
 	}
 
