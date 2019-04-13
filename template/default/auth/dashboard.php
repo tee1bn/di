@@ -43,8 +43,8 @@ $page_title = "Dashboard";
                     if ($urgent_match != null):
                         $recipient = $urgent_match->gh->user;
                   ?>
-                 <div class="row">
-                    <div class="col-12">
+                 <div class="row ">
+                    <div class="col-12" style="display: none;">
                         <a href="<?=domain;?>/user/ph_matches/<?=$urgent_match->ph->id;?>">
                                <div class="alert alert-danger text-danger">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
@@ -189,42 +189,65 @@ $page_title = "Dashboard";
 
 
 
+                <style>
+                  .list-group-item{margin-bottom: 2px !important;}
+                </style>
+
 
                 <ul class="list-group col-md-12">
                   <!-- <li class="list-group-item ">Recent PH</li> -->
                   <?php foreach ($this->auth()->ph_matches() as $ph_match):
                   $ph = $ph_match->ph;
                   $gh_user  =$ph_match->gh->user ;
+                  $ph_user  =$ph_match->ph->user ;
                   ?>
                   <li class="list-group-item list-group-item-success">
                     <div class="row">
                     <div class="col-md-6">
                       <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
-                      <?=$currency;?><?=$ph->amount;?> 
                       <small>
-                        <span class="badge badge-success float-ripht"><?=$ph->created_at->toFormattedDateString();?>
+                      Payer - <?=$ph_user->fullname;?>
+                        <span class="badge badge-success float-right"><?=$ph_match->created_at->toFormattedDateString();?>
                         </span>
                       </small>
-                      <p><small>#<?=$ph->id;?> <?=$ph->status();?>
+                      <p><small>#<?=$ph_match->id;?> <?=$ph_match->status();?>
                       </small>
-                        <small class="float-ripht">bal: <?=$currency;?><?=$ph->payout_left;?></small></p>
+                      </p>
                       </a>
+                       <div class="dropdown">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                           Action
+                        </button>
+                        <div class="dropdown-menu">
+                       <?php if (! $ph_match->is_complete()):?>
+                          <a class="dropdown-item" href="javascript:void;">
+                               <form action="<?=domain;?>/user/upload_ph_payment_proof" method="post"  enctype="multipart/form-data">
+                            <input type="hidden" name="match_id" value="<?=$ph_match->id;?>">
+                            <input style="display: none;" type="file"  onchange="form.submit();"  name="payment_proof">
+                            <button type="button" class="btn btn-primary" onclick="form.payment_proof.click()"
+                            >Upload Proof</button>
+                        </form>     
+                          </a>
+                       <?php endif;?>
+                       
+                          <a class="dropdown-item" target="_blank"
+                          href="<?=domain;?>/<?=$ph_match->payment_proof;?>">
+                               See Proof
+                          </a>
+                        </div>
+                      </div>
                     </div>
 
                     <div class="col-md-6">
                       <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
-                      <i class="fa fa-user"></i> <?=$gh_user->fullname;?> 
-                      <small>
-                        <span class="badge badge-success float-ripht"><?=$ph_match->created_at->toFormattedDateString();?>
-                        </span>
-                      </small>
+                      <i class="fa fa-user"></i> <?=$gh_user->fullname;?> -Recipient
+
                       <p>
                         <a href="tel:<?=$gh_user->phone;?>">
                          <i class="fa fa-phone"></i>
                          <?=$gh_user->phone;?></a>
                          <br>
-                        <small>#<?=$ph_match->id;?> <?=$ph_match->status();?>
-                      </small>
+
                         <small class="float-right">PayOut: <?=$currency;?>
                         <?=$ph_match->ph_amount;?></small>
                       </p>
@@ -243,47 +266,65 @@ $page_title = "Dashboard";
                   </li>
                     <?php endforeach;?>
                 </ul>
-
-
-                <div class="col-md-12"></div>
+            
 
                 <ul class="list-group col-md-12">
                   <!-- <li class="list-group-item ">Recent GH</li> -->
                   <?php foreach ($this->auth()->gh_matches() as $gh_match):
                   $gh = $gh_match->gh;
+                  $gh_user  =$gh_match->gh->user ;
                   $ph_user  =$gh_match->ph->user ;
                   ?>
                   <li class="list-group-item list-group-item-warning">
                     <div class="row">
                     <div class="col-md-6">
                       <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
-                      <?=$currency;?><?=$gh->amount;?> 
                       <small>
-                        <span class="badge badge-success float-right"><?=$gh->created_at->toFormattedDateString();?>
+                      Recipient - <?=$gh_user->fullname;?>
+                        <span class="badge badge-success float-right"><?=$gh_match->created_at->toFormattedDateString();?>
                         </span>
                       </small>
-                      <p><small>#<?=$gh->id;?> <?=$gh->status();?>
+                      <p><small>#<?=$gh_match->id;?> <?=$gh_match->status();?>
                       </small>
-                        <small class="float-right">bal: <?=$currency;?><?=$gh->payin_left;?></small></p>
+                      </p>
                       </a>
+                      <div class="dropdown">
+                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                             Action
+                          </button>
+                          <div class="dropdown-menu">
+                         <?php if (! $gh_match->is_complete()):?>
+
+                            <a onclick="$confirm_dialog = 
+                                new ConfirmationDialog('<?=domain;?>/user/confirm_gh_match/<?=$gh_match->id;?>/<?=$gh_match->gh->id;?>')"
+                             class="dropdown-item" href="javascript:void;">
+                               Confirm 
+                            </a>
+                         <?php endif;?>
+                            <a  class="dropdown-item" disable target="_blank"
+                            href="<?=domain;?>/<?=$gh_match->payment_proof;?>">
+                                 See Proof
+                         <?php if ($gh_match->payment_proof == ''):?>
+                            <small>nil</small>
+                         <?php endif;?>
+                            </a>
+                          </div>
+                        </div>
                     </div>
 
                     <div class="col-md-6">
                       <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
-                      <i class="fa fa-user"></i> <?=$ph_user->fullname;?> 
-                      <small>
-                        <span class="badge badge-success float-right"><?=$gh_match->created_at->toFormattedDateString();?>
-                        </span>
-                      </small>
+                      <i class="fa fa-user"></i> <?=$ph_user->fullname;?> -Payer
+
                       <p>
                         <a href="tel:<?=$ph_user->phone;?>">
                          <i class="fa fa-phone"></i>
                          <?=$ph_user->phone;?></a>
                          <br>
-                        <small>#<?=$gh_match->id;?> <?=$gh_match->status();?>
-                      </small>
-                        <small class="float-right">Payin: <?=$currency;?>
-                        <?=$gh_match->gh_amount;?></small></p>
+
+                        <small class="float-right">PayIn: <?=$currency;?>
+                        <?=$gh_match->ph_amount;?></small>
+                      </p>
                       </a>
                     </div>
                   </div>
@@ -291,6 +332,11 @@ $page_title = "Dashboard";
                   </li>
                     <?php endforeach;?>
                 </ul>
+
+
+                <div class="col-md-12"></div>
+
+            
                 
                 <div class="col-md-12">
                         <div class="card">
@@ -330,7 +376,7 @@ $page_title = "Dashboard";
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
                   <li class="list-group-item  list-group-item-success">Recent PH</li>
                   <?php foreach (PH::recent_phs($this->auth()->id) as $ph):?>
-                  <li class="list-group-item">
+                  <li class="list-group-item list-group-item-success">
                     <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
                     <?=$currency;?><?=$ph->amount;?> 
                     <small>
@@ -347,9 +393,9 @@ $page_title = "Dashboard";
                 </ul>
 
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent GH</li>
+                  <li class="list-group-item  list-group-item-warning">Recent GH</li>
                   <?php foreach (GH::recent_ghs($this->auth()->id) as $gh):?>
-                  <li class="list-group-item">
+                  <li class="list-group-item list-group-item-warning">
                     <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
                     <?=$currency;?><?=$gh->amount;?> 
                     <small>
