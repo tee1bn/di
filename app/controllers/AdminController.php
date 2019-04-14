@@ -236,6 +236,7 @@ class AdminController extends controller
 
 		Session::putFlash('success', 'Payment confirmed successfully');
 		Redirect::back();
+		
 
 	}
 
