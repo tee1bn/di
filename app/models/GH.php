@@ -19,6 +19,18 @@ class GH extends Eloquent
 
 
 
+	public function getGhRecommittmentStatusAttribute()
+	{
+		if ($this->fufilled_recommittment == 1) {
+
+			return "<span class='badge badge-secondary'></span>";
+		}else{
+
+			return "<span class='badge badge-secondary'>awaiting recommittment</span>";
+		}
+
+	}
+
 
 	public static function recent_ghs($user_id)
 	{

@@ -118,7 +118,9 @@ $page_title = "Get Help";
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$gh_request->created_at->toFormattedDateString();?></td>
                                                     </span>
-                                                <td><?=$gh_request->status();?>
+                                                <td>
+                                                    <?=$gh_request->status();?><br>
+                                                    <?=$gh_request->GhRecommittmentStatus;?>
   
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$gh_request->matched->count();?>                                                        
