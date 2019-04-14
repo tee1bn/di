@@ -106,10 +106,10 @@ class home extends controller
 	{
 		echo "<pre>";
 
-		$ghs = GH::find_ghs_for_downpayment(20000);
+		// $ghs = GH::find_ghs_for_downpayment(20000);
 
 
-		print_r($ghs);
+		// print_r($ghs);
 
 		
 
