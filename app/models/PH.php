@@ -168,7 +168,11 @@ class PH extends Eloquent
 							 		   ->where('user_id', $user->id)
 							 		   ->where('fufilled_recommittment', null)
 							 		   ->first();
-			$gh_non_recommited->update(['fufilled_recommittment'=>  1]);
+
+			if ($gh_non_recommited != null) {
+
+				$gh_non_recommited->update(['fufilled_recommittment'=>  1]);
+			}
 
 	 	}
 
