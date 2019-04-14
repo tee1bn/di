@@ -180,19 +180,11 @@ class Match extends Eloquent
 
 	public function complete_match()
 	{
-		DB::beginTransaction();
-		try {
+		$this->update(['status'=> 'completed']);
 
-			$this->update(['status'=> 'completed']);
-
-
-			//fufill PH and GH if Fufiled
-			$this->ph->fufill_ph();
-			$this->gh->fufill_gh();
-			DB::commit();
-		} catch (Exception $e) {
-			DB::rollback();
-		}
+		//fufill PH and GH if Fufiled
+		$this->ph->fufill_ph();
+		$this->gh->fufill_gh();
 
 	}
 

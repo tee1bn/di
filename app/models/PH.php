@@ -157,23 +157,6 @@ class PH extends Eloquent
 		$matures_at = new DateTime();
 	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
 
-	 	$downpayment = $settings['percent_down_payment'] * 0.01 * $this->amount;
-	 	$payed_out = $this->amount  - $this->payout_left;
-	 	//fufil recommittment if paid atleast downpayment
-	 	//,ark pending GH has recomiited
-	 	if ($payed_out >= $downpayment) {
-
-	 		$user = $this->user;
-		 	$gh_non_recommited =	GH::whereDate('created_at', '<', $this->created_at)
-							 		   ->where('user_id', $user->id)
-							 		   ->where('fufilled_recommittment', null)
-							 		   ->first();
-			$gh_non_recommited->update(['fufilled_recommittment'=>  1]);
-
-	 	}
-
-
-
 
 		if ($this->isFufilled() === true) {
 
