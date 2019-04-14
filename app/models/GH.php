@@ -6,14 +6,7 @@ use Illuminate\Database\Eloquent\Model as Eloquent;
 class GH extends Eloquent 
 {
 	
-	protected $fillable = [	
-							'user_id',
-							'fufilled_recommittment',
-							'pioneered',
-							'amount',
-							'fufilled_at',
-							'payin_left'
-						];
+	protected $fillable = [	'user_id',	'pioneered','amount', 'fufilled_at', 'payin_left'];
 		
 	protected $table = 'gh';
 
@@ -60,7 +53,6 @@ class GH extends Eloquent
 
 		return   $ghs =  GH::whereNotIn('user_id', User::BlockedUsers()->pluck('id'))
 		  			->where('payin_left', '!=', 0)
-		  			->where('fufilled_recommittment', 1)
 		  			->where('fufilled_at', null)
 		  			->get();
 	}
@@ -83,7 +75,6 @@ class GH extends Eloquent
 		$pioneers_unfifilled_ghs =  GH::where('fufilled_at', null)
 									->whereIn('user_id', $pioneers_ids)
 									->where('payin_left', '>=', $downpayment)
-									->where('fufilled_recommittment',  1)
 									->get()
 									->toArray();
 
@@ -92,7 +83,6 @@ class GH extends Eloquent
 											->whereNotIn('user_id', $blocked_users_ids)
 											->whereNotIn('user_id', $pioneers_ids)
 											->where('payin_left', '>=', $downpayment)
-											->where('fufilled_recommittment',  1)
 											->get()
 											->toArray();
 
@@ -218,7 +208,6 @@ class GH extends Eloquent
 								'amount'		=> $amount,
 								'payin_left'	=> $amount,
 								'pioneered'	=> 1,
-								'fufilled_recommittment'	=> 1
 							]); 
 
  		 		Session::putFlash('success', "GH Request Simulated Successfully. ");
