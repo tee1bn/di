@@ -63,8 +63,7 @@ class User extends Eloquent
 
     public function ph_matches()
     {
-    	$phs_ids = PH::where('user_id', $this->id)
-    					->where('payout_left', '>', 0)->get()->pluck('id')->toArray();
+    	$phs_ids = PH::where('user_id', $this->id)->get()->pluck('id')->toArray();
 
     	return 	Match::whereIn('ph_id', $phs_ids)
     				// ->whereNotNull('status')
