@@ -16,7 +16,10 @@ class Redirect
 
 			 $location = "$location";
 
+		}elseif(substr($location, 0 , 8) == "https://"){
+			 $location = "$location";
 		}else{
+			
 			 $location = Config::domain()."/$location";
 		}
 

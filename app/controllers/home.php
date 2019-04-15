@@ -179,6 +179,15 @@ class home extends controller
 
 
 
+	public function download()
+	{
+
+		header("content-type:application/pdf");
+
+		readfile("uploads/Dove_Investment_Whitepaper_v2.1.pdf");
+
+
+	}
 
 
 	public function ideology()

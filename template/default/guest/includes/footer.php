@@ -41,6 +41,8 @@
                             <li><a href="<?=domain;?>/w/how-it-works">How it Works</a></li>
                             <li><a href="<?=domain;?>/w/faqs">Faqs</a></li>
                             <li><a href="<?=domain;?>/w/contact">Contact</a></li>
+                            <li><a href="<?=domain;?>/w/download">Download Manual</a></li>
+                            <li><a href="<?=$settings['telegram_group_link'];?>">Join Telegram</a></li>
 
                              <li class="active"><a href="<?=domain;?>/register">Sign Up</a></li>
                              <li class="active"><a href="<?=domain;?>/login">Sign in</a></li>
