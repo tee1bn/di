@@ -59,7 +59,8 @@
                 <div class="col-lg-12">
                     <div class="section-title">
                         <h2>Who we are.</h2>
-                        <p>Dove Investment is a community of helpers created by a group of former MMM participants and guiders. Our aim is to actualize the dreams of Sergei Mavrodi and our community is built on blueprints of his tenets. We have taken time to analyze the shortcomings of MMM and we have put in place measures to curb most of its flaws.</p>
+                        <p>Dove Investment is a community created by a group of people with great integrity to stabilize the financial status of its members. Our community is built on core principles of sustainability. We have taken time to analyze the shortcomings of other systems and we have put in place measures to curb most of their flaws. 
+                        </p>
                     </div>
                 </div>
             </div>
