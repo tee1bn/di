@@ -160,9 +160,9 @@
         <div class="container">
             <div class="row">
                 <!-- Single Review Start -->
-                <div class="col-lg-4 col-md-6 col-sm-6 text-center">
+                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
                     <div class="single-review">
-                        <p><span class="count-number"><?=(User::count() * 3);?></span>k</p>
+                        <p><span class="count-number"><?=(User::count() * 2);?></span>k</p>
                         <h5>Participants</h5>
                     </div>
                 </div>
@@ -172,22 +172,15 @@
                 <!-- Single Review End -->
 
                 <!-- Single Review Start -->
-                <div class="col-lg-4 col-md-6 col-sm-6 text-center">
+                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
                     <div class="single-review">
-                        <p><span class="count-number"><?=(PH::count() * 5);?></span>k</p>
+                        <p><span class="count-number"><?=(PH::count() * 4);?></span>k</p>
                         <h5>Helps Provided</h5>
                     </div>
                 </div>
                 <!-- Single Review End -->
 
-                <!-- Single Review Start -->
-                <div class="col-lg-4 col-md-6 col-sm-6 text-center">
-                    <div class="single-review">
-                        <p><span class="count-number"><?=(GH::count() * 3);?></span>k</p>
-                        <h5>Help Recieved</h5>
-                    </div>
-                </div>
-                <!-- Single Review End -->
+               
             </div>
         </div>
     </section>
