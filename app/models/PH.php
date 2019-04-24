@@ -87,6 +87,12 @@ class PH extends Eloquent
 
 		$validator = new Validator;
 
+		$maturity_days = $settings['ph_maturity_in_days'];
+
+		$matures_at = new DateTime();
+	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
+
+
 
 		$validator->check(Input::all() , array(
 
@@ -108,6 +114,7 @@ class PH extends Eloquent
 								'amount'		=> $amount,
 								'payout_left'	=> $amount,
 								'worth_after_maturity'	=> $worth,
+								'matures_at'	=> $matures_at,
 							]); 
 
  		 		Session::putFlash('success', "PH Request Successful. Check for Match. ");
@@ -181,7 +188,7 @@ class PH extends Eloquent
 
 		if ($this->isFufilled() === true) {
 
-			$this->update(['fufilled_at'=> $now ,'matures_at'=> $matures_at]);
+			$this->update(['fufilled_at'=> $now/* ,'matures_at'=> $matures_at*/]);
 		 	$bonus = $settings['percent_referral_bonus_on_ph'] * 0.01 * $this->amount;
 
 			//give referral bonus if first PH
