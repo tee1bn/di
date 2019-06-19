@@ -145,11 +145,8 @@ public function send_credential($user_id, $password)
 
 
 
-public function verify_email($email)
+public function verify_email()
 {
-
-
-
 
 	ob_start();
 
