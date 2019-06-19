@@ -1,5 +1,5 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home2/poolscom/public_html/di 
+    - export DEPLOYPATH=/home2/poolscom/public_html/dis 
     - /bin/cp -r * $DEPLOYPATH
