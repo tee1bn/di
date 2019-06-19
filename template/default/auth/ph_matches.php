@@ -141,12 +141,14 @@ $page_title = "PH Matches";
                             <div class="card-body">
                                                 
                                 <h4 class="card-title">
-                                    Account Details
+                                    Wallet Details
                                 </h4>
                                 <p class="card-text">
-                                    Name: <b> <?=ucfirst($recipient->bank_account_name);?></b><br>
-                                    Acct: <b> <?=ucfirst($recipient->bank_account_number);?></b><br>
-                                    Bank: <b> <?=ucfirst($recipient->bank_name);?></b><br>
+                                    Address: <b> <?=ucfirst($recipient->wallet_address);?></b> 
+                                    <a href="javascript:void(0);" class="fa fa-clipboard" onclick="copy_text('<?=$recipient->wallet_address;?>');"></a>
+                                    <br>
+                                  <!--   Acct: <b> <?=ucfirst($recipient->bank_account_number);?></b><br>
+                                    Bank: <b> <?=ucfirst($recipient->bank_name);?></b><br> -->
                                     Amt : <b> <?=$currency;?><?=$this->money_format($match->ph_amount);?></b><br>
                                 </p>
                                         <div class="dropdown">

@@ -107,6 +107,20 @@ $page_title = "Profile";
                                             </div>                                        
                                         
                                             
+                                   <!--            <div class="form-group">
+                                                  <label for="preferred_coin" class="pull-left">Preferred Coin <sup>*</sup></label>
+                                                  <input type="" name="preferred_coin"  value="<?=$this->auth()->preferred_coin;?>" id="preferred_coin" class="form-control" >
+                                              </div> -->
+
+                                                
+                                              
+                                              <div class="form-group">
+                                                  <label for="wallet_address" class="pull-left">Wallet Address <sup>*</sup></label>
+                                                  <input type="" name="wallet_address"  value="<?=$this->auth()->wallet_address;?>" id="wallet_address" class="form-control" >
+                                              </div>
+
+                                                
+                                            <!--   
                                               <div class="form-group">
                                                   <label for="bank_name" class="pull-left">Bank Name <sup>*</sup></label>
                                                   <input type="" name="bank_name"  value="<?=$this->auth()->bank_name;?>" id="bank_name" class="form-control" >
@@ -127,7 +141,7 @@ $page_title = "Profile";
                                                  <label for="bank_account_number" class="pull-left">Bank Account Number <sup></sup></label>
                                                   <input type="bank_account_number" name="bank_account_number"  value="<?=$this->auth()->bank_account_number;?>" id="bank_account_number" class="form-control" >
                                               </div>
-
+ -->
 
                                               <div class="form-group">
 

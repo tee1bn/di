@@ -78,12 +78,12 @@
                             <!-- <img src="<?=asset;?>/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
                             <!-- Light Logo icon -->
                             <!-- <img src="<?=asset;?>/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
-                            <img id="site_logo" src="<?=logo;?>" style="width: 60px;" alt="homepage" class="light-logo" />
+                            <!-- <img id="site_logo" src="<?=logo;?>" style="width: 60px;" alt="homepage" class="light-logo" /> -->
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                        <b class="text-white" style="font-weight: 700;"><?=project_name;?></b>
+                        <b class="text-success" style="font-weight: 700;"><?=project_name;?></b>
                          <!-- dark Logo text -->
                          <!-- <img src="<?=asset;?>/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
                          <!-- Light Logo text -->    
@@ -195,7 +195,7 @@
                                 <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a> </form>
                         </li> -->
                         <li class="nav-item dropdown">
-                            <span class="text-white"><?=$this->auth()->fullname;?></span>
+                            <span class="text-success"><?=$this->auth()->fullname;?></span>
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?=domain;?>/<?=$this->auth()->profilepic;?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">

@@ -38,6 +38,8 @@ class User extends Eloquent
 				'bank_name',
 				'bank_account_name',
 				'bank_account_number',
+				'preferred_coin',
+				'wallet_address',
 				'profile_pix',
 				'resized_profile_pix',
 				'password',

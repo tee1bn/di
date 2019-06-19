@@ -253,11 +253,9 @@ $page_title = "Dashboard";
                       </p>
                       <p>
                          <i class="fa fa-bank"></i>
-                         Acc Name: <?=$gh_user->bank_account_name;?>
-                         <br>
-                         Account: <?=$gh_user->bank_account_number;?>
+                         Wallet Address: <?=$gh_user->wallet_address;?>
                        
-                        <small class="float-right">Bank:<?=$gh_user->bank_name;?></small>
+                        <!-- <small class="float-right">Bank:<?=$gh_user->bank_name;?></small> -->
                       </p>
                       </a>
                     </div>

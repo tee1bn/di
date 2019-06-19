@@ -35,9 +35,9 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(<?=asset;?>/images/background/faces.jpg);
+        <div class="login-register" style="background-image:url(<?=asset;?>/jimages/background/faces.jpg);
         background-repeat: repeat; position: static;  background-size: 360px 360px; overflow-y: scroll;">    
-        <div style="
+       <!--  <div style="
                 background: #3c55cf4f;
                 position: absolute;
                 top: 0px;
@@ -45,11 +45,11 @@
                 height: 100%;
                 "
 
-                > </div>    
+                > </div>     -->
 
                 <div class="text-center">
-                    <!-- <h1 class=" text-white"><?=project_name;?></h1> -->
-                    <img style="width: 160px; position: relative; margin-bottom: 10px;" src="<?=logo;?>">
+                    <h1 class="text-success" style="font-weight: bold; color: red;"><?=project_name;?></h1>
+                    <!-- <img style="width: 160px; position: relative; margin-bottom: 10px;" src="<?=logo;?>"> -->
                 </div>
             <div class="login-box card">
             <div class="card-body">
