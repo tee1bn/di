@@ -83,7 +83,7 @@ class PH extends Eloquent
 
 		$last_gh_amount = (int) GH::last_gh($user_id)->amount;
 
-		$min_from_last_gh = $settings['percent_of_last_gh']*0.01 * $last_gh_amount;
+		$min_from_last_gh = $settings['percent_of_last_gh'] *0.01 * $last_gh_amount;
 
 		$validator = new Validator;
 

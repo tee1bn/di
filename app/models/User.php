@@ -568,7 +568,7 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 	{
 
 	  	$matured_mavros  = $this->PhRequests('PH','user_id')->Completed()
-	  				->whereDate('matures_at','<' , date("Y-m-d"))
+	  				->whereDate('matures_at','<=' , date("Y-m-d"))
 	  				->sum('worth_after_maturity');
 
 	  	return $matured_mavros;

@@ -72,7 +72,7 @@ class GH extends Eloquent
 
 		return   $ghs =  GH::whereNotIn('user_id', User::BlockedUsers()->pluck('id'))
 		  			->where('payin_left', '!=', 0)
-		  			->where('fufilled_recommittment', 1)
+		  			// ->where('fufilled_recommittment', 1)
 		  			->where('fufilled_at', null)
 		  			->get();
 	}
