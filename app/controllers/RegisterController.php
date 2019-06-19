@@ -227,7 +227,7 @@ public function generate_phone_code_for($user_id)
 if (Input::exists('user_registration') || true) {
 		print_r(Input::all());
 
-
+/*
 		 	$settings = SiteSettings::site_settings();
 		 	
 		 	
@@ -247,7 +247,7 @@ if (Input::exists('user_registration') || true) {
 			if(($csrf['success'] != 1) || ($csrf['hostname'] != $_SERVER['HTTP_HOST'])){
 			    Session::putFlash('warning', "Please solve the captcha");
 			    Redirect::back();
-			}
+			}*/
 
 
 
