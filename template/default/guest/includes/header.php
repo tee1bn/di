@@ -67,9 +67,9 @@
                 <div class="col-lg-3">
                     <!-- Logo Area Start -->
                     <a href="<?=domain;?>" class="logo-area">
-                        <img style="height: 41px;" src="<?=logo;?>" alt="<?=project_name;?>" class="img-responsive">
+                        <!-- <img style="height: 41px;" src="<?=logo;?>" alt="<?=project_name;?>" class="img-responsive"> -->
+                        <span class="text-success" style="font-size: 21px; font-weight: 900;"><?=project_name;?></span>
                     </a>
-                        <span style="font-size: 21px; font-weight: 900;"><?=project_name;?></span>
                     <!-- Logo Area End -->
                 </div>
 
