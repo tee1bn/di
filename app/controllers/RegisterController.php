@@ -144,37 +144,41 @@ public function send_credential($user_id, $password)
 }
 
 
+
 public function verify_email($email)
 {
 
 
+
+
 	ob_start();
 
- $user =  User::where('email', $email)->first();
+ $user =  $this->auth();
  $name =  $user->firstname;
+ $email = $user->email;
 
-$subject 	= 'EMAIL VERIFICATION';
- $body 		= $this->buildView('emails/email-verification', [
+		$subject 	= 'EMAIL VERIFICATION';
+ 		$body 		= $this->buildView('emails/email-verification', [
 																'name' => $name,
 																'email' => $email,
 																'email_verification_token' => $user->email_verification,
 																]);
 
 
-$to 		= $email;
+		$to 		= $email;
 
-$email_verification_token = $this->auth()->email_verification ;
-$email = $this->auth()->email ;
+		$email_verification_token = $this->auth()->email_verification ;
+		$email = $this->auth()->email ;
 
 
 
-/*
-$body = 'Thank you for signing up at '.Conproject_name.', \n please click this link to continue '.domain.'/register/confirm_email/'.$email.'/'.$email_verification_token.'';*/
+		/*
+		$body = 'Thank you for signing up at '.Conproject_name.', \n please click this link to continue '.domain.'/register/confirm_email/'.$email.'/'.$email_verification_token.'';*/
 
-// $status =  mail($email, $subject, $link);
+		// $status =  mail($email, $subject, $link);
 
-$mailer = new Mailer;
-$status = $mailer->sendMail($to, $subject, $body, $reply='', $recipient_name='');
+		$mailer = new Mailer;
+		$status = $mailer->sendMail($to, $subject, $body, $reply='', $recipient_name='');
 
 	
 
@@ -186,6 +190,7 @@ ob_end_clean();
 	}else{
 		Session::putFlash('danger', "Verification Mail Could not Send.");
 	}
+
 
 }
 
