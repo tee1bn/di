@@ -11,7 +11,7 @@ $page_title = "Verify Email";
                 // do your action that depends on jQuery.  
           $.ajax({
               type: "POST",
-              url: "<?=domain;?>/register/verify_email/<?=$this->auth()->email;?>",
+              url: "<?=domain;?>/register/verify_email",
               cache: false,
               success: function(response) {
                     window.notify();
