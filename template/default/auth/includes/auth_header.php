@@ -48,7 +48,8 @@
                 > </div>     -->
 
                 <div class="text-center">
-                    <h1 class="text-danger" style="font-weight: bold;   text-shadow: 2px 3px #ffbfc3; color: red;"><?=project_name;?></h1>
+                    <h1 class="text-danger" style="font-weight: bold;   text-shadow: 2px 3px #ffbfc3; color: red;">
+                        <a href="<?=domain;?>"><?=project_name;?></a></h1>
                     <!-- <img style="width: 160px; position: relative; margin-bottom: 10px;" src="<?=logo;?>"> -->
                 </div>
             <div class="login-box card">
