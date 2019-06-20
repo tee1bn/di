@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
     <title> <?=$page_title;?> |  <?=project_name;?></title>
+    <link rel="canonical" href="http://gitstardigital.com/"/>
 
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
