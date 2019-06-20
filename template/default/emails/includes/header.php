@@ -96,7 +96,7 @@
   <br>
   <br>
   <center>
-    <img src="<?=logo;?>" style="height: 100px;">
+                    <h1 class="text-danger" style="font-weight: bold;   text-shadow: 2px 3px #ffbfc3; color: red;"><?=project_name;?></h1>
   </center>
 
  <body style="font-family: Arial, sans-serif; font-size:13px; color: #444444; min-height: 200px;" bgcolor="#E4E6E9" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">

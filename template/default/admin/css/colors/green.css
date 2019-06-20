@@ -32,20 +32,50 @@ File: scss
   left: calc(50% - 3.5px);
 }
 
+/*******************
+/*Top bar
+*******************/
 .topbar {
-  background: #fff;
-  border-bottom: 1px solid rgba(120, 130, 140, 0.13);
+  background: #f62d51;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #f62d51 0%, #660fb5 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #f62d51 0%, #660fb5 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #f62d51 0%, #660fb5 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .dark-logo {
+  display: none;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .light-logo {
+  display: inline-block;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.topbar .navbar-light .navbar-nav .nav-item > a.nav-link:hover, .topbar .navbar-light .navbar-nav .nav-item > a.nav-link:focus {
+  color: #ffffff !important;
 }
 
 /*******************
 /*General Elements
 *******************/
+a {
+  color: #f62d51;
+}
+
 a.link:hover, a.link:focus {
-  color: #009efb !important;
+  color: #f62d51 !important;
 }
 
 .bg-theme {
-  background-color: #009efb !important;
+  background-color: #f62d51 !important;
 }
 
 .pagination > .active > a,
@@ -54,31 +84,31 @@ a.link:hover, a.link:focus {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #009efb;
-  border-color: #009efb;
+  background-color: #f62d51;
+  border-color: #f62d51;
 }
 
 .right-sidebar .rpanel-title {
-  background: #009efb;
+  background: #f62d51;
 }
 
 .stylish-table tbody tr:hover, .stylish-table tbody tr.active {
-  border-left: 4px solid #009efb;
+  border-left: 4px solid #f62d51;
 }
 
 .text-themecolor {
-  color: #009efb !important;
+  color: #f62d51 !important;
 }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
-  border-bottom: 2px solid #009efb;
-  color: #009efb;
+  border-bottom: 2px solid #f62d51;
+  color: #f62d51;
 }
 
 .profile-tab li a.nav-link:hover,
 .customtab li a.nav-link:hover {
-  color: #009efb;
+  color: #f62d51;
 }
 
 /*******************
@@ -86,16 +116,16 @@ a.link:hover, a.link:focus {
 *******************/
 .btn-themecolor,
 .btn-themecolor.disabled {
-  background: #009efb;
+  background: #f62d51;
   color: #ffffff;
-  border: 1px solid #009efb;
+  border: 1px solid #f62d51;
 }
 
 .btn-themecolor:hover,
 .btn-themecolor.disabled:hover {
-  background: #009efb;
+  background: #f62d51;
   opacity: 0.7;
-  border: 1px solid #009efb;
+  border: 1px solid #f62d51;
 }
 
 .btn-themecolor.active, .btn-themecolor:focus,
@@ -116,7 +146,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #009efb;
+  color: #f62d51;
 }
 
 .sidebar-nav ul li a.active {
@@ -128,15 +158,15 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li:hover > a {
-  color: #009efb;
+  color: #f62d51;
 }
 
 .sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li:hover > a i {
-  color: #009efb;
+  color: #f62d51;
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-  color: #009efb;
+  color: #f62d51;
 }
 
 .sidebar-nav > ul > li > a i {
@@ -146,5 +176,5 @@ a.link:hover, a.link:focus {
 .sidebar-nav > ul > li > a.active {
   font-weight: 400;
   background: #ffffff;
-  color: #009efb;
+  color: #f62d51;
 }

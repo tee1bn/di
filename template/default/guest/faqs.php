@@ -1,32 +1,47 @@
+<?php 
+$page_title = "FAQs";
+$page_description = "";
+include 'includes/header.php';?>
 
-<?php
-    
-    
-    $page_title = "Faqs";
-    include 'includes/header.php';?>
-
-    <style type="text/css">
-      a.card-link{
-        color: #0cbf86  !important;
-      }
-    </style>
-
-
-    <!--== About Area Start ==-->
-    <section id="about-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Faqs.</h2>
-                        <!-- <p>Hare is some informaton on our company and teme member information to yoiu know</p> -->
-                    </div>
-                </div>
+        <!--Page Title-->
+        <section class="page-title" style="background-image:url(<?=$this_folder;?>/images/background/bg3.jpg)">
+            <div class="auto-container">
+                <h1>Frequently Asked Questions</h1>
+                <ul class="page-breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li>FAQ</li>
+                </ul>
             </div>
+        </section>
+        <!--Page Title End-->
+
+        <!--FAQ-->
+        <div class="faq-section  pagetoppadd">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 wow fadeInLeft" data-wow-delay="0ms">
+                        <div class="faq-style">
+                            <div id="accordion" role="tablist">
+                                <!--Single Faq Start-->
+                               
+                                <div class="card">
+                                    <div class="card-header collapsed" role="tab" id="headingfive" data-toggle="collapse" data-parent="#accordion" data-target="#collapsefive" aria-expanded="false" aria-controls="collapsefive">
+                                        <h4>
+									  <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefive" aria-expanded="false" aria-controls="collapsefive" class="collapsed">
+										 How do I get mentioned and linked to on other websites?
+										 <i class="faq-indicator fa fa-plus"></i>
+									  </a>
+								   </h4>
+                                    </div>
+                                    <div id="collapsefive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingfive">
+                                        <div class="card-block">
+                                            Quid est igitur, cur ita semper deum appellet Epicurus beatum et aeternum? Non est ista, inquam, Piso, magna dissensio. Nam et complectitur verbis, quod vult, et dicit plane, quod intellegam; Ad eas enim res ab Epicuro praecepta dantur. Huic ego, si negaret quicquam interesse ad beate vivendum quali uteretur victu, concederem, laudarem etiam; Immo alio genere; Heri, inquam, ludis commissis ex urbe profectus veni ad vesperum.
+                                        </div>
+                                    </div>
+                                </div>
 
 
-                <div class="col-lg-12">
-        
+
 
              <div class="card">
                         <div class="card-header">
@@ -399,7 +414,7 @@
                               </div>
                         </div>
                       </div>
-
+<!-- 
         <div class="card">
           <div class="card-header">
             <a class="card-link" data-toggle="collapse" href="#collapseOne">
@@ -428,13 +443,15 @@
           </div>
          </div>
         </div>
+ -->
 
 
-   
-    </section>
-    <!--== About Area End ==-->
-
-
-   
-
-   <?php include 'includes/footer.php';?>
+                            </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+        <!--FAQ end-->
+<?php include 'includes/footer.php';?>

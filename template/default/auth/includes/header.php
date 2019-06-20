@@ -64,6 +64,14 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
+        <style type="text/css">
+            .site_logo{
+font-size: 32px;
+                font-weight: bold;
+                color: #ffffff;
+                text-shadow: 2px 3px #d8a391;
+            }
+        </style>
         <header class="topbar">
             <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- ============================================================== -->
@@ -80,10 +88,11 @@
                             <!-- <img src="<?=asset;?>/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
                             <!-- <img id="site_logo" src="<?=logo;?>" style="width: 60px;" alt="homepage" class="light-logo" /> -->
                         </b>
+                        <b class="site_logo hidden-md-up"><?=project_name;?></b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                        <b class="text-success" style="font-weight: 700;"><?=project_name;?></b>
+                        <b class="site_logo light-logo"><?=project_name;?></b>
                          <!-- dark Logo text -->
                          <!-- <img src="<?=asset;?>/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
                          <!-- Light Logo text -->    
@@ -98,7 +107,8 @@
                     <ul class="navbar-nav mr-auto mt-md-0 ">
 
 
-                        <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link  nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="icon-arrow-left-circle"></i></a> </li>
 
                        <!--  <li class="nav-item dropdown">
@@ -195,7 +205,7 @@
                                 <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a> </form>
                         </li> -->
                         <li class="nav-item dropdown">
-                            <span class="text-success"><?=$this->auth()->fullname;?></span>
+                            <span class="text-white"><?=$this->auth()->fullname;?></span>
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?=domain;?>/<?=$this->auth()->profilepic;?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
