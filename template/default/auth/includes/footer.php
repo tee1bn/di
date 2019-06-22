@@ -10,7 +10,7 @@
             <!-- footer -->
             <!-- ============================================================== -->
             <footer class="footer">
-                © <?=date("Y");?> <?=project_name;?> 
+                © <?=date("Y");?> <?=project_name;?> Developed  By <a href="https://www.fiverr.com/share/xYXBx">Taibn628</a>
             </footer>
             <!-- ============================================================== -->
             <!-- End footer -->
