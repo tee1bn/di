@@ -2,7 +2,29 @@
 $page_title = "Get Help";
  include 'includes/header.php';?>
 
+<?php
 
+    $first_withdrawals = LevelIncomeReport::where('owner_user_id', $auth->id)
+                                            ->where('commission_type','First withdrawal')
+                                            ->where('status','Credit')->sum('amount_earned');
+    $earnings = $first_withdrawals + $auth->matured_mavros_worth();
+
+    $bonus = $auth->sum_total_earnings();
+
+    $actual_bonus = $auth->sum_total_earnings();
+
+    $withdrawable_bonus = ($actual_bonus > $settings['minimum_withdrawable_bonus'])? $actual_bonus:0;
+
+
+
+
+    $attempted_withdrawals = $auth->attempted_withdrawals();
+
+    $balance = max (($earnings + $withdrawable_bonus - $attempted_withdrawals), 0);
+
+
+
+;?>
     
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
@@ -16,6 +38,19 @@ $page_title = "Get Help";
                         </ol>
                     </div>
                   
+                    <div class="col-md-6 col-4 align-self-center">
+                        <div class="dropdown float-right mr-2 hidden-sm-down">
+                            <button class="btn btn-success " type="button"> 
+                                Earnings: <?=$currency;?><?=$this->money_format($earnings);?>
+                           </button>
+                            <button class="btn btn-primary " type="button"> 
+                               Available Bonus: <?=$currency;?><?=$this->money_format($bonus);?>
+                           </button>
+                           
+                        </div>
+                    </div>
+
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -33,16 +68,7 @@ $page_title = "Get Help";
                                     <div class="card">
 
 
-<?php
-  $earnings = $this->auth()->matured_mavros_worth();
-    $bonus = $this->auth()->sum_total_earnings();
-    $attempted_withdrawals = $this->auth()->attempted_withdrawals();
 
-    $balance = max (($earnings + $bonus - $attempted_withdrawals), 0);
-
-
-
-;?>
 
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
@@ -111,7 +137,7 @@ $page_title = "Get Help";
                                             <th>*</th>
                                         </thead>
                                         <tbody>
-                                            <?php $i=1; foreach ($this->auth()->GhRequests as $gh_request) :?>
+                                            <?php $i=1; foreach ($auth->GhRequests as $gh_request) :?>
                                             <tr>
                                                 <td><?=$gh_request->id;?></td>
                                                 <td><?=$this->money_format($gh_request->amount);?></td>

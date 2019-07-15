@@ -311,7 +311,7 @@ if ($response == true) {
 			$websocket_url	= "$host:3000";
 
 
-
+			$auth = $this->auth();
 
 
 			define("domain", 	$domain, 	true);

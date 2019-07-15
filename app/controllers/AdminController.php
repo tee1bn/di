@@ -235,7 +235,7 @@ class AdminController extends controller
 		$match->complete_match();
 
 		Session::putFlash('success', 'Payment confirmed successfully');
-		Redirect::back();
+		// Redirect::back();
 		
 
 	}

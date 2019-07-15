@@ -15,9 +15,9 @@ class AutoMatchingController extends controller
 
 	public function __construct(){
 
-		$settings = SiteSettings::site_settings();
+		$this->settings = SiteSettings::site_settings();
 
-		if ($settings['put_on_automatic_matching'] == 1) {
+		if ($this->settings['put_on_automatic_matching'] == 1) {
 
 			// $this->match_ghs_and_phs();
 		}
@@ -38,55 +38,42 @@ class AutoMatchingController extends controller
 	}
 	
 
+	public function update_growing_worth_of_matured_phs(){
+		$growing_phs =   PH::growing_phs();
+
+		echo "<pre>";
+
+	 	 $percent= $this->settings['withdrawable_growing_ph'] * 0.01;
+	 	 $percent_roi= $this->settings['percent_roi'] * 0.01;
+	 	 $maturity_days= $this->settings['ph_maturity_in_days'] ;
+
+		$fraction_of_maturity_days =  intval($percent * $percent_roi * $maturity_days);
 
 
+			print_r($growing_phs->toArray());
+
+		foreach ($growing_phs as $ph) {
+
+				$growing_worth = $percent * ($ph->worth_after_maturity - $ph->amount);
+				$growth_date = new DateTime($ph->matures_at);
+			 	$maturity = $maturity_days;
+			 	$growth_date_array =[];
 
 
+			do{
+			 	$g_date =  $growth_date->modify("+$fraction_of_maturity_days days")->format("Y-m-d H:i:s");	
+
+				$growth_date_array[$g_date] = $growing_worth; 
+
+				$maturity = $maturity - $fraction_of_maturity_days; 
+			}while($maturity > 0);
 
 
+		}
 
+		print_r($growth_date_array);
 
-
-
-
-	public function put_matured_phs_on_matured_ph_table(){
-
-		foreach (MaturedPhs::all(['ph_id']) as $matured_ph_id) {
-
-			$matured_ph_ids[] = $matured_ph_id->ph_id;
-
-		 } 
-
-		$days_for_maturity = $this->system_settings->maturity_in_days;
-
-	 	$date_for_maturity =  date("Y-m-d H:i:s", strtotime("-$days_for_maturity days") ); 
-
-
-
-	  	$matured_phs = PH::where('fufilled_at','!=', null )
-						->whereNotIn('id',  $matured_ph_ids)
-						->where('payout_left',  0)
-						->where('fufilled_at', '<=', $date_for_maturity)
-						->get();
-
-		foreach ($matured_phs as $matured_ph) {
-
-
-			$created_matured_ph = 	MaturedPhs::create([
-										'ph_id' => $matured_ph->id,
-										'user_id' => $matured_ph->user_id,
-										'worth' => $matured_ph->worth_after_maturity,
-									]);
-
-			$new_matured_phs[] = $created_matured_ph->id;
-		}	
 	}
-
-
-
-
-
-
 
 
 

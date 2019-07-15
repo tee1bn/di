@@ -569,7 +569,7 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 
 	  	$matured_mavros  = $this->PhRequests('PH','user_id')->Completed()
 	  				->whereDate('matures_at','<=' , date("Y-m-d"))
-	  				->sum('worth_after_maturity');
+	  				->sum('growing_worth');
 
 	  	return $matured_mavros;
 
@@ -594,15 +594,21 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
      */
     public function available_balance()
     {
-
+		$settings = SiteSettings::site_settings();
 
 	  	$attempted_withdrawals =  $this->attempted_withdrawals();
 
 	  	$mavros  = $this->matured_mavros_worth();
 
-	  	$bonus = $this->sum_total_earnings();
+	  	$actual_bonus = $this->sum_total_earnings();
 
-	  	$available_balance = $mavros + $bonus - $attempted_withdrawals;
+   		$withdrawable_bonus = ($actual_bonus > $settings['minimum_withdrawable_bonus'])? $actual_bonus:0;
+
+   		$first_withdrawals = LevelIncomeReport::where('owner_user_id', $this->id)
+   												->where('commission_type','First withdrawal')
+   												->where('status','Credit')->sum('amount_earned');
+
+	  	$available_balance = $first_withdrawals + $mavros + $withdrawable_bonus - $attempted_withdrawals;
 
 	  	return $available_balance;
 	 }

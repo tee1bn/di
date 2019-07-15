@@ -14,11 +14,28 @@ class PH extends Eloquent
 			 'fufilled_at',
 			 'matures_at',
 			 'expired',
-			 'worth_after_maturity'
+			 'worth_after_maturity',
+			 'growing_worth',
+			 'growing_date'
 			];
 		
 	protected $table = 'ph';
 
+
+
+
+
+	public static function growing_phs()
+	{
+		return self::where('payout_left', 0)
+				->whereColumn('growing_worth', '<', 'worth_after_maturity')
+				->where('matures_at','!=', null)
+				->get();
+
+	}
+
+
+	
 
 	public static function recent_phs($user_id)
 	{
@@ -83,15 +100,15 @@ class PH extends Eloquent
 
 		$last_gh_amount = (int) GH::last_gh($user_id)->amount;
 
-		$min_from_last_gh = $settings['percent_of_last_gh'] *0.01 * $last_gh_amount;
+		// $min_from_last_gh = $settings['percent_of_last_gh'] *0.01 * $last_gh_amount;
+			$min_from_last_gh=0;
+
 
 		$validator = new Validator;
 
 		$maturity_days = $settings['ph_maturity_in_days'];
 
-		$matures_at = new DateTime();
-	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
-
+	
 
 
 		$validator->check(Input::all() , array(
@@ -103,7 +120,6 @@ class PH extends Eloquent
 								'min_value'=> max($settings['minimum_ph'], $min_from_last_gh),
 								'max_value'=> $settings['maximum_ph'],
 							],
-
 			));
 
 
@@ -114,13 +130,13 @@ class PH extends Eloquent
 								'amount'		=> $amount,
 								'payout_left'	=> $amount,
 								'worth_after_maturity'	=> $worth,
-								'matures_at'	=> $matures_at,
+								// 'matures_at'	=> $matures_at, starts growin once completed
 							]); 
 
  		 		Session::putFlash('success', "PH Request Successful. Check for Match. ");
 
  		 		//create downpayment match here
- 		 		$ph->create_downpayment();
+ 		 		// $ph->create_downpayment();
 
 				return $ph;
 			}
@@ -164,11 +180,10 @@ class PH extends Eloquent
 		$matures_at = new DateTime();
 	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
 
-	 	$downpayment = $settings['percent_down_payment'] * 0.01 * $this->amount;
+	 	// $downpayment = $settings['percent_down_payment'] * 0.01 * $this->amount;
 	 	$payed_out = $this->amount  - $this->payout_left;
 	 	//fufil recommittment if paid atleast downpayment
 	 	//,ark pending GH has recomiited
-	 	if ($payed_out >= $downpayment) {
 
 	 		$user = $this->user;
 		 	$gh_non_recommited =	GH::whereDate('created_at', '<', $this->created_at)
@@ -181,14 +196,26 @@ class PH extends Eloquent
 				$gh_non_recommited->update(['fufilled_recommittment'=>  1]);
 			}
 
+/*	 	if ($payed_out >= $downpayment) {
 	 	}
+*/
 
 
 
 
 		if ($this->isFufilled() === true) {
 
-			$this->update(['fufilled_at'=> $now/* ,'matures_at'=> $matures_at*/]);
+			$profit = ($this->worth_after_maturity - $this->amount);
+			$comment = "First withdrawal on #{$this->id} PH";
+
+			LevelIncomeReport::credit_user($user->id, $profit, $comment);
+			$growing_worth = $this->amount;
+
+			$this->update([
+							'fufilled_at'=> $now ,
+							'matures_at'=> $matures_at,
+							'growing_worth'=> $growing_worth
+						]);
 		 	$bonus = $settings['percent_referral_bonus_on_ph'] * 0.01 * $this->amount;
 
 			//give referral bonus if first PH
@@ -197,10 +224,15 @@ class PH extends Eloquent
 				$this->give_upline_referral_bonus($bonus);
 			}
 			
+
+
+			
 		}
 
 		return false;
 	}
+
+
 
 
 
@@ -308,9 +340,9 @@ class PH extends Eloquent
 			return 0;
 		}
 
-		 $now = time() -strtotime($this->fufilled_at ) ;
+		 $now = time() -strtotime($this->fufilled_at) ;
 		 $time_difference =  strtotime($this->matures_at) - strtotime($this->fufilled_at );
-		$maturity_growth = min(( $now / $time_difference), 1) * 100;
+		 $maturity_growth = min(( $now / $time_difference), 1) * 100;
 		return intval($maturity_growth);
 	}
 
