@@ -1,349 +1,206 @@
+<?php 
+$page_title = "Welcome";
+include 'inc/header.php';
+;?>
 
-<?php
-    
-    
-    $page_title = "Welcome ";
-    include 'includes/header.php';
-
-
-    $settings = SiteSettings::site_settings();
-
-    ;?>
-
-<style type="text/css">
-    .about-bg {
-    background-image: url("<?=$this_folder;?>/assets/img/custom_img/aboutus.jpg") !important;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-}
-#slideslow-header{
-
-    background-image: url("<?=$this_folder;?>/assets/img/custom_img/hands.jpg") !important;
-    background-size: 100%;
-}
-
-</style>
-
-    <!--== Header Area Start ==-->
-    <header id="slideslow-header">
-        <div class="container">
+    <!-- Hero Section-->
+    <section class="hero">
+      <div class="container mb-5">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h1 class="hero-heading mb-0">Move work <br> forward</h1>
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="hero-text text-center">
-                        <div class="display-table">
-                            <div class="display-table-cell">
-                                <h2>Welcome!</h2>
-                                <h1>Grow Your Finance With Us</h1>
-                                <p><?=project_name;?> is a community of people helping people. Designed and managed by members of the community.</p>
-                                <div class="hero-btn">
-                                    <a href="<?=domain;?>/register" class="theme-btn">Sign Up</a>
-                                    <a href="<?=domain;?>/login" class="theme-btn">Sign In </a>
-                                </div>
-                                <a href="#about-area" class="scroll-bottom">
-                                    <i class="fa fa-angle-down"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              <div class="col-lg-10">
+                <p class="lead text-muted mt-4 mb-4">Lorem ipsum dolor sit amet, consectetur. Eiusmod tempor incididunt.</p>
+              </div>
             </div>
+            <form action="#" class="subscription-form">
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Name@company.com" class="form-control">
+                <button type="submit" class="btn btn-primary">Get Started</button>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-6"><img src="<?=$this_folder;?>/img/illustration-hero.svg" alt="..." class="hero-image img-fluid d-none d-lg-block"></div>
         </div>
-    </header>
-    <!--== Header Area End ==-->
-
-    <!--== About Area Start ==-->
-    <section id="about-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Who we are.</h2>
-                        <p>Dove Investment is a community created by a group of people with great integrity to stabilize the financial status of its members. Our community is built on core principles of sustainability. We have taken time to analyze the shortcomings of other systems and we have put in place measures to curb most of their flaws. 
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="about-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="about-text">
-                            <h2>We are always ready for you</h2>
-                            <p><?=project_name;?> gives you a technical platform which helps millions of its members worldwide to connect those who NEED help with those who are willing to PROVIDE help, for FREE.</p>
-                            <ul class="theme-list">
-                               <li> <?=project_name;?> is not a bank.</li>
-                               <li> <?=project_name;?> does not collect your money.</li>
-                               <li> <?=project_name;?> is not an online business, HYIP, investment or MLM program.</li>
-                               <li><?=project_name;?> is a community where people help each other. </li>
-                               
-                            </ul>
-                            <a href="<?=domain;?>/w/who-we-are" class="theme-btn">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-image about-bg"></div>
-        </div>
+      </div>
     </section>
-    <!--== About Area End ==-->
-
-    <!--== Service Area Start ==-->
-    <section id="service-area" class="section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Points To Note.</h2>
-                        <p>A few things you need to know about <?=project_name;?> Community.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="service-wrapper text-center">
-                        <!-- Single Service Start -->
-                        <div class="single-service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-users text-white fa-4x"></i>
-
-                                <!-- <img src="<?=$this_folder;?>/assets/img/svg-icons/pencil.svg" alt="ThemeMarshal"> -->
-                            </div>
-                            <div class="service-content">
-                                <h4><?=project_name;?> is a community of helpers developed by participants</h4>
-                                <p><?=project_name;?> is the first community built, managed and run by partcipants of MMM, with the sole objectives of creating financial freedom for its members</p>
-                            </div>
-                        </div>
-                        <!-- Single Service End -->
-
-                        <!-- Single Service Start -->
-                        <div class="single-service-item">
-                            <div class="service-icon">
-                                         <i class="fa fa-credit-card text-white fa-4x"></i>
-
-                                <!-- <img src="<?=$this_folder;?>/assets/img/svg-icons/bulb.svg" alt="ThemeMarshal"> -->
-                            </div>
-                            <div class="service-content">
-                                <h4>All funds are transfered between participants</h4>
-                                <p>All the money is in the bank accounts belonging to the members only! The members transfer funds to each other directly, without intermediaries! (What are intermediaries for? :-)) In fact, <?=project_name;?> only regulates the process — and nothing else.</p>
-                                <!-- <a href="service-open.html" class="theme-btn">Learn More</a> -->
-                            </div>
-                        </div>
-                        <!-- Single Service End -->
-
-                        <!-- Single Service Start -->
-                        <div class="single-service-item">
-                            <div class="service-icon">
-                                <i class="fa fa-lock text-white fa-4x"></i>
-                                <!-- <img src="<?=$this_folder;?>/assets/img/svg-icons/develop.svg" alt="ThemeMarshal"> -->
-                            </div>
-                            <div class="service-content">
-                                <h4><?=project_name;?> is secure</h4>
-                                <p><?=project_name;?> is security conscious and continues to employ the best security standard/s to protect your data and accounts from hackers.</p>
-                                <!-- <a href="service-open.html" class="theme-btn">Learn More</a> -->
-                            </div>
-                        </div>
-                        <!-- Single Service End -->
-
-                    </div>
-                </div>
-            </div>
+    <!-- Intro Section-->
+    <section>
+      <div class="container">
+        <div class="text-center">
+          <h2>Track projects from start to finish </h2>
+          <p class="lead text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p><a href="#" class="btn btn-primary">Learn More</a>
         </div>
+        <div class="row">
+          <div class="col-lg-7 mx-auto mt-5"><img src="<?=$this_folder;?>/img/illustration-1.svg" alt="..." class="intro-image img-fluid"></div>
+        </div>
+      </div>
     </section>
-    <!--== Service Area End ==-->
-
-    <!--== Reviews Area Start ==-->
-    <section id="review-area" class="overlay section-padding">
-        <div class="container">
-            <div class="row">
-                <!-- Single Review Start -->
-                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
-                    <div class="single-review">
-                        <p><span class="count-number"><?=(User::count() * 2);?></span>k</p>
-                        <h5>Participants</h5>
-                    </div>
-                </div>
-                <!-- Single Review End -->
-
-          
-                <!-- Single Review End -->
-
-                <!-- Single Review Start -->
-                <div class="col-lg-6 col-md-6 col-sm-6 text-center">
-                    <div class="single-review">
-                        <p><span class="count-number"><?=(PH::count() * 4);?></span>k</p>
-                        <h5>Helps Provided</h5>
-                    </div>
-                </div>
-                <!-- Single Review End -->
-
-               
+    <!-- Divider Section-->
+    <section class="bg-primary text-white">
+      <div class="container">
+        <div class="text-center">
+          <h2>Do great things together</h2>
+          <div class="row">
+            <div class="col-lg-9 mx-auto">
+              <p class="lead text-white mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor. eiusmod tempor incididunt ut labore et dolore.</p>
             </div>
+          </div><a href="#" class="btn btn-outline-light">Learn More</a>
         </div>
+      </div>
     </section>
-    <!--== Reviews Area End ==-->
-
-    
-    <!--== Video Area Start ==-->
- <!--    <div id="video-area" class="overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="video-area-content">
-                        <div class="waves-block">
-                            <div class="waves wave-1"></div>
-                            <div class="waves wave-2"></div>
-                            <div class="waves wave-3"></div>
-                        </div>
-                        <a href="https://vimeo.com/45830194" class="video-icon mfp-iframe">
-                            <i class="fa fa-play"></i>
-                        </a>
-                    </div>
-                </div>
+    <!-- Integrations Section-->
+    <section>
+      <div class="container">
+        <div class="text-center">
+          <h2>Integrations</h2>
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <p class="lead text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. eiusmod tempor incididunt ut labore.</p>
             </div>
+          </div>
         </div>
-    </div> -->
-    <!--== Video Area End ==-->
-
-
-
-
-
-    <!--== Testimonial Area Start ==-->
-    <section id="testimonial-area" class="section-padding overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <h2>Letter of Happiness.</h2>
-                        <p>Lives are being transformed on our platform</p>
-                    </div>
-                </div>
+        <div class="integrations mt-5">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="<?=$this_folder;?>/img/monitor.svg" alt="..." class="img-fluid"></div>
+                <h3 class="h4">Web desgin</h3>
+                <p class="text-small font-weight-light">Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
             </div>
-
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="clients-content-wrapper">
-
-                        <?php foreach (Testimonials::approved()->get()->take(6) as $testimonial) :?>
-
-                        <!-- Single Client Start -->
-                        <div class="single-client-testimonial">
-                            <div class="client-thum">
-                                <!-- <img src="<?=$this_folder;?>/assets/img/team/team-member-1.jpg" alt="ThemeMarshal"> -->
-                            </div>
-                            <div class="client-say-content">
-                                <p><?=$testimonial->content;?></p>
-                                <h2><?=$testimonial->attester;?> <span>Participant</span></h2>
-                            </div>
-                        </div>
-                        <!-- Single Client End -->
-
-                        <?php endforeach;?>
-                  
-                    </div>
-                </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="<?=$this_folder;?>/img/target.svg" alt="..." class="img-fluid"></div>
+                <h3 class="h4">Print</h3>
+                <p class="text-small font-weight-light">Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
             </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="<?=$this_folder;?>/img/chat.svg" alt="..." class="img-fluid"></div>
+                <h3 class="h4">SEO and SEM</h3>
+                <p class="text-small font-weight-light">Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="<?=$this_folder;?>/img/idea.svg" alt="..." class="img-fluid"></div>
+                <h3 class="h4">Consulting</h3>
+                <p class="text-small font-weight-light">Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="<?=$this_folder;?>/img/coffee-cup.svg" alt="..." class="img-fluid"></div>
+                <h3 class="h4">Email Marketing</h3>
+                <p class="text-small font-weight-light">Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="box text-center">
+                <div class="icon d-flex align-items-end"><img src="<?=$this_folder;?>/img/pen.svg" alt="..." class="img-fluid"></div>
+                <h3 class="h4">UX &amp; UI</h3>
+                <p class="text-small font-weight-light">Lorem Ipsum has been the industry's standard dummy text ever.</p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
-    <!--== Testimonial Area End ==-->
-
-
-    <!--== Partner Area Start ==-->
-   <!--  <div id="partner-area" class="overlay section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="partner-content-wrap">
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-1.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-2.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-3.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-4.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-5.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-1.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="single-partner">
-                            <div class="display-table">
-                                <div class="display-table-cell">
-                                    <img src="<?=$this_folder;?>/assets/img/partner/partner-logo-4.png" alt="ThemeMarshal">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- CLients Section-->
+    <section class="bg-gray">
+      <div class="container">
+        <div class="text-center">
+          <h2>Trusted by teams everywhere</h2>
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <p class="lead text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. sed do eiusmod tempor incididunt..</p>
             </div>
+          </div>
         </div>
-    </div> -->
-    <!--== Partner Area End ==-->
-
-
-    <!--== Hire Area Start ==-->
-    <section id="hire-area" class="overlay section-padding">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="hire-content-wrap">
-                        <!-- Single Hire Start -->
-                        <div class="single-hire-item">
-                            <h2>Join our official Telegram Group</h2>
-                            <p>We have introduced the Telegram group to help support get closer to you 
-                                Share your ideas, understand the community 
-                                and get updates easily</p>
-                            <a href="<?=$settings['telegram_group_link'];?>" class="theme-btn">Join Group</a>
-                        </div>
-                        <!-- Single Hire End -->
-                    </div>
-                </div>
-            </div>
+        <div class="clients mt-5">
+          <div class="row">
+            <div class="col-lg-2"><img src="<?=$this_folder;?>/img/client-1.svg" alt="" class="client-image img-fluid"></div>
+            <div class="col-lg-2"><img src="<?=$this_folder;?>/img/client-2.svg" alt="" class="client-image img-fluid"></div>
+            <div class="col-lg-2"><img src="<?=$this_folder;?>/img/client-3.svg" alt="" class="client-image img-fluid"></div>
+            <div class="col-lg-2"><img src="<?=$this_folder;?>/img/client-4.svg" alt="" class="client-image img-fluid"></div>
+            <div class="col-lg-2"><img src="<?=$this_folder;?>/img/client-5.svg" alt="" class="client-image img-fluid"></div>
+            <div class="col-lg-2"><img src="<?=$this_folder;?>/img/client-6.svg" alt="" class="client-image img-fluid"></div>
+          </div>
         </div>
+      </div>
     </section>
-    <!--== Hire Area End ==-->
+    <!-- How it works section-->
+    <section>
+      <div class="container">
+        <div class="text-center">
+          <h2>Curious how Appton works for <br>large organizations?</h2>
+          <div class="row">
+            <div class="col-lg-8 mx-auto">
+              <p class="lead text-muted mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod. Eiusmod tempor incididunt ut labore.</p>
+            </div>
+          </div><a href="#" class="btn btn-primary mt-4">Get Started</a>
+        </div>
+      </div>
+    </section>
+    <!-- How it works Section-->
+    <section class="bg-gray">
+      <div class="container text-center text-lg-left">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h2 class="divider-heading">Curious how Appton <br>works for large</h2>
+            <div class="row">
+              <div class="col-lg-10">
+                <p class="lead divider-subtitle mt-2 text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing. Vitae animi mollitia cumque sunt soluta. consectetur adipisicing.</p>
+              </div>
+            </div><a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+          <div class="col-lg-5 mt-5 mt-lg-0"><img src="<?=$this_folder;?>/img/illustration-2.svg" alt="" class="divider-image img-fluid"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Portfolio Section-->
+    <section class="pb-0">
+      <div class="container">
+        <div class="text-center">
+          <h2>Portfolio</h2>
+          <p class="lead text-muted mt-2">You can make also a portfolio or image gallery.</p>
+        </div>
+        <div class="portfolio mt-5">
+          <div class="row">
+            <div class="col-lg-4 p-0"><a href="img/portfolio-1.jpg" data-lightbox="image-1" data-title="Some footer information" class="portfolio-item"><img src="<?=$this_folder;?>/img/portfolio-1.jpg" alt="image" class="img-fluid"></a></div>
+            <div class="col-lg-4 p-0"><a href="img/portfolio-2.jpg" data-lightbox="image-1" data-title="Some footer information" class="portfolio-item"><img src="<?=$this_folder;?>/img/portfolio-2.jpg" alt="image" class="img-fluid"></a></div>
+            <div class="col-lg-4 p-0"><a href="img/portfolio-3.jpg" data-lightbox="image-1" data-title="Some footer information" class="portfolio-item"><img src="<?=$this_folder;?>/img/portfolio-3.jpg" alt="image" class="img-fluid"></a></div>
+            <div class="col-lg-4 p-0"><a href="img/portfolio-4.jpg" data-lightbox="image-1" data-title="Some footer information" class="portfolio-item"><img src="<?=$this_folder;?>/img/portfolio-4.jpg" alt="image" class="img-fluid"></a></div>
+            <div class="col-lg-4 p-0"><a href="img/portfolio-5.jpg" data-lightbox="image-1" data-title="Some footer information" class="portfolio-item"><img src="<?=$this_folder;?>/img/portfolio-5.jpg" alt="image" class="img-fluid"></a></div>
+            <div class="col-lg-4 p-0"><a href="img/portfolio-6.jpg" data-lightbox="image-1" data-title="Some footer information" class="portfolio-item"><img src="<?=$this_folder;?>/img/portfolio-6.jpg" alt="image" class="img-fluid"></a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Get Started Section-->
+    <section class="get-started">
+      <div class="container text-center">
+        <h2>Get started today</h2>
+        <div class="row">
+          <div class="col-lg-8 m-auto">
+            <p class="lead text-muted mt-2">If you can make a list or send an email, you can use Appton. Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6 mx-auto">
+            <form action="#" class="subscription-form mt-5">
+              <div class="form-group">
+                <input type="email" name="email" placeholder="Name@company.com" class="form-control">
+                <button type="submit" class="btn btn-primary">Get Started</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
-   
 
-   <?php include 'includes/footer.php';?>
+    <?php include 'inc/footer.php';?>

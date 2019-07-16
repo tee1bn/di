@@ -99,7 +99,12 @@ class UserController extends controller
 
 	public function ph()
 	{
-			$this->view('auth/ph');
+
+		$rule = SiteSettings::rule();
+		$possible_capitals = (collect($rule))->pluck('capital')->toArray();
+
+		
+			$this->view('auth/ph', compact('rule','possible_capitals'));
 	}
 
 

@@ -10,10 +10,10 @@
 
 
     $balance = max (( $earnings + $bonus - $attempted_withdrawals), 0);
-
+    
 ;?>
 
-<div class="row">
+                <div class="row">
                     <!-- Column -->
                     <div class="col-md-6 col-lg-4 col-xlg-4">
                         <div class="card card-inverse card-info">

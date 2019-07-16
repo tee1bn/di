@@ -61,10 +61,9 @@ class AutoMatchingController extends controller
 
 
 			do{
+
 			 	$g_date =  $growth_date->modify("+$fraction_of_maturity_days days")->format("Y-m-d H:i:s");	
-
 				$growth_date_array[$g_date] = $growing_worth; 
-
 				$maturity = $maturity - $fraction_of_maturity_days; 
 			}while($maturity > 0);
 

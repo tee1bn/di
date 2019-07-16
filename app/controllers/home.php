@@ -18,9 +18,75 @@ class home extends controller
 	public function test2()
 	{
 		echo "<pre>";
-		$k = $this->auth()->gh_matches();
-		print_r($k->toArray());
 
+		$rule = [
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+				[
+					'capital' => 500,
+					'chunk_withdrawal' => 250,
+					'per_x_days' => 7,
+					'for_x_time' => 4,
+				],
+
+			];
+
+
+			print_r(($rule));
+			print_r(json_encode($rule));
 	}
 
 

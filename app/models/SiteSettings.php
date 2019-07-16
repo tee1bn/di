@@ -32,9 +32,9 @@ class SiteSettings extends Eloquent
 
 
 
-	public static function paystack_keys()
+	public static function rule()
 	{
-		$settings = json_decode(self::where('criteria', 'paystack_keys')->first()->settings, true);
+		$settings = json_decode(self::where('criteria', 'rule')->first()->settings, true);
 		return $settings;
 
 	}

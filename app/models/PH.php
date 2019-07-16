@@ -117,7 +117,7 @@ class PH extends Eloquent
 								'required'=> true,
 								'numeric'=> true,
 								'step'		=> $settings['ph_steps'],
-								'min_value'=> max($settings['minimum_ph'], $min_from_last_gh),
+								'min_value'=> max($settings['minimum_ph'],  $min_from_last_gh),
 								'max_value'=> $settings['maximum_ph'],
 							],
 			));
@@ -205,17 +205,20 @@ class PH extends Eloquent
 
 		if ($this->isFufilled() === true) {
 
-			$profit = ($this->worth_after_maturity - $this->amount);
-			$comment = "First withdrawal on #{$this->id} PH";
+			/*$profit = ($this->worth_after_maturity - $this->amount);
+			$comment = "withdrawal";
 
 			LevelIncomeReport::credit_user($user->id, $profit, $comment);
-			$growing_worth = $this->amount;
+			$growing_worth = $this->amount;*/
+
+
 
 			$this->update([
 							'fufilled_at'=> $now ,
 							'matures_at'=> $matures_at,
-							'growing_worth'=> $growing_worth
 						]);
+
+
 		 	$bonus = $settings['percent_referral_bonus_on_ph'] * 0.01 * $this->amount;
 
 			//give referral bonus if first PH
