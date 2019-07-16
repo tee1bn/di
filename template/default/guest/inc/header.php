@@ -39,7 +39,7 @@
                   <!-- Link-->
                   <li class="nav-item"> <a href="<?=domain;?>" class="nav-link active">Home</a></li>
                   <!-- Link-->
-                  <li class="nav-item"> <a href="<?=domain;?>/w/ideology" class="nav-link">Idea</a></li>
+                  <li class="nav-item"> <a href="<?=domain;?>/w/about" class="nav-link">About</a></li>
                   <!-- Link-->
                   <li class="nav-item"> <a href="<?=domain;?>/w/how_it_works" class="nav-link">How it works</a></li>
                   <!-- Link-->
@@ -48,8 +48,8 @@
               </li> -->
 
             </ul>
-            <a href="<?=domain;?>" data-toggle="modal" data-target="#login" class="btn btn-primary navbar-btn ml-0 ml-lg-3">Register </a>
-            <a href="<?=domain;?>" data-toggle="modal" data-target="#login" class="btn btn-primary navbar-btn ml-0 ml-lg-3">Login </a>
+            <a href="<?=domain;?>/register"  class="btn btn-primary navbar-btn ml-0 ml-lg-3">Register </a>
+            <a href="<?=domain;?>/login" class="btn btn-primary navbar-btn ml-0 ml-lg-3">Login </a>
           </div>
         </div>
       </nav>

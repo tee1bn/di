@@ -219,7 +219,7 @@ class home extends controller
 		$this->view('guest/contact');
 	}
 
-	public function who_we_are()
+	public function about()
 	{
 		
 		$this->view('guest/about');
