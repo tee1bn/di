@@ -28,8 +28,7 @@
 
   <script>
 
-
-    perform_automatching = function() {
+    perform_automated_process = function() {
 
     $.ajax({
               type: "POST",
@@ -44,13 +43,8 @@
           });
       }
 
-<?php 
-  $settings = SiteSettings::site_settings();
 
-    if ($settings['put_on_automatic_matching'] == 1):?>
-      perform_automatching();
-<?php endif;?>
-
+      perform_automated_process();
 
     notify = function () {
   $.ajax({

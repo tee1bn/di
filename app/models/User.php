@@ -596,21 +596,26 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
     {
 		$settings = SiteSettings::site_settings();
 
-	  	$attempted_withdrawals =  $this->attempted_withdrawals();
 
-	  	$mavros  = $this->matured_mavros_worth();
 
-	  	$actual_bonus = $this->sum_total_earnings();
+    
+    $bonus =  $this->sum_total_ref_bonus();
 
-   		$withdrawable_bonus = ($actual_bonus > $settings['minimum_withdrawable_bonus'])? $actual_bonus:0;
 
-   		$first_withdrawals = LevelIncomeReport::where('owner_user_id', $this->id)
-   												->where('commission_type','First withdrawal')
-   												->where('status','Credit')->sum('amount_earned');
+    $earnings = $this->sum_total_earnings();
 
-	  	$available_balance = $first_withdrawals + $mavros + $withdrawable_bonus - $attempted_withdrawals;
+    $attempted_withdrawals = $this->attempted_withdrawals();
 
-	  	return $available_balance;
+
+
+    $balance = max (( $earnings + $bonus - $attempted_withdrawals), 0);
+
+
+    $withdrawable_bonus = ($bonus > $settings['minimum_withdrawable_bonus'])? $bonus:0;
+    $balance = max (($earnings + $withdrawable_bonus - $attempted_withdrawals), 0);
+
+
+	  	return $balance;
 	 }
 
 
@@ -638,6 +643,15 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 		  public function sum_total_earnings()
 		  {
 			  	return LevelIncomeReport::sum_total_earnings($this->id);
+		  }
+
+/**
+    	 * [sum_total_ref_bonus calculates the total earnings of this user]
+    	 * @return [int] [description]
+    	 */
+		  public function sum_total_ref_bonus()
+		  {
+			  	return LevelIncomeReport::sum_total_ref_bonus($this->id);
 		  }
 
 

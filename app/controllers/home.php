@@ -19,73 +19,8 @@ class home extends controller
 	{
 		echo "<pre>";
 
-		$rule = [
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
 
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-				[
-					'capital' => 500,
-					'chunk_withdrawal' => 250,
-					'per_x_days' => 7,
-					'for_x_time' => 4,
-				],
-
-			];
-
-
-			print_r(($rule));
+			print_r(Rule::all()->toArray());
 			print_r(json_encode($rule));
 	}
 

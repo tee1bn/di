@@ -9,6 +9,8 @@ class LevelIncomeReport extends Eloquent
 		protected $fillable = [
 							'owner_user_id',
 							'downline_id',
+							'ph_id',
+							'ph_pay_date',
 							'amount_earned',
 							'status',
 							'availability',
@@ -67,6 +69,15 @@ class LevelIncomeReport extends Eloquent
 
 		return self::earnings($user_id)->sum('amount_earned');
 	}
+	/**
+	 * [sum_total_ref_bonus calculates the total earnings of this user]
+	 * @return [int] [description]
+	 */
+	public static function sum_total_ref_bonus($user_id)
+	{
+
+		return self::referral_bonuses($user_id)->sum('amount_earned');
+	}
 
 
 	  /**
@@ -76,6 +87,19 @@ class LevelIncomeReport extends Eloquent
 	  public static function earnings($user_id)
 	  {
 	  	return LevelIncomeReport::where('owner_user_id', $user_id)
+	  							->where('ph_id','!=', null)
+	  							->where('status','Credit');
+	  	}
+
+
+ /**
+	   * [earnings returns records of this users bonu]
+	   * @return [query buider] [description]
+	   */
+	  public static function referral_bonuses($user_id)
+	  {
+	  	return LevelIncomeReport::where('owner_user_id', $user_id)
+	  							->where('commission_type', 'Referral Bonus')
 	  							->where('status','Credit');
 	  	}
 

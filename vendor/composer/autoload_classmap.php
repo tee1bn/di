@@ -23,6 +23,7 @@ return array(
     'PH' => $baseDir . '/app/models/PH.php',
     'PasswordReset' => $baseDir . '/app/models/PasswordReset.php',
     'Redirect' => $baseDir . '/app/classes/Redirect.php',
+    'Rule' => $baseDir . '/app/models/Rule.php',
     'SMS' => $baseDir . '/app/classes/SMS.php',
     'Session' => $baseDir . '/app/classes/Session.php',
     'SiteSettings' => $baseDir . '/app/models/SiteSettings.php',

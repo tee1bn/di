@@ -195,6 +195,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'PH' => __DIR__ . '/../..' . '/app/models/PH.php',
         'PasswordReset' => __DIR__ . '/../..' . '/app/models/PasswordReset.php',
         'Redirect' => __DIR__ . '/../..' . '/app/classes/Redirect.php',
+        'Rule' => __DIR__ . '/../..' . '/app/models/Rule.php',
         'SMS' => __DIR__ . '/../..' . '/app/classes/SMS.php',
         'Session' => __DIR__ . '/../..' . '/app/classes/Session.php',
         'SiteSettings' => __DIR__ . '/../..' . '/app/models/SiteSettings.php',

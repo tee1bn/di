@@ -4,25 +4,23 @@ $page_title = "Get Help";
 
 <?php
 
-    $first_withdrawals = LevelIncomeReport::where('owner_user_id', $auth->id)
-                                            ->where('commission_type','First withdrawal')
-                                            ->where('status','Credit')->sum('amount_earned');
-    $earnings = $first_withdrawals + $auth->matured_mavros_worth();
-
-    $bonus = $auth->sum_total_earnings();
-
-    $actual_bonus = $auth->sum_total_earnings();
-
-    $withdrawable_bonus = ($actual_bonus > $settings['minimum_withdrawable_bonus'])? $actual_bonus:0;
+    
+    $bonus =  $auth->sum_total_ref_bonus();
 
 
-
+    $earnings = $auth->sum_total_earnings();
 
     $attempted_withdrawals = $auth->attempted_withdrawals();
 
+
+
+    $balance = max (( $earnings + $bonus - $attempted_withdrawals), 0);
+
+
+    $withdrawable_bonus = ($bonus > $settings['minimum_withdrawable_bonus'])? $bonus:0;
     $balance = max (($earnings + $withdrawable_bonus - $attempted_withdrawals), 0);
 
-
+    echo $auth->available_balance();
 
 ;?>
     
@@ -44,7 +42,7 @@ $page_title = "Get Help";
                                 Earnings: <?=$currency;?><?=$this->money_format($earnings);?>
                            </button>
                             <button class="btn btn-primary " type="button"> 
-                               Available Bonus: <?=$currency;?><?=$this->money_format($bonus);?>
+                               Available Bonus: <?=$currency;?><?=$this->money_format($withdrawable_bonus);?>
                            </button>
                            
                         </div>

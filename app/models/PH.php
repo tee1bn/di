@@ -8,13 +8,14 @@ class PH extends Eloquent
 	
 	protected $fillable = [	
 			'user_id',
-			 'matured_ph_id',
+			 'rule_id',
 			 'amount',
 			 'payout_left',
 			 'fufilled_at',
 			 'matures_at',
 			 'expired',
 			 'worth_after_maturity',
+			 'roi_paid',
 			 'growing_worth',
 			 'growing_date'
 			];
@@ -23,15 +24,26 @@ class PH extends Eloquent
 
 
 
+	public function getSchedulePaysAttribute()
+	{
+		return json_decode($this->growing_date, true);
+	}
+
+	public function rule()
+	{
+		return $this->belongsTo('Rule', 'rule_id');
+	}
+
 
 
 	public static function growing_phs()
 	{
-		return self::where('payout_left', 0)
-				->whereColumn('growing_worth', '<', 'worth_after_maturity')
-				->where('matures_at','!=', null)
-				->get();
 
+		$today = date("Y-m-d");
+		return self::where('payout_left', 0)
+				->where('matures_at','!=', null)
+				->where('roi_paid', null)
+				->get();
 	}
 
 
@@ -146,7 +158,30 @@ class PH extends Eloquent
 
 	}
 
+	public function update_growing_date($matures_at)
+	{
 
+		 $rule = $this->rule;
+		 $fraction_of_maturity_days = $rule->per_x_days;
+		 $growing_worth = $rule->chunk_withdrawal;
+
+
+		 $growth_date = new DateTime($this->matures_at);
+
+		$growth_date_array =[];
+
+
+			do{
+
+			 	$g_date =  $growth_date->modify("+$fraction_of_maturity_days days")->format("Y-m-d");	
+				$growth_date_array[$g_date] = $growing_worth; 
+
+				$sum = array_sum($growth_date_array);
+			}while($sum < $this->worth_after_maturity);
+
+			$this->update(['growing_date'=> json_encode($growth_date_array)]);
+
+	}
 
 
 	public function scopeCompleted($query)
@@ -178,7 +213,7 @@ class PH extends Eloquent
 		$maturity_days = $settings['ph_maturity_in_days'];
 		$now = date("Y-m-d H:i:s");
 		$matures_at = new DateTime();
-	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
+	 	$matures_at =  $matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
 
 	 	// $downpayment = $settings['percent_down_payment'] * 0.01 * $this->amount;
 	 	$payed_out = $this->amount  - $this->payout_left;
@@ -202,7 +237,6 @@ class PH extends Eloquent
 
 
 
-
 		if ($this->isFufilled() === true) {
 
 			/*$profit = ($this->worth_after_maturity - $this->amount);
@@ -211,13 +245,12 @@ class PH extends Eloquent
 			LevelIncomeReport::credit_user($user->id, $profit, $comment);
 			$growing_worth = $this->amount;*/
 
-
-
 			$this->update([
 							'fufilled_at'=> $now ,
 							'matures_at'=> $matures_at,
 						]);
 
+			$this->update_growing_date($matures_at);
 
 		 	$bonus = $settings['percent_referral_bonus_on_ph'] * 0.01 * $this->amount;
 
@@ -226,14 +259,13 @@ class PH extends Eloquent
 			if ($first_ph->id == $this->id) {
 				$this->give_upline_referral_bonus($bonus);
 			}
-			
-
-
-			
 		}
 
 		return false;
 	}
+
+
+
 
 
 

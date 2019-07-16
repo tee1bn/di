@@ -23,6 +23,7 @@ class AutoMatchingController extends controller
 		}
 
 		$this->resolve_all_expired_match();
+		$this->update_growing_worth_of_matured_phs();
 	}
 
 
@@ -42,35 +43,61 @@ class AutoMatchingController extends controller
 		$growing_phs =   PH::growing_phs();
 
 		echo "<pre>";
-
-	 	 $percent= $this->settings['withdrawable_growing_ph'] * 0.01;
-	 	 $percent_roi= $this->settings['percent_roi'] * 0.01;
-	 	 $maturity_days= $this->settings['ph_maturity_in_days'] ;
-
-		$fraction_of_maturity_days =  intval($percent * $percent_roi * $maturity_days);
+		print_r($growing_phs->toArray());
 
 
-			print_r($growing_phs->toArray());
+	 	$today = date("Y-m-d");
 
 		foreach ($growing_phs as $ph) {
 
-				$growing_worth = $percent * ($ph->worth_after_maturity - $ph->amount);
-				$growth_date = new DateTime($ph->matures_at);
-			 	$maturity = $maturity_days;
-			 	$growth_date_array =[];
+			$already_paid = LevelIncomeReport::where('ph_id', $ph->id)->get();
+			$already_paid_sum = $already_paid->sum('amount_earned');
 
 
-			do{
+			$paid_dates = ($already_paid->pluck('ph_pay_date')->toArray());
 
-			 	$g_date =  $growth_date->modify("+$fraction_of_maturity_days days")->format("Y-m-d H:i:s");	
-				$growth_date_array[$g_date] = $growing_worth; 
-				$maturity = $maturity - $fraction_of_maturity_days; 
-			}while($maturity > 0);
+			//ensure no double payment
+			if ($already_paid_sum >= $ph->worth_after_maturity) {
+				$ph->update(['roi_paid'=>1]);
+				continue;
+			}
 
 
+			$scheduled_pay = $ph->SchedulePays;
+			$scheduled_pay_dates = array_keys($scheduled_pay);
+
+			$unpaid_dates = array_diff($scheduled_pay_dates, $paid_dates); //unpaid  dates
+
+			//ensure today is a payment date
+			if (!in_array($today, $unpaid_dates)) {
+				continue;
+			}
+
+
+			$amount_earned = $scheduled_pay[$today];
+
+
+			try {
+				
+
+				LevelIncomeReport::create([
+									'owner_user_id'	=> $ph->user->id,
+									'downline_id'	=> null,
+									'amount_earned'	=> $amount_earned,
+									'status'	=> 'Credit',
+									'commission_type'	=> "Chunk ROI",
+									'ph_id' => $ph->id,
+									'ph_pay_date' => $today
+									]);
+			} catch (Exception $e) {
+				
+			}
+
+
+
+			break;
 		}
 
-		print_r($growth_date_array);
 
 	}
 
