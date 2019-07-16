@@ -253,16 +253,6 @@ if (Input::exists('user_registration') || true) {
 
 
 
-
-
-
-
-
-
-
-
-
-
 	$this->validator()->check(Input::all() , array(
 
 

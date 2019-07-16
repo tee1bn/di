@@ -89,17 +89,16 @@ $introduced_by = Input::old('introduced_by');
                          <span class="text-danger"><?=$this->inputError('introduced_by');?></span>
                     </div>
 
-                    <div class="form-group">
+          <!--           <div class="form-group">
                         <div class="col-md-12">
                             <div class="checkbox checkbox-primary float-left pt-0">
                                 <input required id="checkbox-signup" type="checkbox">
                                 <label for="checkbox-signup"> Accept Terms </label>
                             </div> 
-                            <!-- <a href="<?=domain;?>/forgot-password" id="to-recover" class="text-dark float-right"><i class="fa fa-lock mr-1"></i> Forgot pwd?</a>  -->
                         </div>
                     </div>
 
-
+ -->
                           <div class="g-recaptcha form-group" data-sitekey="<?=SiteSettings::site_settings()['google_re_captcha_site_key'];?>"></div>
 
 

@@ -128,7 +128,7 @@ echo "<pre>";
 		
 			if(($csrf['success'] != 1) || ($csrf['hostname'] != $_SERVER['HTTP_HOST'])){
 			    Session::putFlash('warning', "Please solve the captcha");
-			    // Redirect::back();
+			    Redirect::back();
 			}
 
 
