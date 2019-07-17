@@ -84,6 +84,7 @@ class Match extends Eloquent
 							 		}
 
 
+
 								if ( $gh_payin == $ph_payout) { // create match
 								 		$new_match =	Match::create_match($PH->id, $ph_payout,$gh_payin, $GH->id);
 								 		if ($new_match) {$i++;}
@@ -138,6 +139,13 @@ class Match extends Eloquent
 			 		}
 
 
+			 		DB::beginTransaction();
+
+
+			 		try {
+			 			
+
+
 		 	$match  = 	Match::create([
 				 				'ph_id' 	=> $ph_id,
 				 				'ph_amount' => $ph_amount,
@@ -145,6 +153,8 @@ class Match extends Eloquent
 				 				'gh_id' 	=> $gh_id,
 				 				'expires' 	=> $expiry_hour,
 				 			]);
+
+
 
 				 if ($match){ // update respective ph and gh
 
@@ -154,8 +164,17 @@ class Match extends Eloquent
 				 		$payin_left = $attached_gh->payin_left - $match->gh_amount;
 				 		$attached_gh->update(['payin_left' => $payin_left]);
 
-				 		return true;
 				 	}
+
+				 		DB::commit();
+				 		return true;
+
+				 				 		} catch (Exception $e) {
+				 		DB::rollback();
+				 		print_r($e->getMessage());
+			 				
+			 		}
+
 			}
 
 
