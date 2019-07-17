@@ -51,7 +51,7 @@ $settings = SiteSettings::site_settings();
                                                     <select name="amount" class="form-control" required="">
                                                             <option value="">Select Amount</option>
                                                         <?php foreach ($possible_capitals as $amount):?>
-                                                            <option value="<?=$amount;?>"><?=$amount;?></option>
+                                                            <option value="<?=$amount->capital;?>"><?=$amount->capital;?></option>
                                                         <?php endforeach;?>
                                                     </select>
 
