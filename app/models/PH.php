@@ -135,10 +135,15 @@ class PH extends Eloquent
 			));
 
 
+		$rule = Rule::where('capital', $amount)->first();
+
+
+
 		if ($validator->passed()) {
 
 				$ph	 =	PH::create([
 								'user_id'		=> $user_id,
+								'rule_id'		=> $rule->id,
 								'amount'		=> $amount,
 								'payout_left'	=> $amount,
 								'worth_after_maturity'	=> $worth,

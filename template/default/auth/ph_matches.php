@@ -1,5 +1,5 @@
 <?php
-$page_title = "PH Matches";
+$page_title = "PA Matches";
  include 'includes/header.php';?>
 
 
@@ -9,10 +9,10 @@ $page_title = "PH Matches";
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="text-themecolor mb-0 mt-0">PH Matches</h3>
+                        <h3 class="text-themecolor mb-0 mt-0">PA Matches</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">PH Matches</li>
+                            <li class="breadcrumb-item active">PA Matches</li>
                         </ol>
                     </div>
                   
@@ -55,7 +55,7 @@ $page_title = "PH Matches";
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
-                                <a href="javascript:void;">PH Matches 
+                                <a href="javascript:void;">PA Matches 
                                     <span class="badge badge-success">
                                         <?=$ph->matched->count();?>
                                     </span>

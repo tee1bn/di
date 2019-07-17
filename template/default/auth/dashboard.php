@@ -22,7 +22,7 @@ $page_title = "Dashboard";
 <!--                         <button class="right-side-toggle waves-effect waves-light btn-info btn-circle btn-sm float-right ml-2"><i class="fa fa-clock text-white"></i></button>
  -->                        <div class="dropdown float-right mr-2 hidden-sm-down">
                             <button class="btn btn-secondary " type="button"> 
-                                Server Time: <?=date("M j, d g:i A");?>
+                                Server Time: <?=date("M j, y - g:i A");?>
                                 <i class="fa fa-clock"></i>
                            </button>
                            
