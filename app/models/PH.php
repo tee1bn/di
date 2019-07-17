@@ -171,14 +171,14 @@ class PH extends Eloquent
 		 $growing_worth = $rule->chunk_withdrawal;
 
 
-		 $growth_date = new DateTime($this->matures_at);
+		 $g_date = $this->matures_at;
 
 		$growth_date_array =[];
 
 
 			do{
 
-			 	$g_date =  $growth_date->modify("+$fraction_of_maturity_days days")->format("Y-m-d");	
+			 	$g_date =  date('Y-m-d', strtotime($g_date. " + $fraction_of_maturity_days days"));
 				$growth_date_array[$g_date] = $growing_worth; 
 
 				$sum = array_sum($growth_date_array);
