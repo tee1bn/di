@@ -16,7 +16,7 @@ include 'inc/header.php';
             </div>
            
           </div>
-          <div class="col-lg-6"><img src="<?=$this_folder;?>/img/illustration-hero.svg" alt="..." class="hero-image img-fluid d-none d-lg-block"></div>
+          <div class="col-lg-6"><img  style="border: 15px solid #b89c2e29" src="<?=$this_folder;?>/img/packages/main.jpeg" alt="..." class="hero-image img-fluid d-none d-lg-block"></div>
         </div>
       </div>
     </section>
@@ -43,7 +43,7 @@ include 'inc/header.php';
               [
                 'package'=>"DRIVERS LICENCE PACKAGE ",
                 'description'=> "Investment from R500",
-                'img'=> ""
+                'img'=> "driver_license.jpg"
                 ],
              
               [
