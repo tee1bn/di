@@ -272,7 +272,7 @@ class Match extends Eloquent
 		$today = strtotime(date("Y-m-d H:i:s"));
 		$expiry_date = strtotime($this->expires );
 		$expired = ($today > $expiry_date);
-		if (($this->status != 'Approved') && ($expired) && ($this->proof == '')) {
+		if (($this->status != 'Completed') && ($expired) && ($this->proof == '')) {
 			return true;
 		}
 

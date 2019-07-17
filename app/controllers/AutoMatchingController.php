@@ -105,12 +105,18 @@ class AutoMatchingController extends controller
 
 	public function resolve_all_expired_match()
 	{
-		return;
+		
 	 //delete match and block ph user
 
 		$expired_matches = Match::expired_matches()->get();
 
 		foreach ($expired_matches as $match) {
+			
+			//dobule check
+			if (!$match->is_expired()) {
+				continue;
+			}
+
 
 			if ( ($match->payment_proof == '')) {
 				$match->delete_match();
