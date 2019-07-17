@@ -1,5 +1,5 @@
 <?php
-$page_title = "Mavro";
+$page_title = "Moola";
  include 'includes/header.php';?>
 
 
@@ -9,10 +9,10 @@ $page_title = "Mavro";
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="text-themecolor mb-0 mt-0">Mavro</h3>
+                        <h3 class="text-themecolor mb-0 mt-0">Moola</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Mavro</li>
+                            <li class="breadcrumb-item active">Moola</li>
                         </ol>
                     </div>
                   
@@ -28,7 +28,7 @@ $page_title = "Mavro";
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
-                                <a href="javascript:void;">Mavro</a>
+                                <a href="javascript:void;">Moola</a>
                                 <span class="float-right">Total:
                                     <?=$currency;?><?=$this->money_format($mavros->sum('amount'));?></span>
                             </div>

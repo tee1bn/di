@@ -259,16 +259,16 @@
                     
 
                         <li>
-                            <a href="<?=domain;?>/admin/mavro" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> Mavro</span></a>
+                            <a href="<?=domain;?>/admin/mavro" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> Moola</span></a>
                         </li> 
 
                         <li>
-                            <a href="<?=domain;?>/admin/ph" aria-expanded="false"><i class="fa fa-heart"></i><span class="hide-menu">Provide Helps</span></a>
+                            <a href="<?=domain;?>/admin/ph" aria-expanded="false"><i class="fa fa-heart"></i><span class="hide-menu">Provide Assistance</span></a>
                         </li> 
 
 
                         <li>
-                            <a href="<?=domain;?>/admin/gh" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Get Helps</span></a>
+                            <a href="<?=domain;?>/admin/gh" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Get Assistance</span></a>
                         </li> 
 
 
