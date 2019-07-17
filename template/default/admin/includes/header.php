@@ -82,7 +82,7 @@
                             <!-- <img src="<?=asset;?>/images/logo-icon.png" alt="homepage" class="dark-logo" /> -->
                             <!-- Light Logo icon -->
                             <!-- <img src="<?=asset;?>/images/logo-light-icon.png" alt="homepage" class="light-logo" /> -->
-                            <img  id="site_logo" src="<?=logo;?>" style="width: 60px;" alt="homepage" class="light-logo" />
+                            <img id="site_logo" src="<?=logo;?>" style="width: 100px;" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->

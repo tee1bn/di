@@ -32,7 +32,8 @@
     <header class="header">
       <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container"><a href="./" class="navbar-brand"><img src="<?=$logo;?>" style="
-    height: 40px;" alt="" class="img-fluid"></a>
+    height: 41px;
+    width: 117px;" alt="" class="img-fluid"></a>
           <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">Menu<i class="fa fa-bars ml-2"></i></button>
           <div id="navbarSupportedContent" class="collapse navbar-collapse">
             <ul class="navbar-nav ml-auto">

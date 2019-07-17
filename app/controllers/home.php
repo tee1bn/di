@@ -17,11 +17,61 @@ class home extends controller
 
 	public function test2()
 	{
-		echo "<pre>";
 
 
-			print_r(Rule::all()->toArray());
-			print_r(json_encode($rule));
+		$url = "https://rest.smsportal.com/v1";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		/*
+		//Execute script
+		$test = new MyMobileAPI();
+
+
+		$test->sendSms('2348123351819','Test Message'); //Send SMS
+		$test->checkcredits(); //Check your credit balance
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 
 

@@ -18,6 +18,14 @@ class SMS
 			$this->api_password = 'dmc1234';
 			$this->sender = $this->name;
 
+			/*Client ID
+
+b9615cba-7088-4b7c-9e5a-0a0fd62f8ce5
+
+API Secret
+
+IW2mGtizTNVlbb2Rs4CDrm8f7g9Q5Oh8*/
+			
 
 	}
 

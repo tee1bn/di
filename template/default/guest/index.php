@@ -37,36 +37,43 @@ include 'inc/header.php';
 
               [
                 'package'=>"Stationary",
-                'description'=> "Investment from R500-1000"
-              ],
+                'description'=> "Investment from R500-1000",
+                'img'=> "stationery_and_books.jpeg"
+                ],
               [
                 'package'=>"DRIVERS LICENCE PACKAGE ",
-                'description'=> "Investment from R500"
-              ],
+                'description'=> "Investment from R500",
+                'img'=> ""
+                ],
              
               [
                 'package'=>"Digital Package",
-                'description'=> "IPhone, Camera, Laptop, tablets e.t.c"
-              ],
+                'description'=> "IPhone, Camera, Laptop, tablets e.t.c",
+                'img'=> "digital_package.jpeg"
+                ],
              
               [
                 'package'=>"BOOK PACKAGE ",
-                'description'=> "Investment from R1000-R2500"
-              ],
+                'description'=> "Investment from R1000-R2500",
+                'img'=> "stationery_and_books.jpeg"
+                ],
              
               [
                 'package'=>"MEAL PACKAGE ",
-                'description'=> "Investment as little as R500-R1000"
-              ],
+                'description'=> "Investment as little as R500-R1000",
+                'img'=> "meal_package.jpeg"
+                ],
              
               [
                 'package'=>"Clothing Package",
-                'description'=> "Investment from R1000-R5000 (Including Graduation clothes) picture of Graduation clothes very important."
-              ],
+                'description'=> "Investment from R1000-R5000 (Including Graduation clothes) picture of Graduation clothes very important.",
+                'img'=> "clothing.jpeg"
+                ],
                        [
                 'package'=>"Vacation Package",
-                'description'=> "Investment From R2500-R5000"
-              ],
+                'description'=> "Investment From R2500-R5000",
+                'img'=> "vacation.jpeg"
+                ],
                 
           ];
 
@@ -77,14 +84,24 @@ include 'inc/header.php';
           <div class="row">
 
             <?php foreach ($packages as $package) :?>
-              <div class="col-lg-4">
+           <!--    <div class="col-lg-4">
                 <div class="box text-center">
                   <div class="icon d-flex align-items-end">
                     <img src="<?=$this_folder;?>/img/monitor.svg" alt="..." class="img-fluid"></div>
                   <h3 class="h4"><?=$package['package'];?></h3>
                   <p class="text-small font-weight-light"><?=$package['description'];?></p>
                 </div>
+              </div> -->
+
+              <div class="card col-md-4" >
+              <img class="card-img-top" style="height: 200px; object-fit: cover;" src="<?=$this_folder;?>/img/packages/<?=$package['img'];?>" alt="Card image">
+              <div class="card-body">
+                <h4 class="card-title"><?=$package['package'];?></h4>
+                <p class="card-text"><?=$package['description'];?></p>
+                <!-- <a href="#" class="btn btn-primary">See Profile</a> -->
               </div>
+            </div>
+
             <?php endforeach ;?>
           </div>
         </div>
