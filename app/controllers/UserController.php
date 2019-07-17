@@ -108,6 +108,22 @@ class UserController extends controller
 	}
 
 
+	public function pa()
+	{
+
+		$rule = SiteSettings::rule();
+		$possible_capitals = (collect($rule))->pluck('capital')->toArray();
+
+		
+			$this->view('auth/ph', compact('rule','possible_capitals'));
+	}
+
+
+
+	public function ga()
+	{
+			$this->view('auth/gh');
+	}
 
 	public function gh()
 	{
@@ -341,6 +357,13 @@ class UserController extends controller
 	}
 
 	public function mavro()
+	{
+		$this->view('auth/mavro');
+
+	}
+
+
+	public function moola()
 	{
 		$this->view('auth/mavro');
 

@@ -260,16 +260,16 @@
  -->                        </li>
 
                         <li>
-                            <a href="<?=domain;?>/user/mavro" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> Mavro</span></a>
+                            <a href="<?=domain;?>/user/moola" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> Moola</span></a>
                         </li> 
 
                         <li>
-                            <a href="<?=domain;?>/user/ph" aria-expanded="false"><i class="fa fa-heart"></i><span class="hide-menu">Provide Help</span></a>
+                            <a href="<?=domain;?>/user/pa" aria-expanded="false"><i class="fa fa-heart"></i><span class="hide-menu">Provide Assistance</span></a>
                         </li> 
 
 
                         <li>
-                            <a href="<?=domain;?>/user/gh" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Get Help</span></a>
+                            <a href="<?=domain;?>/user/ga" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Get Assistance</span></a>
                         </li> 
 
                         <?php

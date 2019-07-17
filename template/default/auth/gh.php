@@ -1,5 +1,5 @@
 <?php
-$page_title = "Get Help";
+$page_title = "Get Assistance";
  include 'includes/header.php';?>
 
 <?php
@@ -20,8 +20,6 @@ $page_title = "Get Help";
     $withdrawable_bonus = ($bonus > $settings['minimum_withdrawable_bonus'])? $bonus:0;
     $balance = max (($earnings + $withdrawable_bonus - $attempted_withdrawals), 0);
 
-    echo $auth->available_balance();
-
 ;?>
     
                 <!-- ============================================================== -->
@@ -29,10 +27,10 @@ $page_title = "Get Help";
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="text-themecolor mb-0 mt-0">Get Help</h3>
+                        <h3 class="text-themecolor mb-0 mt-0">Get Assistance</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Get Help</li>
+                            <li class="breadcrumb-item active">Get Assistance</li>
                         </ol>
                     </div>
                   
@@ -70,7 +68,7 @@ $page_title = "Get Help";
 
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
-                                                    Get Help <i class="fa fa-plus"></i>
+                                                    Get Assistance <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
                                       
@@ -86,7 +84,7 @@ $page_title = "Get Help";
                                                     max="<?=$balance;?>" name="amount" 
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
                                                     <span class="input-group-btn input-group-append">
-                                                        <button class="btn btn-success " type="submit">Get Help</button>
+                                                        <button class="btn btn-success " type="submit">Get Assistance</button>
                                                     </span>
                                                 </div> 
 
@@ -122,7 +120,7 @@ $page_title = "Get Help";
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
-                                <a href="javascript:void;">Get Help Requests</a>
+                                <a href="javascript:void;">Get Assistance Requests</a>
                             </div>
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">

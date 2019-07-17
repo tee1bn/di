@@ -1,5 +1,5 @@
 <?php
-$page_title = "Provide Help";
+$page_title = "Provide Assistance";
 $settings = SiteSettings::site_settings();
  include 'includes/header.php';?>
 
@@ -10,10 +10,10 @@ $settings = SiteSettings::site_settings();
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="text-themecolor mb-0 mt-0">Provide Help</h3>
+                        <h3 class="text-themecolor mb-0 mt-0">Provide Assistance</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Provide Help</li>
+                            <li class="breadcrumb-item active">Provide Assistance</li>
                         </ol>
                     </div>
                   
@@ -35,7 +35,7 @@ $settings = SiteSettings::site_settings();
 
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
-                                                    Provide Help <i class="fa fa-plus"></i>
+                                                    Provide Assistance <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
 
@@ -58,7 +58,7 @@ $settings = SiteSettings::site_settings();
                                                   <!--   <input id="tch3" type="number" min="<?=$settings['minimum_ph'];?>" required="" value="<?=Input::old('amount');?>" name="amount" 
                                                     class="form-control"> -->
                                                     <span class="input-group-btn input-group-append">
-                                                        <button class="btn btn-success " type="submit">Provide Help</button>
+                                                        <button class="btn btn-success " type="submit">Provide Assistance</button>
                                                     </span>
                                                 </div> 
 
@@ -97,7 +97,7 @@ $settings = SiteSettings::site_settings();
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
-                                <a href="javascript:void;">Provide Help Requests</a>
+                                <a href="javascript:void;">Provide Assistance Requests</a>
                             </div>
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">

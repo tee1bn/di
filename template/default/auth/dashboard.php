@@ -50,7 +50,7 @@ $page_title = "Dashboard";
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
                                     <h3 class="text-danger"><i class="fa fa-exclamation-circle"></i> Information
                                         <small class="badge badge-danger pull-right">
-                                            Urgent -PH
+                                            Urgent -PA
                                         </small>
                                     </h3> 
 
@@ -138,13 +138,13 @@ $page_title = "Dashboard";
                           <a href="<?=domain;?>/user/ph" class="">
                             <div class="box text">
                                 <h1 class="font-light text-white "><i class="fa fa-heart"></i>
-                                  <span class="float-right">Provide Help</span>
+                                  <span class="float-right">Provide Assistance</span>
                                 </h1>
 
                                  <small>
                                    
                                  </small>
-                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Help</a>
+                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Assistance</a>
 
                                 <h6 class="text-white">
                                 </h6>
@@ -157,13 +157,13 @@ $page_title = "Dashboard";
                           <a href="<?=domain;?>/user/gh" class="">
                             <div class="box text">
                                 <h1 class="font-light text-white"><i class="fa fa-gift"></i>
-                                  <span class="float-right">Get Help</span>
+                                  <span class="float-right">Get Assistance</span>
                                 </h1>
 
                                  <small>
                                    
                                  </small>
-                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Help</a>
+                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Assistance</a>
 
                                 <h6 class="text-white">
                                 </h6>
@@ -374,7 +374,7 @@ $page_title = "Dashboard";
               </div>
               <div  class="col-md-3">
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent PH</li>
+                  <li class="list-group-item  list-group-item-success">Recent PA</li>
                   <?php foreach (PH::recent_phs($this->auth()->id) as $ph):?>
                   <li class="list-group-item list-group-item-success">
                     <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
@@ -393,7 +393,7 @@ $page_title = "Dashboard";
                 </ul>
 
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-warning">Recent GH</li>
+                  <li class="list-group-item  list-group-item-warning">Recent GA</li>
                   <?php foreach (GH::recent_ghs($this->auth()->id) as $gh):?>
                   <li class="list-group-item list-group-item-warning">
                     <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
