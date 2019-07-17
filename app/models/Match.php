@@ -66,8 +66,6 @@ class Match extends Eloquent
 								 $gh_payin = $GH->payin_left;
 								 $ph_payout = $PH->payout_left;
 
-
-
 									//ensure user is not paired to himself
 									if ($PH->user->id == $GH->user->id) {
 										continue;
