@@ -105,6 +105,7 @@ class AutoMatchingController extends controller
 
 	public function resolve_all_expired_match()
 	{
+		return;
 	 //delete match and block ph user
 
 		$expired_matches = Match::expired_matches()->get();
