@@ -183,6 +183,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'BroadCast' => __DIR__ . '/../..' . '/app/models/BroadCast.php',
         'CmsPages' => __DIR__ . '/../..' . '/app/models/CmsPages.php',
         'Config' => __DIR__ . '/../..' . '/app/classes/Config.php',
+        'EmailSms' => __DIR__ . '/../..' . '/app/models/EmailSms.php',
         'GH' => __DIR__ . '/../..' . '/app/models/GH.php',
         'Input' => __DIR__ . '/../..' . '/app/classes/Input.php',
         'LevelIncomeReport' => __DIR__ . '/../..' . '/app/models/LevelIncomeReport.php',

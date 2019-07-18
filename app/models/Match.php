@@ -3,7 +3,11 @@
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as DB;
 
-class Match extends Eloquent 
+	include 'app/controllers/home.php';
+
+
+
+class Match extends Eloquent
 {
 	
 	protected $fillable = ['ph_id','ph_amount', 'gh_amount', 'gh_id','payment_proof','expires', 'status'];
@@ -164,10 +168,44 @@ class Match extends Eloquent
 
 				 	}
 
+
+
+				 	//schdeule notification
+
+				 	$controller = new home();
+				  	$email_message = $controller->buildView('emails/gh_notification', compact('match'));
+
+				  	$project_name = Config::project_name();
+
+				$gh_notification=EmailSms::create([
+							'user_id' => $attached_gh->user->id,
+							'phone_message' => "Your GH #{$attached_gh->id} has been matched --$project_name",
+							'phone'  => $attached_gh->user->phone,
+							'email'  => $attached_gh->user->email,
+							'email_message' => $email_message
+				 	]);
+
+
+
+				 $email_message = $controller->buildView('emails/ph_notification', compact('match'));
+
+				$ph_notification=EmailSms::create([
+							'user_id' => $attached_ph->user->id,
+							'phone_message' => "Your PH #{$attached_ph->id} has been matched --$project_name",
+							'phone'  => $attached_ph->user->phone,
+							'email'  => $attached_ph->user->email,
+							'email_message' => $email_message
+				 	]);
+
+
+
+
+
 				 		DB::commit();
 				 		return true;
 
-				 				 		} catch (Exception $e) {
+				 	
+				 	} catch (Exception $e) {
 				 		DB::rollback();
 				 		print_r($e->getMessage());
 			 				
@@ -181,7 +219,7 @@ class Match extends Eloquent
 		if ($this->is_complete()) {
 			return false;
 		}
-
+		
 			$payoutleft = $this->ph->payout_left + $this->ph_amount;
 			$this->ph->update(['payout_left'=> $payoutleft]);
 

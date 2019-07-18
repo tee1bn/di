@@ -156,7 +156,7 @@ public function inputError($field)
 
   
 
-		protected function buildView($view, $data=null)
+		public function buildView($view, $data=null)
 		{
 
 

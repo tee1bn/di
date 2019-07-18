@@ -11,6 +11,7 @@ return array(
     'BroadCast' => $baseDir . '/app/models/BroadCast.php',
     'CmsPages' => $baseDir . '/app/models/CmsPages.php',
     'Config' => $baseDir . '/app/classes/Config.php',
+    'EmailSms' => $baseDir . '/app/models/EmailSms.php',
     'GH' => $baseDir . '/app/models/GH.php',
     'Input' => $baseDir . '/app/classes/Input.php',
     'LevelIncomeReport' => $baseDir . '/app/models/LevelIncomeReport.php',

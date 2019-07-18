@@ -24,7 +24,55 @@ class AutoMatchingController extends controller
 
 		$this->resolve_all_expired_match();
 		$this->update_growing_worth_of_matured_phs();
+		$this->send_email_notifications();
 	}
+
+
+	public function send_email_notifications()
+	{
+
+
+		$pending_email_notification = EmailSms::where('email_status', null)->get()->take(5);
+		$mailer  = new Mailer();
+		$project_name = Config::project_name();
+		$subject = "$project_name NOTIFICATION!!";
+
+		foreach ($pending_email_notification as $note) {
+
+			$body = $note->email_message;
+			$to = $note->email;
+			$recipient_name = "";
+
+		 	if($mailer->sendMail($to, $subject, $body, $reply='', $recipient_name)){
+		 		$note->update(['email_status'=> 1]);
+		 	}else{
+		 		continue;
+		 	}
+		}
+	}
+
+
+
+
+	public function send_sms_notifications()
+	{
+
+
+		$pending_sms_notification = EmailSms::where('phone_status', null)->get()->take(5);
+		$mailer  = new Mailer();
+		$project_name = Config::project_name();
+		$subject = "$project_name NOTIFICATION!!";
+
+		foreach ($pending_sms_notification as $note) {
+
+		 	if($mailer->sendMail($to, $subject, $body, $reply='', $recipient_name)){
+		 		$note->update(['email_status'=> 1]);
+		 	}else{
+		 		continue;
+		 	}
+		}
+	}
+
 
 
 	public function match_ghs_and_phs()
@@ -80,7 +128,7 @@ class AutoMatchingController extends controller
 			try {
 				
 
-				LevelIncomeReport::create([
+			$credit	=LevelIncomeReport::create([
 									'owner_user_id'	=> $ph->user->id,
 									'downline_id'	=> null,
 									'amount_earned'	=> $amount_earned,
@@ -89,6 +137,24 @@ class AutoMatchingController extends controller
 									'ph_id' => $ph->id,
 									'ph_pay_date' => $today
 									]);
+
+
+
+					//Schedule notification
+				  	$email_message = $this->buildView('emails/roi_notification', compact('credit'));
+				  	$project_name = Config::project_name();
+				  	$currency = Config::currency();
+
+				$gh_notification=EmailSms::create([
+							'user_id' => $ph->user->id,
+							'phone_message' => "Your Earned $currency $amount_earned from PH#{$ph->id}. --$project_name",
+							'phone'  => $ph->user->phone,
+							'email'  => $ph->user->email,
+							'email_message' => $email_message
+				 	]);
+
+
+
 			} catch (Exception $e) {
 				
 			}
@@ -117,6 +183,7 @@ class AutoMatchingController extends controller
 				continue;
 			}
 
+			echo $match;
 
 			if ( ($match->payment_proof == '')) {
 				$match->delete_match();
