@@ -24,12 +24,17 @@ class AutoMatchingController extends controller
 
 		$this->resolve_all_expired_match();
 		$this->update_growing_worth_of_matured_phs();
-		$this->send_email_notifications();
+
+				$this->send_email_notifications();
 	}
 
 
 	public function send_email_notifications()
 	{
+
+		if ($this->settings['email_notification'] != 1) {
+			return;
+		}
 
 
 		$pending_email_notification = EmailSms::where('email_status', null)->get()->take(5);
