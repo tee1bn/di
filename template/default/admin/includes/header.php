@@ -87,7 +87,7 @@
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span>
-                        <b class="text-white" style="font-weight: 700;"><?=project_name;?></b>
+                        <b class="text-white" style="font-weight: 700;"></b>
                          <!-- dark Logo text -->
                          <!-- <img src="<?=asset;?>/images/logo-text.png" alt="homepage" class="dark-logo" /> -->
                          <!-- Light Logo text -->    
