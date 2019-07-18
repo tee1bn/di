@@ -18,14 +18,14 @@ include 'includes/auth_header.php';?>
 
                         <div class="form-group">
                                 <input type="Password" class="form-control" id="email" placeholder="New Password" name="new_password" value=""  required>
-                             <small class="pull-left" style="color: red;">   <?=$this->inputError('new_password');?></small>
+                             <small class="pull-left" style="color: red;">   <?=@$this->inputError('new_password');?></small>
                         </div>
 
 
 
                         <div class="form-group">
                                 <input type="Password" class="form-control" id="email" placeholder="Confirm New Password" name="confirm_new_password" value=""  required>
-                             <small class="pull-left" style="color: red;">   <?=$this->inputError('confirm_new_password');?></small>
+                             <small class="pull-left" style="color: red;">   <?=@$this->inputError('confirm_new_password');?></small>
                             </div>
 
 
