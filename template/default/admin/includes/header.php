@@ -293,10 +293,10 @@
 
 
     
-    
+    <!-- 
                         <li>
                             <a href="<?=domain;?>/admin/settings" aria-expanded="false"><i class="fa fa-cog"></i><span class="hide-menu">Settings</span></a>
-                        </li> 
+                        </li>  -->
 
     
     <!-- 
