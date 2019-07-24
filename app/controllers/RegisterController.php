@@ -228,28 +228,7 @@ if (Input::exists('user_registration') || true) {
 		print_r(Input::all());
 
 
-		 	$settings = SiteSettings::site_settings();
-		 	
-		 	
-			$post_data =  [
-							'secret'=> $settings['google_re_captcha_secret_key'],
-							'response'=> $_POST['g-recaptcha-response'],
-						];
-    
-
-			$response = $this->make_post("https://www.google.com/recaptcha/api/siteverify", $post_data);
-
-
-			$csrf =  (json_decode($response, true));
-			
-			    
-		
-			if(($csrf['success'] != 1) || ($csrf['hostname'] != $_SERVER['HTTP_HOST'])){
-			    Session::putFlash('warning', "Please solve the captcha");
-			    Redirect::back();
-			}
-
-
+		MIS::verify_google_captcha();
 
 
 
