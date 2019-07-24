@@ -66,7 +66,7 @@ include 'inc/header.php';
              
               [
                 'package'=>"Clothing Package",
-                'description'=> "Investment from R1000-R5000 (Including Graduation clothes) picture of Graduation clothes very important.",
+                'description'=> "Investment from R1000-R5000 (Including Graduation clothes)",
                 'img'=> "clothing.jpeg"
                 ],
                        [

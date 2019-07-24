@@ -281,7 +281,7 @@
                         <li>
                             <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-bullhorn"></i><span class="hide-menu">Communication</span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?=$settings['support_link'];?>">Support</a></li>
+                                <!-- <li><a href="<?=$settings['support_link'];?>">Support</a></li> -->
                                 <li><a href="<?=domain;?>/user/broadcast">Broadcasts</a></li>
                                 <li><a href="<?=domain;?>/user/write-testimony">Letter of Happiness</a></li>
                             </ul>
