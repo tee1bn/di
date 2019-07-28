@@ -30,14 +30,15 @@ $page_title = "GH Matches";
                                 Ref #<?=$gh->id;?>
                             </div>
                             <div class="card-body">
-                                <h4 class="card-title"><?=$currency;?><?=$this->money_format($gh->amount);?> Requested 
+                                <h4 class="card-title"><?=$gh->currency->html_code;?><?=$this->money_format($gh->amount);?> Requested 
                                  <?=$gh->created_at->toFormattedDateString();?></h4>
 
                                 <p class="card-text">
-                                 PayIn: <?=$currency;?><?=$this->money_format($gh->payin_left);?>
+                                 PayIn: <?=$gh->currency->html_code;?><?=$this->money_format($gh->payin_left);?>
                                 </p>
                                  
                                  <p class="card-text">
+
                                   <?=$gh->status();?>
                                 </p>
                             </div>
@@ -144,13 +145,10 @@ $page_title = "GH Matches";
                                     Account Details
                                 </h4>
                                 <p class="card-text">
-                                  <?php
-                                  $recipient = $match->gh->user;
-                                  ;?>
-                                    Name: <b> <?=ucfirst($recipient->bank_account_name);?></b><br>
-                                    Acct: <b> <?=ucfirst($recipient->bank_account_number);?></b><br>
-                                    Bank: <b> <?=ucfirst($recipient->bank_name);?></b><br>
-                                    Amt : <b> <?=$currency;?><?=$this->money_format($match->ph_amount);?></b><br>
+                                    <?=$match->gh->recipientAccount;?>
+
+                                    Amt : <b> <?=$match->ph->currency->html_code;?>
+                                        <?=$this->money_format($match->ph_amount);?></b><br>
                                 </p>
                                         <div class="dropdown">
                                                       <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">

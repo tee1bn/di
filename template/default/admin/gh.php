@@ -31,7 +31,7 @@ $page_title = "Get Help";
 
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
-                                                   Simulate Get Help <i class="fa fa-plus"></i>
+                                                Simulate Get Help <i class="fa fa-plus"></i>
                                             </a>
                                         </div>
                                       
@@ -40,11 +40,24 @@ $page_title = "Get Help";
                                             <form action="<?=domain;?>/admin/create_gh_request" method="post">
                                                 
                                                 <div class="form-group">
-                                                    <label>Amount (<?=$currency;?>)</label>
+                                                    <label>Amount </label>
                                                     <input required="" value="<?=Input::old('amount');?>"
                                                      type="number" class="form-control" name="amount">
                                                     <small class="text-danger"><?=Input::inputError('amount');?></small>
                                                 </div>
+
+
+                                                    <div class="form-group">
+                                                    <label>Currency </label>
+                                                        <select class="form-control" name="currency_id" required="">
+                                                            <option value="">Select Currency</option>
+                                                            <?php foreach (Currency::available_currencies()->get() as $currency):?> 
+                                                            <option value="<?=$currency->id;?>"><?=$currency->name;?></option>
+                                                            <?php endforeach;?>
+                                                        </select>   
+                                                    </div>
+
+
 
                                                 <div class="form-group">
                                                     <label>Select Pioneer</label>
@@ -95,7 +108,7 @@ $page_title = "Get Help";
                                         <thead>
                                             <th>#Ref</th>
                                             <th>User</th>
-                                            <th>Amount (<?=$currency;?>)</th>
+                                            <th>Amount </th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>*</th>
@@ -113,7 +126,7 @@ $page_title = "Get Help";
                                                     (<?=$user->username;?>)
                                                     </a> 
                                                 </td>
-                                                <td><?=$this->money_format($gh_request->amount);?></td>
+                                                <td><?=$this->money_format($gh_request->amount);?> <?=$gh_request->currency->html_code;?></td>
                                                 <td>
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$gh_request->created_at->toFormattedDateString();?></td>

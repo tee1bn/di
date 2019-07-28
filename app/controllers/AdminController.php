@@ -191,6 +191,8 @@ class AdminController extends controller
 			Session::putFlash('danger', "Either Same User was selected or Something went wrong. <br>Please Try again.");
 
 		}
+
+
 		Redirect::back();
 	}
 
@@ -240,8 +242,7 @@ class AdminController extends controller
 
 	}
 
-
-
+	
 
 
 

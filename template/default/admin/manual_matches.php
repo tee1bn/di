@@ -19,13 +19,10 @@ $page_title = "Manual Matching";
                 </div>
              
 
-
-
                 <form method="post" action="<?=domain;?>/admin/create_matches">
                  <div class="row">
                     <div class="col-6">
                         <div class="card">
-
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
                                 <a href="javascript:void;">PH Lists</a>
                                 <span class="badge badge-secondary"><?=count($valid_unfufilled_phs);?></span>
@@ -34,12 +31,12 @@ $page_title = "Manual Matching";
                                 <select name="phs[]" multiple="" style="width: 100%;" class="form-control select2 select2-multiple">
 
                                     <?php foreach ($valid_unfufilled_phs as $ph):
-                                        $ph_er = $ph->user;
-                                        ?>
+                                        $ph_er = $ph->user;?>
+
                                         <option value="<?=$ph['id'];?>">
                                              #<?=$ph['id'];?><br>
                                              --
-                                              <?=$currency;?> 
+                                              <?=$ph->currency->html_code;?> 
                                              <?=$this->money_format($ph['payout_left']);?>
                                              --
                                              <?=$ph_er->fullname;?> (<?=$ph_er->username;?>)<br>
@@ -51,11 +48,11 @@ $page_title = "Manual Matching";
                         </div>
                     </div>
 
+                    
 
                   
                     <div class="col-6">
                         <div class="card">
-
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
                                 <a href="javascript:void;">GH Lists</a>
                                 <span class="badge badge-secondary"><?=count($valid_unfufilled_ghs);?></span>
@@ -64,12 +61,12 @@ $page_title = "Manual Matching";
                                 <select name="ghs[]" multiple="" style="width: 100%;" class="form-control select2 select2-multiple">
 
                                     <?php foreach ($valid_unfufilled_ghs as $gh):
-                                        $gh_er = $gh->user;
-                                        ?>
+                                        $gh_er = $gh->user;?>
+
                                         <option value="<?=$gh['id'];?>">
                                              #<?=$gh['id'];?><br>
                                              --
-                                              <?=$currency;?> 
+                                              <?=$gh->currency->html_code;?> 
                                              <?=$this->money_format($gh['payin_left']);?>
                                              --
                                              <?=$gh_er->fullname;?> (<?=$gh_er->username;?>)<br>

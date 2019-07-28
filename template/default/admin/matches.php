@@ -38,7 +38,7 @@ $page_title = "Matches";
                                             <th>PHR-GHR</th>
                                             <th>GHer</th>
 
-                                            <th>Amount (<?=$currency;?>)</th>
+                                            <th>Amount </th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>*</th>
@@ -72,7 +72,7 @@ $page_title = "Matches";
                                                 </td>
 
 
-                                                <td><?=$this->money_format($match->ph_amount);?></td>
+                                                <td><?=$this->money_format($match->ph_amount);?>  <?=$ph->currency->html_code;?> </td>
                                                 <td>
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$match->created_at->toFormattedDateString();?></td>

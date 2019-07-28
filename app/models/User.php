@@ -38,6 +38,7 @@ class User extends Eloquent
 				'bank_name',
 				'bank_account_name',
 				'bank_account_number',
+				'bitcoin_address',
 				'profile_pix',
 				'resized_profile_pix',
 				'password',
@@ -57,6 +58,18 @@ class User extends Eloquent
     protected $hidden = ['password'];
 
     public static $max_level = 4;
+
+
+
+
+
+    public function more_than_x_pending_pg()
+    {
+    	$pending_ph =  PH::where('user_id', $this->id)->where('fufilled_at', null)->count();
+
+    	
+    }
+
 
 
 

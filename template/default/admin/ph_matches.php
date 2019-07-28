@@ -31,7 +31,7 @@ $page_title = "PH Matches";
                             </div>
                             <div class="card-body">
                                 <h4 class="card-title">
-                                  <?=$currency;?><?=$this->money_format($ph->amount);?>
+                                  <?=$ph->currency->html_code;?><?=$this->money_format($ph->amount);?>
                                    Pledged 
                                  <?=$ph->created_at->toFormattedDateString();?></h4>
                                  <?php 
@@ -50,7 +50,7 @@ $page_title = "PH Matches";
 
 
 
-                                 Bal: <?=$currency;?><?=$this->money_format($ph->payout_left);?>
+                                 Bal: <?=$ph->currency->html_code;?><?=$this->money_format($ph->payout_left);?>
                                 </p>
                                  
                                 <p class="card-text">
@@ -157,11 +157,10 @@ $page_title = "PH Matches";
                                 <h4 class="card-title">
                                     Account Details
                                 </h4>
-                                <p class="card-text">
-                                    Name: <b> <?=ucfirst($recipient->bank_account_name);?></b><br>
-                                    Acct: <b> <?=ucfirst($recipient->bank_account_number);?></b><br>
-                                    Bank: <b> <?=ucfirst($recipient->bank_name);?></b><br>
-                                    Amt : <b> <?=$currency;?><?=$this->money_format($match->ph_amount);?></b><br>
+                                <p class="card-text">     
+                                    <?=$match->gh->recipientAccount;?>
+
+                                    Amt : <b> <?=$match->ph->currency->html_code;?><?=$this->money_format($match->ph_amount);?></b><br>
                                 </p>
                                         <div class="dropdown">
                                                       <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">

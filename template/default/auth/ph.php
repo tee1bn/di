@@ -43,23 +43,36 @@ $settings = SiteSettings::site_settings();
 
                                             <form action="<?=domain;?>/user/create_ph_request" method="post">
                                                 
-                                                <div class="form-group">
-                                                    <label>Amount (<?=$currency;?>)</label>
-                                                <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                                                    <span class="input-group-btn input-group-prepend"></span>
-                                                    <input id="tch3" type="number" min="<?=$settings['minimum_ph'];?>" required="" value="<?=Input::old('amount');?>" name="amount" 
+                                                    <div class="form-group">
+                                                    <label>Amount *</label>
+                                                    <input id="tch3" type="number" min="<?=$settings['minimum_ph'];?>" 
+                                                    required="" value="<?=Input::old('amount');?>" name="amount" 
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
+
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                    <label>Currency </label>
+                                                        <select class="form-control" name="currency_id" required="">
+                                                            <option value="">Select Currency</option>
+                                                            <?php foreach (Currency::available_currencies()->get() as $currency):?> 
+                                                            <option value="<?=$currency->id;?>"><?=$currency->name;?></option>
+                                                            <?php endforeach;?>
+                                                        </select>   
+                                                    </div>
+
+                                                <div class="form-group">
+
+
                                                     <span class="input-group-btn input-group-append">
                                                         <button class="btn btn-success " type="submit">Provide Help</button>
                                                     </span>
-                                                </div> 
-
                                                 <small class="text-danger"><?=Input::inputError('amount');?></small><br>
-
+<!-- 
                                                 <small class="text-danger">* Minimum Amount is 
                                                     <?=$currency;?><?=$this->money_format($settings['minimum_ph']);?> and Maximum Amount is 
                                                     <?=$currency;?><?=$this->money_format($settings['maximum_ph']);?>
-                                                </small>
+                                                </small> -->
                                             </div>
 
                                         
@@ -96,7 +109,7 @@ $settings = SiteSettings::site_settings();
                                     <table id="myTable" class="table table-hover">
                                         <thead>
                                             <th>#Ref</th>
-                                            <th>Amount (<?=$currency;?>)</th>
+                                            <th>Amount</th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>*</th>
@@ -105,7 +118,7 @@ $settings = SiteSettings::site_settings();
                                             <?php $i=1; foreach ($this->auth()->PhRequests as $ph_request) :?>
                                             <tr>
                                                 <td><?=$ph_request->id;?></td>
-                                                <td><?=$this->money_format($ph_request->amount);?></td>
+                                                <td><?=$this->money_format($ph_request->amount);?> <?=$ph_request->currency->html_code;?></td>
                                                 <td>
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$ph_request->created_at->toFormattedDateString();?></td>

@@ -35,7 +35,7 @@ $page_title = "Provide Helps";
                                         <thead>
                                             <th>#Ref</th>
                                             <th>User</th>
-                                            <th>Amount (<?=$currency;?>)</th>
+                                            <th>Amount</th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>*</th>
@@ -53,7 +53,7 @@ $page_title = "Provide Helps";
                                                     (<?=$user->username;?>)
                                                     </a> 
                                                 </td>
-                                                <td><?=$this->money_format($ph_request->amount);?></td>
+                                                <td><?=$this->money_format($ph_request->amount);?> <?=$ph_request->currency->html_code;?></td>
                                                 <td>
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$ph_request->created_at->toFormattedDateString();?></td>

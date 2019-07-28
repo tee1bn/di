@@ -248,16 +248,11 @@ $page_title = "Dashboard";
                          <?=$gh_user->phone;?></a>
                          <br>
 
-                        <small class="float-right">PayOut: <?=$currency;?>
+                        <small class="float-right">PayOut: <?=$ph->currency->html_code;?>
                         <?=$ph_match->ph_amount;?></small>
                       </p>
                       <p>
-                         <i class="fa fa-bank"></i>
-                         Acc Name: <?=$gh_user->bank_account_name;?>
-                         <br>
-                         Account: <?=$gh_user->bank_account_number;?>
-                       
-                        <small class="float-right">Bank:<?=$gh_user->bank_name;?></small>
+                           <?=$ph_match->gh->recipientAccount;?>
                       </p>
                       </a>
                     </div>
@@ -322,7 +317,7 @@ $page_title = "Dashboard";
                          <?=$ph_user->phone;?></a>
                          <br>
 
-                        <small class="float-right">PayIn: <?=$currency;?>
+                        <small class="float-right">PayIn: <?=$gh->currency->html_code;?>
                         <?=$gh_match->ph_amount;?></small>
                       </p>
                       </a>
@@ -378,13 +373,13 @@ $page_title = "Dashboard";
                   <?php foreach (PH::recent_phs($this->auth()->id) as $ph):?>
                   <li class="list-group-item list-group-item-success">
                     <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
-                    <?=$currency;?><?=$ph->amount;?> 
+                    <?=$ph->currency->html_code;?><?=$ph->amount;?> 
                     <small>
                       <span class="badge badge-success float-right"><?=$ph->created_at->toFormattedDateString();?>
                       </span>
                     </small>
                     <p><small>#<?=$ph->id;?> <?=$ph->status();?></small>
-                      <small class="float-right">bal: <?=$currency;?><?=$ph->payout_left;?></small></p>
+                      <small class="float-right">bal: <?=$ph->currency->html_code;?><?=$ph->payout_left;?></small></p>
                     </p>
 
                     </a>
@@ -397,13 +392,13 @@ $page_title = "Dashboard";
                   <?php foreach (GH::recent_ghs($this->auth()->id) as $gh):?>
                   <li class="list-group-item list-group-item-warning">
                     <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
-                    <?=$currency;?><?=$gh->amount;?> 
+                    <?=$gh->currency->html_code;?><?=$gh->amount;?> 
                     <small>
                       <span class="badge badge-success float-right"><?=$gh->created_at->toFormattedDateString();?>
                       </span>
                     </small>
                     <p><small>#<?=$gh->id;?> <?=$gh->status();?></small>
-                      <small class="float-right">bal: <?=$currency;?><?=$gh->payin_left;?></small></p>
+                      <small class="float-right">bal: <?=$gh->currency->html_code;?><?=$gh->payin_left;?></small></p>
                     </a>
                   </li>
                     <?php endforeach;?>

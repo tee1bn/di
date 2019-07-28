@@ -8,7 +8,7 @@ class PH extends Eloquent
 	
 	protected $fillable = [	
 			'user_id',
-			 'matured_ph_id',
+			 'currency_id',
 			 'amount',
 			 'payout_left',
 			 'fufilled_at',
@@ -26,6 +26,11 @@ class PH extends Eloquent
 
 	}
 
+
+	public function currency()
+	{
+		return $this->belongsTo('Currency', 'currency_id');
+	}
 
 
 
@@ -76,14 +81,43 @@ class PH extends Eloquent
 
 
 
+	public static function last_ph($user_id)
+	{
+		$last_ph =	self::where('user_id', $user_id)
+					->where('fufilled_at', '!=', null)
+					->where('payout_left', 0)
+					->latest()->first();
+
+		return $last_ph;
+	}
+
+
+
+
 	public function create_ph($user_id , $amount)
 	{
 		$settings = SiteSettings::site_settings();
+
+
+
+		//ensure no of pending ph
+		   $pending_ph =  PH::where('user_id', $user_id)->where('fufilled_at', null)->count();
+
+		   if ($pending_ph >= $settings['max_no_of_running_ph']) {
+		   	 Session::putFlash('danger', "Maximum number of running PH. Please Complete your PHs");
+		   	return;
+		   }
+
+
+
+
+
+
 		$worth =  	($settings['percent_roi'] * 0.01 * $amount) + $amount;
 
-		$last_gh_amount = (int) GH::last_gh($user_id)->amount;
+		$last_ph_amount = (int) PH::last_ph($user_id)->amount;
 
-		$min_from_last_gh = $settings['percent_of_last_gh'] *0.01 * $last_gh_amount;
+		$min_from_last_ph = $settings['percent_of_last_ph'] *0.01 * $last_ph_amount;
 
 		$validator = new Validator;
 
@@ -100,7 +134,7 @@ class PH extends Eloquent
 								'required'=> true,
 								'numeric'=> true,
 								'step'		=> $settings['ph_steps'],
-								'min_value'=> max($settings['minimum_ph'], $min_from_last_gh),
+								'min_value'=> max($settings['minimum_ph'], $min_from_last_ph),
 								'max_value'=> $settings['maximum_ph'],
 							],
 
@@ -112,6 +146,7 @@ class PH extends Eloquent
 				$ph	 =	PH::create([
 								'user_id'		=> $user_id,
 								'amount'		=> $amount,
+								'currency_id'	=> $_POST['currency_id'],
 								'payout_left'	=> $amount,
 								'worth_after_maturity'	=> $worth,
 								'matures_at'	=> $matures_at,
@@ -171,7 +206,7 @@ class PH extends Eloquent
 	 	if ($payed_out >= $downpayment) {
 
 	 		$user = $this->user;
-		 	$gh_non_recommited =	GH::whereDate('created_at', '<', $this->created_at)
+		 	$gh_non_recommited =	GH::whereDate('created_at', '>', $this->created_at)
 							 		   ->where('user_id', $user->id)
 							 		   ->where('fufilled_recommittment', null)
 							 		   ->first();

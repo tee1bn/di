@@ -11,11 +11,54 @@ class GH extends Eloquent
 							'fufilled_recommittment',
 							'pioneered',
 							'amount',
+							'currency_id',
 							'fufilled_at',
 							'payin_left'
 						];
 		
 	protected $table = 'gh';
+
+
+	public function getrecipientAccountAttribute()
+	{
+
+		switch ($this->currency_id) {
+
+			case 1://naira
+					$account = <<<EOL
+
+			       Name: <b> {$this->user->bank_account_name}</b><br>
+			        Acct: <b>{$this->user->bank_account_number}</b><br>
+			        Bank: <b>{$this->user->bank_name}</b><br>
+EOL;			
+			return $account;
+
+				break;
+			
+			case 2:
+				$account = <<<EOL
+                       Wallet Address: <b> {$this->user->bitcoin_address}</b><br>
+EOL;				
+
+			return $account;
+
+
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+
+	}
+
+
+
+	public function currency()
+	{
+		return $this->belongsTo('Currency', 'currency_id');
+	}
 
 
 
@@ -132,7 +175,7 @@ class GH extends Eloquent
 		$settings = SiteSettings::site_settings();
 
 
-		return $ghs[$settings['downpayments_ghs_preference']];
+		return $ghs[0];
 		
 	}
 
@@ -187,6 +230,7 @@ class GH extends Eloquent
 								'user_id'		=> $user_id,
 								'amount'		=> $amount,
 								'payin_left'	=> $amount,
+								'currency_id'	=> $_POST['currency_id'],
 							]); 
 
  		 		Session::putFlash('success', "GH Request Successful. Check for Match. ");
@@ -229,6 +273,7 @@ class GH extends Eloquent
 								'user_id'		=> $user_id,
 								'amount'		=> $amount,
 								'payin_left'	=> $amount,
+								'currency_id'	=> $_POST['currency_id'],
 								'pioneered'	=> 1,
 								'fufilled_recommittment'	=> 1
 							]); 

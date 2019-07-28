@@ -11,6 +11,10 @@ class Match extends Eloquent
 	protected $table = 'pair';
 
 
+
+
+
+
 	public function expired_matches()
 	{	
 		$today = date("Y-m-d H:i:s");
@@ -54,6 +58,12 @@ class Match extends Eloquent
 
 
 
+
+
+
+
+
+
 			DB::beginTransaction();
 
 				try {
@@ -65,6 +75,15 @@ class Match extends Eloquent
 
 								 $gh_payin = $GH->payin_left;
 								 $ph_payout = $PH->payout_left;
+
+
+								 echo $PH->currency_id;
+
+									//ensure currency is thesame
+									if ($PH->currency_id != $GH->currency_id) {
+										continue;
+									}
+
 
 
 
@@ -121,6 +140,12 @@ class Match extends Eloquent
 					$expiry_hour = self::next_x_hours();
 			 		$attached_ph = PH::find($ph_id);
 					$attached_gh = GH::find($gh_id);
+
+					//ensure currency is the same
+					if ($attached_ph->currency_id != $attached_gh->currency_id) {
+						return false;
+					}
+
 
 					//ensure user is not paired to himself
 					if ($attached_ph->user->id == $attached_gh->user->id) {

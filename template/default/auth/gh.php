@@ -53,23 +53,35 @@ $page_title = "Get Help";
                                         <div class="card-body card-body-bordered collapse show" id="demo1" >
 
                                             <form action="<?=domain;?>/user/create_gh_request" method="post">
-                                                
+
                                                 <div class="form-group">
-                                                    <label>Amount (<?=$currency;?>)</label>
-                                                <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                                                    <span class="input-group-btn input-group-prepend"></span>
-                                                    <input id="tch3" type="number" required="" 
-                                                    max="<?=$balance;?>" name="amount" 
+                                                    <label>Amount *</label>
+                                                    <input id="tch3" type="number" required="" value="<?=Input::old('amount');?>" name="amount" 
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
+                                                    </div>
+
+
+
+                                                    <div class="form-group">
+                                                    <label>Currency </label>
+                                                        <select class="form-control" name="currency_id" required="">
+                                                            <option value="">Select Currency</option>
+                                                            <?php foreach (Currency::available_currencies()->get() as $currency):?> 
+                                                            <option value="<?=$currency->id;?>"><?=$currency->name;?></option>
+                                                            <?php endforeach;?>
+                                                        </select>   
+                                                    </div>
+
+
+
+
                                                     <span class="input-group-btn input-group-append">
                                                         <button class="btn btn-success " type="submit">Get Help</button>
                                                     </span>
-                                                </div> 
 
                                                 <small class="text-danger"><?=Input::inputError('amount');?></small><br>
 
-                                                <small class="text-danger">* Balance is <?=$currency;?> <?=$this->money_format($balance);?></small>
-                                            </div>
+                                                <!-- <small class="text-danger">* Balance is <?=$currency;?> <?=$this->money_format($balance);?></small> -->
 
                                         
 
@@ -105,7 +117,7 @@ $page_title = "Get Help";
                                     <table id="myTable" class="table table-hover">
                                         <thead>
                                             <th>#Ref</th>
-                                            <th>Amount (<?=$currency;?>)</th>
+                                            <th>Amount</th>
                                             <th>Date</th>
                                             <th>Status</th>
                                             <th>*</th>
@@ -114,7 +126,7 @@ $page_title = "Get Help";
                                             <?php $i=1; foreach ($this->auth()->GhRequests as $gh_request) :?>
                                             <tr>
                                                 <td><?=$gh_request->id;?></td>
-                                                <td><?=$this->money_format($gh_request->amount);?></td>
+                                                <td><?=$this->money_format($gh_request->amount);?> <?=$gh_request->currency->html_code;?></td>
                                                 <td>
                                                     <span class="badge badge-sm badge-secondary">
                                                         <?=$gh_request->created_at->toFormattedDateString();?></td>
