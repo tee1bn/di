@@ -255,7 +255,7 @@ class PH extends Eloquent
 							'matures_at'=> $matures_at,
 						]);
 
-			$this->update_growing_date($matures_at);
+			$this->update_growing_date($now);
 
 		 	$bonus = $settings['percent_referral_bonus_on_ph'] * 0.01 * $this->amount;
 

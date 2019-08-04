@@ -25,7 +25,7 @@ class AutoMatchingController extends controller
 		$this->resolve_all_expired_match();
 		$this->update_growing_worth_of_matured_phs();
 
-				$this->send_email_notifications();
+		$this->send_email_notifications();
 	}
 
 
@@ -116,32 +116,42 @@ class AutoMatchingController extends controller
 			}
 
 
+
+
 			$scheduled_pay = $ph->SchedulePays;
 			$scheduled_pay_dates = array_keys($scheduled_pay);
 
+
+
 			$unpaid_dates = array_diff($scheduled_pay_dates, $paid_dates); //unpaid  dates
 
-			//ensure today is a payment date
-			if (!in_array($today, $unpaid_dates)) {
-				continue;
-			}
+			print_r($unpaid_dates);
 
 
-			$amount_earned = $scheduled_pay[$today];
+			foreach ($unpaid_dates as  $unpaid_date) {
+				$now = time();
+				$unpaid_time = strtotime($unpaid_date);
+
+
+
+				if ($now >= $unpaid_time) {
+
+					echo  $amount_earned = $scheduled_pay[$unpaid_date];
+
 
 
 			try {
 				
 
-			$credit	=LevelIncomeReport::create([
-									'owner_user_id'	=> $ph->user->id,
-									'downline_id'	=> null,
-									'amount_earned'	=> $amount_earned,
-									'status'	=> 'Credit',
-									'commission_type'	=> "Chunk ROI",
-									'ph_id' => $ph->id,
-									'ph_pay_date' => $today
-									]);
+				$credit	=LevelIncomeReport::create([
+										'owner_user_id'	=> $ph->user->id,
+										'downline_id'	=> null,
+										'amount_earned'	=> $amount_earned,
+										'status'	=> 'Credit',
+										'commission_type'	=> "Chunk ROI",
+										'ph_id' => $ph->id,
+										'ph_pay_date' => $unpaid_date
+										]);
 
 
 
@@ -150,7 +160,7 @@ class AutoMatchingController extends controller
 				  	$project_name = Config::project_name();
 				  	$currency = Config::currency();
 
-				$gh_notification=EmailSms::create([
+					$gh_notification=EmailSms::create([
 							'user_id' => $ph->user->id,
 							'phone_message' => "Your Earned $currency $amount_earned from PH#{$ph->id}. --$project_name",
 							'phone'  => $ph->user->phone,
@@ -163,6 +173,14 @@ class AutoMatchingController extends controller
 			} catch (Exception $e) {
 				
 			}
+
+
+
+				}
+
+
+			}
+			
 
 
 
