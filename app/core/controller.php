@@ -301,7 +301,6 @@ if ($response == true) {
 
 
 			$host			= Config::host();
-			$currency			= Config::currency();
 			$project_name	= Config::project_name();
 			$domain			= Config::domain();
 			$asset 			= $domain."/template/".Config::views_template()."/assets";

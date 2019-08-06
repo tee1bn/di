@@ -129,7 +129,31 @@ $page_title = "Dashboard";
                 </div>
             <?php endif ;?>
 
-            <?php include 'includes/earnings_tab.php';?>
+
+
+
+
+              <?php foreach (Currency::available_currencies()->get() as $key => $currency) :?>
+
+                        <div class="card">
+
+                            <div class="card-header"  data-toggle="collapse" data-target="#currency<?=$currency->id;?>">
+                                <a href="javascript:void;"><?=$currency->name;?> - Earnings</a>
+                            </div>
+                            <div class="card-body row collapse" id="currency<?=$currency->id;?>">
+
+
+                                <?php include 'includes/earnings_tab.php';?>
+
+                              
+
+                             </div>
+
+                        </div>
+
+                    <?php endforeach ;?>
+
+
 
                 <div class="row">
 

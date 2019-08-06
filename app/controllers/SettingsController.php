@@ -18,6 +18,24 @@ class SettingsController extends controller
 
 
 	//to pull from db with angularjs
+	public function fetch_currency_settings()
+	{
+		header("content-type:application/json");
+		echo (Currency::available_currencies()->get() );
+	}
+
+
+	public function update_currency_settings()
+	{			
+	
+			$currency = Currency::where('id', $_POST['id'])->first();
+
+			$currency->update(['settings'=> $_POST['settings'] ]);
+			Session::putFlash('success',"$currency->name Settings Updated Successfully!");
+	}
+	
+
+	//to pull from db with angularjs
 	public function fetch_min_withrawal()
 	{
 		header("content-type:application/json");

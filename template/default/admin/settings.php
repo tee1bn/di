@@ -1,6 +1,10 @@
 <?php
 $page_title = "Settings";
- include 'includes/header.php';?>
+ include 'includes/header.php'
+
+
+
+ ;?>
 
 <script type="text/javascript" src="<?=$this_folder;?>/angularjs/angular.js"></script>
 <script>
@@ -9,7 +13,7 @@ $page_title = "Settings";
 <script type="text/javascript" src="<?=$this_folder;?>/angularjs/settings.js"></script>
 
 
-    
+    <div  ng-controller="Settings">
                 <!-- ============================================================== -->
                 <!-- Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -28,12 +32,12 @@ $page_title = "Settings";
 
 
                 <form >
-                 <div class="row" ng-controller="Settings">
+                 <div class="row">
                     <div class="col-12">
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
-                                <a href="javascript:void;">Settings</a>
+                                <a href="javascript:void;">General Settings</a>
                             </div>
                             <div class="card-body row collapse" id="demo">
 
@@ -55,6 +59,40 @@ $page_title = "Settings";
                     </div>
                 </div>
             </form>
+
+
+                <div ng-repeat="($index, $currency) in $currency_settings" class="row">
+                    <div class="col-12">
+                        <div class="card">
+
+                            <div class="card-header"  data-toggle="collapse" data-target="#currency{{$index}}">
+                                <a href="javascript:void;">{{$currency.name}} Settings</a>
+                            </div>
+                            <div class="card-body row collapse" id="currency{{$index}}">
+
+                                <div ng-repeat="($key, $setting) in $currency.settings" class="form-group col-lg-3">
+                                    <span class="badge badge-secondary">{{$index+1}}</span>
+                                    <label>{{$key}}</label>
+                                    <input type="" placeholder="{{$key}}" ng-model="$currency.settings[$key]" class="form-control">
+                                </div>                              
+
+                                
+                                <form action="<?=domain;?>/settings/update_currency_settings" method="post" class="ajax_form" >
+                                    
+                                    <input type="hidden" value="{{$currency.id}}" name="id">
+                                    <textarea style="display: none;" class="form-control" name="settings">{{$currency.settings}}</textarea>
+                                    <div class="text-center col-12">
+                                        <button type="submit" class="btn btn-success">Update </button>
+                                    </div>
+                                </form>
+
+                             </div>
+
+                        </div>
+                    </div>
+                </div>
+
+    </div>
 
 <?php include 'includes/footer.php';?>
 <script>

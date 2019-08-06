@@ -2,6 +2,7 @@
 
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Capsule\Manager as DB;
 
 class PH extends Eloquent 
 {
@@ -63,10 +64,11 @@ class PH extends Eloquent
 
 	public function create_downpayment()
 	{
-		$settings = SiteSettings::site_settings();
+
+		$settings = Currency::find($_POST['currency_id'])->settings;
 		$downpayment =  $settings['percent_down_payment'] * 0.01 * $this->amount ;
 
-		$available_ghs = GH::find_ghs_for_downpayment($downpayment);
+		$available_ghs = GH::find_ghs_for_downpayment($downpayment, $_POST['currency_id']);
 
 		$gh  = $available_ghs[0];
 
@@ -96,8 +98,7 @@ class PH extends Eloquent
 
 	public function create_ph($user_id , $amount)
 	{
-		$settings = SiteSettings::site_settings();
-
+		$settings = Currency::find($_POST['currency_id'])->settings;
 
 
 		//ensure no of pending ph
@@ -141,7 +142,18 @@ class PH extends Eloquent
 			));
 
 
+
+
+
 		if ($validator->passed()) {
+
+
+
+
+				DB::beginTransaction();
+
+				try {
+					
 
 				$ph	 =	PH::create([
 								'user_id'		=> $user_id,
@@ -152,12 +164,20 @@ class PH extends Eloquent
 								'matures_at'	=> $matures_at,
 							]); 
 
- 		 		Session::putFlash('success', "PH Request Successful. Check for Match. ");
 
  		 		//create downpayment match here
  		 		$ph->create_downpayment();
-
+ 		 		DB::commit();
+ 		 		Session::putFlash('success', "PH Request Successful. Check for Match. ");
 				return $ph;
+
+				} catch (Exception $e) {
+ 		 		DB::rollback();
+ 		 		print_r($e->getMessage());
+					
+				}
+
+
 			}
 
 
@@ -193,7 +213,7 @@ class PH extends Eloquent
 
 	public function fufill_ph()
 	{
-		$settings = SiteSettings::site_settings();
+		$settings = Currency::find($this->currency_id)->settings;
 		$maturity_days = $settings['ph_maturity_in_days'];
 		$now = date("Y-m-d H:i:s");
 		$matures_at = new DateTime();

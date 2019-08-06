@@ -127,7 +127,7 @@ EOL;
 
 
 
-	public function valid_unfufilled_ghs($downpayment)
+	public function valid_unfufilled_ghs($downpayment, $currency_id)
 	{
 
 
@@ -135,8 +135,12 @@ EOL;
 		$pioneers_ids  =  User::Pioneers()->where('blocked_on',null)->pluck('id')->toArray();
 		
 
+
+
+
 		$pioneers_unfifilled_ghs =  GH::where('fufilled_at', null)
 									->whereIn('user_id', $pioneers_ids)
+									->where('currency_id', $currency_id)
 									->where('payin_left', '>=', $downpayment)
 									->where('fufilled_recommittment',  1)
 									->get()
@@ -146,6 +150,7 @@ EOL;
 		$regular_users_unfifilled_ghs_only =  GH::where('fufilled_at', null)
 											->whereNotIn('user_id', $blocked_users_ids)
 											->whereNotIn('user_id', $pioneers_ids)
+											->where('currency_id', $currency_id)
 											->where('payin_left', '>=', $downpayment)
 											->where('fufilled_recommittment',  1)
 											->get()
@@ -165,14 +170,12 @@ EOL;
 
 
 
-	public static function find_ghs_for_downpayment($downpayment)
+	public static function find_ghs_for_downpayment($downpayment, $currency_id)
 	{
 
 
-		$ghs =  self::valid_unfufilled_ghs($downpayment);
+		$ghs =  self::valid_unfufilled_ghs($downpayment, $currency_id);
 
-
-		$settings = SiteSettings::site_settings();
 
 
 		return $ghs[0];
@@ -200,7 +203,7 @@ EOL;
 	public function create_gh_request($user_id, $amount)
 	{
 
-		$settings = SiteSettings::site_settings();
+		$settings = Currency::find($_POST['currency_id'])->settings;
 
 		$user = User::find($user_id);
 		if ($amount > $user->available_balance()) {
@@ -247,7 +250,7 @@ EOL;
 	public function create_gh_request_by_admin($user_id, $amount)
 	{
 
-		$settings = SiteSettings::site_settings();
+		$settings = Currency::find($_POST['currency_id'])->settings;
 
 		$user = User::find($user_id);
 		

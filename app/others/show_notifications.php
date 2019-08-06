@@ -13,6 +13,31 @@
 }
 </style>
 
+
+
+
+ <div id="page_preloader" style="
+    background: #65323230;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    padding-top: 22%;
+    display: none;
+    z-index: 9;">
+
+            <i class="fa fa-spinner fa-spin" style="
+                                              position: fixed;
+                                              left: 50%;
+                                              z-index: 99999;
+                                              font-size: 90px;">
+                                              </i>
+
+        </div>
+
+
+
 <center class="text-center wrapper">  
   <div id="gitstar-notification"  class="alert alert-info alert-dismissible" >
     <a href="javascript:void;" class="close" onclick="document.getElementById('gitstar-notification').style.display='none'">&times;</a>
@@ -23,6 +48,7 @@
 </center>
 
 
+<script src="<?=domain;?>/app/others/js/ajax-form.js"></script>
 
 
 
@@ -44,13 +70,7 @@
           });
       }
 
-<?php 
-  $settings = SiteSettings::site_settings();
-
-    if ($settings['put_on_automatic_matching'] == 1):?>
-      perform_automatching();
-<?php endif;?>
-
+    perform_automatching();
 
     notify = function () {
   $.ajax({
@@ -90,7 +110,14 @@
 
 show_notification = function ($notification, $error_type='info') {
 $('#error_note').html($notification);
-    $('#gitstar-notification').css('display', 'block');
+    $('#gitstar-notification').css('display', 'block').fadeOut(5000);
+
+
+    $('#gitstar-notification').hover(
+          function () {
+            $(this).stop();
+          });
+
     document.getElementById('gitstar-notification').setAttribute("class","alert alert-"+$error_type+" alert-dismissible");
   }
 

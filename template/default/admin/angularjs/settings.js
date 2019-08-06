@@ -9,16 +9,16 @@ app.controller('Settings', function($scope, $http) {
 
 
 
-	//placement duration sales cutoff Commission begins
-	$scope.fetch_min_withrawal = function () {
-	     $http.get($base_url+"/settings/fetch_min_withrawal/")
+	//currency settings begins
+	$scope.fetch_currency_settings = function () {
+	     $http.get($base_url+"/settings/fetch_currency_settings/")
 	                .then(function(response) {
 	                  console.log(response.data);
-	                  $scope.$min_withrawal= response.data;
+	                  $scope.$currency_settings= response.data;
 	                });
 
 	                    };
-	  $scope.fetch_min_withrawal();
+	  $scope.fetch_currency_settings();
 
 	  $scope.update_min_withrawal =  function(){
 			$data = 'content='+(JSON.stringify($scope.$min_withrawal));
@@ -37,7 +37,7 @@ app.controller('Settings', function($scope, $http) {
 
 			        });
 	  							};
-	//placement duration sales cutoff Commission ends
+	//currency settings ends
 
 
 
