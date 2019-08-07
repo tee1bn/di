@@ -80,8 +80,6 @@ class AutoMatchingController extends controller
 
 
 
-
-
 	public function match_ghs_and_phs()
 	{
 
