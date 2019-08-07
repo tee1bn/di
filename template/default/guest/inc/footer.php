@@ -28,7 +28,6 @@
             <div class="col-lg-6 text-center text-lg-left">
               <p class="copyrights-text mb-3 mb-lg-0">&copy; All rights reserved. 
                 <?=project_name;?>
-                 Built by <a href="https://fiverr.com/taibn628" target="_blank" class="external footer-link">Taibn628</a>
                </p>
               
             </div>

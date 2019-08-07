@@ -87,6 +87,8 @@ class User extends Eloquent
     public function urgent_match()
     {
 
+    	return;
+
     		$phs_ids = PH::where('user_id', $this->id)
     					->where('fufilled_at', null)
     					->get()->pluck('id')->toArray();
