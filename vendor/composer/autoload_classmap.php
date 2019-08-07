@@ -23,6 +23,7 @@ return array(
     'MlmSetting' => $baseDir . '/app/models/MlmSetting.php',
     'MyMobileAPI' => $baseDir . '/app/classes/MyMobileAPI.php',
     'Newsletter' => $baseDir . '/app/models/Newsletter.php',
+    'Notifications' => $baseDir . '/app/models/Notifications.php',
     'PH' => $baseDir . '/app/models/PH.php',
     'PasswordReset' => $baseDir . '/app/models/PasswordReset.php',
     'Redirect' => $baseDir . '/app/classes/Redirect.php',
