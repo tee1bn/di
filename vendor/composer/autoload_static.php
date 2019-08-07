@@ -195,7 +195,6 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'MlmSetting' => __DIR__ . '/../..' . '/app/models/MlmSetting.php',
         'MyMobileAPI' => __DIR__ . '/../..' . '/app/classes/MyMobileAPI.php',
         'Newsletter' => __DIR__ . '/../..' . '/app/models/Newsletter.php',
-        'Notifications' => __DIR__ . '/../..' . '/app/models/Notifications.php',
         'PH' => __DIR__ . '/../..' . '/app/models/PH.php',
         'PasswordReset' => __DIR__ . '/../..' . '/app/models/PasswordReset.php',
         'Redirect' => __DIR__ . '/../..' . '/app/classes/Redirect.php',
