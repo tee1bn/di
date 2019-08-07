@@ -49,40 +49,37 @@ class AutoMatchingController extends controller
 
 
 
-	public function put_matured_phs_on_matured_ph_table(){
+	public function fetch_news()
+	{
+		$today = date("Y-m-d");
+		$pulled_broadcast_ids = Notifications::where('user_id', $this->auth()->id)->get()->pluck('broadcast_id')->toArray();
+		$recent_news = 	BroadCast::where('status', 1)->latest()
+								//  ->whereNotIn('id', $pulled_broadcast_ids)
+								//  ->whereDate("updated_at", '>=' , $today)
+								 ->get();
 
-		foreach (MaturedPhs::all(['ph_id']) as $matured_ph_id) {
+								 
+		foreach ($recent_news as $key => $news) {
+                    
+                    if(in_array($news->id, $pulled_broadcast_ids)){
+                        continue;   
+                    }
 
-			$matured_ph_ids[] = $matured_ph_id->ph_id;
-
-		 } 
-
-		$days_for_maturity = $this->system_settings->maturity_in_days;
-
-	 	$date_for_maturity =  date("Y-m-d H:i:s", strtotime("-$days_for_maturity days") ); 
-
-
-
-	  	$matured_phs = PH::where('fufilled_at','!=', null )
-						->whereNotIn('id',  $matured_ph_ids)
-						->where('payout_left',  0)
-						->where('fufilled_at', '<=', $date_for_maturity)
-						->get();
-
-		foreach ($matured_phs as $matured_ph) {
+			$url = "user/notifications";
+			$short_message = substr($news->broadcast_message, 0, 30);
+				Notifications::create_notification(
+										$this->auth()->id,
+										$url, 
+										"Notification", 
+										$news->broadcast_message, 
+										$short_message,
+										null,
+										$news->id
+										);
 
 
-			$created_matured_ph = 	MaturedPhs::create([
-										'ph_id' => $matured_ph->id,
-										'user_id' => $matured_ph->user_id,
-										'worth' => $matured_ph->worth_after_maturity,
-									]);
-
-			$new_matured_phs[] = $created_matured_ph->id;
-		}	
+		}
 	}
-
-
 
 
 

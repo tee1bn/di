@@ -273,7 +273,7 @@ $page_title = "Dashboard";
                          <br>
 
                         <small class="float-right">PayOut: <?=$ph->currency->html_code;?>
-                        <?=$ph_match->ph_amount;?></small>
+                        <?=$this->money_format($ph_match->ph_amount);?></small>
                       </p>
                       <p>
                            <?=$ph_match->gh->recipientAccount;?>

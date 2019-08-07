@@ -304,14 +304,14 @@ if ($response == true) {
 			$project_name	= Config::project_name();
 			$domain			= Config::domain();
 			$asset 			= $domain."/template/".Config::views_template()."/assets";
-			$logo 			=	"$asset/images/branding/dove7.png";
+			$logo 			=	"$asset/images/branding/logo.jpg";
 			$fav_icon 			=	$logo;
 			$this_folder	= $domain."/template/".Config::views_template()."/$view_folder";
 			$websocket_url	= "$host:3000";
 
 
 
-
+			$auth = $this->auth();
 
 			define("domain", 	$domain, 	true);
 			define("project_name", 	$project_name, 	true);

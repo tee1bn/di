@@ -26,6 +26,47 @@ class UserController extends controller
 
 
 
+
+
+
+	public function notifications($notification_id = 'all')
+	{
+		switch ($notification_id) {
+			case 'all':
+			$notifications = Notifications::all_notifications($this->auth()->id);
+
+				break;
+			
+			default:
+			
+
+			$notifications = Notifications::where('user_id', $this->auth()->id)->where('id', $notification_id)->first();
+
+			Notifications::mark_as_seen([$notifications->id]);
+
+
+			if ($notifications == null) {
+				Session::putFlash("danger", "Invalid Request");
+				Redirect::back();
+			}
+
+
+
+			if ($notifications->DefaultUrl != $notifications->UsefulUrl) {
+
+				Redirect::to($notifications->UsefulUrl);
+			}
+
+
+
+				break;
+		}
+
+
+		$this->view('auth/notifications', compact('notifications'));
+	}
+
+
 	public function create_gh_request()
 	{
 

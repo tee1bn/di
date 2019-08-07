@@ -35,7 +35,7 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(<?=asset;?>/images/background/faces.jpg);
+        <div class="login-register" style="background-image:url(<?=asset;?>/images/bckground/faces.jpg);
         background-repeat: repeat; position: static;  background-size: 360px 360px; overflow-y: scroll;">    
         <div style="
                 background: #3c55cf4f;

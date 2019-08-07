@@ -62,6 +62,21 @@ class User extends Eloquent
 
 
 
+    public function unseen_notifications()
+    {
+    	return Notifications::unseen_notifications($this->id);
+    }
+
+
+
+    public function all_notifications()
+    {
+    	return Notifications::all_notifications($this->id, $per_page=null , $page=1);
+    }
+
+
+
+
 
     public function more_than_x_pending_pg()
     {
