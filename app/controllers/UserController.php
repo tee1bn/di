@@ -297,9 +297,26 @@ class UserController extends controller
 	}
 
 
+
+	public function see_match_proof($match_id)
+	{
+		$match =  Match::find($match_id);
+
+		$is_pher = $match->ph->user->id == $this->auth()->id;
+		$is_gher = $match->gh->user->id == $this->auth()->id;
+
+
+		if ($is_pher || $is_gher) {
+
+				$match->see_proof();
+		}
+		
+	}
+
+
 	public function upload_ph_payment_proof()
 	{
-		$directory  = 'uploads/images/payment_proofs';
+		$directory  = '../../founders_uploads/images/payment_proofs';
 
 			$handle = new Upload($_FILES['payment_proof']);
 			$match = Match::find(Input::get('match_id'));

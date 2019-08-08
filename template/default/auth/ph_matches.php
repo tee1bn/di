@@ -168,6 +168,12 @@ $page_title = "PH Matches";
                                                         href="<?=domain;?>/<?=$match->payment_proof;?>">
                                                              See Proof
                                                         </a>
+
+                                                        <a class="dropdown-item" target="_blank"
+                                                        href="<?=domain;?>/user/see_match_proof/<?=$match->id;?>">
+                                                             See Proof
+                                                        </a>                                                        
+
                                                       </div>
                                                     </div>
 

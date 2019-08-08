@@ -181,6 +181,8 @@ $page_title = "PH Matches";
                                                         href="<?=domain;?>/<?=$match->payment_proof;?>">
                                                              See Proof
                                                         </a>
+
+
                                                       </div>
                                                     </div>
 

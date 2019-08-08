@@ -16,6 +16,51 @@ class Match extends Eloquent
 
 
 
+	public function see_proof()
+	{
+	 	$file_path = $this->payment_proof;
+
+		$type = MIS::custom_mime_content_type( $file_path);
+
+		$filename = end(explode('/', $file_path));
+
+			
+		if ((! file_exists($file_path) ) || (! is_readable($file_path) )) {
+			Session::putFlash('danger', "could not fetch file");
+			return;
+		}
+/*
+		$image_create ="" ;
+		$image_show ="" ;
+*/
+		$im = imagecreatefrompng($file_path);
+
+		header('Content-Type: image/png');
+		header('Content-Transfer-Encoding: binary');
+
+		imagepng($im);
+		imagedestroy($im);
+
+
+
+
+
+
+			// header("Accept-Ranges: bytes");
+
+/*			header("Content-Description: File download");
+			header("Content-type: $type");
+			header("Content-Disposition: attachment; filename=\"$filename\" ");
+		
+			readfile($file_path);
+*/
+			exit();
+
+
+	}
+
+
+
 
 	public function expired_matches()
 	{	
