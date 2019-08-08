@@ -37,7 +37,9 @@ EOL;
 			
 			case 2:
 				$account = <<<EOL
-                       Wallet Address: <b> {$this->user->bitcoin_address}</b><br>
+                       Wallet Address: <b> {$this->user->bitcoin_address} 
+                       <button class="btn btn-sm btn-primary" title="Copy address" onclick="copy_text('{$this->user->bitcoin_address}')">
+                       <i class="fa fa-clipboard"></i></button></b><br>
 EOL;				
 
 			return $account;

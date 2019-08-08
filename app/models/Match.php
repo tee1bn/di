@@ -3,6 +3,8 @@
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as DB;
 
+include 'app/controllers/home.php';
+
 class Match extends Eloquent 
 {
 	
@@ -24,7 +26,7 @@ class Match extends Eloquent
 
 	public function next_x_hours()
 	{
-		$settings = SiteSettings::site_settings();
+		$settings = Currency::find($_POST['currency_id'])->settings;
     	 $today = date('N');
 
 		switch ($today) {
@@ -170,6 +172,39 @@ class Match extends Eloquent
 				 				'gh_id' 	=> $gh_id,
 				 				'expires' 	=> $expiry_hour,
 				 			]);
+
+
+
+		 			$controller = new home();
+				  	$email_message = $controller->buildView('emails/gh_notification', compact('match'));
+
+				  	$project_name = Config::project_name();
+
+				$gh_notification=Notification::create([
+							'user_id' => $attached_gh->user->id,
+							'phone_message' => "Your GH #{$attached_gh->id} has been matched --$project_name",
+							'phone'  => $attached_gh->user->phone,
+							'email'  => $attached_gh->user->email,
+							'email_message' => $email_message
+				 	]);
+
+
+
+				 $email_message = $controller->buildView('emails/ph_notification', compact('match'));
+
+				$ph_notification=Notification::create([
+							'user_id' => $attached_ph->user->id,
+							'phone_message' => "Your PH #{$attached_ph->id} has been matched --$project_name",
+							'phone'  => $attached_ph->user->phone,
+							'email'  => $attached_ph->user->email,
+							'email_message' => $email_message
+				 	]);
+
+
+
+
+
+
 
 				 if ($match){ // update respective ph and gh
 
