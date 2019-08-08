@@ -16,6 +16,7 @@ return array(
     'Input' => $baseDir . '/app/classes/Input.php',
     'LevelIncomeReport' => $baseDir . '/app/models/LevelIncomeReport.php',
     'Location' => $baseDir . '/app/classes/Location.php',
+    'MIS' => $baseDir . '/app/classes/MIS.php',
     'Mailer' => $baseDir . '/app/classes/Mailer.php',
     'Match' => $baseDir . '/app/models/Match.php',
     'MlmSales' => $baseDir . '/app/models/MlmSales.php',

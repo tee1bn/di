@@ -19,8 +19,8 @@ $page_title = "Notifications";
                      <div class="col-md-6 col-4 align-self-center">
                            <div class="dropdown float-right ">
 
-                           <a href="<?=domain;?>/user/notifications" class="btn btn-secondary " type="a"> 
-                                All Notifications <i class="fa fa-bell"></i>  <span class="badge badge-lg badge-primary">
+                           <a href="<?=domain;?>/user/notifications" class="btn btn-secondary " title="see all notifications" type="a"> 
+                                <i class="fa fa-bell"></i>  <span class="badge badge-lg badge-primary">
                                                         <?=$notifications->count();?>
                                                     </span>
                            </a>

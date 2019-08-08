@@ -38,7 +38,7 @@
         <div class="login-register" style="background-image:url(<?=asset;?>/images/background/faces.jpg);
         background-repeat: repeat; position: static;  background-size: 360px 360px; overflow-y: scroll;">    
         <div style="
-                background: #3c55cf4f;
+                background: black;
                 position: absolute;
                 top: 0px;
                 width: 100%;

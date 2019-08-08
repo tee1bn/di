@@ -133,19 +133,15 @@ $page_title = "Dashboard";
 
 
 
-              <?php foreach (Currency::available_currencies()->get() as $key => $currency) :?>
+              <?php foreach ([] as $currency_id => $balance) :?>
 
                         <div class="card">
 
-                            <div class="card-header"  data-toggle="collapse" data-target="#currency<?=$currency->id;?>">
-                                <a href="javascript:void;"><?=$currency->name;?> - Earnings</a>
+                            <div class="card-header my-card-header"  data-toggle="collapse" data-target="#currency<?=$currency_id;?>">
+                                <a href="javascript:void;"><?=$balance['currency']['name'];?> - Earnings</a>
                             </div>
-                            <div class="card-body row collapse" id="currency<?=$currency->id;?>">
-
-
-                                <?php include 'includes/earnings_tab.php';?>
-
-                              
+                            <div class="card-body row collapse" id="currency<?=$currency_id;?>">
+                                <?php include 'includes/earnings_tab.php';?>                            
 
                              </div>
 

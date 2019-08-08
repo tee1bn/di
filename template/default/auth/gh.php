@@ -15,6 +15,12 @@ $page_title = "Get Help";
                             <li class="breadcrumb-item active">Get Help</li>
                         </ol>
                     </div>
+
+
+
+
+
+
                   
                 </div>
                 <!-- ============================================================== -->
@@ -23,6 +29,20 @@ $page_title = "Get Help";
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
+
+                <div class="row">
+              <?php foreach ($auth->matured_mavros_worth() as $currency_id => $balance) :?>
+                         <div class="col-sm-6">
+                        <div class="card card-inverse card-warning">
+                            <div class="box bg-warning text-center">
+                                <h3 class="font-light text-white">    <?=$this->money_format($balance['available_balance']);?>   </h3>
+                                <h6 class="text-white">Available Balance - <?=$balance['currency']['html_code'];?></h6>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach;?>
+                </div>
+
                 <div class="row">
                     <div class="col-12">
                          <div class="card">
@@ -31,18 +51,6 @@ $page_title = "Get Help";
                                 <div class="col-md-12">
 
                                     <div class="card">
-
-
-<?php
-  $earnings = $this->auth()->matured_mavros_worth();
-    $bonus = $this->auth()->sum_total_earnings();
-    $attempted_withdrawals = $this->auth()->attempted_withdrawals();
-
-    $balance = max (($earnings + $bonus - $attempted_withdrawals), 0);
-
-
-
-;?>
 
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
@@ -81,9 +89,6 @@ $page_title = "Get Help";
 
                                                 <small class="text-danger"><?=Input::inputError('amount');?></small><br>
 
-                                                <!-- <small class="text-danger">* Balance is <?=$currency;?> <?=$this->money_format($balance);?></small> -->
-
-                                        
 
 
                                             </form>

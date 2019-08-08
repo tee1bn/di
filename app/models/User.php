@@ -596,23 +596,76 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 	{
 
 	  	$matured_mavros  = $this->PhRequests('PH','user_id')->Completed()
-	  				->whereDate('matures_at','<=' , date("Y-m-d"))
-	  				->sum('worth_after_maturity');
+				  				->whereDate('matures_at','<=' , date("Y-m-d"))->get()
+				  				->groupBy('currency_id');
 
-	  	return $matured_mavros;
+
+		$matured_mavros = $matured_mavros->map(function($grouped_mavros)
+		{	
+			$value = [
+						'sum' => $grouped_mavros->sum("worth_after_maturity"),
+						];
+
+			return $value;
+		});
+
+
+		$all_currency = Currency::all()->keyBy('id')->toArray();
+
+
+		$total_credits = LevelIncomeReport::where('owner_user_id', $this->id)
+											->where('status','Credit')->get()->keyBy('currency_id')
+											->groupBy('currency_id');
+
+
+
+		$total_debits = LevelIncomeReport::where('owner_user_id', $this->id)
+											->where('status','Debit')->get()->keyBy('currency_id')
+											->groupBy('currency_id');
+
+	  	$total_ghs  =  GH::where('user_id', $this->id)->get()->keyBy('currency_id')->groupBy('currency_id');
+
+
+					// return;
+		foreach ($matured_mavros as $key => $value) {
+			$mavros[$key]['currency'] = $all_currency[$key];
+			$mavros[$key]['total_mavros']  = $value['sum'];
+
+			$mavros[$key]['total_credits'] = 0;
+			if ($total_credits[$key] != null) {
+				$mavros[$key]['total_credits'] = $total_credits[$key]->sum('amount_earned');
+			}
+
+			$mavros[$key]['total_debits'] = 0;
+			if ($total_debits[$key] != null) {
+				$mavros[$key]['total_debits'] = $total_debits[$key]->sum('amount_earned');
+			}
+
+
+			$mavros[$key]['total_ghs'] = 0;
+			if ($total_ghs[$key] != null) {
+				$mavros[$key]['total_ghs'] = $total_ghs[$key]->sum('amount');
+			}
+
+		}
+
+
+
+		$balances = collect($mavros);
+
+		$balances =	$balances->map(function($balance)
+		{
+			$balance['available_balance'] = $balance['total_credits'] + $balance['total_mavros']
+											 - $balance['total_debits'] - $balance['total_ghs'];
+			return $balance;
+		});
+
+
+	  	return $balances;
 
 	}
 
 
-
-
-	public function attempted_withdrawals()
-	{
-
-
-	  	return GH::where('user_id', $this->id)->sum('amount');
-
-	}
 
 
 

@@ -83,10 +83,10 @@ $page_title = "Profile";
                                                 <label for="email" class="pull-left">Email Address<sup>*</sup></label>
                                                 <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
                                                     <span class="input-group-btn input-group-prepend"></span>
-                                                    <input id="tch3" name="email"   value="<?=$this->auth()->email;?>"
+                                                    <input id="tch3" type="email" name="email"   value="<?=$this->auth()->email;?>"
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
                                                     <span class="input-group-btn input-group-append">
-                                                        <button class="btn btn-secondary btn-outline bootstrap-touchspin-up" type="button">Require Verification</button>
+                                                        <button class="btn btn-secondary btn-outline bootstrap-touchspin-up" type="button">*</button>
                                                     </span>
                                                 </div> 
                                             </div>
@@ -101,7 +101,7 @@ $page_title = "Profile";
                                                     <input id="tch3" name="phone"   value="<?=$this->auth()->phone;?>"
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
                                                     <span class="input-group-btn input-group-append">
-                                                        <button class="btn btn-secondary btn-outline bootstrap-touchspin-up" type="button">Require Verification</button>
+                                                        <button class="btn btn-secondary btn-outline bootstrap-touchspin-up" type="button">*</button>
                                                     </span>
                                                 </div> 
                                             </div>                                        
@@ -109,14 +109,14 @@ $page_title = "Profile";
                                             
                                               <div class="form-group">
                                                   <label for="bank_name" class="pull-left">Bank Name <sup>*</sup></label>
-                                                  <input type="" name="bank_name"  value="<?=$this->auth()->bank_name;?>" id="bank_name" class="form-control" >
+                                                  <input required="" type="" name="bank_name"  value="<?=$this->auth()->bank_name;?>" id="bank_name" class="form-control" >
                                               </div>
 
                                                 
-                                            
+
                                               <div class="form-group">
                                                  <label for="bank_account_name" class="pull-left">Bank Account Name<sup></sup></label>
-                                                  <input type="bank_account_name" name="bank_account_name"  value="<?=$this->auth()->bank_account_name;?>" id="bank_account_name" class="form-control" >
+                                                  <input required="" type="bank_account_name" name="bank_account_name"  value="<?=$this->auth()->bank_account_name;?>" id="bank_account_name" class="form-control" >
                                               </div>
 
                                             
@@ -125,7 +125,15 @@ $page_title = "Profile";
                                             
                                               <div class="form-group">
                                                  <label for="bank_account_number" class="pull-left">Bank Account Number <sup></sup></label>
-                                                  <input type="bank_account_number" name="bank_account_number"  value="<?=$this->auth()->bank_account_number;?>" id="bank_account_number" class="form-control" >
+                                                  <input required="" type="bank_account_number" name="bank_account_number"  value="<?=$this->auth()->bank_account_number;?>" id="bank_account_number" class="form-control" >
+                                              </div>
+
+                                            
+
+                                            
+                                              <div class="form-group">
+                                                 <label for="bitcoin_address" class="pull-left">Bitcoin Wallet Address <sup></sup></label>
+                                                  <input required="" type="bitcoin_address" name="bitcoin_address"  value="<?=$this->auth()->bitcoin_address;?>" id="bitcoin_address" class="form-control" >
                                               </div>
 
 

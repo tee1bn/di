@@ -20,6 +20,18 @@ $page_title = "Team Tree";
                             <li class="breadcrumb-item active">Team Tree</li>
                         </ol>
                     </div>
+                        <div class="col-md-6 col-4 align-self-center">
+                           <div class="dropdown float-right ">
+
+
+                        <span class="hidden-sm">  <?php $ref_link =$this->auth()->referral_link();?></span>
+                            <button onclick="copy_text('<?=$ref_link;?>');" class="btn btn-success">Referral Link</button>
+
+                           
+                        </div>
+                    </div>  
+
+
                 </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
@@ -43,6 +55,8 @@ $page_title = "Team Tree";
 
                     </div>
 
+
+
 <style>
     .tree-img{
         
@@ -53,7 +67,7 @@ $page_title = "Team Tree";
 </style>
 <?php
 
-$downlines = $user->referred_members_downlines(3);
+$downlines = $user->referred_members_downlines(2);
 
 $ordinal = [
               1=> 'First Level - Direct Referrals',
@@ -64,7 +78,7 @@ $ordinal = [
               6=> 'Sixth Level - Referrals of Fifth Level Referrals',
             ];
 
-for ($level=1; $level <=3 ; $level++) :
+for ($level=1; $level <=2 ; $level++) :
 
       $count = count($downlines[$level]);
   if ( $count == 0) {

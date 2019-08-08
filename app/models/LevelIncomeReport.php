@@ -9,6 +9,7 @@ class LevelIncomeReport extends Eloquent
 		protected $fillable = [
 							'owner_user_id',
 							'downline_id',
+							'currency_id',
 							'amount_earned',
 							'status',
 							'availability',
@@ -17,6 +18,11 @@ class LevelIncomeReport extends Eloquent
 							];
 	
 	protected $table = 'level_income_report';
+
+	public function currency()
+	{
+		return $this->belongsTo("Currency", "currency_id");
+	}
 
 
 	public static function all_withdrawals()
@@ -83,7 +89,7 @@ class LevelIncomeReport extends Eloquent
 
 
 
-	public function create_withdrawal_request($user_id, $amount )
+	public function create_withdrawal_request($user_id, $amount, $currency_id )
 	{
 
 			$available_balance = self::available_balance($user_id);
@@ -97,6 +103,7 @@ class LevelIncomeReport extends Eloquent
 		$withdrawal_request = self::create([
 							'owner_user_id'	=> $user_id,
 							'amount_earned'	=> $amount,
+							'currency_id'	=> $currency_id,
 							'status'	=> 'Debit',
 							'commission_type'	=> 'Withdrawal Request',
 							]);
@@ -108,13 +115,10 @@ class LevelIncomeReport extends Eloquent
 
 
 
-	public function credit_user($user_id, $amount, $comment , $downline_id=null)
+	public function credit_user($user_id, $amount, $comment , $downline_id=null, $currency_id)
 	{
 
-
-
 		try {
-			
 
 			$credit = self::create([
 								'owner_user_id'	=> $user_id,
@@ -122,6 +126,7 @@ class LevelIncomeReport extends Eloquent
 								'amount_earned'	=> $amount,
 								'status'	=> 'Credit',
 								'commission_type'	=> $comment,
+								'currency_id'	=> $currency_id
 								]);
 		} catch (Exception $e) {
 			

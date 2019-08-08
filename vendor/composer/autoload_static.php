@@ -188,6 +188,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'Input' => __DIR__ . '/../..' . '/app/classes/Input.php',
         'LevelIncomeReport' => __DIR__ . '/../..' . '/app/models/LevelIncomeReport.php',
         'Location' => __DIR__ . '/../..' . '/app/classes/Location.php',
+        'MIS' => __DIR__ . '/../..' . '/app/classes/MIS.php',
         'Mailer' => __DIR__ . '/../..' . '/app/classes/Mailer.php',
         'Match' => __DIR__ . '/../..' . '/app/models/Match.php',
         'MlmSales' => __DIR__ . '/../..' . '/app/models/MlmSales.php',

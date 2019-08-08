@@ -83,7 +83,7 @@ $page_title = "Profile";
                                                 <label for="email" class="pull-left">Email Address<sup>*</sup></label>
                                                 <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
                                                     <span class="input-group-btn input-group-prepend"></span>
-                                                    <input id="tch3" name="email"   value="<?=$admin->email;?>"
+                                                    <input id="tch3" type="email" name="email"   value="<?=$admin->email;?>"
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
                                                     <span class="input-group-btn input-group-append">
                                                         <button class="btn btn-secondary btn-outline bootstrap-touchspin-up" type="button">Require Verification</button>

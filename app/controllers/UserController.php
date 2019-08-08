@@ -370,12 +370,12 @@ class UserController extends controller
 		$this->view('auth/dashboard', compact('settings'));
 	}
 
-	public function broadcast()
+/*	public function broadcast()
 	{
 		$this->view('auth/broadcast');
 
 	}
-
+*/
 	public function mavro()
 	{
 		$this->view('auth/mavro');

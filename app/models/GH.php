@@ -202,11 +202,15 @@ EOL;
 
 	public function create_gh_request($user_id, $amount)
 	{
+		$currency_id = $_POST['currency_id'];
 
 		$settings = Currency::find($_POST['currency_id'])->settings;
 
 		$user = User::find($user_id);
-		if ($amount > $user->available_balance()) {
+		$balances = $user->matured_mavros_worth();
+
+
+		if ($amount > $balances[$currency_id]['available_balance']) {
  		 		Session::putFlash('danger', "Invalid GH Request. ");
 			return;
 		}
@@ -229,6 +233,12 @@ EOL;
 
 		if ($validator->passed()) {
 
+			DB::beginTransaction();
+
+			try {
+				
+
+
 				$gh	 =	GH::create([
 								'user_id'		=> $user_id,
 								'amount'		=> $amount,
@@ -236,9 +246,20 @@ EOL;
 								'currency_id'	=> $_POST['currency_id'],
 							]); 
 
- 		 		Session::putFlash('success', "GH Request Successful. Check for Match. ");
+				
+				$notification = Notifications::create_notification(
+					$user_id, $url, $heading, $message, $short_message,$admin_id=null, $broadcast_id=null 
+				);
 
+
+
+ 		 		DB::commit();
+ 		 		Session::putFlash('success', "GH Request Successful. Check for Match. ");
 				return $gh;
+			} catch (Exception $e) {
+				DB::rollback();
+				print_r($e->getMessage());				
+			}
 		}
 
 	

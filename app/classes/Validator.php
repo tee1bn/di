@@ -84,8 +84,10 @@ class Validator
 
 
 						case 'one_word':
+								$res = preg_split('/\s+/', $value);
 
-							if (stripos($value, ' ') !== false) { 
+							if (count($res) > 1)
+							{
 								$this->addError($item, "$item must be one word.");
 							}
 

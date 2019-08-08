@@ -21,8 +21,17 @@ class AutoMatchingController extends controller
 
 			// $this->match_ghs_and_phs();
 		}
+		$growth =  $this->auth()->matured_mavros_worth();
 
+
+		echo "<pre>";
+		print_r($growth);
+
+
+
+		$this->fetch_news();
 		$this->resolve_all_expired_match();
+
 	}
 
 
@@ -37,9 +46,6 @@ class AutoMatchingController extends controller
 
 	}
 	
-
-
-
 
 
 

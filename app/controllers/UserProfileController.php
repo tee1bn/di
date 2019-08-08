@@ -198,8 +198,8 @@ echo "<pre>";
 
 		'phone' =>[
 				'required'=> true,
-				'max'=> '32',
-				'min'=> '2',
+				'max'=> '14',
+				'min'=> '7',
 					],
 
 		'bank_name' =>[
@@ -209,16 +209,22 @@ echo "<pre>";
 						],
 
 		'bank_account_name' =>[
-				// 'required'=> true,
+				'required'=> true,
 				'max'=> '32',
 				'min'=> '2',
 					],
 
 		'bank_account_number' =>[
-				// 'required'=> true,
+				'required'=> true,
 				'numeric'=> true,
 				'max'=> '32',
 				'min'=> '2',
+					],
+
+		'bitcoin_address' =>[
+				'required'=> true,
+				'max'=> '34',
+				'min'=> '25',
 					],
 
 

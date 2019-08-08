@@ -33,8 +33,6 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-</head>
-
 
 <style>
     
@@ -44,7 +42,13 @@
     position: relative;
     left: 30px;
   }
+
+   .my-card-header{
+    background: red !important;
+  }
 </style>
+</head>
+
 
 
 
@@ -100,6 +104,49 @@
 
                         <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
                         <li class="nav-item"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="icon-arrow-left-circle"></i></a> </li>
+
+                                  
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
+                                <div class="notify"> <span class="heartbit"></span> 
+                                        <span class="badge badge-danger badge-xs"
+                                     style="position: absolute;    bottom: 0px;left: 4px;">
+                                         <?=Notifications::unseen_notifications($auth->id)->count();?>
+                                     </span>                                    
+                                    <!-- <span class="point"></span>  -->
+                                </div>
+                            </a>
+                            <div class="dropdown-menu mailbox animated bounceInDown">
+                                <ul>
+                                    <li>
+                                        <div class="drop-title">Notifications</div>
+                                    </li>
+                                    <li>
+                                        <div class="message-center">
+
+                                            <?php foreach ($auth->unseen_notifications() as $notification):?>
+
+                                            <a href="<?=$notification->DefaultUrl;?>">
+                                                <div class="btn btn-danger btn-circle"><i class="mdi mdi-message"></i></div>
+                                                <div class="mail-contnet">
+                                                    <h5><?=$notification->heading;?></h5> 
+                                                    <span class="mail-desc"><?=$notification->short_message;?></span> <span class="time"><?=$notification->created_at->format('M j, Y');?>
+                                                <!-- 24 May 2019 - 9:30 AM -->
+                                            </span> </div>
+                                            </a>
+                                            <?php endforeach ;?>
+                                           
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="nav-link text-center" href="<?=domain;?>/user/notifications"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        
+
 
                        <!--  <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
@@ -194,51 +241,11 @@
                             <form class="app-search">
                                 <input type="text" class="form-control" placeholder="Search for..."> <a class="srh-btn"><i class="ti-search"></i></a> </form>
                         </li> -->
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-message"></i>
-                                <div class="notify"> <span class="heartbit"></span> 
-                                        <span class="badge badge-danger badge-xs"
-                                     style="position: absolute;    bottom: 0px;left: 4px;">
-                                         <?=Notifications::unseen_notifications($auth->id)->count();?>
-                                     </span>                                    
-                                    <!-- <span class="point"></span>  -->
-                                </div>
-                            </a>
-                            <div class="dropdown-menu mailbox animated bounceInDown">
-                                <ul>
-                                    <li>
-                                        <div class="drop-title">Notifications</div>
-                                    </li>
-                                    <li>
-                                        <div class="message-center">
-
-                                            <?php foreach ($auth->unseen_notifications() as $notification):?>
-
-                                            <a href="<?=$notification->DefaultUrl;?>">
-                                                <div class="btn btn-danger btn-circle"><i class="mdi mdi-message"></i></div>
-                                                <div class="mail-contnet">
-                                                    <h5><?=$notification->heading;?></h5> 
-                                                    <span class="mail-desc"><?=$notification->short_message;?></span> <span class="time"><?=$notification->created_at->format('M j, Y');?>
-                                                <!-- 24 May 2019 - 9:30 AM -->
-                                            </span> </div>
-                                            </a>
-                                            <?php endforeach ;?>
-                                           
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="nav-link text-center" href="<?=domain;?>/user/notifications"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-
-                        
+              
 
 
                         <li class="nav-item dropdown">
-                            <span class="text-white"><?=$this->auth()->fullname;?></span>
+                            <!-- <span class="text-white"><?=$this->auth()->fullname;?></span> -->
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?=domain;?>/<?=$this->auth()->profilepic;?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
@@ -286,11 +293,7 @@
 
 
                         <li>
-                            <a class="has-arrow " href="<?=domain;?>/genealogy/placement_list" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> My Team</span></a>
-                            <!-- <ul aria-expanded="false" class="collapse">
-                                <li><a href="<?=domain;?>/genealogy/placement">Team Tree</a></li>
-                                <li><a href="<?=domain;?>/genealogy/placement_list">Team List</a></li>
-                            </ul> -->
+                            <a class="has-arrow " href="<?=domain;?>/genealogy/placement" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> My Team</span></a>
                         </li>
 
 
@@ -325,7 +328,6 @@
                             <a class="has-arrow " href="#" aria-expanded="false"><i class="fa fa-bullhorn"></i><span class="hide-menu">Communication</span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?=$settings['support_link'];?>">Support</a></li>
-                                <li><a href="<?=domain;?>/user/broadcast">Broadcasts</a></li>
                                 <li><a href="<?=domain;?>/user/write-testimony">Letter of Happiness</a></li>
                             </ul>
                         </li>
