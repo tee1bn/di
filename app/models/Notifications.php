@@ -16,6 +16,9 @@ class Notifications extends Eloquent
 				'broadcast_id',
 				'admin_id',
 				'type',
+				'phone',
+				'phone_message',
+				'phone_status',
 				'seen_at'	
 			];
 	

@@ -310,13 +310,13 @@ class UserController extends controller
 
 				$match->see_proof();
 		}
-		
+
 	}
 
 
 	public function upload_ph_payment_proof()
 	{
-		$directory  = '../../founders_uploads/images/payment_proofs';
+		$directory  = 'xxx/images/payment_proofs';
 
 			$handle = new Upload($_FILES['payment_proof']);
 			$match = Match::find(Input::get('match_id'));

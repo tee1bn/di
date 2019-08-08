@@ -17,47 +17,7 @@ class Match extends Eloquent
 
 
 	public function see_proof()
-	{
-	 	$file_path = $this->payment_proof;
-
-		$type = MIS::custom_mime_content_type( $file_path);
-
-		$filename = end(explode('/', $file_path));
-
-			
-		if ((! file_exists($file_path) ) || (! is_readable($file_path) )) {
-			Session::putFlash('danger', "could not fetch file");
-			return;
-		}
-/*
-		$image_create ="" ;
-		$image_show ="" ;
-*/
-		$im = imagecreatefrompng($file_path);
-
-		header('Content-Type: image/png');
-		header('Content-Transfer-Encoding: binary');
-
-		imagepng($im);
-		imagedestroy($im);
-
-
-
-
-
-
-			// header("Accept-Ranges: bytes");
-
-/*			header("Content-Description: File download");
-			header("Content-type: $type");
-			header("Content-Disposition: attachment; filename=\"$filename\" ");
-		
-			readfile($file_path);
-*/
-			exit();
-
-
-	}
+	{}
 
 
 
@@ -69,9 +29,15 @@ class Match extends Eloquent
 
 	}
 
-	public function next_x_hours()
+	public function next_x_hours($currency_id = null)
 	{
-		$settings = Currency::find($_POST['currency_id'])->settings;
+
+		if ($currency_id == null) {
+				$currency_id = $_POST['currency_id'];
+		}
+
+			$settings = Currency::find($currency_id)->settings;
+
     	 $today = date('N');
 
 		switch ($today) {
@@ -105,12 +71,6 @@ class Match extends Eloquent
 
 
 
-
-
-
-
-
-
 			DB::beginTransaction();
 
 				try {
@@ -124,7 +84,6 @@ class Match extends Eloquent
 								 $ph_payout = $PH->payout_left;
 
 
-								 echo $PH->currency_id;
 
 									//ensure currency is thesame
 									if ($PH->currency_id != $GH->currency_id) {
@@ -182,9 +141,6 @@ class Match extends Eloquent
 	public function create_match($ph_id, $ph_amount, $gh_amount, $gh_id)
 	{
 
-
-
-					$expiry_hour = self::next_x_hours();
 			 		$attached_ph = PH::find($ph_id);
 					$attached_gh = GH::find($gh_id);
 
@@ -209,6 +165,14 @@ class Match extends Eloquent
 			 			return false;
 			 		}
 
+					$expiry_hour = self::next_x_hours($attached_ph->currency_id);
+
+			 DB::beginTransaction();
+
+
+
+			 try {
+			 	
 
 		 	$match  = 	Match::create([
 				 				'ph_id' 	=> $ph_id,
@@ -225,7 +189,7 @@ class Match extends Eloquent
 
 				  	$project_name = Config::project_name();
 
-				$gh_notification=Notification::create([
+				 $gh_notification=Notification::create([
 							'user_id' => $attached_gh->user->id,
 							'phone_message' => "Your GH #{$attached_gh->id} has been matched --$project_name",
 							'phone'  => $attached_gh->user->phone,
@@ -245,13 +209,7 @@ class Match extends Eloquent
 							'email_message' => $email_message
 				 	]);
 
-
-
-
-
-
-
-				 if ($match){ // update respective ph and gh
+					
 
 				 		$payout_left = $attached_ph->payout_left - $match->ph_amount;
 				 		$attached_ph->update(['payout_left' => $payout_left]);
@@ -259,8 +217,21 @@ class Match extends Eloquent
 				 		$payin_left = $attached_gh->payin_left - $match->gh_amount;
 				 		$attached_gh->update(['payin_left' => $payin_left]);
 
+
+
+				 		DB::commit();
+
 				 		return true;
-				 	}
+
+
+				} catch (Exception $e) {
+				 		DB::rollback();
+			 	print_r($e->getMessage());
+			 }
+
+
+				 		die();
+
 			}
 
 

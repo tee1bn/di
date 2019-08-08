@@ -17,3 +17,5 @@ body {
 
 
  <iframe  id="iframe1" src="<?=Config::domain()."/user/dashboard";?>"></iframe>
+
+ <div style="display: none;">
