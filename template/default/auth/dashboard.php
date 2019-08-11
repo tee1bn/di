@@ -360,14 +360,14 @@ $page_title = "Dashboard";
 
                 <div class="col-md-12">
                         <div class="card card-inverse card-info">
-                            <div class="box bg-secondary text-center">
+                            <div class="box bg-primary text-center">
                                 <h1 class="font-light text-white"></h1>
                                 <h6 class="text-white">
                                    </h6>
                                 <small class="text-white">Join the <?=project_name;?> Official Telegram Group
                                 
                                  <a target="_blank" href="<?=$settings['telegram_group_link'];?>"
-                                 class="btn btn-primary">Join</a>
+                                 class="btn btn-success">Join</a>
                                 </small>
 
 
@@ -378,10 +378,10 @@ $page_title = "Dashboard";
 
                    
                     <div class="col-md-12">
-                        <div class="card card-warning card-inverse">
+                        <div class="card card-danger card-inverse">
                             <div class="box text-center">
                                 <h1 class="font-light text-danger"></h1>
-                                <small class="text-danger"><i class="fa fa-exclamation-triangle"></i> WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
+                                <small class="text-white"><i class="fa fa-exclamation-triangle"></i> WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
                             </div>
                         </div>
                     </div>                   
@@ -389,16 +389,16 @@ $page_title = "Dashboard";
               </div>
               <div  class="col-md-3">
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent PH</li>
+                  <li class="list-group-item " style=" background:#55ce63;">Recent PH</li>
                   <?php foreach (PH::recent_phs($this->auth()->id) as $ph):?>
-                  <li class="list-group-item list-group-item-success">
-                    <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
+                  <li class="list-group-item " style="background: #55ce63">
+                    <a class="text-white" href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
                     <?=$ph->currency->html_code;?><?=$ph->amount;?> 
                     <small>
                       <span class="badge badge-success float-right"><?=$ph->created_at->toFormattedDateString();?>
                       </span>
                     </small>
-                    <p><small>#<?=$ph->id;?> <?=$ph->status();?></small>
+                    <p class="text-white"><small>#<?=$ph->id;?> <?=$ph->status();?></small>
                       <small class="float-right">bal: <?=$ph->currency->html_code;?><?=$ph->payout_left;?></small></p>
                     </p>
 
@@ -407,17 +407,17 @@ $page_title = "Dashboard";
                     <?php endforeach;?>
                 </ul>
 
-                <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-warning">Recent GH</li>
+                <ul class="list-group" style="max-height: 250px;overflow-y: scroll; color: white ;">
+                  <li class="list-group-item" style=" background:#e8ab2d;">Recent GH</li>
                   <?php foreach (GH::recent_ghs($this->auth()->id) as $gh):?>
-                  <li class="list-group-item list-group-item-warning">
-                    <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
+                  <li class="list-group-item" style="background:#e8ab2d">
+                    <a class="text-white" href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">
                     <?=$gh->currency->html_code;?><?=$gh->amount;?> 
                     <small>
-                      <span class="badge badge-success float-right"><?=$gh->created_at->toFormattedDateString();?>
+                      <span class="badge badge-primary float-right"><?=$gh->created_at->toFormattedDateString();?>
                       </span>
                     </small>
-                    <p><small>#<?=$gh->id;?> <?=$gh->status();?></small>
+                    <p class="text-white"><small>#<?=$gh->id;?> <?=$gh->status();?></small>
                       <small class="float-right">bal: <?=$gh->currency->html_code;?><?=$gh->payin_left;?></small></p>
                     </a>
                   </li>

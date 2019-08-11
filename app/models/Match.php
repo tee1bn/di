@@ -189,24 +189,32 @@ class Match extends Eloquent
 
 				  	$project_name = Config::project_name();
 
-				 $gh_notification=Notification::create([
+				 $gh_notification=Notifications::create([
 							'user_id' => $attached_gh->user->id,
 							'phone_message' => "Your GH #{$attached_gh->id} has been matched --$project_name",
 							'phone'  => $attached_gh->user->phone,
 							'email'  => $attached_gh->user->email,
-							'email_message' => $email_message
+							'email_message' => $email_message,
+							'message'=>$email_message,
+							'heading'=> "GH Matched",
+							'url'=> "user/notifications",
+							'short_message'=> "Your GH #{$attached_gh->id} has been matched --$project_name"
 				 	]);
 
 
 
 				 $email_message = $controller->buildView('emails/ph_notification', compact('match'));
 
-				$ph_notification=Notification::create([
+				$ph_notification=Notifications::create([
 							'user_id' => $attached_ph->user->id,
 							'phone_message' => "Your PH #{$attached_ph->id} has been matched --$project_name",
 							'phone'  => $attached_ph->user->phone,
 							'email'  => $attached_ph->user->email,
-							'email_message' => $email_message
+							'email_message' => $email_message,
+							'message'=>$email_message,
+							'heading'=> "PH Matched",
+							'url'=> "user/notifications",
+							'short_message'=> "Your PH #{$attached_ph->id} has been matched --$project_name",
 				 	]);
 
 					

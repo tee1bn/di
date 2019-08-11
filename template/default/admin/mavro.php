@@ -29,8 +29,7 @@ $page_title = "Mavro";
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
                                 <a href="javascript:void;">Mavro</a>
-                                <span class="float-right">Total:
-                                    <?=$currency;?><?=$this->money_format($mavros->sum('amount'));?></span>
+
                             </div>
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">
@@ -38,8 +37,8 @@ $page_title = "Mavro";
                                         <thead>
                                             <th>#Ref</th>
                                             <th>User</th>
-                                            <th>Amount (<?=$currency;?>)</th>
-                                            <th>Worth (<?=$currency;?>)</th>
+                                            <th>Amount </th>
+                                            <th>Worth </th>
                                             <th>Growth</th>
                                             <th>Completed</th>
                                         </thead>
@@ -52,7 +51,7 @@ $page_title = "Mavro";
                                                     <?=$mavro->user->fullname;?> (<?=$mavro->user->username;?>)
                                                 </a>
                                                 </td>
-                                                <td><?=$this->money_format($mavro->amount);?></td>
+                                                <td><?=$mavro->currency->html_code;?> <?=$this->money_format($mavro->amount);?></td>
                                                 <td><?=$this->money_format($mavro->worth_after_maturity);?></td>
                                                 <td>
                                                    
