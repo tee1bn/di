@@ -228,11 +228,14 @@ class PH extends Eloquent
 	 	//,ark pending GH has recomiited
 	 	if ($payed_out >= $downpayment) {
 
+
 	 		$user = $this->user;
-		 	$gh_non_recommited =	GH::whereDate('created_at', '>', $this->created_at)
+		 	$gh_non_recommited =	GH::whereDate('created_at', '<', $this->created_at)
 							 		   ->where('user_id', $user->id)
+							 		   ->where('currency_id', $this->currency_id)
 							 		   ->where('fufilled_recommittment', null)
 							 		   ->first();
+
 
 			if ($gh_non_recommited != null) {
 
@@ -366,8 +369,14 @@ class PH extends Eloquent
 			return 0;
 		}
 
+		if (strtotime($this->matures_at) < time()) {
+			return 100;
+		}
+
+
+
 		 $now = time() -strtotime($this->fufilled_at ) ;
-		 $time_difference =  strtotime($this->matures_at) - strtotime($this->fufilled_at );
+		 $time_difference =  abs(strtotime($this->matures_at) - strtotime($this->fufilled_at ));
 		$maturity_growth = min(( $now / $time_difference), 1) * 100;
 		return intval($maturity_growth);
 	}

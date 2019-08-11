@@ -2,7 +2,7 @@
 
 
 <style>
-  #gitstar-notification{
+  #g-notification{
     position: fixed;
     top: 10px;
     z-index: 99999999999999;
@@ -39,8 +39,8 @@
 
 
 <center class="text-center wrapper">  
-  <div id="gitstar-notification"  class="alert alert-info alert-dismissible" >
-    <a href="javascript:void;" class="close" onclick="document.getElementById('gitstar-notification').style.display='none'">&times;</a>
+  <div id="g-notification"  class="alert alert-info alert-dismissible" >
+    <a href="javascript:void;" class="close" onclick="document.getElementById('g-notification').style.display='none'">&times;</a>
         <!-- <strong><i class='fa fa-bell pull-left'> </i></strong>  -->
   
   <span id="error_note"> </span>    
@@ -110,15 +110,15 @@
 
 show_notification = function ($notification, $error_type='info') {
 $('#error_note').html($notification);
-    $('#gitstar-notification').css('display', 'block').fadeOut(5000);
+    $('#g-notification').css('display', 'block').fadeOut(5000);
 
 
-    $('#gitstar-notification').hover(
+    $('#g-notification').hover(
           function () {
             $(this).stop();
           });
 
-    document.getElementById('gitstar-notification').setAttribute("class","alert alert-"+$error_type+" alert-dismissible");
+    document.getElementById('g-notification').setAttribute("class","alert alert-"+$error_type+" alert-dismissible");
   }
 
 notify();

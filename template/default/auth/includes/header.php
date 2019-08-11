@@ -245,8 +245,10 @@
 
 
                         <li class="nav-item dropdown">
-                            <!-- <span class="text-white"><?=$this->auth()->fullname;?></span> -->
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?=domain;?>/<?=$this->auth()->profilepic;?>" alt="user" class="profile-pic" /></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                
+                            <span class="text-white"><?=$this->auth()->fullname;?></span>
+                                <img src="<?=domain;?>/<?=$this->auth()->profilepic;?>" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated flipInY">
                                 <ul class="dropdown-user">
                                     <li>
@@ -306,7 +308,7 @@
  -->                        </li>
 
                         <li>
-                            <a href="<?=domain;?>/user/mavro" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> Mavro</span></a>
+                            <a href="<?=domain;?>/user/mavro" aria-expanded="false"><i class="mdi mdi-wallet"></i><span class="hide-menu"> Mavro</span></a>
                         </li> 
 
                         <li>

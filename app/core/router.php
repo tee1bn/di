@@ -21,7 +21,7 @@ $router =[
 	'terms' 	=> 'TermsController',
 	'genealogy' => 'GenealogyController',
 	'report' 	=> 'ReportsController',
-	'ref' 		=> 'ReferralController', //referral link handler
+	'r' 		=> 'ReferralController', //referral link handler
 	'forgot-password' 	=> 'forgotPasswordController',
 
 	'auto-match' => 'AutoMatchingController',	//this handles routine checks and commssions

@@ -31,16 +31,32 @@ $page_title = "Get Help";
                 <!-- ============================================================== -->
 
                 <div class="row">
-              <?php foreach ($auth->matured_mavros_worth() as $currency_id => $balance) :?>
-                         <div class="col-sm-6">
+              <?php
+                $matured_mavros_worth = $auth->matured_mavros_worth();
+               foreach ($matured_mavros_worth as $currency_id => $balance) :?>
+                    <div class="col-sm-6">
                         <div class="card card-inverse card-warning">
-                            <div class="box bg-warning text-center">
+                            <div class="box bg-dark text-center">
                                 <h3 class="font-light text-white">    <?=$this->money_format($balance['available_balance']);?>   </h3>
                                 <h6 class="text-white">Available Balance - <?=$balance['currency']['html_code'];?></h6>
                             </div>
                         </div>
                     </div>
                 <?php endforeach;?>
+                <?php if (count($matured_mavros_worth) == 0):?>
+                    <div class="col-sm-12">
+                        <div class="card card-inverse card-warning">
+                            <div class="box bg-dark text-center">
+                                <h6 class="text-white">Your Available GH Balances will show here</h6>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                <?php endif;?>
+
+
                 </div>
 
                 <div class="row">

@@ -586,7 +586,7 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 
 	public function referral_link()
 	{
-		$link = Config::domain()."/ref/".$this->username;
+		$link = Config::domain()."/r/".$this->username;
 		return $link;
 
 	}

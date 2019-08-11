@@ -21,7 +21,7 @@ $page_title = "Dashboard";
                     <div class="col-md-6 col-4 align-self-center">
 <!--                         <button class="right-side-toggle waves-effect waves-light btn-info btn-circle btn-sm float-right ml-2"><i class="fa fa-clock text-white"></i></button>
  -->                        <div class="dropdown float-right mr-2 hidden-sm-down">
-                            <button class="btn btn-secondary " type="button"> 
+                            <button class="btn btn-dark" type="button"> 
                                 Server Time: <?=date("M j, d g:i A");?>
                                 <i class="fa fa-clock"></i>
                            </button>
@@ -157,14 +157,14 @@ $page_title = "Dashboard";
                         <div class="card card-success card-inverse">
                           <a href="<?=domain;?>/user/ph" class="">
                             <div class="box text">
-                                <h1 class="font-light text-white "><i class="fa fa-heart"></i>
+                                <h1 class="font-light text-white "><i class="mdi mdi-basket-unfill"></i>
                                   <span class="float-right">Provide Help</span>
                                 </h1>
 
                                  <small>
                                    
                                  </small>
-                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Help</a>
+                                  <a href="<?=domain;?>/user/ph" class="btn btn-dark float-right">Provide Help</a>
 
                                 <h6 class="text-white">
                                 </h6>
@@ -176,14 +176,14 @@ $page_title = "Dashboard";
                         <div class="card card-warning card-inverse">
                           <a href="<?=domain;?>/user/gh" class="">
                             <div class="box text">
-                                <h1 class="font-light text-white"><i class="fa fa-gift"></i>
+                                  <h1 class="font-light text-white"><i class="mdi mdi-basket-fill"></i>
                                   <span class="float-right">Get Help</span>
                                 </h1>
 
                                  <small>
                                    
                                  </small>
-                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Help</a>
+                                  <a href="<?=domain;?>/user/gh" class="btn btn-dark float-right">Get Help</a>
 
                                 <h6 class="text-white">
                                 </h6>
@@ -197,7 +197,7 @@ $page_title = "Dashboard";
                     <!-- Column -->
 <!--                     <div class="col-md-4">
                         <div class="card card-inverse card-info">
-                            <div class="box bg-secondary text-center">
+                            <div class="box bg-dark text-center">
                                 <h1 class="font-light text-white"><i class="fa fa-phone-square"></i></h1>
                                 <h6 class="text-white"><a  href="javascript:void;" class="btn btn-primary">Verify Phone</a></h6>
                                 <small class="text-white">You will be unable to get help if you do not verify your phone number</small>
@@ -235,8 +235,8 @@ $page_title = "Dashboard";
                       </p>
                       </a>
                        <div class="dropdown">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
-                           Action
+                        <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
+                           Upload
                         </button>
                         <div class="dropdown-menu">
                        <?php if (! $ph_match->is_complete()):?>
@@ -304,7 +304,7 @@ $page_title = "Dashboard";
                       </p>
                       </a>
                       <div class="dropdown">
-                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown">
+                          <button type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown">
                              Action
                           </button>
                           <div class="dropdown-menu">
@@ -367,7 +367,7 @@ $page_title = "Dashboard";
                                 <small class="text-white">Join the <?=project_name;?> Official Telegram Group
                                 
                                  <a target="_blank" href="<?=$settings['telegram_group_link'];?>"
-                                 class="btn btn-success">Join</a>
+                                 class="btn btn-dark">Join</a>
                                 </small>
 
 

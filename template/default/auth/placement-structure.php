@@ -25,7 +25,7 @@ $page_title = "Team Tree";
 
 
                         <span class="hidden-sm">  <?php $ref_link =$this->auth()->referral_link();?></span>
-                            <button onclick="copy_text('<?=$ref_link;?>');" class="btn btn-success">Referral Link</button>
+                            <button onclick="copy_text('<?=$ref_link;?>');" class="btn btn-dark">Referral Link</button>
 
                            
                         </div>
