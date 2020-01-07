@@ -202,8 +202,26 @@ echo "<pre>";
 				'min'=> '2',
 					],
 
-		'wallet_address' =>[
+		'bank_name' =>[
 				'required'=> true,
+				'max'=> '32',
+				'min'=> '2',
+					],
+
+		'bank_account_name' =>[
+				'required'=> true,
+				'max'=> '32',
+				'min'=> '2',
+					],
+
+		'bank_account_number' =>[
+				'required'=> true,
+				'max'=> '32',
+				'min'=> '2',
+					],
+
+		'wallet_address' =>[
+				// 'required'=> true,
 				/*'max'=> '32',
 				'min'=> '32',*/
 					],

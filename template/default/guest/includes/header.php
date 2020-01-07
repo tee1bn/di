@@ -28,6 +28,11 @@
         .option-panel{
             display: none !important;
         }
+        .btn-danger{
+            border: #d43316 !important;
+            background: #d43316 !important;
+            color: white;
+        }
     </style>
 <!-- main header start -->
 <header class="main-header sticky-header" id="main-header-2">
@@ -51,8 +56,8 @@
                             <li class="nav-item"><a class="nav-link" href="<?=domain;?>/p/contact">Contact</a></li>
                             
                             <li class="nav-item dropdown mtbl">
-                                <a class="btn btn-sm btn-success btn-round signup-link" href="<?=domain;?>/login">Login</a>
-                                <a class="btn btn-sm btn-dark btn-round signup-link" href="<?=domain;?>/register">Signup</a>
+                                <a class="btn btn-sm btn-danger btn-round signup-link" href="<?=domain;?>/login">Login</a>
+                                <a class="btn btn-sm btn-success btn-round signup-link" href="<?=domain;?>/register">Signup</a>
                             </li>
                         </ul>
                     </div>
