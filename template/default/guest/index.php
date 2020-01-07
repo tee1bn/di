@@ -19,8 +19,8 @@ include_once 'includes/header.php';?>
                                 <span id="typed"></span>
                             </h1>
                             <p data-animation="animated fadeInUp delay-10s"><?=project_name;?> is a community built, managed and run by partcipants</p>
-                            <a data-animation="animated fadeInUp delay-10s" href="<?=domain;?>/register" class="btn btn-lg btn-round btn-theme">Get Started Now</a>
-                            <a data-animation="animated fadeInUp delay-10s" href="<?=domain;?>/login" class="btn btn-lg btn-round btn-white-lg-outline">Sign in</a>
+                            <a data-animation="animated fadeInUp delay-10s" href="<?=domain;?>/register" class="btn btn-lg btn-round btn-success">Get Started Now</a>
+                            <a data-animation="animated fadeInUp delay-10s" href="<?=domain;?>/login" class="btn btn-lg btn-round btn-dark">Sign in</a>
                         </div>
                     </div>
                 </div>

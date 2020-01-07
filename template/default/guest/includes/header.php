@@ -24,6 +24,11 @@
 
 </head>
 <body id="top">
+    <style>
+        .option-panel{
+            display: none !important;
+        }
+    </style>
 <!-- main header start -->
 <header class="main-header sticky-header" id="main-header-2">
     <div class="container">
@@ -31,7 +36,7 @@
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light rounded">
                     <a class="navbar-brand logo navbar-brand d-flex mr-auto" href="<?=domain;?>">
-                        <span style="color: whitesmoke;"><?=project_name;?></span>
+                        <span style="color: #ff0000;font-weight: 900;"><?=project_name;?></span>
                         <!-- <img src="<?=$this_folder;?>/assets/img/logos/black-logo.png" alt="logo"> -->
                     </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,8 +51,8 @@
                             <li class="nav-item"><a class="nav-link" href="<?=domain;?>/p/contact">Contact</a></li>
                             
                             <li class="nav-item dropdown mtbl">
-                                <a class="btn btn-sm btn-white-sm-outline btn-round signup-link" href="<?=domain;?>/login">Login</a>
-                                <a class="btn btn-sm btn-theme btn-round signup-link" href="<?=domain;?>/register">Signup</a>
+                                <a class="btn btn-sm btn-success btn-round signup-link" href="<?=domain;?>/login">Login</a>
+                                <a class="btn btn-sm btn-dark btn-round signup-link" href="<?=domain;?>/register">Signup</a>
                             </li>
                         </ul>
                     </div>
