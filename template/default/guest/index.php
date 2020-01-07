@@ -104,36 +104,12 @@ include_once 'includes/header.php';?>
                     <header class="testimonia-header">
                         <h1><span></span> Participants Say</h1>
                     </header>
-                    <div id="carouselExampleIndicators7" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="row">
-                                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                                    </div>
-                                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-12 col-xs-12">
-                                        <p class="lead">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae.
-                                        </p>
-                                        <div class="author-name">
-                                            Emma Connor
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                        </div>
 
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators7" role="button" data-slide="prev">
-                            <span class="slider-mover-left" aria-hidden="true">
-                                <i class="fa fa-angle-left"></i>
-                            </span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators7" role="button" data-slide="next">
-                            <span class="slider-mover-right" aria-hidden="true">
-                                <i class="fa fa-angle-right"></i>
-                            </span>
-                        </a>
-                    </div>
+
+                    
+
+
+                   
                 </div>
             </div>
         </div>
