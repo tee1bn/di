@@ -181,7 +181,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'Admin' => __DIR__ . '/../..' . '/app/models/Admin.php',
         'AvailableCurrency' => __DIR__ . '/../..' . '/app/models/AvailableCurrency.php',
         'BroadCast' => __DIR__ . '/../..' . '/app/models/BroadCast.php',
-        'CmsPages' => __DIR__ . '/../..' . '/app/models/CmsPages.php',
+        'CMS' => __DIR__ . '/../..' . '/app/models/CMS.php',
         'Config' => __DIR__ . '/../..' . '/app/classes/Config.php',
         'GH' => __DIR__ . '/../..' . '/app/models/GH.php',
         'Input' => __DIR__ . '/../..' . '/app/classes/Input.php',

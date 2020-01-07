@@ -9,7 +9,7 @@ return array(
     'Admin' => $baseDir . '/app/models/Admin.php',
     'AvailableCurrency' => $baseDir . '/app/models/AvailableCurrency.php',
     'BroadCast' => $baseDir . '/app/models/BroadCast.php',
-    'CmsPages' => $baseDir . '/app/models/CmsPages.php',
+    'CMS' => $baseDir . '/app/models/CMS.php',
     'Config' => $baseDir . '/app/classes/Config.php',
     'GH' => $baseDir . '/app/models/GH.php',
     'Input' => $baseDir . '/app/classes/Input.php',

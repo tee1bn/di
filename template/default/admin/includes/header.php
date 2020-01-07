@@ -22,6 +22,7 @@
     <link href="<?=asset;?>/plugins/multiselect/css/multi-select.css" rel="stylesheet" type="text/css" />
     <!--select2 css  -->
         <link href="<?=asset;?>/plugins/select2/dist/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.ckeditor.com/4.11.4/standard/ckeditor.js"></script>
 
 
 
@@ -296,6 +297,13 @@
     
                         <li>
                             <a href="<?=domain;?>/admin/settings" aria-expanded="false"><i class="fa fa-cog"></i><span class="hide-menu">Settings</span></a>
+                        </li> 
+
+    
+    
+    
+                        <li>
+                            <a href="<?=domain;?>/admin/cms" aria-expanded="false"><i class="fa fa-edit"></i><span class="hide-menu">CMS</span></a>
                         </li> 
 
     
