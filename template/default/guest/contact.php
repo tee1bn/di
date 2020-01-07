@@ -1,5 +1,5 @@
 <?php 
-$page_title = "About us";
+$page_title = "Contact us";
 include_once 'includes/header.php';?>
 
 
@@ -9,7 +9,7 @@ include_once 'includes/header.php';?>
         <div class="breadcrumb-area">
             <h1>Contact Us</h1>
             <ul class="breadcrumbs">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="<?=domain;?>">Home</a></li>
                 <li class="active">Contact Us</li>
             </ul>
         </div>
