@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 07, 2020 at 11:49 PM
+-- Generation Time: Jan 08, 2020 at 11:53 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -139,6 +139,43 @@ CREATE TABLE `customers_support` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `earnings`
+--
+
+CREATE TABLE `earnings` (
+  `id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `upon_user_id` bigint(20) DEFAULT NULL,
+  `earned_date` datetime DEFAULT NULL,
+  `order_id` bigint(20) DEFAULT NULL,
+  `admin_id` bigint(20) DEFAULT NULL COMMENT 'admin attached',
+  `amount` decimal(20,2) NOT NULL,
+  `type` enum('credit','debit') NOT NULL,
+  `earning_category` enum('bonus','ph') NOT NULL,
+  `status` enum('pending','completed','cancelled') NOT NULL,
+  `identifier` varchar(255) DEFAULT NULL COMMENT 'this column is unique identifies a earning does not occur more than once',
+  `comment` varchar(255) DEFAULT NULL,
+  `extra_detail` longtext,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `earnings`
+--
+
+INSERT INTO `earnings` (`id`, `user_id`, `upon_user_id`, `earned_date`, `order_id`, `admin_id`, `amount`, `type`, `earning_category`, `status`, `identifier`, `comment`, `extra_detail`, `created_at`, `updated_at`) VALUES
+(26, 1, NULL, '2020-01-07 00:00:00', NULL, NULL, '40000.00', 'credit', 'ph', 'completed', '886 welcome bonus', 'welcome bonus', NULL, '2019-11-16 22:10:46', '2019-11-16 22:20:05'),
+(42, 1, NULL, NULL, 72, NULL, '10000.00', 'debit', 'bonus', 'completed', NULL, NULL, NULL, '2019-11-16 22:40:55', '2019-11-16 22:40:55'),
+(50, 1, NULL, NULL, 75, NULL, '15000.00', 'debit', 'bonus', 'completed', NULL, NULL, NULL, '2019-11-16 22:59:15', '2019-11-16 22:59:15'),
+(51, 1, NULL, '2020-01-08 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '1#2', '1 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
+(52, 1, NULL, '2020-01-22 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '2#2', '2 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
+(53, 1, NULL, '2020-01-29 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '3#2', '3 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
+(54, 1, NULL, '2020-02-05 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '4#2', '4 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `gh`
 --
 
@@ -160,12 +197,8 @@ CREATE TABLE `gh` (
 --
 
 INSERT INTO `gh` (`id`, `user_id`, `currency_id`, `fufilled_recommittment`, `pioneered`, `fufilled_at`, `amount`, `payin_left`, `created_at`, `updated_at`) VALUES
-(22, 1, 1, 1, NULL, NULL, 2000, 2000, '2019-07-28 20:39:24', '2020-01-07 20:39:11'),
-(24, 15, 2, 1, 1, '2019-07-28 21:17:03', 3000, 3000, '2019-07-28 20:52:39', '2019-07-28 22:08:41'),
-(25, 15, 2, 1, 1, NULL, 4000, 3250, '2019-07-28 22:10:24', '2019-08-11 07:32:22'),
-(26, 15, 2, NULL, NULL, NULL, 1000, 1000, '2019-08-08 21:48:35', '2019-08-08 21:48:35'),
-(27, 15, 1, 1, 1, '2019-08-11 08:55:39', 5000, 0, '2019-08-11 08:12:21', '2019-08-11 08:55:39'),
-(28, 15, 1, 1, 1, '2019-08-11 09:53:13', 5000, 0, '2019-08-11 09:44:16', '2019-08-11 09:53:13');
+(2, 15, NULL, 1, 1, NULL, 20000, 0, '2020-01-08 20:14:58', '2020-01-08 20:29:46'),
+(3, 1, NULL, NULL, NULL, NULL, 6000, 6000, '2020-01-08 22:51:12', '2020-01-08 22:51:12');
 
 -- --------------------------------------------------------
 
@@ -306,8 +339,7 @@ CREATE TABLE `pair` (
 --
 
 INSERT INTO `pair` (`id`, `ph_id`, `ph_amount`, `gh_amount`, `gh_id`, `payment_proof`, `status`, `expires`, `created_at`, `updated_at`) VALUES
-(2, 1, 5000, 5000, 27, '', 'completed', 20190812215448, '2019-08-11 08:54:48', '2019-08-11 08:55:39'),
-(3, 2, 5000, 5000, 28, '', 'completed', 20190812224700, '2019-08-11 09:47:00', '2019-08-11 09:53:13');
+(3, 2, 10000, 10000, 2, 'uploads/images/payment_proofs/2019-08-07.png', 'completed', 1578518986, '2020-01-08 20:29:46', '2020-01-08 22:42:58');
 
 -- --------------------------------------------------------
 
@@ -340,7 +372,8 @@ INSERT INTO `password_reset` (`id`, `email`, `token`, `created_at`, `updated_at`
 CREATE TABLE `ph` (
   `id` bigint(20) NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
-  `currency_id` bigint(20) NOT NULL,
+  `package_id` int(11) DEFAULT NULL,
+  `currency_id` bigint(20) DEFAULT NULL,
   `amount` decimal(10,2) NOT NULL,
   `payout_left` bigint(20) UNSIGNED NOT NULL,
   `fufilled_at` timestamp NULL DEFAULT NULL,
@@ -355,10 +388,35 @@ CREATE TABLE `ph` (
 -- Dumping data for table `ph`
 --
 
-INSERT INTO `ph` (`id`, `user_id`, `currency_id`, `amount`, `payout_left`, `fufilled_at`, `matures_at`, `expired`, `worth_after_maturity`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, '5000.00', 0, '2019-08-11 08:55:39', '2019-08-11 00:00:00', NULL, 45000, '2019-08-11 08:10:23', '2019-08-11 08:55:39'),
-(2, 1, 1, '5000.00', 0, '2019-08-11 09:53:13', '2019-08-31 10:43:25', NULL, 7500, '2019-08-11 09:43:25', '2019-08-11 09:53:13'),
-(3, 15, 1, '2000.00', 2000, NULL, '2019-09-01 13:45:04', NULL, 3000, '2019-08-12 12:45:04', '2020-01-07 20:39:11');
+INSERT INTO `ph` (`id`, `user_id`, `package_id`, `currency_id`, `amount`, `payout_left`, `fufilled_at`, `matures_at`, `expired`, `worth_after_maturity`, `created_at`, `updated_at`) VALUES
+(2, 1, 1, NULL, '10000.00', 0, '2020-01-08 22:42:58', NULL, NULL, 30000, '2020-01-08 20:29:36', '2020-01-08 22:42:58');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ph_packages`
+--
+
+CREATE TABLE `ph_packages` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `price` decimal(20,2) NOT NULL,
+  `roi_percent` decimal(20,2) NOT NULL,
+  `n` int(11) NOT NULL,
+  `interval_in_days` int(11) NOT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `is_available` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ph_packages`
+--
+
+INSERT INTO `ph_packages` (`id`, `name`, `price`, `roi_percent`, `n`, `interval_in_days`, `created_at`, `updated_at`, `is_available`) VALUES
+(1, 'bronze', '10000.00', '75.00', 4, 7, NULL, NULL, 1),
+(2, 'silver', '25000.00', '75.00', 4, 7, NULL, NULL, 1),
+(3, 'gold', '50000.00', '75.00', 4, 7, NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -383,7 +441,7 @@ INSERT INTO `site_settings` (`id`, `criteria`, `settings`, `default_setting`, `c
 (25, 'admin_bank_details', '{\"bank\":\"Access Banll\",\"account_number\":\"987567878\",\"account_name\":\"Alien Fashion\"}', '', NULL, NULL),
 (26, 'paystack_keys', '{\"public_key\":\"pk_tefc\",\"secret_key\":\"sbc57b6ab3974\"}', '', NULL, NULL),
 (27, 'sms_api_keys', '{\"username\":\"nghhjjh\",\"password\":\"gyuynhj\",\"link\":\"http://www.estoresms.com/smsapi.php\",\"sender\":\"Attendance\"}', '', NULL, '2019-03-21 13:58:02'),
-(28, 'site_settings', '{\r\n  \"email_verification\": 1,\r\n  \"phone_verification\": \"0\",\r\n  \"bank_verification\": 0,\r\n  \"telegram_group_link\": \"http://telegram.com\",\r\n  \"max_no_of_running_ph\": 3,\r\n  \"percent_of_last_ph\": 100,\r\n\"match_sms_notification\": 0,\r\n  \"match_email_notification\": 0,\r\n  \"support_link\": \"http://googleforms.com\",\r\n  \"put_on_automatic_matching\": \"1\",\r\n  \"contact_email\": \"dove@gmail.com\",\r\n  \"google_re_captcha_site_key\": \"6LeJqJwUAAAAAPADFRZZUG79bMw8O_4kdEr6dJ6t\",\r\n  \"google_re_captcha_secret_key\": \"6LeJqJwUAAAAADgkLuF_W3etxOJItrkTWaCRGIH-\"\r\n}', '', NULL, '2019-07-28 20:14:23');
+(28, 'site_settings', '{\r\n  \"email_verification\": 1,\r\n  \"phone_verification\": \"0\",\r\n  \"bank_verification\": 0,\r\n  \"telegram_group_link\": \"http://telegram.com\",\r\n  \"max_no_of_running_ph\": 3,\r\n  \"percent_of_last_ph\": 100,\r\n  \"match_sms_notification\": 0,\r\n  \"min_withdrawable\": 100,\r\n  \"match_email_notification\": 0,\r\n  \"support_link\": \"http://googleforms.com\",\r\n  \"gh_steps\": \"1000\",\r\n  \"percent_down_payment\": \"10\",\r\n  \"minimum_gh\": \"1000\",\r\n  \"maximum_gh\": \"100000\",\r\n  \"friday_execution_hour\": \"1\",\r\n  \"saturday_match_execution_hour\": \"1\",\r\n  \"sunday_match_execution_hour\": \"1\",\r\n  \"default_match_execution_hour\": \"1\",\r\n  \"put_on_automatic_matching\": \"1\",\r\n  \"contact_email\": \"dove@gmail.com\",\r\n  \"google_re_captcha_site_key\": \"6LeJqJwUAAAAAPADFRZZUG79bMw8O_4kdEr6dJ6t\",\r\n  \"google_re_captcha_secret_key\": \"6LeJqJwUAAAAADgkLuF_W3etxOJItrkTWaCRGIH-\"\r\n}', '', NULL, '2019-07-28 20:14:23');
 
 -- --------------------------------------------------------
 
@@ -475,7 +533,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `mlm_id`, `referred_by`, `introduced_by`, `placement_cut_off`, `rejoin_id`, `rejoin_email`, `placed`, `username`, `account_plan`, `rank`, `locked_to_receive`, `rank_history`, `firstname`, `lastname`, `email`, `state`, `country`, `email_verification`, `phone`, `phone_verification`, `bank_name`, `bank_account_number`, `bank_account_name`, `bitcoin_address`, `worthy_cause_for_donation`, `age`, `profile_pix`, `resized_profile_pix`, `password`, `created_at`, `updated_at`, `blocked_on`, `lastseen_at`, `lastlogin_ip`) VALUES
 (1, '1', NULL, NULL, NULL, NULL, NULL, NULL, 'company', 'pioneer', 2, NULL, '{\"2018-11-27 12:20:17\":\"8\",\"2018-11-27 12:31:10\":\"5\"}', 'Jmon', 'Linda', 'ozih@rocketmail.comm', NULL, ' Antigua & Barbuda', '1', '9678908690', '1', 'Israel', '097567890', 'jacqueline', NULL, 't is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover ', '23', 'uploads/images/users/profile_pictures/meee.png', 'uploads/images/users/profile_pictures/meee_2.png', '$2y$10$Tt8Xj8ZAqk7sMAu1cbqWtOZS6rgL8wG.w.OOiU74hRmpTZdCaSLQ6', '2018-11-07 12:05:14', '2020-01-07 23:36:30', NULL, '2020-01-07 22:36:30', ''),
-(15, '15', 1, 1, NULL, NULL, NULL, NULL, 'teeboy', 'pioneer', 0, NULL, NULL, 'Rertw', 'Reretrt', 'tee02bn@gmail.com', NULL, NULL, '1', '58956345532', '155449', 'Access bank', '3423243224534', '0903242324', 'fdefgfdhfstraeghyhtrewrherwahah', NULL, NULL, NULL, NULL, '$2y$10$ZDRYb/VZJuO51zjTc9m0TOTHoMtSx54f9XPi9y8KzAq79Ll/wfOCK', '2019-03-28 18:19:08', '2020-01-07 21:39:11', '2020-01-07 21:39:11', '2020-01-07 20:39:11', '');
+(15, '15', 1, 1, NULL, NULL, NULL, NULL, 'teeboy', 'pioneer', 0, NULL, NULL, 'Rertw', 'Reretrt', 'tee02bn@gmail.com', NULL, NULL, '1', '58956345532', '155449', 'Access bank', '3423243224534', '0903242324', 'fdefgfdhfstraeghyhtrewrherwahah', NULL, NULL, NULL, NULL, '$2y$10$ZDRYb/VZJuO51zjTc9m0TOTHoMtSx54f9XPi9y8KzAq79Ll/wfOCK', '2019-03-28 18:19:08', '2020-01-08 21:13:18', NULL, '2020-01-08 20:13:18', '');
 
 --
 -- Indexes for dumped tables
@@ -512,6 +570,13 @@ ALTER TABLE `currencies`
 --
 ALTER TABLE `customers_support`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `earnings`
+--
+ALTER TABLE `earnings`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `identifier` (`identifier`,`user_id`);
 
 --
 -- Indexes for table `gh`
@@ -567,6 +632,12 @@ ALTER TABLE `ph`
   ADD KEY `user_id` (`user_id`);
 
 --
+-- Indexes for table `ph_packages`
+--
+ALTER TABLE `ph_packages`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `site_settings`
 --
 ALTER TABLE `site_settings`
@@ -612,7 +683,7 @@ ALTER TABLE `broadcast`
 -- AUTO_INCREMENT for table `cms`
 --
 ALTER TABLE `cms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `currencies`
@@ -627,10 +698,16 @@ ALTER TABLE `customers_support`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `earnings`
+--
+ALTER TABLE `earnings`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
 -- AUTO_INCREMENT for table `gh`
 --
 ALTER TABLE `gh`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `level_income_report`
@@ -660,7 +737,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `pair`
 --
 ALTER TABLE `pair`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `password_reset`
@@ -672,7 +749,13 @@ ALTER TABLE `password_reset`
 -- AUTO_INCREMENT for table `ph`
 --
 ALTER TABLE `ph`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `ph_packages`
+--
+ALTER TABLE `ph_packages`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `site_settings`

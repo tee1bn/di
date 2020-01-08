@@ -138,8 +138,7 @@ class PH extends Eloquent
 				return;
 			}
 
-		$comment = 'Referral Bonus';
-		LevelIncomeReport::credit_user($upline['id'], $bonus, $comment , $this->user->id);
+		Earning::give_bonus($upline['id'], $this->user->id, $bonus);
 
 	}
 

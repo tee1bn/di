@@ -26,12 +26,12 @@ class Earning extends Eloquent
 	protected $table 	  = 'earnings';
 
 
-	public static function give_bonus($user_id, $upon_user_id=null)
+	public static function give_bonus($user_id, $upon_user_id=null, $amount)
 	{
 
 		$identifier = null;
-		$amount = 500;
 		$comment = "welcome bonus";
+		$earned_date = date("Y-m-d");
 		try {
 			
 			$credit  = self::createTransaction(
@@ -42,7 +42,10 @@ class Earning extends Eloquent
 												'pending',
 												'bonus',
 												$comment,
-												$identifier 
+												$identifier ,
+												null, 
+												null,
+												$earned_date
 											);
 			return $credit;
 		} catch (Exception $e) {
