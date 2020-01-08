@@ -11,6 +11,7 @@ return array(
     'BroadCast' => $baseDir . '/app/models/BroadCast.php',
     'CMS' => $baseDir . '/app/models/CMS.php',
     'Config' => $baseDir . '/app/classes/Config.php',
+    'Earning' => $baseDir . '/app/models/Earning.php',
     'GH' => $baseDir . '/app/models/GH.php',
     'Input' => $baseDir . '/app/classes/Input.php',
     'LevelIncomeReport' => $baseDir . '/app/models/LevelIncomeReport.php',
@@ -38,5 +39,4 @@ return array(
     'app' => $baseDir . '/app/core/app.php',
     'controller' => $baseDir . '/app/core/controller.php',
     'operations' => $baseDir . '/app/core/operations.php',
-    'v2\\Models\\Earning' => $baseDir . '/app/models/Earning.php',
 );

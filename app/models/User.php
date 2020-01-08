@@ -568,12 +568,19 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 
 	public function matured_mavros_worth()
 	{
-
+/*
 	  	$matured_mavros  = $this->PhRequests('PH','user_id')->Completed()
 	  				->whereDate('matures_at','<=' , date("Y-m-d"))
 	  				->sum('worth_after_maturity');
 
 	  	return $matured_mavros;
+*/
+
+
+
+    	$available_balance = Earning::availableBalanceOnUser($this->id);
+	  	return $available_balance;
+	  		 
 
 	}
 
@@ -582,10 +589,7 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 
 	public function attempted_withdrawals()
 	{
-
-
 	  	return GH::where('user_id', $this->id)->sum('amount');
-
 	}
 
 

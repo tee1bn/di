@@ -183,6 +183,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'BroadCast' => __DIR__ . '/../..' . '/app/models/BroadCast.php',
         'CMS' => __DIR__ . '/../..' . '/app/models/CMS.php',
         'Config' => __DIR__ . '/../..' . '/app/classes/Config.php',
+        'Earning' => __DIR__ . '/../..' . '/app/models/Earning.php',
         'GH' => __DIR__ . '/../..' . '/app/models/GH.php',
         'Input' => __DIR__ . '/../..' . '/app/classes/Input.php',
         'LevelIncomeReport' => __DIR__ . '/../..' . '/app/models/LevelIncomeReport.php',
@@ -210,7 +211,6 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'app' => __DIR__ . '/../..' . '/app/core/app.php',
         'controller' => __DIR__ . '/../..' . '/app/core/controller.php',
         'operations' => __DIR__ . '/../..' . '/app/core/operations.php',
-        'v2\\Models\\Earning' => __DIR__ . '/../..' . '/app/models/Earning.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
