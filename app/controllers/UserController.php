@@ -37,8 +37,15 @@ class UserController extends controller
 	public function create_ph_request()
 	{
 			Input::exists();
+			$package = PhPackage::find($_POST['package_id']);
 
- 			$ph_request =	PH::create_ph( $this->auth()->id,  Input::get('amount')); 
+			if ($package == null) {
+				Redirect::back();
+			}
+
+
+
+ 			$ph_request =	PH::create_ph($this->auth()->id,  $package->price,  $package->id); 
  			Redirect::back();
 	}
 

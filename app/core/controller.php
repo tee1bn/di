@@ -299,6 +299,7 @@ if ($response == true) {
 			}
 			$view_folder = rtrim($view_folder, '/');
 
+			
 
 			$host			= Config::host();
 			$currency			= Config::currency();
@@ -311,6 +312,11 @@ if ($response == true) {
 			$websocket_url	= "$host:3000";
 
 
+			$auth =  $this->auth();
+			$admin =  $this->admin();
+
+			define("$auth", 	$auth, 	true);
+			define("$admin", 	$admin, 	true);
 
 
 

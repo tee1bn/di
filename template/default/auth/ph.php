@@ -24,65 +24,70 @@ $settings = SiteSettings::site_settings();
                 <!-- ============================================================== -->
                 <!-- Start Page Content -->
                 <!-- ============================================================== -->
-                <div class="row">
+
+
+                 <div class="row">
                     <div class="col-12">
-                         <div class="card">
-                            <div class="card-body row">
-                                
-                                <div class="col-md-12">
+                        <div class="card">
 
-                                    <div class="card">
+                            <div class="card-header"  data-toggle="collapse" data-target="#packages">
+                                <a href="javascript:void;">PH Packages</a>
+                            </div>
+                            <div class="card-body collapse show" id="packages">
+                               <div class="row pricing-plan">
+                                   <?php foreach (PhPackage::Available()->get() as  $package):?>
 
-                                        <div class="card-header"  data-toggle="collapse" data-target="#demo1">
-                                            <a href="javascript:void;">
-                                                    Provide Help <i class="fa fa-plus"></i>
-                                            </a>
-                                        </div>
+                                   <div class="col-md-4 no-padding">
+                                       <div class="pricing-box">
+                                           <div class="pricing-body border-left">
+                                               <div class="pricing-header">
+                                                   <h4 class="text-center">
+                                                      Pledge <span class="price-sign"><?=$currency;?></span>
+                                                       <?=MIS::money_format($package->price);?>
+                                                   </h4>
+                                                   <h2 class="text-center" style="text-transform: capitalize;">
+                                                       <?=$package->name;?>
+                                                   </h2>
+                                                   <!-- <p class="">One time</p> -->
+                                               </div>
+                                               <div class="price-table-content">
+                                                   <?php 
+                                                       $return = MIS::money_format($package->Return);
+                                                   foreach 
+                                                   ([
+                                                       " Get <b>$currency{$return}</b> ",
+                                                       "<b>{$package->n}</b> times <br> spread at <b>{$package->interval_in_days}</b> days
+                                                       interval "
+                                                   ] as $feature):?>
+                                                       <div class="price-row" 
+                                                           style="text-transform: capitalize;">
+                                                           <i class="icon-check"></i>
+                                                            <?=$feature;?>
+                                                       </div>
+                                                   <?php endforeach;?>
+                                                  
+                                                   <div class="price-row">
+                                                 
+                                                       <form action="<?=domain;?>/user/create_ph_request" 
+                                                       id="upgrade_form<?=$package->id;?>"
+                                                       method="post"
+                                                       class="ajax_form">
+                                                       <input type="hidden" name="package_id" value="<?=$package->id;?>">
+                                                           <button  class="btn btn-success waves-effect waves-light mt-3">Provide help</button>
+                                                       </form>
+                                                   </div>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <?php endforeach;?>
+                               </div>
 
-                                        <div class="card-body card-body-bordered collapse show" id="demo1" >
-
-                                            <form action="<?=domain;?>/user/create_ph_request" method="post">
-                                                
-                                                <div class="form-group">
-                                                    <label>Amount (<?=$currency;?>)</label>
-                                                <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
-                                                    <span class="input-group-btn input-group-prepend"></span>
-                                                    <input id="tch3" type="number" min="<?=$settings['minimum_ph'];?>" required="" value="<?=Input::old('amount');?>" name="amount" 
-                                                      data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
-                                                    <span class="input-group-btn input-group-append">
-                                                        <button class="btn btn-success " type="submit">Provide Help</button>
-                                                    </span>
-                                                </div> 
-
-                                                <small class="text-danger"><?=Input::inputError('amount');?></small><br>
-
-                                                <small class="text-danger">* Minimum Amount is 
-                                                    <?=$currency;?><?=$this->money_format($settings['minimum_ph']);?> and Maximum Amount is 
-                                                    <?=$currency;?><?=$this->money_format($settings['maximum_ph']);?>
-                                                </small>
-                                            </div>
-
-                                        
-
-
-                                            </form>
-
-
-
-                                           
-                                        </div>
-                                    </div>
-
-
-                                </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
-
-
-
 
                  <div class="row">
                     <div class="col-12">

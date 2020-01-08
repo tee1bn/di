@@ -9,6 +9,7 @@ class PH extends Eloquent
 	protected $fillable = [	
 			'user_id',
 			 'matured_ph_id',
+			 'package_id',
 			 'amount',
 			 'payout_left',
 			 'fufilled_at',
@@ -76,10 +77,12 @@ class PH extends Eloquent
 
 
 
-	public function create_ph($user_id , $amount)
+	public function create_ph($user_id , $amount, $package_id)
 	{
+
+		$package = PhPackage::find($package_id);
+
 		$settings = SiteSettings::site_settings();
-		$worth =  	($settings['percent_roi'] * 0.01 * $amount) + $amount;
 
 		$last_gh_amount = (int) GH::last_gh($user_id)->amount;
 
@@ -87,34 +90,16 @@ class PH extends Eloquent
 
 		$validator = new Validator;
 
-		$maturity_days = $settings['ph_maturity_in_days'];
-
-		$matures_at = new DateTime();
-	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
-
-
-
-		$validator->check(Input::all() , array(
-
-				'amount' =>[
-								'required'=> true,
-								'numeric'=> true,
-								'step'		=> $settings['ph_steps'],
-								'min_value'=> max($settings['minimum_ph'], $min_from_last_gh),
-								'max_value'=> $settings['maximum_ph'],
-							],
-
-			));
 
 
 		if ($validator->passed()) {
-
 				$ph	 =	PH::create([
 								'user_id'		=> $user_id,
 								'amount'		=> $amount,
 								'payout_left'	=> $amount,
-								'worth_after_maturity'	=> $worth,
-								'matures_at'	=> $matures_at,
+								'worth_after_maturity'	=> $package->Worth,
+								'matures_at'	=> null,
+								'package_id'	=> $package_id,
 							]); 
 
  		 		Session::putFlash('success', "PH Request Successful. Check for Match. ");

@@ -47,6 +47,7 @@ $page_title = "Users";
               <th>#Ref</th>
                           <th>Name (Username)</th>
                           <th>Email</th>
+                          <th>Phone</th>
                           <th>Joined</th>
                           <th>Status</th>
                           <th>Action</th>
@@ -67,6 +68,7 @@ $page_title = "Users";
                            (<?=$user->username;?>)
                            </td>
                           <td><a href="mailto://<?=$user->email;?>"><?=$user->email;?></a></td>
+                          <td><a href="tel://<?=$user->phone;?>"><?=$user->phone;?></a></td>
                           <td><span class="badge badge-secondary"><?=$date;?></span></td>
                           <td><?=$user->activeStatus;?> <?=$user->demo_status();?></td>
                           <td>

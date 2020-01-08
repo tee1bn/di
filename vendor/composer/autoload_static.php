@@ -187,6 +187,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'Input' => __DIR__ . '/../..' . '/app/classes/Input.php',
         'LevelIncomeReport' => __DIR__ . '/../..' . '/app/models/LevelIncomeReport.php',
         'Location' => __DIR__ . '/../..' . '/app/classes/Location.php',
+        'MIS' => __DIR__ . '/../..' . '/app/classes/MIS.php',
         'Mailer' => __DIR__ . '/../..' . '/app/classes/Mailer.php',
         'Match' => __DIR__ . '/../..' . '/app/models/Match.php',
         'MlmSales' => __DIR__ . '/../..' . '/app/models/MlmSales.php',
@@ -194,6 +195,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'Newsletter' => __DIR__ . '/../..' . '/app/models/Newsletter.php',
         'PH' => __DIR__ . '/../..' . '/app/models/PH.php',
         'PasswordReset' => __DIR__ . '/../..' . '/app/models/PasswordReset.php',
+        'PhPackage' => __DIR__ . '/../..' . '/app/models/PhPackage.php',
         'Redirect' => __DIR__ . '/../..' . '/app/classes/Redirect.php',
         'SMS' => __DIR__ . '/../..' . '/app/classes/SMS.php',
         'Session' => __DIR__ . '/../..' . '/app/classes/Session.php',
@@ -208,6 +210,7 @@ class ComposerStaticInit81eb7d45cb86396167b941f75b6bed30
         'app' => __DIR__ . '/../..' . '/app/core/app.php',
         'controller' => __DIR__ . '/../..' . '/app/core/controller.php',
         'operations' => __DIR__ . '/../..' . '/app/core/operations.php',
+        'v2\\Models\\Earning' => __DIR__ . '/../..' . '/app/models/Earning.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

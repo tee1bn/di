@@ -15,6 +15,7 @@ return array(
     'Input' => $baseDir . '/app/classes/Input.php',
     'LevelIncomeReport' => $baseDir . '/app/models/LevelIncomeReport.php',
     'Location' => $baseDir . '/app/classes/Location.php',
+    'MIS' => $baseDir . '/app/classes/MIS.php',
     'Mailer' => $baseDir . '/app/classes/Mailer.php',
     'Match' => $baseDir . '/app/models/Match.php',
     'MlmSales' => $baseDir . '/app/models/MlmSales.php',
@@ -22,6 +23,7 @@ return array(
     'Newsletter' => $baseDir . '/app/models/Newsletter.php',
     'PH' => $baseDir . '/app/models/PH.php',
     'PasswordReset' => $baseDir . '/app/models/PasswordReset.php',
+    'PhPackage' => $baseDir . '/app/models/PhPackage.php',
     'Redirect' => $baseDir . '/app/classes/Redirect.php',
     'SMS' => $baseDir . '/app/classes/SMS.php',
     'Session' => $baseDir . '/app/classes/Session.php',
@@ -36,4 +38,5 @@ return array(
     'app' => $baseDir . '/app/core/app.php',
     'controller' => $baseDir . '/app/core/controller.php',
     'operations' => $baseDir . '/app/core/operations.php',
+    'v2\\Models\\Earning' => $baseDir . '/app/models/Earning.php',
 );
