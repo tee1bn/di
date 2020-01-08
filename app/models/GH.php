@@ -210,7 +210,7 @@ class GH extends Eloquent
 		$validator = new Validator;
 
 
-	/*	$validator->check(Input::all() , array(
+		$validator->check(Input::all() , array(
 
 				'amount' =>[
 								'required'=> true,
@@ -221,7 +221,7 @@ class GH extends Eloquent
 							],
 
 			));
-*/
+
 
 		if ($validator->passed()) {
 

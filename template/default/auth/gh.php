@@ -33,17 +33,6 @@ $page_title = "Get Help";
                                     <div class="card">
 
 
-<?php
-  $earnings = $this->auth()->matured_mavros_worth();
-    $bonus = $this->auth()->sum_total_earnings();
-    $attempted_withdrawals = $this->auth()->attempted_withdrawals();
-
-    $balance = max (($earnings + $bonus - $attempted_withdrawals), 0);
-
-
-
-;?>
-
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
                                                     Get Help <i class="fa fa-plus"></i>
@@ -59,7 +48,7 @@ $page_title = "Get Help";
                                                 <div class="input-group bootstrap-touchspin bootstrap-touchspin-injected">
                                                     <span class="input-group-btn input-group-prepend"></span>
                                                     <input id="tch3" type="number" required="" 
-                                                    max="<?=$balance;?>" name="amount" 
+                                                    max="<?=$auth->available_balance();?>" name="amount" 
                                                       data-bts-button-down-class="btn btn-secondary btn-outline" data-bts-button-up-class="btn btn-secondary btn-outline" class="form-control">
                                                     <span class="input-group-btn input-group-append">
                                                         <button class="btn btn-success " type="submit">Get Help</button>
@@ -68,7 +57,7 @@ $page_title = "Get Help";
 
                                                 <small class="text-danger"><?=Input::inputError('amount');?></small><br>
 
-                                                <small class="text-danger">* Balance is <?=$currency;?> <?=$this->money_format($balance);?></small>
+                                                <small class="text-danger">* Balance is <?=$currency;?> <?=$this->money_format($auth->available_balance());?></small>
                                             </div>
 
                                         

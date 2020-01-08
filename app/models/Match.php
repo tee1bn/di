@@ -189,8 +189,6 @@ class Match extends Eloquent
 			$this->ph->fufill_ph();
 			$this->gh->fufill_gh();
 
-			
-
 
 			DB::commit();
 		} catch (Exception $e) {

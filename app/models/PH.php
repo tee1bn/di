@@ -147,11 +147,8 @@ class PH extends Eloquent
 	public function fufill_ph()
 	{
 		$settings = SiteSettings::site_settings();
-		$maturity_days = $settings['ph_maturity_in_days'];
 		$now = date("Y-m-d H:i:s");
-		$matures_at = new DateTime();
-	 	$matures_at->modify("+$maturity_days days")->format("Y-m-d H:i:s");
-
+		
 	 	$downpayment = $settings['percent_down_payment'] * 0.01 * $this->amount;
 	 	$payed_out = $this->amount  - $this->payout_left;
 	 	//fufil recommittment if paid atleast downpayment
@@ -186,18 +183,30 @@ class PH extends Eloquent
 			}
 			
 
-			
-			/*//create earnings records
-			Earnings::createTransaction(	$type,
-									$user_id,
-									$upon_user_id,
-									$amount,
-									$status,
-									$earning_category = null,
-									$comment = null,
-									$identifier = null, 
-									$order_id = null, 
-									$admin_id = null)	*/
+			for ($i=1; $i <= $this->package->n; $i++) { 
+				$days = $this->package->interval_in_days;
+				$return = $this->package->Return;
+
+				$now = 	$date =  date("Y-m-d H:i:s", strtotime("$now + $days day" )); // 2011-01-03
+				$comment = "$i return on PH";
+				$identifier = "$i#{$this->id}";
+
+				//create earnings records
+				Earning::createTransaction('credit',
+										$this->user->id,
+										null,
+										$return,
+										'completed',
+										'ph',
+										$comment ,
+										$identifier, 
+										$this->id, 
+										null,
+										$now,
+									);	
+
+
+			}
 		}
 
 		return false;

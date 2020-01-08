@@ -206,7 +206,9 @@ class Earning extends Eloquent
 									$comment = null,
 									$identifier = null, 
 									$order_id = null, 
-									$admin_id = null)
+									$admin_id = null,
+									$earned_date = null
+								)
 	{
 
 		if ($amount == 0) {
@@ -234,6 +236,7 @@ class Earning extends Eloquent
 								'identifier' => $identifier ,
 								'order_id' => $order_id ,
 								'admin_id' => $admin_id ,
+								'earned_date' => $earned_date ,
 							]);
 
 			return $earning;

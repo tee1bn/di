@@ -592,9 +592,30 @@ class AdminController extends controller
 
 		$_SESSION[$this->auth_user()] = $user_id;
 
-		$this->view('admin/accessing_user_profile');
+		$domain = Config::domain();
+		$e = <<<EOL
 
-		// $this->view('admin/profile', ['user'=>User::find($user_id)]);
+
+				<style type="text/css">
+					body {
+	  				 margin: 0;
+	   				overflow: hidden;
+					}
+					#iframe1 {
+	   				 position:absolute;
+	    				left: 0px;
+	    				width: 100%;
+	    				top: 0px;
+	    				height: 100%;
+					}
+				</style>
+
+
+	 		<iframe  id="iframe1" src="$domain/user/dashboard"></iframe>
+EOL;
+
+		echo "$e";
+		// $this->view('admin/accessing_user_profile');
 	}
 
 
