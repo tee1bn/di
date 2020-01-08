@@ -158,11 +158,9 @@ $page_title = "PH Matches";
                                     Account Details
                                 </h4>
                                 <p class="card-text">
-                                    Wallet Address: <b> <?=ucfirst($recipient->wallet_address);?></b>
-                                    <a href="javascript:void(0);" class="fa fa-clipboard" onclick="copy_text('<?=$recipient->wallet_address;?>');"></a>
-                                    <br>
-                                 <!--    Acct: <b> <?=ucfirst($recipient->bank_account_number);?></b><br>
-                                    Bank: <b> <?=ucfirst($recipient->bank_name);?></b><br> -->
+
+                                    Acct: <b> <?=ucfirst($recipient->bank_account_number);?></b><br>
+                                    Bank: <b> <?=ucfirst($recipient->bank_name);?></b><br>
                                     Amt : <b> <?=$currency;?><?=$this->money_format($match->ph_amount);?></b><br>
                                 </p>
                                         <div class="dropdown">
