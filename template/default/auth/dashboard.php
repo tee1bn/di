@@ -249,13 +249,14 @@ $page_title = "Dashboard";
                          <br>
 
                         <small class="float-right">PayOut: <?=$currency;?>
-                        <?=$ph_match->ph_amount;?></small>
+                        <?=$this->money_format($ph_match->ph_amount);?></small>
                       </p>
                       <p>
                          <i class="fa fa-bank"></i>
-                         Wallet Address: <?=$gh_user->wallet_address;?>
-                       
-                        <!-- <small class="float-right">Bank:<?=$gh_user->bank_name;?></small> -->
+                      
+                        Acct: <b> <?=ucfirst($gh_user->bank_account_number);?></b><br>
+                        Bank: <b> <?=ucfirst($gh_user->bank_name);?></b><br>
+
                       </p>
                       </a>
                     </div>

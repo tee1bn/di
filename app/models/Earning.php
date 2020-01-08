@@ -9,8 +9,9 @@ class Earning extends Eloquent
 	
 	protected $fillable = [
 							'user_id',
-							'order_id',
+							'order_id', //ph id
 							'admin_id',
+							'earned_date',
 							'upon_user_id',
 							'amount',
 							'type',
@@ -54,10 +55,12 @@ class Earning extends Eloquent
 	}
 
 
-	public static function bookBalanceOnUser($user_id)
+
+
+	public static function bookBalanceOnUser($user_id, $earning_category='bonus')
 	{
-		$credits = self::scopeCompletedCreditOnUser($user_id)->sum('amount');
-		$debits = self::scopeCompletedDebitOnUser($user_id)->sum('amount');
+		$credits = self::scopeCompletedCreditOnUser($user_id,$earning_category)->sum('amount');
+		$debits = self::scopeCompletedDebitOnUser($user_id,$earning_category)->sum('amount');
 
 		$book_balance = $credits - $debits;
 		return $book_balance;
@@ -65,20 +68,25 @@ class Earning extends Eloquent
 
 
 
-	public static function accruedBookBalanceOnUser($user_id)
+	public static function accruedBookBalanceOnUser($user_id, $earning_category='bonus')
 	{
-		$credits = self::onUser($user_id)->Credit()->where('status', '!=', 'cancelled')->sum('amount');
-		$initiated_debits = self::scopeInitiatedDebitOnUser($user_id)->sum('amount');
+		$credits = self::onUser($user_id)->Credit()
+											->where('status', '!=', 'cancelled')
+											->sum('amount')
+											->where('earning_category', $earning_category);
+
+
+		$initiated_debits = self::scopeInitiatedDebitOnUser($user_id)->sum('amount')->where('earning_category', $earning_category);
 
 		return $credits - $initiated_debits;
 	}	
 
 	
 
-	public static function availableBalanceOnUser($user_id)
+	public static function availableBalanceOnUser($user_id,$earning_category='bonus')
 	{
-		$credits = self::scopeCompletedCreditOnUser($user_id)->sum('amount');
-		$initiated_debits = self::scopeInitiatedDebitOnUser($user_id)->sum('amount');
+		$credits = self::scopeCompletedCreditOnUser($user_id,$earning_category)->sum('amount');
+		$initiated_debits = self::scopeInitiatedDebitOnUser($user_id,$earning_category)->sum('amount');
 
 		$available =  $credits - $initiated_debits;
 		$available =  max($available , 0);
@@ -101,53 +109,59 @@ class Earning extends Eloquent
 	 *
 	 * @return     <type>  ( description_of_the_return_value )
 	 */
-	public  static function scopeInitiatedDebitOnUser($user_id)
+	public  static function scopeInitiatedDebitOnUser($user_id, $earning_category='bonus')
 	{
-		return 	self::onUser($user_id)->Debit()->where('status', '!=', 'cancelled');
+		return 	self::onUser($user_id)->Debit()->where('status', '!=', 'cancelled')->Category($earning_category);
 	}
 
 
 
-	public  static function scopeCompletedCreditOnUser($user_id)
+	public  static function scopeCompletedCreditOnUser($user_id, $earning_category='bonus')
 	{
-		return 	self::onUser($user_id)->Credit()->Completed();
+		return 	self::onUser($user_id)->Credit()->Completed()->Category($earning_category);
 	}
 
 
-	public  static function scopePendingCreditOnUser($user_id)
+	public function scopeCategory($query, $earning_category)
 	{
-		return 	self::onUser($user_id)->Credit()->Pending();
+		return $query->where('earning_category', $earning_category);
 	}
 
 
-	public  static function scopeCancelledCreditOnUser($user_id)
+	public  static function scopePendingCreditOnUser($user_id, $earning_category='bonus')
 	{
-		return 	self::onUser($user_id)->Credit()->Cancelled();
+		return 	self::onUser($user_id)->Credit()->Pending()->Category($earning_category);
+	}
+
+
+	public  static function scopeCancelledCreditOnUser($user_id, $earning_category='bonus')
+	{
+		return 	self::onUser($user_id)->Credit()->Cancelled()->Category($earning_category);
 	}
 
 
 
 
 
-	public  static function scopeCompletedDebitOnUser($user_id)
+	public  static function scopeCompletedDebitOnUser($user_id, $earning_category='bonus')
 	{
-		return 	self::onUser($user_id)->Debit()->Completed();
+		return 	self::onUser($user_id)->Debit()->Completed()->Category($earning_category);
 	}
 
 
-	public  static function scopeCancelledDebitOnUser($user_id)
+	public  static function scopeCancelledDebitOnUser($user_id, $earning_category='bonus')
 	{
-		return 	self::onUser($user_id)->Debit()->Cancelled();
+		return 	self::onUser($user_id)->Debit()->Cancelled()->Category($earning_category);
 	}
 
 
-	public  static function scopePendingDebitOnUser($user_id)
+	public  static function scopePendingDebitOnUser($user_id, $earning_category='bonus')
 	{
-		return 	self::onUser($user_id)->Debit()->Pending();
+		return 	self::onUser($user_id)->Debit()->Pending()->Category($earning_category);
 	}
 
 
-	public static function setBalanceTo($user_id , $balance, $comment=null, $admin_id=null)
+	public static function setBalanceTo($user_id , $balance, $comment=null, $admin_id=null, $earning_category='bonus')
 	{
 		$book_balance = self::bookBalanceOnUser($user_id);
 
@@ -171,7 +185,7 @@ class Earning extends Eloquent
 									null,
 									$amount,
 									'completed',
-									'bonus',
+									$earning_category,
 									$comment,
 									null,
 									null,
@@ -249,8 +263,9 @@ class Earning extends Eloquent
 
 
 	public function scopeCredit($query)
-	{
-		return $query->where('type', 'credit');
+	{	
+		$today = date("Y-m-d");
+		return $query->where('type', 'credit')->whereDate('earned_date', '<=', $today);
 	}
 
 	public function scopeDebit($query)

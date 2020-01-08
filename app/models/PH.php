@@ -28,7 +28,10 @@ class PH extends Eloquent
 	}
 
 
-
+	public function package()
+	{
+		return $this->belongsTo('PhPackage', 'package_id');
+	}
 
 	public static function delete_phs($phs_ids)
 	{
@@ -173,7 +176,7 @@ class PH extends Eloquent
 
 		if ($this->isFufilled() === true) {
 
-			$this->update(['fufilled_at'=> $now/* ,'matures_at'=> $matures_at*/]);
+			$this->update(['fufilled_at'=> $now]);
 		 	$bonus = $settings['percent_referral_bonus_on_ph'] * 0.01 * $this->amount;
 
 			//give referral bonus if first PH
@@ -182,6 +185,19 @@ class PH extends Eloquent
 				$this->give_upline_referral_bonus($bonus);
 			}
 			
+
+			
+			/*//create earnings records
+			Earnings::createTransaction(	$type,
+									$user_id,
+									$upon_user_id,
+									$amount,
+									$status,
+									$earning_category = null,
+									$comment = null,
+									$identifier = null, 
+									$order_id = null, 
+									$admin_id = null)	*/
 		}
 
 		return false;

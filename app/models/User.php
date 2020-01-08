@@ -600,16 +600,20 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
      */
     public function available_balance()
     {
+		$earnings = $this->earnings();
+		$bonus =  $this->available_bonus();
+		$gh =  $this->attempted_withdrawals();
 
 
-	  	$attempted_withdrawals =  $this->attempted_withdrawals();
+	    $balance = max (($earnings + $bonus - $gh), 0);
 
-	  	$mavros  = $this->matured_mavros_worth();
+	  	return $balance;
+	 }
 
-	  	$bonus = $this->sum_total_earnings();
+    public function available_bonus()
+    {
 
-	  	$available_balance = $mavros + $bonus - $attempted_withdrawals;
-
+    	$available_balance =  Earning::availableBalanceOnUser($this->id, 'bonus');
 	  	return $available_balance;
 	 }
 
@@ -647,7 +651,9 @@ public static function where_to_place_new_user_within_team_introduced_by($team_l
 	   */
 	  public function earnings()
 	  {
-	  	return LevelIncomeReport::earnings($this->id);
+	  	$available_balance =  Earning::availableBalanceOnUser($this->id, 'ph');
+
+	  	return $available_balance;
 	  }
 
 
