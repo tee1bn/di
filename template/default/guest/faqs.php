@@ -21,7 +21,7 @@ include_once 'includes/header.php';?>
 <div class="contact-1 content-area-7">
     <div class="container">
         <div class="main-title">
-            <h1><span>Frequently asked questions</span> Us</h1>
+            <h1><span>Frequently asked questions</span></h1>
         </div>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-md-12">
