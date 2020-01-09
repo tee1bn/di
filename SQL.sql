@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 08, 2020 at 11:53 PM
+-- Generation Time: Jan 09, 2020 at 11:33 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -165,10 +165,7 @@ CREATE TABLE `earnings` (
 --
 
 INSERT INTO `earnings` (`id`, `user_id`, `upon_user_id`, `earned_date`, `order_id`, `admin_id`, `amount`, `type`, `earning_category`, `status`, `identifier`, `comment`, `extra_detail`, `created_at`, `updated_at`) VALUES
-(26, 1, NULL, '2020-01-07 00:00:00', NULL, NULL, '40000.00', 'credit', 'ph', 'completed', '886 welcome bonus', 'welcome bonus', NULL, '2019-11-16 22:10:46', '2019-11-16 22:20:05'),
-(42, 1, NULL, NULL, 72, NULL, '10000.00', 'debit', 'bonus', 'completed', NULL, NULL, NULL, '2019-11-16 22:40:55', '2019-11-16 22:40:55'),
-(50, 1, NULL, NULL, 75, NULL, '15000.00', 'debit', 'bonus', 'completed', NULL, NULL, NULL, '2019-11-16 22:59:15', '2019-11-16 22:59:15'),
-(51, 1, NULL, '2020-01-08 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '1#2', '1 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
+(51, 15, NULL, '2020-01-08 23:42:58', 10, NULL, '7500.00', 'credit', 'ph', 'completed', '1#2', '1 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
 (52, 1, NULL, '2020-01-22 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '2#2', '2 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
 (53, 1, NULL, '2020-01-29 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '3#2', '3 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58'),
 (54, 1, NULL, '2020-02-05 23:42:58', 2, NULL, '7500.00', 'credit', 'ph', 'completed', '4#2', '4 return on PH', NULL, '2020-01-08 23:42:58', '2020-01-08 23:42:58');
@@ -197,8 +194,7 @@ CREATE TABLE `gh` (
 --
 
 INSERT INTO `gh` (`id`, `user_id`, `currency_id`, `fufilled_recommittment`, `pioneered`, `fufilled_at`, `amount`, `payin_left`, `created_at`, `updated_at`) VALUES
-(2, 15, NULL, 1, 1, NULL, 20000, 0, '2020-01-08 20:14:58', '2020-01-08 20:29:46'),
-(3, 1, NULL, NULL, NULL, NULL, 6000, 6000, '2020-01-08 22:51:12', '2020-01-08 22:51:12');
+(4, 1, NULL, 1, 1, NULL, 20000, 19000, '2020-01-09 20:40:30', '2020-01-09 20:50:33');
 
 -- --------------------------------------------------------
 
@@ -339,7 +335,7 @@ CREATE TABLE `pair` (
 --
 
 INSERT INTO `pair` (`id`, `ph_id`, `ph_amount`, `gh_amount`, `gh_id`, `payment_proof`, `status`, `expires`, `created_at`, `updated_at`) VALUES
-(3, 2, 10000, 10000, 2, 'uploads/images/payment_proofs/2019-08-07.png', 'completed', 1578518986, '2020-01-08 20:29:46', '2020-01-08 22:42:58');
+(1, 10, 1000, 1000, 4, '', 'completed', 1578606633, '2020-01-09 20:50:33', '2020-01-09 21:07:14');
 
 -- --------------------------------------------------------
 
@@ -389,7 +385,15 @@ CREATE TABLE `ph` (
 --
 
 INSERT INTO `ph` (`id`, `user_id`, `package_id`, `currency_id`, `amount`, `payout_left`, `fufilled_at`, `matures_at`, `expired`, `worth_after_maturity`, `created_at`, `updated_at`) VALUES
-(2, 1, 1, NULL, '10000.00', 0, '2020-01-08 22:42:58', NULL, NULL, 30000, '2020-01-08 20:29:36', '2020-01-08 22:42:58');
+(2, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:42:01', '2020-01-09 20:42:01'),
+(3, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:43:01', '2020-01-09 20:43:01'),
+(4, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:43:42', '2020-01-09 20:43:42'),
+(5, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:43:46', '2020-01-09 20:43:46'),
+(6, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:43:47', '2020-01-09 20:43:47'),
+(7, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:44:30', '2020-01-09 20:44:30'),
+(8, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:44:57', '2020-01-09 20:44:57'),
+(9, 15, 1, NULL, '10000.00', 10000, NULL, NULL, NULL, 30000, '2020-01-09 20:45:03', '2020-01-09 20:45:03'),
+(10, 15, 1, NULL, '10000.00', 0, '2020-01-08 23:00:00', NULL, NULL, 30000, '2020-01-09 20:50:33', '2020-01-09 20:50:33');
 
 -- --------------------------------------------------------
 
@@ -406,7 +410,7 @@ CREATE TABLE `ph_packages` (
   `interval_in_days` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `is_available` int(11) NOT NULL
+  `is_available` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -414,9 +418,9 @@ CREATE TABLE `ph_packages` (
 --
 
 INSERT INTO `ph_packages` (`id`, `name`, `price`, `roi_percent`, `n`, `interval_in_days`, `created_at`, `updated_at`, `is_available`) VALUES
-(1, 'bronze', '10000.00', '75.00', 4, 7, NULL, NULL, 1),
-(2, 'silver', '25000.00', '75.00', 4, 7, NULL, NULL, 1),
-(3, 'gold', '50000.00', '75.00', 4, 7, NULL, NULL, 1);
+(1, 'bronze', '10000.00', '75.00', 4, 7, NULL, '2020-01-09 21:35:04', 'on'),
+(2, 'silver', '25000.00', '75.00', 4, 7, NULL, '2020-01-09 21:35:04', 'on'),
+(3, 'gold', '50000.00', '75.00', 4, 7, NULL, '2020-01-09 21:35:04', 'on');
 
 -- --------------------------------------------------------
 
@@ -441,7 +445,7 @@ INSERT INTO `site_settings` (`id`, `criteria`, `settings`, `default_setting`, `c
 (25, 'admin_bank_details', '{\"bank\":\"Access Banll\",\"account_number\":\"987567878\",\"account_name\":\"Alien Fashion\"}', '', NULL, NULL),
 (26, 'paystack_keys', '{\"public_key\":\"pk_tefc\",\"secret_key\":\"sbc57b6ab3974\"}', '', NULL, NULL),
 (27, 'sms_api_keys', '{\"username\":\"nghhjjh\",\"password\":\"gyuynhj\",\"link\":\"http://www.estoresms.com/smsapi.php\",\"sender\":\"Attendance\"}', '', NULL, '2019-03-21 13:58:02'),
-(28, 'site_settings', '{\r\n  \"email_verification\": 1,\r\n  \"phone_verification\": \"0\",\r\n  \"bank_verification\": 0,\r\n  \"telegram_group_link\": \"http://telegram.com\",\r\n  \"max_no_of_running_ph\": 3,\r\n  \"percent_of_last_ph\": 100,\r\n  \"match_sms_notification\": 0,\r\n  \"min_withdrawable\": 100,\r\n  \"match_email_notification\": 0,\r\n  \"support_link\": \"http://googleforms.com\",\r\n  \"gh_steps\": \"1000\",\r\n  \"percent_down_payment\": \"10\",\r\n  \"minimum_gh\": \"1000\",\r\n  \"maximum_gh\": \"100000\",\r\n  \"friday_execution_hour\": \"1\",\r\n  \"saturday_match_execution_hour\": \"1\",\r\n  \"sunday_match_execution_hour\": \"1\",\r\n  \"default_match_execution_hour\": \"1\",\r\n  \"put_on_automatic_matching\": \"1\",\r\n  \"contact_email\": \"dove@gmail.com\",\r\n  \"google_re_captcha_site_key\": \"6LeJqJwUAAAAAPADFRZZUG79bMw8O_4kdEr6dJ6t\",\r\n  \"google_re_captcha_secret_key\": \"6LeJqJwUAAAAADgkLuF_W3etxOJItrkTWaCRGIH-\"\r\n}', '', NULL, '2019-07-28 20:14:23');
+(28, 'site_settings', '{\r\n  \"email_verification\": 1,\r\n  \"phone_verification\": \"0\",\r\n  \"bank_verification\": 0,\r\n  \"telegram_group_link\": \"http://telegram.com\",\r\n  \"max_no_of_running_ph\": 3,\r\n  \"percent_of_last_ph\": 100,\r\n  \"match_sms_notification\": 0,\r\n  \"min_withdrawable\": 100,\r\n  \"match_email_notification\": 0,\r\n  \"support_link\": \"http://googleforms.com\",\r\n  \"gh_steps\": \"1000\",\r\n  \"downpayments_ghs_preference\": \"0\",\r\n  \"percent_down_payment\": \"10\",\r\n  \"percent_referral_bonus_on_ph\": \"10\",\r\n  \"minimum_gh\": \"1000\",\r\n  \"maximum_gh\": \"100000\",\r\n  \"friday_execution_hour\": \"1\",\r\n  \"saturday_match_execution_hour\": \"1\",\r\n  \"sunday_match_execution_hour\": \"1\",\r\n  \"default_match_execution_hour\": \"1\",\r\n  \"put_on_automatic_matching\": \"1\",\r\n  \"contact_email\": \"dove@gmail.com\",\r\n  \"google_re_captcha_site_key\": \"6LeJqJwUAAAAAPADFRZZUG79bMw8O_4kdEr6dJ6t\",\r\n  \"google_re_captcha_secret_key\": \"6LeJqJwUAAAAADgkLuF_W3etxOJItrkTWaCRGIH-\"\r\n}', '', NULL, '2019-07-28 20:14:23');
 
 -- --------------------------------------------------------
 
@@ -707,7 +711,7 @@ ALTER TABLE `earnings`
 -- AUTO_INCREMENT for table `gh`
 --
 ALTER TABLE `gh`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `level_income_report`
@@ -737,7 +741,7 @@ ALTER TABLE `notifications`
 -- AUTO_INCREMENT for table `pair`
 --
 ALTER TABLE `pair`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `password_reset`
@@ -749,7 +753,7 @@ ALTER TABLE `password_reset`
 -- AUTO_INCREMENT for table `ph`
 --
 ALTER TABLE `ph`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `ph_packages`
