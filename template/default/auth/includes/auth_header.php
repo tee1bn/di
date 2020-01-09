@@ -35,9 +35,9 @@
     <!-- Main wrapper - style you can find in pages.scss -->
     <!-- ============================================================== -->
     <section id="wrapper">
-        <div class="login-register" style="background-image:url(<?=asset;?>/jimages/background/faces.jpg);
-        background-repeat: repeat; position: static;  background-size: 360px 360px; overflow-y: scroll;">    
-       <!--  <div style="
+        <div class="login-register" style="background-image:url(<?=asset;?>/images/background/faces2.jpg);
+        background-repeat: repeat; position: static;  background-size: 558px 360px; overflow-y: scroll;">    
+        <div style="
                 background: #3c55cf4f;
                 position: absolute;
                 top: 0px;
@@ -45,7 +45,7 @@
                 height: 100%;
                 "
 
-                > </div>     -->
+                > </div>    
 
                 <div class="text-center">
                     <h1 class="text-danger" style="font-weight: bold;   text-shadow: 2px 3px #ffbfc3; color: red;">
