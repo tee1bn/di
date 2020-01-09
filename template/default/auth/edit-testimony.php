@@ -1,5 +1,5 @@
 <?php
-$page_title = "Eidt Letter of Happiness";
+$page_title = "Edit Letter of Happiness";
  include 'includes/header.php';?>
 
 
