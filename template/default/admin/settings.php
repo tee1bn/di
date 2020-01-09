@@ -56,6 +56,55 @@ $page_title = "Settings";
                 </div>
             </form>
 
+
+             <div class="row">
+                <div class="col-12">
+                    <div class="card">
+
+                        <div class="card-header"  data-toggle="collapse" data-target="#ph_packages">
+                            <a href="javascript:void;">PH Packages</a>
+                        </div>
+                        <div class="card-body row collapse show" id="ph_packages">
+                            <form action="<?=domain;?>/admin/update_packages" method="post" >
+                                <table class="table table-striped">
+                                    <thead>
+                                        <th>sn</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Roi(%)</th>
+                                        <th>N-Times</th>
+                                        <th>Spread (Days)</th>
+                                        <th>Available</th>
+                                    </thead>
+                                    <tbody>
+                                        <?php $i=1; foreach (PhPackage::all() as $key => $package):?>
+                                        <tr>
+                                            <td><?=$i++;?></td>
+                                            <td><input type="" name="package[<?=$package->id;?>][name]" value="<?=$package->name;?>"></td>
+                                            <td><input style="width:120px;" type="" name="package[<?=$package->id;?>][price]" value="<?=$package->price;?>"></td>
+                                            <td><input style="width:120px;" type="" name="package[<?=$package->id;?>][roi_percent]" value="<?=$package->roi_percent;?>"></td>
+                                            <td><input style="width:120px;" type="" name="package[<?=$package->id;?>][n]" value="<?=$package->n;?>"></td>
+                                            <td><input style="width:120px;" type="" name="package[<?=$package->id;?>][interval_in_days]" value="<?=$package->interval_in_days;?>"></td>
+                                            <td><input style="width:120px;" type="checkbox" <?=($package->is_available== 'on')?'checked':'';?> name="package[<?=$package->id;?>][is_available]"></td>
+                                        </tr>
+                                        <?php endforeach ;?>
+                                    </tbody>
+                                </table>
+
+
+
+                                <div class="text-center col-12">
+                                    <button class="btn btn-success">Update </button>
+                                </div>
+
+                            </form>
+                         </div>
+
+                    </div>
+                </div>
+            </div>
+
+
 <?php include 'includes/footer.php';?>
 <script>
     $(function() {

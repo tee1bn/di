@@ -7,6 +7,7 @@ class PhPackage extends Eloquent
 {
 	
 	protected $fillable = [
+							'name',
 							'price',
 							'roi_percent',
 							'n',
@@ -21,7 +22,7 @@ class PhPackage extends Eloquent
 
 	public function scopeAvailable($query)
 	{
-		return $query->where('is_available', 1);
+		return $query->where('is_available', 'on');
 	}
 
 

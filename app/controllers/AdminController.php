@@ -16,8 +16,35 @@ class AdminController extends controller
 	}
 
 
+	public function update_packages()
+	{
+		echo "<pre>";
 
-	
+		print_r($_POST);
+
+
+			Db::beginTransaction();
+
+			try {
+
+				foreach ($_POST['package'] as $id => $package) {
+					PhPackage::find($id)->update($package);
+				}
+				
+
+				DB::commit();
+				Session::putFlash("success", "Changes Saved");
+			} catch (Exception $e) {
+				DB::rollback();
+				Session::putFlash("danger", "Something went wrong");
+				print_r($e->getMessage());
+			}
+
+			Redirect::back();
+		}
+
+
+
 
 	public function update_cms()
 	{
