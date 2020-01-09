@@ -312,15 +312,22 @@ class PH extends Eloquent
 
 	public function maturity_growth()
 	{
+
+
+		$worth = $this->package->Worth;
+
+
+		$received =  Earning::scopeCompletedCreditOnUser($this->user_id, 'ph')->where('order_id', $this->id)->sum('amount');
+
+
 		
-		if ($this->matures_at == null) {
+		if ($received == 0) {
 			return 0;
 		}
 
-		 $now = time() -strtotime($this->fufilled_at ) ;
-		 $time_difference =  strtotime($this->matures_at) - strtotime($this->fufilled_at );
-		$maturity_growth = min(( $now / $time_difference), 1) * 100;
-		return intval($maturity_growth);
+
+		$maturity_growth = intval(min(( $received / $worth), 1) * 100);
+		return compact('maturity_growth','received');
 	}
 
 

@@ -129,9 +129,9 @@ class User extends Eloquent
 
 
 	public function mavros()
-	{
+	{	
 
-		return $this->PhRequests('PH','user_id')->Completed();
+		return $this->PhRequests('PH','user_id')->Completed()->latest();
 
 	}
 

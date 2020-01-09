@@ -29,17 +29,24 @@ $page_title = "Broadcast";
 
                                 <div class="table-responsive">
                                     <table id="myTable" class="table table-hover">
-                                        <thead>
-                                            <th>Sn</th>
-                                            <th style="width: 60%;">Message</th>
-                                            <th>Date</th>
-                                        </thead>
                                         <tbody>
                                             <?php $i=1; foreach (BroadCast::live() as $broadcast) :?>
+
+
                                             <tr>
-                                                <td><?=$i;?></td>
-                                                <td><?=$broadcast->broadcast_message;?></td>
-                                                <td><?=$broadcast->created_at->toFormattedDateString();?></td>
+
+                                              <div class="alert bg-dark text-white  alert-dismissible mb-2 " role="alert">             
+                                                    <small class="badge badge-secondary"><?=$i;?></small>
+                                                     <span class="badge badge-info">
+                                                            <?=date('M j, Y h:iA', strtotime($broadcast->created_at));?>
+                                                        </span>
+                                                    <p>
+                                                       <small>
+                                                        <?=$broadcast->broadcast_message;?>
+                                                       </small>
+                                                    </p>
+
+                                              </div>
                                             </tr>
                                             <?php $i++; endforeach ;?>
                                         </tbody>

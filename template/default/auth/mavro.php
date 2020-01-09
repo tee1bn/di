@@ -35,31 +35,43 @@ $page_title = "Mavro";
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">
                                     <table id="myTable" class="table table-striped">
-                                        <thead>
-                                            <th>#Ref</th>
-                                            <th>Amount (<?=$currency;?>)</th>
-                                            <th>Worth (<?=$currency;?>)</th>
-                                            <th>Growth</th>
-                                            <th>Completed</th>
-                                        </thead>
                                         <tbody>
                                             <?php $i=1; foreach ($mavros as $mavro) :?>
+
                                             <tr>
-                                                <td><?=$mavro->id;?></td>
-                                                <td><?=$this->money_format($mavro->amount);?></td>
-                                                <td><?=$this->money_format($mavro->worth_after_maturity);?></td>
-                                                <td>
+
+                                              <div class="alert bg-dark text-white  alert-dismissible mb-2 " role="alert">
                                                    
-                                                    <span class="progress mt-1 ">
-                                                        <span class="progress-bar active progress-bar-striped bg-success" style="width: <?=$mavro->maturity_growth();?>%; height:15px;" role="progressbar"><?=$mavro->maturity_growth();?>%
-                                                        </span>
-                                                    </span>                                            </td>
-                                                <td>
-                                                    <span class="badge badge-secondary">
-                                                        <?=date('M j, Y', strtotime($mavro->fufilled_at));?>
+                                                    <span class="badge badge-success float-right">
+                                                       <small>
+                                                        ROI
+                                                       </small>
+                                                         <?=$currency;?><?=MIS::money_format($mavro->package->Worth);?>
                                                     </span>
-                                                </td>
+
+                                                    <span style="margin-right: 7px;">
+                                                         #<?=$mavro->id;?>
+                                                    </span>
+
+                                                      <strong> Amt: <?=$currency;?><?=MIS::money_format($mavro->amount);?></strong>
+                                                       <br>
+                                                      <span class="float-">Completed:
+                                                        <span class="badge badge-secondary">
+                                                            <?=date('M j, Y h:iA', strtotime($mavro->fufilled_at));?>
+                                                        </span>
+                                                          
+                                                      </span><br>
+
+
+                                                  <div style="position:  10px;right: 25px;">
+                                                        <span class="progress mt-1 ">
+                                                            <span class="progress-bar active progress-bar-striped bg-success" style="width: <?=$mavro->maturity_growth()['maturity_growth'];?>%; height:15px;" role="progressbar"><?=$mavro->maturity_growth()['received'];?>
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                              </div>
                                             </tr>
+
                                             <?php $i++; endforeach ;?>
                                         </tbody>
                                     </table>

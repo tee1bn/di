@@ -28,7 +28,18 @@ $page_title = "Team List";
                 <!-- ============================================================== -->
                     <div class="row">
                         <div class="referral col-md-6" align="center">
-                            <a href="<?=domain;?>/genealogy/placement/<?=$upline['username'];?>">
+                          <?php
+
+                            if ($admin) {
+                                $link = Config::domain()."/genealogy/placement/{$upline['username']}";
+                            }else{
+
+                                $link ='#' ;
+                            }
+
+                          ;?>
+
+                            <a href="<?=$link;?>">
                                 <img src="<?=domain;?>/<?=$user->profilepic;?>" style="border-radius: 70%;height: 50px;"
                                  data-toggle="tooltip" title="Upline: <?=ucfirst($upline['lastname']);?> <?=ucfirst($upline['firstname']);?>">
                                 <?php if($user->id == $this->auth()->id):?>
@@ -68,27 +79,39 @@ $page_title = "Team List";
                             <div class="card-body">
 
                               <div class="table-responsive">
-                                     <table id="myTable" class="table table-hover">
-                                  <thead>
-                                    <th>Full Name (username)</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Joined</th>
-                                    <th>Status</th>
-                                  </thead>
-                                  <tbody>
-                                    <?php foreach ($list['list'] as $key => $downline):?>
-                                    <tr>
-                                      <td><a href="<?=domain;?>/genealogy/placement_list/<?=$downline->username;?>">
-                                       <?=$downline->fullname;?> (<?=$downline->username;?>) </a></td>
-                                      <td><?=$downline->email;?></td>
-                                      <td><?=$downline->phone;?></td>
-                                      <td><?=$downline->created_at->toFormattedDateString();?></td>
-                                      <td><?=$downline->activeStatus;?></td>
-                                    </tr>
-                                  <?php endforeach;?>
-                                  </tbody>
-                                </table>
+                                  
+                                    <table id="myTable" class="table table-hover">
+                                    </thead>
+                                    <tbody>
+                                      <?php $i=1; foreach ($list['list'] as $key => $downline):?>
+                                      <tr>
+
+                                        <div class="alert bg-dark text-white  alert-dismissible mb-2 " role="alert">
+                                          <a href="<?=domain;?>/genealogy/placement_list/<?=$downline->username;?>" class="text-white">
+                                            
+                                              <span style="margin-right: 7px;">
+                                                   <?=$i++;?>)
+                                              </span>
+
+                                                <strong> <?=$downline->firstname;?> (<?=$downline->username;?>)</strong>
+                                                 <br>
+                                                <span class="float-">Joined: <?=$downline->created_at->toFormattedDateString();?> <?=$downline->activeStatus;?></span>
+                                            <div style="position: absolute;top: 10px;right: 25px;">
+                                            <?=$order->TransactionID;?>
+                                          </div>
+                                          </a>
+                                        </div>
+                                      </tr>
+                                    <?php endforeach;?>
+                                    <?php if (count($list['list'])==0) :?>
+                                      <tr>
+                                        <center>No records Found</center>
+                                      </tr>
+
+                                    <?php endif;?>
+                                    </tbody>
+                                  </table>
+
                               </div>
 
 

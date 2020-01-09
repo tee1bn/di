@@ -4,9 +4,6 @@ $page_title = "Letter of Happiness";
 
 
     
-                <!-- ============================================================== -->
-                <!-- Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-6 col-8 align-self-center">
                         <h3 class="text-themecolor mb-0 mt-0">Letter of Happiness</h3>
@@ -16,12 +13,7 @@ $page_title = "Letter of Happiness";
                         </ol>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
+
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
@@ -63,24 +55,26 @@ $page_title = "Letter of Happiness";
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">
                                     <table id="myTable" class="table table-hover">
-                                        <thead>
-                                            <th>Sn</th>
-                                            <th style="width: 60%;">Letter</th>
-                                            <th>Status</th>
-                                            <th>Date</th>
-                                            <th></th>
-                                        </thead>
                                         <tbody>
                                             <?php $i=1; foreach ($this->auth()->testimonies as $testimony) :?>
                                             <tr>
-                                                <td><?=$i;?></td>
-                                                <td><?=$testimony->content;?></td>
-                                                <td><?=$testimony->status();?></td>
-                                                <td><?=$testimony->created_at->toFormattedDateString();?></td>
-                                                <td>
-                                                    <a href="<?=domain;?>/user/edit-testimony/<?=$testimony->id;?>" class="btn btn-secondary btn-xs">Edit
+                                              <div class="alert bg-dark text-white  alert-dismissible mb-2 " role="alert">             
+                                                    <a class="float-right" href="<?=domain;?>/user/edit-testimony/<?=$testimony->id;?>">
+                                                        <span class="btn btn-sm label-warning">Open</span>
                                                     </a>
-                                            </td>
+                                            
+                                                    <span style="margin-right: 7px;">
+                                                         #<?=$testimony->id;?>
+                                                    </span>
+                                                        <span class="badge badge-secondary">
+                                                            <?=date('M j, Y h:iA', strtotime($testimony->created_at));?>
+                                                        </span>
+                                                        <?=$testimony->status();?>
+
+                                                      <p>
+                                                          <small><?=$testimony->content;?></small>
+                                                      </p>
+                                              </div>
                                             </tr>
                                             <?php $i++; endforeach ;?>
                                         </tbody>
@@ -94,14 +88,6 @@ $page_title = "Letter of Happiness";
 
                 
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-          
 <?php include 'includes/footer.php';?>
 <script>
     $(function() {

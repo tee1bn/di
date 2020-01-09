@@ -31,9 +31,9 @@ $settings = SiteSettings::site_settings();
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#packages">
-                                <a href="javascript:void;">PH Packages</a>
+                                <a href="javascript:void;">Click to PH</a>
                             </div>
-                            <div class="card-body collapse show" id="packages">
+                            <div class="card-body collapse" id="packages">
                                <div class="row pricing-plan">
                                    <?php foreach (PhPackage::Available()->get() as  $package):?>
 
@@ -99,30 +99,33 @@ $settings = SiteSettings::site_settings();
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">
                                     <table id="myTable" class="table table-hover">
-                                        <thead>
-                                            <th>#Ref</th>
-                                            <th>Amount (<?=$currency;?>)</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>*</th>
-                                        </thead>
                                         <tbody>
                                             <?php $i=1; foreach ($this->auth()->PhRequests as $ph_request) :?>
+
+
                                             <tr>
-                                                <td><?=$ph_request->id;?></td>
-                                                <td><?=$this->money_format($ph_request->amount);?></td>
-                                                <td>
-                                                    <span class="badge badge-sm badge-secondary">
-                                                        <?=$ph_request->created_at->toFormattedDateString();?></td>
+
+                                              <div class="alert bg-dark text-white  alert-dismissible mb-2 " role="alert">             
+                                                <?php if($ph_request->matched->isNotEmpty()) :?>
+                                                    <a class="float-right" href="<?=domain;?>/user/ph_matches/<?=$ph_request->id;?>">
+                                                        <span class="btn btn-sm label-warning">Open</span>
+                                                    </a>
+                                                <?php endif;?>
+                                     
+                                                    <span style="margin-right: 7px;">
+                                                         #<?=$ph_request->id;?>
                                                     </span>
-                                                <td><?=$ph_request->status();?></td>
-                                                <td>
-                                                    <?php if($ph_request->matched->isNotEmpty()) :?>
-                                                        <a href="<?=domain;?>/user/ph_matches/<?=$ph_request->id;?>">
-                                                            <span class="label label-sm label-warning">Open</span>
-                                                        </a>
-                                                    <?php endif;?>
-                                            </td>
+
+                                                      <strong> Amt: <?=$currency;?><?=MIS::money_format($ph_request->amount);?></strong>
+                                                       <br>
+                                                      <span class="float-">
+                                                        <span class="badge badge-secondary">
+                                                            <?=date('M j, Y h:iA', strtotime($ph_request->created_at));?>
+                                                        </span>
+                                                           <?=$ph_request->status();?>
+                                                          
+                                                      </span><br>
+                                              </div>
                                             </tr>
                                             <?php $i++; endforeach ;?>
                                         </tbody>

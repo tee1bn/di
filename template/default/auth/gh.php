@@ -35,11 +35,11 @@ $page_title = "Get Help";
 
                                         <div class="card-header"  data-toggle="collapse" data-target="#demo1">
                                             <a href="javascript:void;">
-                                                    Get Help <i class="fa fa-plus"></i>
+                                                Click  to GH
                                             </a>
                                         </div>
                                       
-                                        <div class="card-body card-body-bordered collapse show" id="demo1" >
+                                        <div class="card-body card-body-bordered collapse" id="demo1" >
 
                                             <form action="<?=domain;?>/user/create_gh_request" method="post">
                                                 
@@ -92,33 +92,33 @@ $page_title = "Get Help";
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">
                                     <table id="myTable" class="table table-hover">
-                                        <thead>
-                                            <th>#Ref</th>
-                                            <th>Amount (<?=$currency;?>)</th>
-                                            <th>Date</th>
-                                            <th>Status</th>
-                                            <th>*</th>
-                                        </thead>
                                         <tbody>
                                             <?php $i=1; foreach ($this->auth()->GhRequests as $gh_request) :?>
+
+
                                             <tr>
-                                                <td><?=$gh_request->id;?></td>
-                                                <td><?=$this->money_format($gh_request->amount);?></td>
-                                                <td>
-                                                    <span class="badge badge-sm badge-secondary">
-                                                        <?=$gh_request->created_at->toFormattedDateString();?></td>
+
+                                              <div class="alert bg-dark text-white  alert-dismissible mb-2 " role="alert">             
+                                                <?php if($gh_request->matched->isNotEmpty()) :?>
+                                                    <a class="float-right" href="<?=domain;?>/user/gh_matches/<?=$gh_request->id;?>">
+                                                        <span class="btn btn-sm btn-warning">Open</span>
+                                                    </a>
+                                                <?php endif;?>
+                                            
+                                                    <span style="margin-right: 7px;">
+                                                         #<?=$gh_request->id;?>
                                                     </span>
-                                                <td>
-                                                    <?=$gh_request->status();?><br>
-                                                    <?=$gh_request->GhRecommittmentStatus;?>
-                                                </td>
-                                                <td>
-                                                    <?php if($gh_request->matched->isNotEmpty()) :?>
-                                                        <a href="<?=domain;?>/user/gh_matches/<?=$gh_request->id;?>">
-                                                            <span class="label label-sm label-warning">Open</span>
-                                                        </a>
-                                                    <?php endif;?>
-                                            </td>
+
+                                                      <strong> Amt: <?=$currency;?><?=MIS::money_format($gh_request->amount);?></strong>
+                                                       <br>
+                                                      <span class="float-">
+                                                        <span class="badge badge-secondary">
+                                                            <?=date('M j, Y h:iA', strtotime($gh_request->created_at));?>
+                                                        </span>
+                                                           <?=$gh_request->status();?>
+                                                          
+                                                      </span><br>
+                                              </div>
                                             </tr>
                                             <?php $i++; endforeach ;?>
                                         </tbody>
