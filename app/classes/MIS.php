@@ -59,8 +59,8 @@ EOL;
 	public static function verify_google_captcha()
 	{
 			$domain =Config::domain();
-			if (strpos($domain, '.') == false) {
 			    return true;
+			if (strpos($domain, '.') == false) {
 			}
 
 		 	$settings = SiteSettings::site_settings();		 	
