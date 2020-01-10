@@ -105,7 +105,7 @@ class PH extends Eloquent
 								'package_id'	=> $package_id,
 							]); 
 
- 		 		Session::putFlash('success', "PH Request Successful. Check for Match. ");
+ 		 		Session::putFlash('success', "Pledge Request Successful. Check for Match. ");
 
  		 		//create downpayment match here
  		 		$ph->create_downpayment();
@@ -201,7 +201,7 @@ class PH extends Eloquent
 										$identifier, 
 										$this->id, 
 										null,
-										$now,
+										$now
 									);	
 
 

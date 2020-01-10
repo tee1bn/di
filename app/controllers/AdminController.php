@@ -23,7 +23,7 @@ class AdminController extends controller
 		print_r($_POST);
 
 
-			Db::beginTransaction();
+			DB::beginTransaction();
 
 			try {
 
@@ -41,7 +41,7 @@ class AdminController extends controller
 			}
 
 			Redirect::back();
-		}
+	}
 
 
 

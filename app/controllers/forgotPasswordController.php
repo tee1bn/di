@@ -44,6 +44,15 @@ public function reset_password()
  	$user = User::where('email', $email)->first();
 
  /*echo*/	$user->update(['password'=>Input::get('new_password')]);
+
+ 	//delete token
+ 		try {
+ 			
+		PasswordReset::where('email', $email)->first()->delete();
+ 		} catch (Exception $e) {
+ 			
+ 		}
+ 
  		Session::putFlash('success' , 'Pasword changed successfully!');
 
  		Redirect::to('login');
@@ -117,9 +126,9 @@ $password_reset =	PasswordReset::where('email', $email)->where('token', $token)-
 public function send_link()
 {
 	print_r($_POST);
-$email = Input::get('user');
-$user = User::where('email', $email )->first();
-$token =  uniqid();
+	$email = Input::get('user');
+	$user = User::where('email', $email )->first();
+	$token =  uniqid();
 
 	if ($user) {
 		PasswordReset::updateOrCreate(['email'	=>$email],
@@ -128,6 +137,9 @@ $token =  uniqid();
 
 		$mailer = new Mailer();
 
+		echo "<pre>";
+		print_r($mailer);
+		return;
 		$link = Config::domain()."/forgot-password/confirm_reset/$email/$token";
 
 
@@ -136,7 +148,7 @@ $token =  uniqid();
 		$body = "<h1>".Config::project_name()."</h1>Pls click the link to reset your password 
 		<a href='".Config::domain()."/forgot-password/confirm_reset/$email/$token'>Reset Password</a>";
 		
-		$body = $this->buildView('emails/password-reset', compact('link', 'email' , 'token') );
+		$body = $this->buildView('emails/password-reset', compact('link', 'email' , 'token', 'user') );
 
 		if ($mailer->sendMail($to, $subject, $body)) {
 				Session::putFlash('success','Reset link has been sent to your email. ');
