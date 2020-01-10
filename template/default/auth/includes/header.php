@@ -168,7 +168,7 @@ font-size: 32px;
 
 
                         <li>
-                            <a class="has-arrow " href="<?=domain;?>/genealogy/placement_list" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> My Team</span></a>
+                            <a class="has-arrow " href="<?=domain;?>/genealogy/placement_list" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu"> My Referrals</span></a>
                             <!-- <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?=domain;?>/genealogy/placement">Team Tree</a></li>
                                 <li><a href="<?=domain;?>/genealogy/placement_list">Team List</a></li>
@@ -189,12 +189,12 @@ font-size: 32px;
                         </li> 
 
                         <li>
-                            <a href="<?=domain;?>/user/ph" aria-expanded="false"><i class="fa fa-heart"></i><span class="hide-menu">Provide Help</span></a>
+                            <a href="<?=domain;?>/user/ph" aria-expanded="false"><i class="fa fa-heart"></i><span class="hide-menu">Pledge</span></a>
                         </li> 
 
 
                         <li>
-                            <a href="<?=domain;?>/user/gh" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Get Help</span></a>
+                            <a href="<?=domain;?>/user/gh" aria-expanded="false"><i class="fa fa-gift"></i><span class="hide-menu">Mine</span></a>
                         </li> 
 
                         <?php

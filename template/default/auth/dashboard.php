@@ -138,13 +138,13 @@ $page_title = "Dashboard";
                           <a href="<?=domain;?>/user/ph" class="">
                             <div class="box text">
                                 <h1 class="font-light text-white "><i class="fa fa-heart"></i>
-                                  <span class="float-right">Provide Help</span>
+                                  <span class="float-right">Pledge</span>
                                 </h1>
 
                                  <small>
                                    
                                  </small>
-                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Provide Help</a>
+                                  <a href="<?=domain;?>/user/ph" class="btn btn-danger float-right">Pledge</a>
 
                                 <h6 class="text-white">
                                 </h6>
@@ -157,13 +157,13 @@ $page_title = "Dashboard";
                           <a href="<?=domain;?>/user/gh" class="">
                             <div class="box text">
                                 <h1 class="font-light text-white"><i class="fa fa-gift"></i>
-                                  <span class="float-right">Get Help</span>
+                                  <span class="float-right">Mine</span>
                                 </h1>
 
                                  <small>
                                    
                                  </small>
-                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Get Help</a>
+                                  <a href="<?=domain;?>/user/gh" class="btn btn-danger float-right">Mine</a>
 
                                 <h6 class="text-white">
                                 </h6>
@@ -180,7 +180,7 @@ $page_title = "Dashboard";
                             <div class="box bg-secondary text-center">
                                 <h1 class="font-light text-white"><i class="fa fa-phone-square"></i></h1>
                                 <h6 class="text-white"><a  href="javascript:void;" class="btn btn-primary">Verify Phone</a></h6>
-                                <small class="text-white">You will be unable to get help if you do not verify your phone number</small>
+                                <small class="text-white">You will be unable to Mine if you do not verify your phone number</small>
                             </div>
                         </div>
                     </div>
@@ -361,19 +361,19 @@ $page_title = "Dashboard";
 
 
                    
-                    <div class="col-md-12">
+                 <!--    <div class="col-md-12">
                         <div class="card card-warning card-inverse">
                             <div class="box text-center">
                                 <h1 class="font-light text-danger"></h1>
                                 <small class="text-danger"><i class="fa fa-exclamation-triangle"></i> WARNING!!! THIS IS A COMMUNITY OF MUTUAL FINANCIAL HELP! Participate only with spare money. Don't contribute all the money you have.</small>
                             </div>
                         </div>
-                    </div>                   
+                    </div>      -->              
                 </div>
               </div>
               <div  class="col-md-3">
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-success">Recent PH</li>
+                  <li class="list-group-item  list-group-item-success">Recent Pledges</li>
                   <?php foreach (PH::recent_phs($this->auth()->id) as $ph):?>
                   <li class="list-group-item list-group-item-success">
                     <a href="<?=domain;?>/user/ph_matches/<?=$ph->id;?>">
@@ -392,7 +392,7 @@ $page_title = "Dashboard";
                 </ul>
 
                 <ul class="list-group" style="max-height: 250px;overflow-y: scroll;">
-                  <li class="list-group-item  list-group-item-warning">Recent GH</li>
+                  <li class="list-group-item  list-group-item-warning">Recent Mines</li>
                   <?php foreach (GH::recent_ghs($this->auth()->id) as $gh):?>
                   <li class="list-group-item list-group-item-warning">
                     <a href="<?=domain;?>/user/gh_matches/<?=$gh->id;?>">

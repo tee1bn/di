@@ -32,7 +32,7 @@
                         <div class="card card-inverse card-success">
                             <div class="box text-center">
                                 <h3 class="font-light text-white"> <?=$this->money_format($attempted_withdrawals);?>   </h3>
-                                <h6 class="text-white">Ghed - <?=$currency;?></h6>
+                                <h6 class="text-white">Mined - <?=$currency;?></h6>
                             </div>
                         </div>
                     </div>

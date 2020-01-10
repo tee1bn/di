@@ -78,15 +78,15 @@ include_once 'includes/header.php';?>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="counter-box">
                     <i class="flaticon-people-1"></i>
-                    <h1 class="counter"><?=(User::count() * 3);?></h1>
+                    <h1 class="counter"><?=(User::count() * 4);?></h1>
                     <h5>Members</h5>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="counter-box">
                     <i class="flaticon-people"></i>
-                    <h1 class="counter"><?=(PH::count() * 3);?></h1>
-                    <h5>Helps Provided</h5>
+                    <h1 class="counter"><?=(PH::count() * 5);?></h1>
+                    <h5>Pledges</h5>
                 </div>
             </div>
         </div>

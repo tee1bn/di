@@ -8,7 +8,10 @@
                 <div class="footer-item">
                     <h4><?=project_name;?></h4>
 
-                    <p>WARNING! There are no guarantees and promises! Neither explicit nor implicit. There are neither investments nor business! Participants help each other, sending each other money directly and without intermediaries. That’s all! There's nothing more. There are no securities transactions, no relationship with the professional participants of the securities market; you do not acquire any securities.</p>
+                    <p>
+                        <?=CMS::fetch('footer_warning');?>
+
+                    </p>
                     
                     <ul class="social-list clearfix">
                         <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>

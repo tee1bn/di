@@ -161,7 +161,7 @@ class GH extends Eloquent
 
 		$user = User::find($user_id);
 		if ($amount > $user->available_balance()) {
- 		 		Session::putFlash('danger', "Invalid GH Request. ");
+ 		 		Session::putFlash('danger', "Invalid Mine Request. ");
 			return;
 		}
 
@@ -189,7 +189,7 @@ class GH extends Eloquent
 								'payin_left'	=> $amount,
 							]); 
 
- 		 		Session::putFlash('success', "GH Request Successful. Check for Match. ");
+ 		 		Session::putFlash('success', "Mine Request Successful. Check for Match. ");
 
 				return $gh;
 		}
@@ -233,7 +233,7 @@ class GH extends Eloquent
 								'fufilled_recommittment'	=> 1
 							]); 
 
- 		 		Session::putFlash('success', "GH Request Simulated Successfully. ");
+ 		 		Session::putFlash('success', "Mine Request Simulated Successfully. ");
 
 				return $gh;
 		}

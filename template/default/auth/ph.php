@@ -1,5 +1,5 @@
 <?php
-$page_title = "Provide Help";
+$page_title = "Pledge";
 $settings = SiteSettings::site_settings();
  include 'includes/header.php';?>
 
@@ -10,10 +10,10 @@ $settings = SiteSettings::site_settings();
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-6 col-8 align-self-center">
-                        <h3 class="text-themecolor mb-0 mt-0">Provide Help</h3>
+                        <h3 class="text-themecolor mb-0 mt-0">Pledge</h3>
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active">Provide Help</li>
+                            <li class="breadcrumb-item active">Pledge</li>
                         </ol>
                     </div>
                   
@@ -31,7 +31,7 @@ $settings = SiteSettings::site_settings();
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#packages">
-                                <a href="javascript:void;">Click to PH</a>
+                                <a href="javascript:void;">Click to Pledge</a>
                             </div>
                             <div class="card-body collapse" id="packages">
                                <div class="row pricing-plan">
@@ -73,7 +73,7 @@ $settings = SiteSettings::site_settings();
                                                        method="post"
                                                        class="ajax_form">
                                                        <input type="hidden" name="package_id" value="<?=$package->id;?>">
-                                                           <button  class="btn btn-success waves-effect waves-light mt-3">Provide help</button>
+                                                           <button  class="btn btn-success waves-effect waves-light mt-3">Pledge</button>
                                                        </form>
                                                    </div>
                                                </div>
@@ -94,7 +94,7 @@ $settings = SiteSettings::site_settings();
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#demo">
-                                <a href="javascript:void;">Provide Help Requests</a>
+                                <a href="javascript:void;">Pledge Requests</a>
                             </div>
                             <div class="card-body collapse show" id="demo">
                                 <div class="table-responsive">
