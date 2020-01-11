@@ -230,10 +230,12 @@ $page_title = "Dashboard";
                           </a>
                        <?php endif;?>
                        
+                       <?php if ( $ph_match->payment_proof != ''):?>
                           <a class="dropdown-item" target="_blank"
                           href="<?=domain;?>/<?=$ph_match->payment_proof;?>">
                                See Proof
                           </a>
+                        <?php endif;?>
                         </div>
                       </div>
                     </div>

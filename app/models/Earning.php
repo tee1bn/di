@@ -39,7 +39,7 @@ class Earning extends Eloquent
 												$user_id,
 												$upon_user_id,
 												$amount,
-												'pending',
+												'completed',
 												'bonus',
 												$comment,
 												$identifier ,

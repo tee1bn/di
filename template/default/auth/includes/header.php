@@ -185,7 +185,8 @@ font-size: 32px;
  -->                        </li>
 
                         <li>
-                            <a href="<?=domain;?>/user/mavro" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> Mavro</span></a>
+                            <a href="<?=domain;?>/user/mavro" aria-expanded="false"><i class="fa fa-braille"></i><span class="hide-menu"> 
+                            Net Worth</span></a>
                         </li> 
 
                         <li>

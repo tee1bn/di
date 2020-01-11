@@ -178,10 +178,12 @@ $page_title = "PH Matches";
                                                       </form>     
                                                         </a>
                                                      <?php endif;?>
+                                                      <?php if ( $match->payment_proof != ''):?>
                                                         <a class="dropdown-item" target="_blank"
                                                         href="<?=domain;?>/<?=$match->payment_proof;?>">
                                                              See Proof
                                                         </a>
+                                                      <?php endif;?>
                                                       </div>
                                                     </div>
 

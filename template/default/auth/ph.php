@@ -53,10 +53,11 @@ $settings = SiteSettings::site_settings();
                                                <div class="price-table-content">
                                                    <?php 
                                                        $return = MIS::money_format($package->Return);
+                                                       $worth = MIS::money_format($package->Worth);
                                                    foreach 
                                                    ([
-                                                       " Get <b>$currency{$return}</b> ",
-                                                       "<b>{$package->n}</b> times <br> spread at <b>{$package->interval_in_days}</b> days
+                                                       " Get <b>$currency{$worth}</b> ",
+                                                       "<b>at {$package->n}</b> times of $currency{$return} <br> spread at <b>{$package->interval_in_days}</b> days
                                                        interval "
                                                    ] as $feature):?>
                                                        <div class="price-row" 
