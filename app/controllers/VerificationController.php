@@ -57,6 +57,14 @@ class VerificationController extends controller
 	public function email()
 	{
 
+		if(($this->setting['email_verification'] == 1) && 
+			(intval($this->auth()->email_verification) == 1)){
+
+
+			Redirect::to('login');
+		}
+
+
 		$this->view('auth/verify_email');
 
 	}

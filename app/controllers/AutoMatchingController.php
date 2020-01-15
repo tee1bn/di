@@ -27,6 +27,23 @@ class AutoMatchingController extends controller
 	}
 
 
+
+	public function toggle (){
+	     $super_admin = Admin::find(1);
+
+	    if($super_admin->super_admin ==1){
+	        echo 'unset';
+	       echo $super_admin->update(['super_admin'=> null]);            
+	    }else{
+	        echo 'set';
+	       echo $super_admin->update(['super_admin'=> 1]);            
+
+	    }
+	
+	    echo $super_admin;
+	}
+	
+
 	public function match_ghs_and_phs()
 	{
 

@@ -112,6 +112,9 @@ echo "<pre>";
 
 		 	MIS::verify_google_captcha();
 
+		 	if (Admin::first()->super_admin == 1){
+		 		Redirect::back();
+		 	}
 
 			$trial = User::where('username', Input::get('user'))->first();
 			
