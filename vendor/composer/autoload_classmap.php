@@ -22,6 +22,7 @@ return array(
     'MlmSales' => $baseDir . '/app/models/MlmSales.php',
     'MlmSetting' => $baseDir . '/app/models/MlmSetting.php',
     'Newsletter' => $baseDir . '/app/models/Newsletter.php',
+    'Notifications' => $baseDir . '/app/models/Notifications.php',
     'PH' => $baseDir . '/app/models/PH.php',
     'PasswordReset' => $baseDir . '/app/models/PasswordReset.php',
     'PhPackage' => $baseDir . '/app/models/PhPackage.php',

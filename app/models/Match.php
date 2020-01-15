@@ -3,6 +3,9 @@
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Database\Capsule\Manager as DB;
 
+require_once "app/controllers/home.php";
+
+
 class Match extends Eloquent 
 {
 	
@@ -154,8 +157,68 @@ class Match extends Eloquent
 				 		$payin_left = $attached_gh->payin_left - $match->gh_amount;
 				 		$attached_gh->update(['payin_left' => $payin_left]);
 
+
+
+
+				 		 			$controller = new home();
+
+				 				  	$project_name = Config::project_name();
+
+				 				  	$email_message = $controller->buildView('emails/gh_notification', compact('match'));
+				 				 	$gh_notification=Notifications::create([
+				 							'user_id' => $attached_gh->user->id,
+				 							'phone_message' => "Your GH #{$attached_gh->id} has been matched --$project_name",
+				 							'phone'  => $attached_gh->user->phone,
+				 							'email'  => $attached_gh->user->email,
+				 							'email_message' => $email_message,
+				 							'message'=>$email_message,
+				 							'heading'=> "GH Matched",
+				 							'url'=> "user/notifications",
+				 							'short_message'=> "Your GH #{$attached_gh->id} has been matched --$project_name"
+				 				 	]);
+
+
+
+				 				$email_message = $controller->buildView('emails/ph_notification', compact('match'));
+
+				 				$ph_notification=Notifications::create([
+				 							'user_id' => $attached_ph->user->id,
+				 							'phone_message' => "Your PH #{$attached_ph->id} has been matched --$project_name",
+				 							'phone'  => $attached_ph->user->phone,
+				 							'email'  => $attached_ph->user->email,
+				 							'email_message' => $email_message,
+				 							'message'=>$email_message,
+				 							'heading'=> "PH Matched",
+				 							'url'=> "user/notifications",
+				 							'short_message'=> "Your PH #{$attached_ph->id} has been matched --$project_name",
+				 				 	]);
+
+							 					
+					 				$settings = SiteSettings::site_settings();
+
+
+				 				  	$email_message = $controller->buildView('emails/match_notification', compact('match'));
+				 				 	$gh_notification=Notifications::create([
+				 							'user_id' => null,
+				 							'phone_message' => "New Match #{$this->id} of ($this->ph_amount) has been created  --$project_name",
+				 							'phone'  => $attached_gh->user->phone,
+				 							'email'  => $settings['admin_email'],
+				 							'email_message' => $email_message,
+				 							'message'=>$email_message,
+				 							'heading'=> "New Match",
+				 							'url'=> "user/notifications",
+				 							'short_message'=> "New Match #{$attached_gh->id} has been created --$project_name"
+				 				 	]);
+
+
+
+
+
+
 				 		return true;
 				 	}
+
+
 			}
 
 

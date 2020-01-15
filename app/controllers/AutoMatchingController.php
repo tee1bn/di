@@ -15,14 +15,15 @@ class AutoMatchingController extends controller
 
 	public function __construct(){
 
-		$settings = SiteSettings::site_settings();
+		$this->settings = SiteSettings::site_settings();
 
-		if ($settings['put_on_automatic_matching'] == 1) {
+		if ($this->settings['put_on_automatic_matching'] == 1) {
 
 			// $this->match_ghs_and_phs();
 		}
 
 		$this->resolve_all_expired_match();
+		$this->send_email_notifications();
 	}
 
 
@@ -53,6 +54,36 @@ class AutoMatchingController extends controller
 		}
 	}
 
+
+
+
+
+	public function send_email_notifications()
+	{
+
+		if ($this->settings['email_notification'] != 1) {
+			return;
+		}
+
+
+		$pending_email_notification = Notifications::where('email_status', null)->get()->take(5);
+		$mailer  = new Mailer();
+		$project_name = Config::project_name();
+		$subject = "$project_name NOTIFICATION!!";
+
+		foreach ($pending_email_notification as $note) {
+
+			$body = $note->email_message;
+			$to = $note->email;
+			$recipient_name = "";
+
+		 	if($mailer->sendMail($to, $subject, $body, $reply='', $recipient_name)){
+		 		$note->update(['email_status'=> 1]);
+		 	}else{
+		 		continue;
+		 	}
+		}
+	}
 
 
 
