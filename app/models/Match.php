@@ -200,7 +200,7 @@ class Match extends Eloquent
 				 				  	$email_message = $controller->buildView('emails/match_notification', compact('match'));
 				 				 	$gh_notification=Notifications::create([
 				 							'user_id' => null,
-				 							'phone_message' => "New Match #{$this->id} of ($this->ph_amount) has been created  --$project_name",
+				 							'phone_message' => "New Match #{$match->id} of ($match->ph_amount) has been created  --$project_name",
 				 							'phone'  => $attached_gh->user->phone,
 				 							'email'  => $settings['admin_email'],
 				 							'email_message' => $email_message,
