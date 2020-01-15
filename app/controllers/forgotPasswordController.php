@@ -137,9 +137,7 @@ public function send_link()
 
 		$mailer = new Mailer();
 
-		echo "<pre>";
-		print_r($mailer);
-		return;
+	
 		$link = Config::domain()."/forgot-password/confirm_reset/$email/$token";
 
 
