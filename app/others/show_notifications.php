@@ -44,6 +44,9 @@
           });
       }
 
+
+      perform_automatching();
+
 <?php 
   $settings = SiteSettings::site_settings();
 

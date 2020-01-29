@@ -2,6 +2,8 @@
 
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+require_once "app/controllers/home.php";
+
 
 class GH extends Eloquent 
 {
@@ -190,6 +192,24 @@ class GH extends Eloquent
 							]); 
 
  		 		Session::putFlash('success', "Mine Request Successful. Check for Match. ");
+
+	 				$controller = new home;
+
+						  	$email_message = $controller->buildView('emails/admin_gh_notification', compact('gh'));
+						 	$gh_notification = Notifications::create([
+									'user_id' => null,
+									'phone_message' => "New GH #{$gh->id} of ($gh->amount) has been created  --$project_name",
+									'phone'  => $gh->user->phone,
+									'email'  => $settings['admin_email'],
+									'email_message' => $email_message,
+									'message'=>$email_message,
+									'heading'=> "New GH",
+									'url'=> "user/notifications",
+									'short_message'=> "New GH #{$gh->id} has been created --$project_name"
+						 	]);
+
+
+
 
 				return $gh;
 		}

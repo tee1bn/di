@@ -28,6 +28,13 @@ $settings = SiteSettings::site_settings();
 
                  <div class="row">
                     <div class="col-12">
+
+                      <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <?=CMS::fetch('ph_warning');?>
+
+                  </div>
+
                         <div class="card">
 
                             <div class="card-header"  data-toggle="collapse" data-target="#packages">

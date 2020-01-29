@@ -2,6 +2,8 @@
 
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
+require_once "app/controllers/home.php";
+
 
 class PH extends Eloquent 
 {
@@ -61,7 +63,8 @@ class PH extends Eloquent
 
 
 	public function create_downpayment()
-	{
+	{	
+		return;
 		$settings = SiteSettings::site_settings();
 		$downpayment =  $settings['percent_down_payment'] * 0.01 * $this->amount ;
 
@@ -106,6 +109,27 @@ class PH extends Eloquent
 							]); 
 
  		 		Session::putFlash('success', "Pledge Request Successful. Check for Match. ");
+
+ 				$settings = SiteSettings::site_settings();
+
+ 				$controller = new home;
+
+				  	$email_message = $controller->buildView('emails/admin_ph_notification', compact('ph'));
+				 	$gh_notification = Notifications::create([
+							'user_id' => null,
+							'phone_message' => "New PH #{$ph->id} of ($ph->amount) has been created  --$project_name",
+							'phone'  => $ph->user->phone,
+							'email'  => $settings['admin_email'],
+							'email_message' => $email_message,
+							'message'=>$email_message,
+							'heading'=> "New PH",
+							'url'=> "user/notifications",
+							'short_message'=> "New PH #{$ph->id} has been created --$project_name"
+				 	]);
+
+
+
+
 
  		 		//create downpayment match here
  		 		$ph->create_downpayment();
